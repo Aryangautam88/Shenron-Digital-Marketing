@@ -16,15 +16,40 @@
   background: transparent;
   border: 1px solid transparent;
 
+
+
   transition:
-    top 0.35s ease,
-    left 0.35s ease,
-    width 0.35s ease,
-    padding 0.35s ease,
-    background 0.35s ease,
-    border-radius 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  top 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+  width 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+  max-width 0.9s ease,
+  padding 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+  background 0.8s ease,
+  border-radius 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+  box-shadow 0.8s ease,
+  border-color 0.8s ease,
+  backdrop-filter 0.8s ease,
+  -webkit-backdrop-filter 0.8s ease;
+
+
+}
+
+/* Fix navbar text clipping */
+.navbar {
+  min-height: 75px;
+  height: auto;
+  overflow: visible;
+  align-items: center;
+}
+
+.navbar .nav-item,
+.navbar .nav-link {
+  line-height: 1.5;
+  overflow: visible;
+}
+
+.navbar .nav-link {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .navbar *,
@@ -78,6 +103,7 @@
 
 /* Mobile logo */
 @media (max-width: 1000px) {
+
   .navbar .navbar-logo,
   .navbar.navbar-scrolled .navbar-logo {
     flex: 0 0 auto;
@@ -93,6 +119,7 @@
 }
 
 @media (max-width: 380px) {
+
   .navbar .navbar-logo-image,
   .navbar.navbar-scrolled .navbar-logo-image {
     width: 95px;
@@ -190,8 +217,8 @@
 
 .nav-item:not(.has-dropdown) .nav-link:hover .nav-link-inner,
 .nav-item:not(.has-dropdown) .nav-link:focus-visible .nav-link-inner,
-.has-dropdown:hover > .nav-link .nav-link-inner,
-.has-dropdown:focus-within > .nav-link .nav-link-inner {
+.has-dropdown:hover>.nav-link .nav-link-inner,
+.has-dropdown:focus-within>.nav-link .nav-link-inner {
   transform: rotateX(90deg);
 }
 
@@ -237,9 +264,9 @@
     border-color 0.3s ease;
 }
 
-.has-dropdown:hover > .nav-link .dropdown-chevron,
-.has-dropdown:focus-within > .nav-link .dropdown-chevron,
-.has-dropdown.dropdown-active > .nav-link .dropdown-chevron {
+.has-dropdown:hover>.nav-link .dropdown-chevron,
+.has-dropdown:focus-within>.nav-link .dropdown-chevron,
+.has-dropdown.dropdown-active>.nav-link .dropdown-chevron {
   transform: translateY(3px) rotate(225deg);
   border-color: var(--accent);
 }
@@ -294,8 +321,8 @@
   height: 22px;
 }
 
-.has-dropdown:hover > .dropdown-panel,
-.has-dropdown:focus-within > .dropdown-panel {
+.has-dropdown:hover>.dropdown-panel,
+.has-dropdown:focus-within>.dropdown-panel {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -380,8 +407,8 @@
   transform: translate(-50%, 12px) scale(0.985);
 }
 
-.has-dropdown:hover > .services-dropdown,
-.has-dropdown:focus-within > .services-dropdown {
+.has-dropdown:hover>.services-dropdown,
+.has-dropdown:focus-within>.services-dropdown {
   transform: translate(-50%, 0) scale(1);
 }
 
@@ -496,7 +523,7 @@
   min-width: 0;
 }
 
-.industry-column + .industry-column {
+.industry-column+.industry-column {
   padding-left: 18px;
   border-left: 1px solid #eeeeF2;
 }
@@ -535,7 +562,7 @@
   font-size: 14px;
 }
 
-.company-dropdown .dropdown-link + .dropdown-link {
+.company-dropdown .dropdown-link+.dropdown-link {
   border-top: 1px solid #f0edf4;
 }
 
@@ -599,19 +626,19 @@
   left: 50%;
 
   width: calc(100% - 40px);
-  max-width: 1100px;
-  padding: 12px 24px;
+  max-width: 1200px;
+  padding: 16px 28px;
 
   transform: translateX(-50%);
 
-  background: rgba(255, 253, 250, 0.95);
-  border: 1px solid rgba(121, 82, 255, 0.2);
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100px;
 
-  box-shadow: 0 12px 40px rgba(28, 20, 48, 0.09);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .navbar-scrolled .navbar-logo {
@@ -686,7 +713,7 @@
 }
 
 
-.nav-item.has-dropdown > .nav-link {
+.nav-item.has-dropdown>.nav-link {
   gap: 10px;
   overflow: visible;
   flex-shrink: 0;
@@ -694,12 +721,12 @@
   max-width: none;
 }
 
-.nav-item.has-dropdown > .nav-link .nav-link-inner {
+.nav-item.has-dropdown>.nav-link .nav-link-inner {
   flex-shrink: 0;
   min-width: max-content;
 }
 
-.nav-item.has-dropdown > .nav-link .dropdown-chevron {
+.nav-item.has-dropdown>.nav-link .dropdown-chevron {
   flex-shrink: 0;
   margin-left: 1px;
   margin-right: 2px;
@@ -707,7 +734,7 @@
 
 /* Preserve 3D flip without clipping the label */
 
-.nav-item.has-dropdown > .nav-link .nav-link-text {
+.nav-item.has-dropdown>.nav-link .nav-link-text {
   padding-right: 3px;
 }
 
@@ -730,6 +757,7 @@
 /* Tablet and mobile: hamburger navigation */
 
 @media (max-width: 1000px) {
+
   .navbar,
   .navbar.navbar-scrolled {
     position: fixed;
@@ -764,7 +792,7 @@
     margin-left: auto;
   }
 
-  .navbar-inner > .desktop-cta {
+  .navbar-inner>.desktop-cta {
     display: none;
   }
 
@@ -823,7 +851,7 @@
 
   /* Reset desktop dropdown-trigger sizing */
 
-  .navbar .nav-item.has-dropdown > .nav-link {
+  .navbar .nav-item.has-dropdown>.nav-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -851,7 +879,7 @@
   }
 
   .navbar .nav-link-inner,
-  .navbar .nav-item.has-dropdown > .nav-link .nav-link-inner {
+  .navbar .nav-item.has-dropdown>.nav-link .nav-link-inner {
     height: 48px;
     min-width: 0;
     margin-left: 4px;
@@ -876,7 +904,7 @@
 
   /* Larger, properly aligned dropdown arrows */
 
-  .navbar .nav-item.has-dropdown > .nav-link .dropdown-chevron {
+  .navbar .nav-item.has-dropdown>.nav-link .dropdown-chevron {
     display: inline-block;
     flex: 0 0 8px;
 
@@ -890,7 +918,7 @@
 
   /* Disable hover-only dropdown opening on touch screens */
 
-  .navbar .has-dropdown:hover > .dropdown-panel {
+  .navbar .has-dropdown:hover>.dropdown-panel {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -899,7 +927,7 @@
 
   /* Expand submenu only when dropdown-active is applied */
 
-  .navbar .has-dropdown.dropdown-active > .dropdown-panel {
+  .navbar .has-dropdown.dropdown-active>.dropdown-panel {
     position: static;
     top: auto;
     left: auto;
@@ -974,7 +1002,7 @@
     min-width: 0;
   }
 
-  .navbar .industry-column + .industry-column {
+  .navbar .industry-column+.industry-column {
     padding-left: 10px;
   }
 
@@ -1024,6 +1052,7 @@
 /* Compact phones */
 
 @media (max-width: 380px) {
+
   .navbar,
   .navbar.navbar-scrolled {
     left: 10px;
@@ -1051,7 +1080,7 @@
     padding: 12px 6px;
   }
 
-  .navbar .industry-column + .industry-column {
+  .navbar .industry-column+.industry-column {
     padding-left: 6px;
   }
 
@@ -1071,6 +1100,7 @@
 ========================================= */
 
 @media (max-width: 1000px) {
+
   .navbar,
   .navbar.navbar-scrolled {
     position: fixed;
@@ -1123,7 +1153,7 @@
     z-index: 2002;
   }
 
-  .navbar-inner > .desktop-cta {
+  .navbar-inner>.desktop-cta {
     display: none !important;
   }
 
@@ -1208,7 +1238,7 @@
   }
 
   .navbar .nav-link,
-  .navbar .nav-item.has-dropdown > .nav-link {
+  .navbar .nav-item.has-dropdown>.nav-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1232,7 +1262,7 @@
 
   /* Prevent text clipping and inconsistent row widths */
   .navbar .nav-link-inner,
-  .navbar .nav-item.has-dropdown > .nav-link .nav-link-inner {
+  .navbar .nav-item.has-dropdown>.nav-link .nav-link-inner {
     position: relative;
     display: block;
 
@@ -1263,7 +1293,7 @@
   }
 
   /* Keep the dropdown arrow aligned at the right */
-  .navbar .nav-item.has-dropdown > .nav-link .dropdown-chevron {
+  .navbar .nav-item.has-dropdown>.nav-link .dropdown-chevron {
     position: relative;
     display: inline-block;
     flex: 0 0 8px;
@@ -1281,14 +1311,14 @@
   }
 
   /* Disable desktop hover menus on touch screens */
-  .navbar .has-dropdown:hover > .dropdown-panel {
+  .navbar .has-dropdown:hover>.dropdown-panel {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 
   /* All dropdowns stay hidden until their row is clicked */
-  .navbar .nav-item.has-dropdown > .dropdown-panel {
+  .navbar .nav-item.has-dropdown>.dropdown-panel {
     display: none;
     position: static;
 
@@ -1323,7 +1353,7 @@
   }
 
   /* Show only the expanded submenu */
-  .navbar .nav-item.has-dropdown.dropdown-active > .dropdown-panel {
+  .navbar .nav-item.has-dropdown.dropdown-active>.dropdown-panel {
     display: block;
   }
 
@@ -1417,7 +1447,7 @@
     min-width: 0;
   }
 
-  .navbar .industry-column + .industry-column {
+  .navbar .industry-column+.industry-column {
     min-width: 0;
     padding-left: 10px;
     border-left: 1px solid #eeeeF2;
@@ -1472,6 +1502,7 @@
 
 /* Small phones */
 @media (max-width: 380px) {
+
   .navbar,
   .navbar.navbar-scrolled {
     left: 10px;
@@ -1490,7 +1521,7 @@
     padding: 10px 6px;
   }
 
-  .navbar .industry-column + .industry-column {
+  .navbar .industry-column+.industry-column {
     padding-left: 6px;
   }
 
@@ -1503,3 +1534,57 @@
   }
 }
 
+
+
+/* =========================================
+   DESKTOP SERVICES DROPDOWN FIX
+========================================= */
+
+@media (min-width: 1001px) {
+
+  /* Bring the Services panel closer to the navbar */
+  .navbar .services-dropdown {
+    top: 82px;
+    z-index: 2100;
+    overflow-y: auto;
+    pointer-events: auto;
+  }
+
+  /* Adjust when the navbar becomes floating */
+  .navbar.navbar-scrolled .services-dropdown {
+    top: 70px;
+  }
+
+  /* Keep the complete panel accessible while hovering */
+  .navbar .nav-item.has-dropdown:hover>.services-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  /* Make every service link clickable */
+  .navbar .services-dropdown .dropdown-link {
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  /* Close the dropdown immediately after a submenu click */
+  .navbar .nav-item.dropdown-dismissed:hover>.dropdown-panel,
+  .navbar .nav-item.dropdown-dismissed:focus-within>.dropdown-panel {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 12px) scale(0.985);
+  }
+
+  /* Allow the menu to reopen when hovering again */
+  .navbar .nav-item.has-dropdown:not(.dropdown-dismissed):hover>.dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+  }
+}

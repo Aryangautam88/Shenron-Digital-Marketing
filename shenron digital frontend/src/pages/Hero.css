@@ -351,8 +351,8 @@ body {
 }
 
 .stat-item:hover .stat-number {
-  border-color: #000;
-  background: #FFAE9B;
+  /* border-color: #000; */
+  background: #BECEFD;
   box-shadow: 0 0 18px rgba(121, 85, 255, 0.15);
   /* border-radius: 20px; */
 }

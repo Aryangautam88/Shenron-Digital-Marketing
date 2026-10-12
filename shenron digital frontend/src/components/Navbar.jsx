@@ -210,6 +210,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [dropdownDismissed, setDropdownDismissed] = useState(false);
 
   const navbarRef = useRef(null);
   const location = useLocation();
@@ -277,23 +278,29 @@ export default function Navbar() {
     };
   }, []);
 
+
   const handleNavClick = (event, item) => {
-    if (!item.menu) {
-      closeMenus();
+    // Desktop: menu click should not open or lock dropdown.
+    // Navigation through the main menu link remains available.
+    if (window.matchMedia("(min-width: 1001px)").matches) {
+      setActiveDropdown(null);
       return;
     }
-
-    // On mobile, the first tap expands the dropdown.
-    // A second tap on the expanded trigger navigates.
-    if (window.matchMedia("(max-width: 760px)").matches) {
+  
+    // Mobile: first tap opens the submenu.
+    if (item.menu) {
       if (activeDropdown !== item.menu) {
         event.preventDefault();
         setActiveDropdown(item.menu);
       } else {
+        // Second tap navigates to the main menu page.
         closeMenus();
       }
+    } else {
+      closeMenus();
     }
   };
+  
 
   const toggleMenu = () => {
     setMenuOpen((current) => !current);
@@ -301,6 +308,7 @@ export default function Navbar() {
   };
 
   const selectDropdownItem = () => {
+    setDropdownDismissed(true);
     closeMenus();
   };
 
@@ -326,20 +334,36 @@ export default function Navbar() {
         </Link>
 
 
+
         <div
           id="mobile-navigation"
-          className={`navbar-links ${menuOpen ? "links-open" : ""
-            }`}
+          className={`navbar-links ${menuOpen ? "links-open" : ""}`}
+          onMouseLeave={() => {
+            if (window.matchMedia("(min-width: 1001px)").matches) {
+              setActiveDropdown(null);
+            }
+          }}
         >
+
+
           {navItems.map((item) => (
             <div
               key={item.label}
-              className={`nav-item ${item.menu ? "has-dropdown" : ""
-                } ${activeDropdown === item.menu
-                  ? "dropdown-active"
-                  : ""
-                }`}
+              className={`nav-item ${
+                item.menu ? "has-dropdown" : ""
+              } ${
+                activeDropdown === item.menu ? "dropdown-active" : ""
+              } ${
+                dropdownDismissed ? "dropdown-dismissed" : ""
+              }`}
+                onMouseEnter={() => {
+                  if (window.matchMedia("(min-width: 1001px)").matches) {
+                    setDropdownDismissed(false);
+                    setActiveDropdown(item.menu || null);
+                  }
+                }}
             >
+
               <Link
                 to={item.href}
                 className="nav-link"
