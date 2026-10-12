@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
+import kravsLogo from "../assets/kravsLogo.png";
 
 const serviceGroups = [
   {
@@ -306,35 +307,38 @@ export default function Navbar() {
   return (
     <header
       ref={navbarRef}
-      className={`navbar ${
-        scrolled ? "navbar-scrolled" : ""
-      } ${menuOpen ? "menu-open" : ""}`}
+      className={`navbar ${scrolled ? "navbar-scrolled" : ""
+        } ${menuOpen ? "menu-open" : ""}`}
     >
       <nav className="navbar-inner" aria-label="Main navigation">
+
         <Link
           to="/"
           className="navbar-logo"
           onClick={closeMenus}
+          aria-label="Kravs Home"
         >
-          kravs<span className="logo-dot">.</span>
+          <img
+            src={kravsLogo}
+            alt="Kravs"
+            className="navbar-logo-image"
+          />
         </Link>
+
 
         <div
           id="mobile-navigation"
-          className={`navbar-links ${
-            menuOpen ? "links-open" : ""
-          }`}
+          className={`navbar-links ${menuOpen ? "links-open" : ""
+            }`}
         >
           {navItems.map((item) => (
             <div
               key={item.label}
-              className={`nav-item ${
-                item.menu ? "has-dropdown" : ""
-              } ${
-                activeDropdown === item.menu
+              className={`nav-item ${item.menu ? "has-dropdown" : ""
+                } ${activeDropdown === item.menu
                   ? "dropdown-active"
                   : ""
-              }`}
+                }`}
             >
               <Link
                 to={item.href}
@@ -367,7 +371,7 @@ export default function Navbar() {
                     className="dropdown-chevron"
                     aria-hidden="true"
                   >
-                    
+
                   </span>
                 )}
               </Link>
@@ -484,9 +488,8 @@ export default function Navbar() {
         </Link>
 
         <button
-          className={`navbar-toggle ${
-            menuOpen ? "toggle-active" : ""
-          }`}
+          className={`navbar-toggle ${menuOpen ? "toggle-active" : ""
+            }`}
           onClick={toggleMenu}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}

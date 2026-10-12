@@ -1,6 +1,7 @@
 
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Hero from "./pages/Hero";
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<main id="home" />} />
+        <Route path="/" element={<Hero />} />
 
         <Route path="/services" element={<main id="services" />} />
         <Route path="/services/seo" element={<main />} />
