@@ -484,7 +484,7 @@ export default function Navbar() {
           className="navbar-cta desktop-cta"
           onClick={closeMenus}
         >
-          Let's talk <span className="cta-arrow">↗</span>
+          Let's talk <span className="cta-arrow"></span>
         </Link>
 
         <button

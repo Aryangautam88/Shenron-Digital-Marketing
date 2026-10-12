@@ -1,12 +1,13 @@
-
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
+import Preloader from"./components/Preloader";
 
 export default function App() {
   return (
     <>
       <Navbar />
+      <Preloader/>
 
       <Routes>
         <Route path="/" element={<Hero />} />
