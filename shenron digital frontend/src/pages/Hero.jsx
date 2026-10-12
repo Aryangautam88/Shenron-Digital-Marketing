@@ -4,6 +4,8 @@ import leftImg from "../assets/leftimg.png";
 
 const Hero = () => {
     return (
+        <>
+        
         <section className="hero" id="home">
             {/* Background decoration */}
             <div className="hero-bg-glow"></div>
@@ -32,11 +34,11 @@ const Hero = () => {
                         turn ideas into measurable business results.
                     </p>
 
-                    <p className="hero-subtext">
+                    {/* <p className="hero-subtext">
                         From premium websites and SaaS platforms to conversion-focused
                         landing pages and scalable web applications, we create digital
                         products built for the future.
-                    </p>
+                    </p> */}
 
                     {/* CTA */}
                     <div className="hero-actions">
@@ -148,6 +150,8 @@ const Hero = () => {
             </div>
 
         </section>
+
+        </>
     );
 };
 
