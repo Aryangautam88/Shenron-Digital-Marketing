@@ -1,8 +1,15 @@
 
-import React from "react";
+import React, { useState } from "react";
 import "./Hero.css";
 import leftImg from "../assets/leftimg.png";
 import kravsOffice from "../assets/kravs-office.png";
+import serviceTRight from "../assets/service T-right.png";
+import webDevelopment from "../assets/web_development.png";
+import paidAdvertising from "../assets/paid_advertising.png";
+import influencerMarketing from "../assets/influencer_marketing.png";
+import leadGeneration from "../assets/lead_generation.png";
+import uiuxBranding from "../assets/uiux_branding.png";
+import seoImage from "../assets/seo.png";
 
 import {
   Code2,
@@ -12,18 +19,216 @@ import {
   Palette,
   Search,
   ArrowUpRight,
-} from "lucide-react";
-
-import {
-  // ArrowUpRight,
+  PenTool,
   Target,
-  // ChartNoAxesColumnIncreasing,
   Lightbulb,
   Compass,
   Paintbrush,
-  // UsersRound,
+  UserRound,
+  Rocket,
+  ArrowRight,
+  ArrowLeft,
+  Menu, 
+  X,
+  Plus,
+  Star,
+  Quote,
 } from "lucide-react";
+
+// testimonial
+
+const testimonials = [
+  {
+    name: "Rohit Sharma",
+    role: "Founder, TrendKart",
+    initials: "RS",
+    rating: 5,
+    featured: false,
+    text: "Kravs Infotech delivered an amazing website for our business. The design, performance, and support were outstanding. Highly recommended!",
+  },
+  {
+    name: "Sneha Verma",
+    role: "CEO, NutriPure",
+    initials: "SV",
+    rating: 5,
+    featured: true,
+    text: "Professional team, clear communication, and excellent results. Our new website has significantly improved our online presence and customer engagement.",
+  },
+  {
+    name: "Amit Jain",
+    role: "Owner, The Chanchal Restaurant",
+    initials: "AJ",
+    rating: 5,
+    featured: false,
+    text: "They understood our vision perfectly and created a modern, user-friendly website. The entire process was smooth and hassle-free.",
+  },
+  {
+    name: "Priya Mehta",
+    role: "Marketing Head, NovaJoy Remedies",
+    initials: "PM",
+    rating: 5,
+    featured: false,
+    text: "Great experience working with Kravs Infotech. The team is skilled, responsive, and truly cares about delivering value.",
+  },
+  {
+    name: "Karan Patel",
+    role: "Founder, BuildNext",
+    initials: "KP",
+    rating: 5,
+    featured: false,
+    text: "The team brought our ideas to life with a clean, professional design and a smooth experience across devices.",
+  },
+  {
+    name: "Ananya Singh",
+    role: "Director, EduSphere",
+    initials: "AS",
+    rating: 5,
+    featured: false,
+    text: "Communication was clear throughout the project. The final website looks professional and gives our brand a stronger online presence.",
+  },
+];
+
+const brands = [
+  "TrendKart",
+  "NutriPure",
+  "The Chanchal Restaurant",
+  "NovaJoy Remedies",
+  "BuildNext",
+  "EduSphere",
+];
+
+// process
+
+const faqData = [
+  {
+    number: "01",
+    question: "What services does Kravs Infotech offer?",
+    answer:
+      "We offer website development, landing page design, website redesign, SaaS development, SEO, lead generation, and digital marketing solutions tailored to your business goals.",
+  },
+  {
+    number: "02",
+    question: "How much does it cost to build a website?",
+    answer:
+      "The cost depends on your project requirements, features, design complexity, and integrations. Contact us with your idea, and we'll help you find a solution that fits your goals and budget.",
+  },
+  {
+    number: "03",
+    question: "Can you redesign my existing website?",
+    answer:
+      "Absolutely. We can modernize your website's design, improve mobile responsiveness, enhance user experience, and optimize performance while preserving important existing functionality.",
+  },
+  {
+    number: "04",
+    question: "Can you help generate leads for my business?",
+    answer:
+      "Yes. We can create conversion-focused landing pages, improve calls to action, set up lead capture forms, and support your lead generation strategy through relevant digital marketing solutions.",
+  },
+  
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Discover",
+    description:
+      "We understand your goals, challenges and target audience to define the right direction.",
+    icon: Search,
+  },
+  {
+    number: "02",
+    title: "Plan",
+    description:
+      "We create a tailored strategy with a clear roadmap, timeline and measurable goals.",
+    icon: Lightbulb,
+  },
+  {
+    number: "03",
+    title: "Build",
+    description:
+      "We design and develop high-performance solutions with attention to every detail.",
+    icon: Code2,
+  },
+  {
+    number: "04",
+    title: "Launch & Grow",
+    description:
+      "We launch your project and provide ongoing support to help your business grow.",
+    icon: Rocket,
+  },
+];
+
 /* SERVICES DATA */
+
+const services = [
+  {
+    number: "01",
+    title: "Web Development",
+    description:
+      "Modern, scalable and high-performance web applications built for your business goals.",
+    tags: ["Website", "Web Apps", "E-commerce"],
+    icon: Code2,
+    image: webDevelopment,
+    alt: "Web development illustration",
+    link: "/services/web-development",
+  },
+  {
+    number: "02",
+    title: "Paid Advertising",
+    description:
+      "Data-driven ad campaigns across Google, Meta and other platforms to get real results.",
+    tags: ["Google Ads", "Meta Ads", "YouTube Ads"],
+    icon: ChartNoAxesColumnIncreasing,
+    image: paidAdvertising,
+    alt: "Advertising analytics illustration",
+    link: "/services/paid-advertising",
+  },
+  {
+    number: "03",
+    title: "Influencer Marketing",
+    description:
+      "Connect with the right audience through strategic influencer collaborations.",
+    tags: ["Influencers", "Campaigns", "Brand Growth"],
+    icon: UserRound,
+    image: influencerMarketing,
+    alt: "Influencer marketing illustration",
+    link: "/services/influencer-marketing",
+  },
+  {
+    number: "04",
+    title: "Lead Generation",
+    description:
+      "Convert the right audience into high-quality leads and long-term customers.",
+    tags: ["Landing Pages", "CRM Setup", "Automation"],
+    icon: Funnel,
+    image: leadGeneration,
+    alt: "Lead generation illustration",
+    link: "/services/lead-generation",
+  },
+  {
+    number: "05",
+    title: "UI/UX & Branding",
+    description:
+      "Create intuitive designs and strong brand identities that leave a lasting impression.",
+    tags: ["UI/UX Design", "Brand Identity", "Product Design"],
+    icon: PenTool,
+    image: uiuxBranding,
+    alt: "UI UX and branding illustration",
+    link: "/services/ui-ux-branding",
+  },
+  {
+    number: "06",
+    title: "SEO",
+    description:
+      "Improve visibility, attract the right audience and grow organically with proven strategies.",
+    tags: ["Technical SEO", "On-Page SEO", "Content Strategy"],
+    icon: Search,
+    image: seoImage,
+    alt: "SEO analytics illustration",
+    link: "/services/seo",
+  },
+];
+
 const stats = [
   { value: "50", suffix: "+", label: "Projects delivered" },
   { value: "30", suffix: "+", label: "Happy clients" },
@@ -47,57 +252,38 @@ const values = [
     description: "Every detail has a purpose",
   },
 ];
-const services = [
-  {
-    title: "Web Development",
-    icon: Code2,
-    color: "purple",
-    items: ["Website Design", "Web Applications", "E-commerce"],
-  },
-  {
-    title: "Paid Advertising",
-    icon: ChartNoAxesColumnIncreasing,
-    color: "pink",
-    items: ["Google Ads", "Meta Ads", "YouTube Ads"],
-  },
-  {
-    title: "Influencer Marketing",
-    icon: UsersRound,
-    color: "rose",
-    items: [
-      "Influencer Outreach",
-      "Campaign Management",
-      "Performance Tracking",
-    ],
-  },
-  {
-    title: "Lead Generation",
-    icon: Funnel,
-    color: "orange",
-    items: [
-      "B2B Lead Generation",
-      "Landing Pages",
-      "CRM & Automation",
-    ],
-  },
-  {
-    title: "UI/UX & Branding",
-    icon: Palette,
-    color: "violet",
-    items: ["UI/UX Design", "Brand Identity", "Product Design"],
-  },
-  {
-    title: "SEO",
-    icon: Search,
-    color: "blue",
-    items: ["Technical SEO", "On-Page SEO", "Content Strategy"],
-  },
-];
+
+const timelinePath =
+  "M 70 48 C 160 48, 190 76, 300 76 S 440 30, 500 48 S 650 76, 700 76 S 850 30, 900 48 S 1050 76, 1130 48";
 
 const Hero = () => {
+
+  const [page, setPage] = useState(0);
+
+  const visibleTestimonials = Array.from(
+    { length: 4 },
+    (_, index) => testimonials[(page + index) % testimonials.length]
+  );
+
+  const nextPage = () => {
+    setPage((current) => (current + 1) % testimonials.length);
+  };
+
+  const previousPage = () => {
+    setPage(
+      (current) =>
+        (current - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const toggleFAQ = (index) => {
+    setActiveIndex((current) => (current === index ? -1 : index));
+  };
   return (
     <>
-      {/* ================= HERO SECTION ================= */}
+      {/* ================= -----------------HERO SECTION-=-=----------------=-- ================= */}
 
       <section className="hero" id="home">
         {/* Background decoration */}
@@ -283,92 +469,488 @@ const Hero = () => {
         </section>
 
         {/* WHAT MAKES US DIFFERENT */}
-       
+
       </main>
 
-      {/* ================= SERVICES SECTION ================= */}
 
-      <section className="services-section" id="services">
-        <div className="services-container">
-          {/* SERVICES HEADER */}
+      {/* =================------------------ SERVICES SECTION---------------------------================= */}
 
-          <div className="services-heading">
-            <div>
-              <span className="section-eyebrow">
-                <span className="eyebrow-line"></span>
-                OUR SERVICES
-              </span>
 
-              <h2>
-                Everything you need
-                <br />
-                to grow <em>digitally.</em>
-              </h2>
+      <main className="kravs-services">
+        {/* HERO */}
+        <section className="ks-hero">
+          <div className="ks-hero-copy">
+            <div className="ks-eyebrow">
+              <span className="ks-eyebrow-line" />
+              <span>OUR SERVICES</span>
             </div>
 
-            <p className="services-description">
-              From strategy to execution, we create digital
-              solutions that help your business grow, connect
-              and stay ahead.
-            </p>
+            <h1 className="ks-heading">
+              Everything you need
+              <br className="ks-desktop-break" />
+              {" "}to grow{" "}
+              <span className="ks-heading-accent">
+                digitally.
+              </span>
+            </h1>
 
-            <a href="/services" className="all-services-link">
-              Explore all services
-              <ArrowUpRight size={17} />
-            </a>
+            <p className="ks-hero-description">
+              We design and build digital solutions that solve
+              real business problems, help you reach the right
+              audience and create measurable growth.
+            </p>
           </div>
 
-          {/* SERVICES GRID */}
+          <div className="ks-hero-visual">
+            <div className="ks-orbit ks-orbit-one" />
+            <div className="ks-orbit ks-orbit-two" />
 
-          <div className="services-grid">
-            {services.map((service, index) => {
+            {/* Change only this image filename */}
+            <img
+              className="ks-hero-image"
+              src={serviceTRight}
+              alt="Kravs digital solutions"
+            />
+
+            <div className="ks-hero-quote">
+              <span className="ks-quote-mark">“</span>
+              <p>
+                Ideas
+                <br />
+                Strategy
+                <br />
+                Design
+                <br />
+                Execution
+              </p>
+            </div>
+          </div>
+
+          {/* <a href="#ks-service-grid" className="ks-explore-link">
+            Explore all services
+            <ArrowRight size={18} />
+          </a> */}
+        </section>
+
+        {/* SERVICES GRID */}
+        <section
+          className="ks-service-section"
+          id="ks-service-grid"
+          aria-label="Our digital services"
+        >
+          <div className="ks-service-grid">
+            {services.map((service) => {
               const Icon = service.icon;
-
-              const slug = service.title
-                .toLowerCase()
-                .replaceAll("/", "-")
-                .replaceAll(" ", "-")
-                .replaceAll("&", "and");
 
               return (
                 <article
-                  className="service-card"
-                  key={service.title}
+                  className="ks-service-card"
+                  key={service.number}
                 >
-                  <div className="service-card-top">
-                    <span className={`service-icon ${service.color}`}>
-                      <Icon size={23} strokeWidth={2} />
-                    </span>
+                  <div className="ks-card-content">
+                    <div className="ks-card-top">
+                      <div className="ks-service-icon">
+                        <Icon size={26} strokeWidth={2} />
+                      </div>
 
-                    <span className="service-number">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                      <span className="ks-card-number">
+                        {service.number}
+                      </span>
+                    </div>
+
+                    <h2 className="ks-card-title">
+                      {service.title}
+                    </h2>
+
+                    <p className="ks-card-description">
+                      {service.description}
+                    </p>
+
+                    <div className="ks-card-tags">
+                      {service.tags.map((tag) => (
+                        <span className="ks-tag" key={tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <h3>{service.title}</h3>
-
-                  <ul>
-                    {service.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                  {/* Fixed image area keeps all cards aligned */}
+                  <div className="ks-card-visual">
+                    <img
+                      src={service.image}
+                      alt={service.alt}
+                      loading="lazy"
+                    />
+                  </div>
 
                   <a
-                    href={`/services/${slug}`}
-                    className="service-learn-link"
+                    href={service.link}
+                    className="ks-card-arrow"
+                    aria-label={`Explore ${service.title}`}
                   >
-                    Learn more
-
-                    <span className="learn-arrow">
-                      <ArrowUpRight size={14} />
-                    </span>
+                    <ArrowRight size={19} />
                   </a>
                 </article>
               );
             })}
           </div>
+        </section>
+      </main>
+
+      {/*--------------------------------- Process-------------------------------------- */}
+
+
+      <section className="kravs-process" id="our-process">
+        {/* Decorative image spaces */}
+        <div
+          className="kp-decoration kp-decoration-top"
+          aria-hidden="true"
+        />
+
+        <div
+          className="kp-decoration kp-decoration-bottom"
+          aria-hidden="true"
+        />
+
+        <div className="kp-container">
+          {/* Heading */}
+          <header className="kp-header">
+            <div className="kp-eyebrow">
+              <span className="kp-eyebrow-line" />
+              <span>OUR PROCESS</span>
+            </div>
+
+            <h2 className="kp-heading">
+              From Idea to{" "}
+              <span className="kp-heading-accent">Impact.</span>
+            </h2>
+
+            <p className="kp-subtitle">
+              A simple, transparent and collaborative process to turn
+              your ideas into meaningful digital experiences.
+            </p>
+          </header>
+
+          {/* Animated timeline */}
+          <div className="kp-timeline">
+            <svg
+              className="kp-connector"
+              viewBox="0 0 1200 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                className="kp-line-base"
+                d={timelinePath}
+              />
+
+              <path
+                className="kp-line-glow"
+                pathLength="1200"
+                d={timelinePath}
+              />
+
+            </svg>
+
+            <div className="kp-steps">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+
+                return (
+                  <article
+                    className="kp-step"
+                    key={step.number}
+                    style={{ "--step-index": index }}
+                  >
+                    <div className="kp-step-number">
+                      {step.number}
+                    </div>
+
+                    <div className="kp-step-icon">
+                      <Icon
+                        size={32}
+                        strokeWidth={1.8}
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <div className="kp-step-copy">
+                      <h3>{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="kp-cta">
+            <div className="kp-cta-copy">
+              <span className="kp-cta-label">
+                LET'S BUILD TOGETHER
+              </span>
+
+              <h3>
+                Let’s make something
+                <br className="kp-cta-break" /> great together.
+              </h3>
+
+              <p>
+                Have an idea? Let’s turn it into a digital experience
+                that moves your business forward.
+              </p>
+            </div>
+
+            <a href="/contact" className="kp-cta-button">
+              <span>Start a Project</span>
+              <span className="kp-cta-arrow">
+                <ArrowRight size={18} />
+              </span>
+            </a>
+          </div>
         </div>
       </section>
+
+      {/* --------------------------------Testimonial---------------------------------- */}
+
+      <section className="kravs-testimonials" id="testimonials">
+      <div className="kt-container">
+        <header className="kt-header">
+          <div className="kt-intro">
+            <span className="kt-eyebrow">
+              <span className="kt-eyebrow-line" />
+              CLIENT TESTIMONIALS
+            </span>
+
+            <h2>
+              What our clients
+              <br />
+              <span>say about us.</span>
+            </h2>
+
+            <p>
+              Real stories from businesses we've helped grow through
+              modern websites, creative design, and digital solutions.
+            </p>
+          </div>
+
+          <div className="kt-stats">
+            <div className="kt-stat">
+              <strong>50+</strong>
+              <span>HAPPY CLIENTS</span>
+            </div>
+
+            <div className="kt-stat">
+              <strong>100+</strong>
+              <span>PROJECTS DELIVERED</span>
+            </div>
+
+            <div className="kt-stat">
+              <strong>100%</strong>
+              <span>COMMITMENT</span>
+            </div>
+          </div>
+        </header>
+
+        <div className="kt-section-label">
+          <span>WHAT PEOPLE SAY</span>
+
+          <div className="kt-controls">
+            <button
+              type="button"
+              onClick={previousPage}
+              aria-label="Previous testimonials"
+            >
+              <ArrowLeft size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={nextPage}
+              aria-label="Next testimonials"
+            >
+              <ArrowRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        <div className="kt-grid">
+          {visibleTestimonials.map((item, index) => (
+            <article
+              className={`kt-card ${item.featured ? "kt-featured" : ""}`}
+              key={`${item.name}-${page}`}
+            >
+              <div className="kt-card-top">
+                <Quote className="kt-quote" size={32} />
+
+                <div className="kt-stars" aria-label={`${item.rating} out of 5 stars`}>
+                  {Array.from({ length: item.rating }, (_, starIndex) => (
+                    <Star
+                      key={starIndex}
+                      size={14}
+                      fill="currentColor"
+                      strokeWidth={1.5}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <p className="kt-review">{item.text}</p>
+
+              <div className="kt-client">
+                <div className={`kt-avatar kt-avatar-${index}`}>
+                  {item.initials}
+                </div>
+
+                <div className="kt-client-info">
+                  <h3>{item.name}</h3>
+                  <span>{item.role}</span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="kt-pagination" aria-label="Testimonial navigation">
+          {testimonials.map((item, index) => (
+            <button
+              type="button"
+              key={item.name}
+              className={page === index ? "active" : ""}
+              onClick={() => setPage(index)}
+              aria-label={`Show testimonials starting from ${item.name}`}
+              aria-current={page === index ? "true" : undefined}
+            />
+          ))}
+        </div>
+
+        <div className="kt-brands">
+          <div className="kt-brands-heading">
+            <span />
+            <p>BUILT FOR BUSINESSES WITH BIG AMBITIONS</p>
+            <span />
+          </div>
+
+          <div className="kt-brand-list">
+            {brands.map((brand) => (
+              <span key={brand}>{brand}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="kt-bottom-cta">
+          <div>
+            <span>YOUR STORY COULD BE NEXT</span>
+            <h3>Let's build something worth talking about.</h3>
+          </div>
+
+          <a href="/contact">
+            Start a Project
+            <ArrowUpRight size={18} />
+          </a>
+        </div>
+      </div>
+    </section>
+
+      {/*------------------------------------ FAQ----------------------------------------- */}
+
+      <section className="kravs-faq" id="faq">
+        <div className="kf-container">
+          {/* Header */}
+          <div className="kf-header">
+            <div className="kf-heading-content">
+              <span className="kf-eyebrow">
+                <span className="kf-eyebrow-line" />
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+
+              <h2>
+                Got questions?
+                <br />
+                <span>We've got answers.</span>
+              </h2>
+
+              <p>
+                Everything you need to know about our services,
+                process, and how we can help your business grow.
+              </p>
+            </div>
+
+            <div className="kf-header-note">
+              <span className="kf-note-icon">?</span>
+              <span>Still curious?</span>
+              <p>We're just a message away.</p>
+            </div>
+          </div>
+
+          {/* FAQ Accordion */}
+          <div className="kf-layout">
+            <div className="kf-side-label">
+              <span>YOUR QUESTIONS</span>
+              <span className="kf-side-line" />
+              <span>OUR ANSWERS</span>
+            </div>
+
+            <div className="kf-list">
+              {faqData.map((faq, index) => {
+                const isOpen = activeIndex === index;
+
+                return (
+                  <article
+                    className={`kf-item ${isOpen ? "is-open" : ""}`}
+                    key={faq.number}
+                  >
+                    <button
+                      className="kf-question"
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={`kf-answer-${index}`}
+                      onClick={() => toggleFAQ(index)}
+                    >
+                      <span className="kf-number">{faq.number}</span>
+
+                      <span className="kf-question-text">
+                        {faq.question}
+                      </span>
+
+                      <span className="kf-toggle">
+                        <Plus size={19} strokeWidth={1.8} />
+                      </span>
+                    </button>
+
+                    <div
+                      className="kf-answer-wrap"
+                      id={`kf-answer-${index}`}
+                      aria-hidden={!isOpen}
+                    >
+                      <div className="kf-answer">
+                        <p>{faq.answer}</p>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          {/* <div className="kf-bottom">
+            <div>
+              <span className="kf-bottom-label">HAVE A DIFFERENT QUESTION?</span>
+              <h3>Let's talk about your next big idea.</h3>
+            </div>
+
+            <a href="/contact" className="kf-contact-btn">
+              Contact Our Team
+              <ArrowUpRight size={18} />
+            </a>
+          </div> */}
+        </div>
+      </section>
+
+
     </>
   );
 };
