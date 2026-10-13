@@ -2,6 +2,7 @@
 import React from "react";
 import "./Hero.css";
 import leftImg from "../assets/leftimg.png";
+import kravsOffice from "../assets/kravs-office.png";
 
 import {
   Code2,
@@ -13,8 +14,39 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
+import {
+  // ArrowUpRight,
+  Target,
+  // ChartNoAxesColumnIncreasing,
+  Lightbulb,
+  Compass,
+  Paintbrush,
+  // UsersRound,
+} from "lucide-react";
 /* SERVICES DATA */
-
+const stats = [
+  { value: "50", suffix: "+", label: "Projects delivered" },
+  { value: "30", suffix: "+", label: "Happy clients" },
+  { value: "10", suffix: "+", label: "Industries served" },
+  { value: "01", suffix: "", label: "Shared mission" },
+];
+const values = [
+  {
+    icon: Target,
+    title: "Strategy first",
+    description: "Clear thinking before every build",
+  },
+  {
+    icon: ChartNoAxesColumnIncreasing,
+    title: "Built to scale",
+    description: "Digital foundations for growth",
+  },
+  {
+    icon: Lightbulb,
+    title: "Impact by design",
+    description: "Every detail has a purpose",
+  },
+];
 const services = [
   {
     title: "Web Development",
@@ -174,6 +206,85 @@ const Hero = () => {
           </div>
         </div>
       </section>
+
+      {/*------------------------------------ About Us------------------------------------------ */}
+
+      <main className="kravs-about">
+        {/* ABOUT HERO */}
+        <section className="ka-hero">
+          <div className="ka-hero-copy">
+            <div className="ka-eyebrow">
+              <span className="ka-eyebrow-line" />
+              <span>ABOUT KRAVS</span>
+            </div>
+
+            <h1 className="ka-heading">
+              We blend strategy,
+              <br className="ka-desktop-break" /> technology and
+              <br className="ka-desktop-break" />
+              <span className="ka-serif"> creativity.</span>
+            </h1>
+
+            <p className="ka-description">
+              We turn complex business challenges into thoughtful
+              digital experiences that help ambitious brands
+              move forward.
+            </p>
+
+            <a href="#ka-difference" className="ka-primary-btn">
+              <span>More about us</span>
+              <ArrowUpRight size={19} strokeWidth={1.8} />
+            </a>
+          </div>
+
+          {/* OFFICE IMAGE + FLOATING CARD */}
+          <div className="ka-visual">
+            <div className="ka-office-image">
+              <img src={kravsOffice} alt="Kravs Office" />
+
+              <div className="ka-image-brand" aria-label="Kravs">
+                {/* kravs<span>.</span> */}
+              </div>
+            </div>
+
+            <div className="ka-values-card">
+              {values.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div className="ka-value-item" key={item.title}>
+                    <div className="ka-value-icon">
+                      <Icon size={27} strokeWidth={2} />
+                    </div>
+
+                    <div className="ka-value-copy">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* COMPANY STATISTICS */}
+        <section className="ka-stats" aria-label="Company statistics">
+          {stats.map((stat) => (
+            <div className="ka-stat" key={stat.label}>
+              <div className="ka-stat-number">
+                {stat.value}
+                <span>{stat.suffix}</span>
+              </div>
+
+              <p>{stat.label}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* WHAT MAKES US DIFFERENT */}
+       
+      </main>
 
       {/* ================= SERVICES SECTION ================= */}
 
