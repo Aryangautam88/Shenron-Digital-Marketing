@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import kravsLogo from "../assets/kravsLogo.png";
 
+
 const serviceGroups = [
   {
     title: "SEO",
@@ -227,10 +228,21 @@ export default function Navbar() {
   }, [location.pathname]);
 
   // Floating navbar and scroll-to-close behavior.
+
+  // Smooth desktop scroll state + preserve mobile menu closing
   useEffect(() => {
+    let previousScrolled = window.scrollY > 50;
+
+    setScrolled(previousScrolled);
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      closeMenus();
+      const nextScrolled = window.scrollY > 50;
+
+      if (nextScrolled !== previousScrolled) {
+        previousScrolled = nextScrolled;
+        setScrolled(nextScrolled);
+        closeMenus();
+      }
     };
 
     window.addEventListener("scroll", handleScroll, {
@@ -241,6 +253,7 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   // Close when clicking outside the navbar.
   useEffect(() => {
@@ -338,11 +351,11 @@ export default function Navbar() {
         <div
           id="mobile-navigation"
           className={`navbar-links ${menuOpen ? "links-open" : ""}`}
-          onMouseLeave={() => {
-            if (window.matchMedia("(min-width: 1001px)").matches) {
-              setActiveDropdown(null);
-            }
-          }}
+          // onMouseLeave={() => {
+          //   if (window.matchMedia("(min-width: 1001px)").matches) {
+          //     setActiveDropdown(null);
+          //   }
+          // }}
         >
 
 

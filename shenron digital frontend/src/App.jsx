@@ -1,7 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./pages/Hero";
 import Preloader from"./components/Preloader";
+import Footer from"./components/Footer";
+
+import Hero from "./pages/Hero";
+
+
 
 export default function App() {
   return (
@@ -31,6 +35,7 @@ export default function App() {
 
         <Route path="*" element={<main />} />
       </Routes>
+      <Footer/>
     </>
   );
 }
