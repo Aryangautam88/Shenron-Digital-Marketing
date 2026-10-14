@@ -777,7 +777,7 @@ body {
 /*------------------------------------- second page ---------------------------------------------*/
 
 :root {
-  --ka-bg: #fefbf2;
+  --ka-bg: #F7F3EB;
   --ka-text: #11111a;
   --ka-muted: #525a78;
   --ka-purple: #6738f5;
@@ -1583,7 +1583,7 @@ body {
   min-width: 0;
   overflow: clip;
   color: #11111a;
-  background: #fdf8f1;
+  background: #F7F3EB;
   font-family: "DM Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -2476,7 +2476,7 @@ body {
   min-width: 0;
   overflow: hidden;
   padding: 40px 0 65px;
-  background: #fdf8f1;
+  background: #F7F3EB;
   color: #11111a;
   font-family: "DM Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -3278,7 +3278,7 @@ body {
   isolation: isolate;
   overflow: hidden;
   padding: 95px 0 75px;
-  background: #fdf8f1;
+  background: #F7F3EB;
   color: #171525;
   font-family: "DM Sans", sans-serif;
 }
@@ -3888,7 +3888,7 @@ body {
   isolation: isolate;
   overflow: hidden;
   padding: 10px 0 45px;
-  background: #fdf8f1;
+  background: #F7F3EB;
   color: #17151e;
   font-family: "DM Sans", sans-serif;
 }
