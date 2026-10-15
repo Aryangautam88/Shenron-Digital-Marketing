@@ -1,41 +1,32 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-/* =========================================================
-   KRAVS INFOTECH — COMPLETE RESPONSIVE NAVBAR
-   Original slide animation preserved
-   Single capsule | Accessible dropdowns | Responsive layout
-========================================================= */
+/* ==========================================
+   KRAVS INFOTECH NAVBAR
+   ========================================== */
 
 .navbar {
   --accent: #7952ff;
   --text: #111015;
   --muted: #85818d;
-  --surface: rgba(255, 253, 250, 0.93);
+  --surface: rgba(255, 253, 250, 0.96);
   --slide-duration: 1.2s;
   --slide-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   position: fixed;
   inset: 0 0 auto;
-  z-index: 1000;
-
+  z-index: 3000;
   width: 100%;
-  min-height: 75px;
-  height: auto;
+  min-height: 76px;
   padding: 16px 5%;
-
   box-sizing: border-box;
   overflow: visible;
   isolation: isolate;
-
   background: transparent;
   border: 1px solid transparent;
   border-radius: 0;
   box-shadow: none;
-  transform: none;
-
   font-family: Inter, Arial, Helvetica, sans-serif;
-
   transition: padding 0.8s var(--slide-ease);
 }
 
@@ -46,39 +37,28 @@
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
-/* =========================================================
-   SINGLE OUTER CAPSULE
-========================================================= */
+/* Capsule background */
 
 .navbar::before {
   content: "";
   position: absolute;
   z-index: -1;
-
   top: 50%;
   left: 50%;
-
   width: min(960px, calc(100vw - 36px));
   height: calc(100% - 12px);
-
   border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 100px;
-
   background: rgba(255, 253, 250, 0.93);
-
   box-shadow:
     0 8px 30px rgba(61, 42, 88, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.75);
-
   backdrop-filter: blur(22px) saturate(130%);
   -webkit-backdrop-filter: blur(22px) saturate(130%);
-
   opacity: 0;
   pointer-events: none;
-
   transform: translate(-50%, -50%) scale(0.96);
   transform-origin: center;
-
   transition:
     opacity 0.7s ease 0.15s,
     transform 1s var(--slide-ease) 0.1s,
@@ -86,103 +66,72 @@
     background-color 0.5s ease;
 }
 
-.navbar::after {
-  display: none;
-  content: none;
-}
-
-/* =========================================================
-   MAIN NAVBAR LAYOUT
-========================================================= */
+/* Navbar layout */
 
 .navbar-inner {
   position: relative;
   z-index: 1;
-
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-
   gap: 20px;
-
   width: 100%;
   max-width: 1600px;
   min-width: 0;
-
   margin: 0 auto;
 }
 
-/* =========================================================
-   LOGO
-========================================================= */
+/* Logo */
 
 .navbar .navbar-logo {
   grid-column: 1;
   justify-self: start;
-
   display: inline-flex;
   align-items: center;
-
-  flex: 0 0 auto;
   width: fit-content;
   max-width: 100%;
   min-width: 0;
-
   line-height: 0;
   text-decoration: none;
-
   opacity: 1;
   transform: translateX(0);
-
   transition:
     transform var(--slide-duration) var(--slide-ease),
     opacity 0.45s ease,
     width 0.7s var(--slide-ease);
-
   will-change: transform;
 }
 
 .navbar .navbar-logo-image {
   display: block;
-
   width: 130px;
   height: 46px;
   max-width: 100%;
-
   object-fit: contain;
   object-position: left center;
-
   transition:
     width 0.75s var(--slide-ease),
     height 0.75s var(--slide-ease),
     object-position 0.5s ease;
 }
 
-/* =========================================================
-   DESKTOP NAVIGATION LINKS
-========================================================= */
+/* Navigation links */
 
 .navbar .navbar-links {
   grid-column: 2;
   justify-self: center;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: clamp(12px, 1.55vw, 25px);
-
   width: max-content;
   max-width: 100%;
   min-width: 0;
-
   padding: 0;
-
   background: transparent;
   border: 1px solid transparent;
   border-radius: 100px;
   box-shadow: none;
-
   transition:
     gap 0.7s var(--slide-ease),
     padding 0.7s var(--slide-ease),
@@ -193,73 +142,51 @@
 
 .navbar .nav-item {
   position: relative;
-
   display: flex;
   align-items: center;
-
   flex: 0 0 auto;
   min-width: 0;
 }
 
 .navbar .nav-link {
   position: relative;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 9px;
-
   height: 40px;
   min-height: 40px;
   padding: 0 2px;
-
   overflow: visible;
   perspective: 600px;
-
   color: var(--text);
-
   font-size: clamp(13px, 0.96vw, 15px);
   font-weight: 450;
   line-height: 1.4;
-
   text-decoration: none;
   white-space: nowrap;
 }
 
-/* =========================================================
-   ORIGINAL 3D NAV LINK ANIMATION
-========================================================= */
-
 .navbar .nav-link-inner {
   position: relative;
-
   display: block;
   height: 30px;
-
   transform-style: preserve-3d;
-
-  transition:
-    transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .navbar .nav-link-text {
   position: absolute;
   top: 0;
   left: 0;
-
   display: flex;
   align-items: center;
-
   width: max-content;
   height: 30px;
   padding-right: 3px;
-
-  color: var(--text);
-
+  color: inherit;
   line-height: 30px;
   white-space: nowrap;
-
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -282,18 +209,13 @@
   transform: rotateX(90deg);
 }
 
-/* Underline */
-
 .navbar .nav-link::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: 0;
-
   width: 0;
   height: 2px;
-
   background: var(--accent);
   transition: width 0.3s ease;
 }
@@ -307,22 +229,15 @@
 
 .navbar .dropdown-chevron {
   position: relative;
-
   display: inline-block;
   flex: 0 0 8px;
-
   width: 8px;
   height: 8px;
   margin: -4px 2px 0 0;
-
   border-right: 1.5px solid var(--muted);
   border-bottom: 1.5px solid var(--muted);
-
   transform: rotate(45deg);
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar .nav-item.has-dropdown > .nav-link {
@@ -342,53 +257,41 @@
   flex-shrink: 0;
 }
 
-.navbar .has-dropdown:hover > .nav-link .dropdown-chevron,
-.navbar .has-dropdown:focus-within > .nav-link .dropdown-chevron,
 .navbar .has-dropdown.dropdown-active > .nav-link .dropdown-chevron {
   transform: translateY(3px) rotate(225deg);
   border-color: var(--accent);
 }
 
-/* =========================================================
-   CTA BUTTON
-========================================================= */
+/* CTA */
 
 .navbar .navbar-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 12px;
   flex-shrink: 0;
-
   min-height: 46px;
   padding: 10px 25px;
-
   border: 1px solid #111015;
   border-radius: 50px;
-
   background: #0d0c16;
   color: #fff;
-
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   white-space: nowrap;
-
   transition:
     transform var(--slide-duration) var(--slide-ease),
     padding 0.7s var(--slide-ease),
     min-height 0.7s var(--slide-ease),
     background-color 0.3s ease,
     border-color 0.3s ease;
-
   will-change: transform;
 }
 
 .navbar .desktop-cta {
   grid-column: 3;
   justify-self: end;
-
   opacity: 1;
   transform: translateX(0);
 }
@@ -413,42 +316,29 @@
   display: none;
 }
 
-/* =========================================================
-   DESKTOP SCROLL ANIMATION
-   ORIGINAL MOTION PRESERVED:
-   Logo slides inward from left.
-   CTA slides inward from right.
-   Both slide back to original positions on scroll-up.
-========================================================= */
+/* ==========================================
+   DESKTOP CAPSULE ANIMATION
+   ========================================== */
 
 @media (min-width: 1001px) {
-
   .navbar.navbar-scrolled {
     top: 0;
     left: 0;
-
     width: 100%;
     max-width: none;
-
     padding: 12px 5%;
-
     border-radius: 0;
     background: transparent;
     border-color: transparent;
     box-shadow: none;
-
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
-
-  /* Reveal one outer capsule */
 
   .navbar.navbar-scrolled::before {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
-
-  /* Keep the original inward slide distance */
 
   .navbar.navbar-scrolled .navbar-logo {
     transform: translateX(
@@ -462,12 +352,9 @@
     object-position: center;
   }
 
-  /* No second capsule inside the outer capsule */
-
   .navbar.navbar-scrolled .navbar-links {
     gap: 5px;
     padding: 0;
-
     background: transparent;
     border-color: transparent;
     border-radius: 0;
@@ -477,9 +364,7 @@
   .navbar.navbar-scrolled .nav-link {
     height: 40px;
     min-height: 40px;
-
     padding: 0 8px;
-
     border-radius: 50px;
     font-size: 13px;
   }
@@ -492,63 +377,44 @@
     color: var(--accent);
   }
 
-  /* Original CTA inward animation */
-
   .navbar.navbar-scrolled .desktop-cta {
     transform: translateX(
       clamp(-230px, calc(455px - 45vw), 0px)
     );
-
     min-height: 42px;
     padding: 9px 18px;
-
     font-size: 13px;
-  }
-
-  .navbar.navbar-scrolled .desktop-cta:hover {
-    background: #6748f5;
-    border-color: var(--accent);
   }
 }
 
-/* =========================================================
+/* ==========================================
    DROPDOWN BASE
-   Industries and Company are anchored to their own nav item.
-========================================================= */
+   All dropdowns use one active state.
+   ========================================== */
 
 .navbar .dropdown-panel {
   position: absolute;
-
   top: calc(100% + 19px);
   left: 50%;
   right: auto;
-
-  z-index: 1100;
-
+  z-index: 3100;
   padding: 24px;
-
   color: #15141a;
   background: rgba(255, 253, 250, 0.98);
-
   border: 1px solid rgba(25, 20, 40, 0.07);
   border-radius: 24px;
-
   box-shadow:
     0 24px 65px rgba(15, 10, 30, 0.14),
     0 4px 15px rgba(15, 10, 30, 0.05);
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   transform: translate(-50%, 12px) scale(0.985);
   transform-origin: top center;
-
   transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease,
-    transform 0.4s var(--slide-ease);
-
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.35s var(--slide-ease);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -557,23 +423,82 @@
 
 .navbar .dropdown-panel::before {
   content: "";
-
   position: absolute;
   top: -22px;
   left: 0;
   right: 0;
-
   height: 22px;
 }
 
-.navbar .has-dropdown:hover > .dropdown-panel,
-.navbar .has-dropdown:focus-within > .dropdown-panel,
-.navbar .has-dropdown.dropdown-active > .dropdown-panel {
+/* Only the active menu opens */
+
+.navbar .nav-item.dropdown-active > .dropdown-panel {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-
   transform: translate(-50%, 0) scale(1);
+}
+
+/* ==========================================
+   SERVICES MEGA MENU
+   ========================================== */
+
+.navbar .services-dropdown {
+  position: fixed;
+  top: 82px;
+  left: 50%;
+  right: auto;
+  width: min(1250px, calc(100vw - 40px));
+  max-width: calc(100vw - 40px);
+  max-height: calc(100dvh - 100px);
+  margin: 0;
+  padding: 26px 22px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translate(-50%, 8px) scale(0.99);
+  transform-origin: top center;
+  z-index: 3200;
+}
+
+.navbar .nav-item.dropdown-active > .services-dropdown {
+  transform: translate(-50%, 0) scale(1);
+}
+
+.navbar .services-dropdown::before {
+  top: -16px;
+  height: 16px;
+}
+
+@media (min-width: 1001px) {
+  .navbar.navbar-scrolled .services-dropdown {
+    top: 78px;
+    max-height: calc(100dvh - 96px);
+  }
+}
+
+/* Services grid */
+
+.navbar .services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  width: 100%;
+}
+
+.navbar .service-column {
+  min-width: 0;
+  padding: 0 16px;
+  border-right: 1px solid #eeeeF2;
+}
+
+.navbar .service-column:first-child {
+  padding-left: 4px;
+}
+
+.navbar .service-column:last-child {
+  padding-right: 4px;
+  border-right: 0;
 }
 
 /* Dropdown headings */
@@ -582,14 +507,12 @@
   display: flex;
   align-items: center;
   gap: 11px;
-
   min-width: 0;
   margin-bottom: 12px;
 }
 
 .navbar .dropdown-heading h3 {
   margin: 0;
-
   font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
@@ -599,13 +522,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   flex: 0 0 34px;
   width: 34px;
   height: 34px;
-
   border-radius: 8px;
-
   font-size: 20px;
   font-weight: 600;
 }
@@ -635,113 +555,29 @@
   background: #ffebf0;
 }
 
-/* =========================================================
-   SERVICES MEGA MENU
-   Centered below the outer capsule.
-========================================================= */
-
-.navbar .services-dropdown {
-  position: fixed;
-
-  top: 105px;
-  left: 50%;
-  right: auto;
-
-  width: min(1250px, calc(100vw - 40px));
-  max-width: calc(100vw - 40px);
-  max-height: calc(100dvh - 125px);
-
-  margin: 0;
-  padding: 26px 22px;
-
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-
-  transform: translate(-50%, 8px) scale(0.99);
-  transform-origin: top center;
-
-  z-index: 2100;
-}
-
-.navbar .has-dropdown:hover > .services-dropdown,
-.navbar .has-dropdown:focus-within > .services-dropdown,
-.navbar .has-dropdown.dropdown-active > .services-dropdown {
-  transform: translate(-50%, 0) scale(1);
-}
-
-.navbar .services-dropdown::before {
-  top: -16px;
-  height: 16px;
-}
-
-/* Match the capsule gap after scrolling */
-
-@media (min-width: 1001px) {
-  .navbar.navbar-scrolled .services-dropdown {
-    top: 78px;
-    max-height: calc(100dvh - 98px);
-  }
-}
-
-/* Services columns */
-
-.navbar .services-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0;
-
-  width: 100%;
-}
-
-.navbar .service-column {
-  min-width: 0;
-  padding: 0 16px;
-
-  border-right: 1px solid #eeeeF2;
-}
-
-.navbar .service-column:first-child {
-  padding-left: 4px;
-}
-
-.navbar .service-column:last-child {
-  padding-right: 4px;
-  border-right: 0;
-}
-
-/* Dropdown lists */
+/* Dropdown lists and links */
 
 .navbar .dropdown-list {
   display: flex;
   flex-direction: column;
   gap: 2px;
-
   min-width: 0;
 }
 
 .navbar .dropdown-link {
   position: relative;
-
   display: flex;
   align-items: flex-start;
   gap: 9px;
-
   width: 100%;
   min-width: 0;
   padding: 7px 0;
-
   color: #35333d;
-
   font-size: 14px;
   line-height: 1.5;
   text-decoration: none;
-
   overflow-wrap: anywhere;
-
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .navbar .dropdown-link:hover,
@@ -753,14 +589,11 @@
 
 .navbar .dropdown-dot {
   display: inline-block;
-
   flex: 0 0 6px;
   width: 6px;
   height: 6px;
-
   margin-top: 7px;
   border-radius: 50%;
-
   background: #2467ef;
 }
 
@@ -784,26 +617,16 @@
   background: #ed5677;
 }
 
-/* =========================================================
+/* ==========================================
    INDUSTRIES DROPDOWN
-   Anchored to Industries — NOT viewport center.
-========================================================= */
+   ========================================== */
 
 .navbar .industries-dropdown {
-  position: absolute;
-
-  top: calc(100% + 19px);
-  left: 50%;
-  right: auto;
-
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
   gap: 24px;
-
   width: 430px;
   max-width: calc(100vw - 32px);
-
   padding: 25px 27px;
 }
 
@@ -837,21 +660,13 @@
   font-size: 14px;
 }
 
-/* =========================================================
+/* ==========================================
    COMPANY DROPDOWN
-   Anchored to Company — NOT viewport center.
-========================================================= */
+   ========================================== */
 
 .navbar .company-dropdown {
-  position: absolute;
-
-  top: calc(100% + 19px);
-  left: 50%;
-  right: auto;
-
   width: 200px;
   max-width: calc(100vw - 32px);
-
   padding: 13px 18px;
 }
 
@@ -864,13 +679,12 @@
   border-top: 1px solid #f0edf4;
 }
 
-/* =========================================================
-   LAPTOP SIZING
-========================================================= */
+/* ==========================================
+   SMALLER DESKTOP SCREENS
+   ========================================== */
 
 @media (min-width: 1001px) and (max-width: 1250px) {
-
-  .navbar .navbar-inner {
+  .navbar-inner {
     gap: 12px;
   }
 
@@ -923,104 +737,35 @@
   }
 }
 
-/* =========================================================
-   HAMBURGER BUTTON
-========================================================= */
-
 .navbar .navbar-toggle {
   display: none;
-
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-
-  flex: 0 0 43px;
-  width: 43px;
-  height: 43px;
-  padding: 10px;
-
-  border: 1px solid rgba(121, 82, 255, 0.2);
-  border-radius: 50%;
-
-  background: #fff;
-  cursor: pointer;
 }
 
-.navbar .navbar-toggle span {
-  display: block;
-
-  width: 19px;
-  height: 2px;
-
-  border-radius: 4px;
-  background: var(--text);
-
-  transition:
-    transform 0.3s ease,
-    width 0.3s ease;
-}
-
-.navbar .navbar-toggle span:last-child {
-  width: 13px;
-  align-self: flex-end;
-}
-
-.navbar .navbar-toggle.toggle-active span:first-child {
-  transform: translateY(4px) rotate(45deg);
-}
-
-.navbar .navbar-toggle.toggle-active span:last-child {
-  width: 19px;
-  transform: translateY(-4px) rotate(-45deg);
-}
-
-.navbar.menu-open {
-  z-index: 2000;
-}
-
-.navbar.menu-open .navbar-toggle {
-  position: relative;
-  z-index: 2002;
-}
-
-/* =========================================================
-   TABLET & MOBILE
-   Capsule stays visible before and after scrolling.
-========================================================= */
+/* ==========================================
+   TABLET AND MOBILE NAVIGATION
+   ========================================== */
 
 @media (max-width: 1000px) {
-
   .navbar,
   .navbar.navbar-scrolled {
     top: 10px;
     left: 12px;
     right: 12px;
-
     width: auto;
     max-width: none;
     min-height: 0;
-
     padding: 10px 14px;
     margin: 0;
-
     transform: none;
-
     border: 1px solid rgba(255, 255, 255, 0.88);
     border-radius: 25px;
-
     background: rgba(255, 253, 250, 0.94);
-
     box-shadow:
       0 8px 30px rgba(61, 42, 88, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.7);
-
     backdrop-filter: blur(22px) saturate(130%);
     -webkit-backdrop-filter: blur(22px) saturate(130%);
-
-    transition:
-      background-color 0.4s ease,
-      box-shadow 0.4s ease;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
   }
 
   .navbar::before,
@@ -1033,27 +778,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 12px;
-
     width: 100%;
     max-width: none;
     min-width: 0;
-
     margin: 0 auto;
   }
-
-  /* Mobile logo */
 
   .navbar .navbar-logo,
   .navbar.navbar-scrolled .navbar-logo {
     display: inline-flex;
     align-items: center;
-
     flex: 0 1 auto;
     min-width: 0;
     max-width: calc(100% - 58px);
-
     opacity: 1;
     transform: none;
     transition: none;
@@ -1064,110 +802,118 @@
     width: clamp(105px, 28vw, 135px);
     height: 42px;
     max-width: 100%;
-
     object-fit: contain;
     object-position: left center;
   }
 
-  /* Mobile toggle */
+  /* Hamburger button */
 
   .navbar .navbar-toggle {
     display: flex;
-
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
     flex: 0 0 43px;
     width: 43px;
     height: 43px;
-
     margin-left: auto;
-
+    padding: 10px;
     position: relative;
-    z-index: 2002;
+    z-index: 3302;
+    border: 1px solid rgba(121, 82, 255, 0.2);
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .navbar .navbar-toggle span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    border-radius: 4px;
+    background: var(--text);
+    transition: transform 0.3s ease, width 0.3s ease;
+  }
+
+  .navbar .navbar-toggle span:last-child {
+    width: 13px;
+    align-self: flex-end;
+  }
+
+  .navbar .navbar-toggle.toggle-active span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .navbar .navbar-toggle.toggle-active span:last-child {
+    width: 19px;
+    transform: translateY(-4px) rotate(-45deg);
   }
 
   .navbar .navbar-inner > .desktop-cta {
     display: none !important;
   }
 
-  /* Expandable mobile menu */
+  /* Mobile navigation panel */
 
   .navbar .navbar-links,
   .navbar.navbar-scrolled .navbar-links {
     position: absolute;
-
     top: calc(100% + 9px);
     left: 0;
     right: 0;
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-
     gap: 0;
-
     width: 100%;
     min-width: 0;
     max-width: none;
     max-height: calc(100dvh - 105px);
-
     margin: 0;
     padding: 8px 12px;
-
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
-
     background: rgba(255, 253, 250, 0.99);
-
     border: 1px solid rgba(121, 82, 255, 0.14);
     border-radius: 22px;
-
     box-shadow: 0 18px 45px rgba(28, 20, 48, 0.12);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transform: translateY(-8px);
     transform-origin: top center;
-
     transition:
       opacity 0.25s ease,
       visibility 0.25s ease,
       transform 0.25s ease;
-
-    z-index: 2001;
-
+    z-index: 3301;
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
   }
 
-  .navbar .navbar-links::-webkit-scrollbar,
-  .navbar.navbar-scrolled .navbar-links::-webkit-scrollbar {
+  .navbar .navbar-links::-webkit-scrollbar {
     display: none;
     width: 0;
   }
 
-  .navbar .navbar-links.links-open,
-  .navbar.navbar-scrolled .navbar-links.links-open {
+  .navbar .navbar-links.links-open {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
   }
 
-  /* Mobile menu rows */
-
   .navbar .nav-item {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-
     width: 100%;
     min-width: 0;
     flex: 0 0 auto;
-
     border-bottom: 1px solid rgba(20, 20, 30, 0.07);
   }
 
@@ -1180,23 +926,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: relative;
-
     width: 100%;
     min-width: 0;
     max-width: none;
-
     height: 49px;
     min-height: 49px;
-
     padding: 0 2px;
     margin: 0;
     gap: 12px;
-
     overflow: visible;
     white-space: nowrap;
-
     font-size: 15px;
     line-height: 1;
   }
@@ -1204,14 +944,11 @@
   .navbar .nav-link-inner,
   .navbar .nav-item.has-dropdown > .nav-link .nav-link-inner {
     position: relative;
-
     display: block;
     flex: 0 1 auto;
-
     width: max-content;
     min-width: 0;
     height: 24px;
-
     margin: 0;
     overflow: visible;
   }
@@ -1219,7 +956,6 @@
   .navbar .nav-link-text {
     height: 24px;
     padding-right: 2px;
-
     font-size: inherit;
     line-height: 24px;
     white-space: nowrap;
@@ -1244,77 +980,51 @@
     margin: -4px 3px 0 0;
   }
 
-  /* Dropdowns open on tap on mobile */
-
-  .navbar .has-dropdown:hover > .dropdown-panel {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
+  /* Mobile dropdown panels */
 
   .navbar .nav-item.has-dropdown > .dropdown-panel {
     display: none;
-
     position: static;
     inset: auto;
-
     width: 100%;
     min-width: 0;
     max-width: none;
-
     max-height: none;
     height: auto;
-
     margin: 0 0 12px;
     padding: 12px;
-
     overflow: visible;
     transform: none;
-
     background: #fff;
-
     border: 1px solid #f0edf4;
     border-radius: 15px;
-
     box-shadow: none;
-
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
 
   .navbar .nav-item.has-dropdown.dropdown-active > .dropdown-panel {
     display: block;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: none;
   }
 
   .navbar .dropdown-panel::before {
     display: none;
   }
 
-  /* Services menu on mobile */
-
   .navbar .services-dropdown {
     position: static;
-
     top: auto;
     left: auto;
     right: auto;
-
     width: 100%;
     max-width: none;
     max-height: none;
     height: auto;
-
     margin: 0 0 12px;
     padding: 12px;
-
     overflow: visible;
     transform: none;
   }
@@ -1323,7 +1033,6 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
-
     width: 100%;
   }
 
@@ -1332,9 +1041,7 @@
   .navbar .service-column:last-child {
     width: 100%;
     min-width: 0;
-
     padding: 0 0 12px;
-
     border-right: 0;
     border-bottom: 1px solid #eeeeF2;
   }
@@ -1359,7 +1066,6 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-
     width: 100%;
     min-width: 0;
   }
@@ -1367,211 +1073,51 @@
   .navbar .dropdown-link {
     display: flex;
     align-items: flex-start;
-
     width: 100%;
     min-width: 0;
-
     padding: 7px 0;
     gap: 9px;
-
     font-size: 13px;
     line-height: 1.5;
-
-    white-space: normal;
-    overflow-wrap: anywhere;
   }
-
-  .navbar .dropdown-link span:last-child {
-    min-width: 0;
-  }
-
-  /* Industries on mobile */
 
   .navbar .industries-dropdown {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
-    gap: 10px;
-
-    width: 100%;
-    max-width: none;
-
-    padding: 12px 8px;
-  }
-
-  .navbar .industry-column {
-    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
   }
 
   .navbar .industry-column + .industry-column {
-    min-width: 0;
-    padding-left: 10px;
-    border-left: 1px solid #eeeeF2;
+    padding-left: 0;
+    padding-top: 12px;
+    border-left: 0;
+    border-top: 1px solid #eeeeF2;
   }
-
-  .navbar .industry-column .dropdown-heading {
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .navbar .industry-column .service-icon {
-    flex: 0 0 25px;
-    width: 25px;
-    height: 25px;
-    font-size: 15px;
-  }
-
-  .navbar .industry-column .dropdown-heading h3 {
-    min-width: 0;
-    font-size: 12px;
-    overflow-wrap: anywhere;
-  }
-
-  .navbar .industries-dropdown .dropdown-link {
-    gap: 5px;
-    font-size: 12px;
-  }
-
-  /* Company on mobile */
 
   .navbar .company-dropdown {
     width: 100%;
-    max-width: none;
-    padding: 8px 12px;
   }
-
-  .navbar .company-dropdown .dropdown-link {
-    padding: 11px 2px;
-    font-size: 14px;
-  }
-
-  /* Mobile CTA */
 
   .navbar .mobile-cta {
     display: inline-flex;
     align-self: flex-start;
+    margin: 12px 0 4px;
+    min-height: 44px;
+  }
 
-    flex: 0 0 auto;
-
-    width: auto;
-    max-width: 100%;
-
-    margin: 14px 0 4px;
-    padding: 12px 23px;
+  .navbar.menu-open {
+    z-index: 3400;
   }
 }
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .navbar,
-  .navbar.navbar-scrolled {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-
-    padding: 9px 11px;
-    border-radius: 22px;
-  }
-
-  .navbar .navbar-logo-image,
-  .navbar.navbar-scrolled .navbar-logo-image {
-    width: 105px;
-    height: 38px;
-  }
-
-  .navbar .navbar-toggle {
-    flex-basis: 40px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .navbar .navbar-links,
-  .navbar.navbar-scrolled .navbar-links {
-    padding: 8px 10px;
-  }
-
-  .navbar .industries-dropdown {
-    gap: 6px;
-    padding: 10px 6px;
-  }
-
-  .navbar .industry-column + .industry-column {
-    padding-left: 6px;
-  }
-
-  .navbar .industry-column .dropdown-heading h3 {
-    font-size: 11px;
-  }
-
-  .navbar .industries-dropdown .dropdown-link {
-    font-size: 11px;
-  }
-}
-
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-
-.navbar a:focus-visible,
-.navbar button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .navbar,
-  .navbar::before,
-  .navbar .navbar-logo,
-  .navbar .navbar-logo-image,
-  .navbar .navbar-links,
-  .navbar .navbar-cta,
-  .navbar .desktop-cta,
-  .navbar .nav-link-inner,
-  .navbar .dropdown-panel {
+  .navbar *,
+  .navbar *::before,
+  .navbar *::after {
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
-  }
-}
-
-
-/* =========================================
-   SERVICES DROPDOWN — REDUCE TOP GAP
-   Keep existing slide animation unchanged
-========================================= */
-
-@media (min-width: 1001px) {
-
-  /* Before scrolling */
-  .navbar:not(.navbar-scrolled) .services-dropdown {
-    top: 82px !important;
-  }
-
-  /* After scrolling — immediately below capsule */
-  .navbar.navbar-scrolled .services-dropdown {
-    top: 78px !important;
-  }
-
-  /* Preserve the existing smooth opening animation */
-  .navbar .services-dropdown {
-    left: 50% !important;
-    right: auto !important;
-
-    transform: translate(-50%, 8px) scale(0.99);
-    transform-origin: top center;
-
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease,
-      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .navbar .has-dropdown:hover > .services-dropdown,
-  .navbar .has-dropdown:focus-within > .services-dropdown,
-  .navbar .has-dropdown.dropdown-active > .services-dropdown {
-    transform: translate(-50%, 0) scale(1);
   }
 }

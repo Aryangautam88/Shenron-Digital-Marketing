@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import kravsLogo from "../assets/kravsLogo.png";
 
-
 const serviceGroups = [
   {
     title: "SEO",
@@ -99,25 +98,10 @@ const businessTypes = [
 
 const navItems = [
   { label: "Home", href: "/" },
-  {
-    label: "Services",
-    href: "/services",
-    menu: "services",
-  },
-  {
-    label: "Industries",
-    href: "/industries",
-    menu: "industries",
-  },
-  {
-    label: "Testimonials",
-    href: "/testimonials",
-  },
-  {
-    label: "Company",
-    href: "/company/about",
-    menu: "company",
-  },
+  { label: "Services", href: "/services", menu: "services" },
+  { label: "Industries", href: "/industries", menu: "industries" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Company", href: "/company/about", menu: "company" },
 ];
 
 const routeMap = {
@@ -129,7 +113,6 @@ const routeMap = {
   "E-commerce SEO": "/services/seo/ecommerce",
   "Enterprise SEO": "/services/seo/enterprise",
   SEO: "/services/seo",
-
   "Paid Advertising": "/services/paid-advertising",
   "Google Ads": "/services/paid-advertising/google-ads",
   "Facebook Ads": "/services/paid-advertising/facebook-ads",
@@ -137,7 +120,6 @@ const routeMap = {
   "YouTube Ads": "/services/paid-advertising/youtube-ads",
   "LinkedIn Ads": "/services/paid-advertising/linkedin-ads",
   "Remarketing Campaigns": "/services/paid-advertising/remarketing",
-
   "Influencer Marketing": "/services/influencer-marketing",
   "Nano Influencer": "/services/influencer-marketing/nano",
   "Micro Influencer": "/services/influencer-marketing/micro",
@@ -145,7 +127,6 @@ const routeMap = {
   "YouTube Influencer": "/services/influencer-marketing/youtube",
   "TikTok Influencer": "/services/influencer-marketing/tiktok",
   "Influencer Campaigns": "/services/influencer-marketing/campaigns",
-
   "Digital Design": "/services/digital-design",
   "UI/UX Design": "/services/digital-design/ui-ux",
   "Website UI Design": "/services/digital-design/website-ui",
@@ -154,7 +135,6 @@ const routeMap = {
   "Visual Design": "/services/digital-design/visual-design",
   "Brand Strategy": "/services/digital-design/brand-strategy",
   "Creative Assets": "/services/digital-design/creative-assets",
-
   "Web Development": "/services/web-development",
   "Website Design": "/services/web-development/website-design",
   "Landing Pages": "/services/web-development/landing-pages",
@@ -163,7 +143,6 @@ const routeMap = {
   "Website Redesign": "/services/web-development/redesign",
   "E-commerce Websites": "/services/web-development/ecommerce",
   "Custom Web Development": "/services/web-development/custom",
-
   Industries: "/industries",
   Finance: "/industries/finance",
   SaaS: "/industries/saas",
@@ -175,14 +154,12 @@ const routeMap = {
   Gaming: "/industries/gaming",
   iGaming: "/industries/igaming",
   Forex: "/industries/forex",
-
   "Types Of Business": "/business-types",
   B2B: "/business-types/b2b",
   B2C: "/business-types/b2c",
   "Small Business": "/business-types/small-business",
   Startup: "/business-types/startup",
   Enterprise: "/business-types/enterprise",
-
   Home: "/",
   Services: "/services",
   Testimonials: "/testimonials",
@@ -190,18 +167,14 @@ const routeMap = {
   "Contact Us": "/company/contact",
 };
 
-function DropdownLink({
-  label,
-  onSelect,
-  color = "blue",
-}) {
+function DropdownLink({ label, onSelect, color = "blue" }) {
   return (
     <Link
       to={routeMap[label] || "/services"}
       className="dropdown-link"
       onClick={onSelect}
     >
-      <span className={`dropdown-dot dot-${color}`} />
+      <span className={`dropdown-dot dot-${color}`} aria-hidden="true" />
       <span>{label}</span>
     </Link>
   );
@@ -211,7 +184,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [dropdownDismissed, setDropdownDismissed] = useState(false);
 
   const navbarRef = useRef(null);
   const location = useLocation();
@@ -221,15 +193,7 @@ export default function Navbar() {
     setActiveDropdown(null);
   };
 
-  // Close menus after navigation.
-  useEffect(() => {
-    closeMenus();
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }, [location.pathname]);
-
-  // Floating navbar and scroll-to-close behavior.
-
-  // Smooth desktop scroll state + preserve mobile menu closing
+  // Desktop scroll animation and menu closing.
   useEffect(() => {
     let previousScrolled = window.scrollY > 50;
 
@@ -241,7 +205,8 @@ export default function Navbar() {
       if (nextScrolled !== previousScrolled) {
         previousScrolled = nextScrolled;
         setScrolled(nextScrolled);
-        closeMenus();
+        setActiveDropdown(null);
+        setMenuOpen(false);
       }
     };
 
@@ -254,10 +219,15 @@ export default function Navbar() {
     };
   }, []);
 
-
-  // Close when clicking outside the navbar.
+  // Close menus after navigation.
   useEffect(() => {
-    if (!menuOpen && !activeDropdown) return;
+    closeMenus();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [location.pathname]);
+
+  // Close menus when clicking outside the navbar.
+  useEffect(() => {
+    if (!menuOpen && !activeDropdown) return undefined;
 
     const handleOutsideClick = (event) => {
       if (
@@ -281,7 +251,9 @@ export default function Navbar() {
   // Close menus with Escape.
   useEffect(() => {
     const handleEscape = (event) => {
-      if (event.key === "Escape") closeMenus();
+      if (event.key === "Escape") {
+        closeMenus();
+      }
     };
 
     document.addEventListener("keydown", handleEscape);
@@ -291,48 +263,57 @@ export default function Navbar() {
     };
   }, []);
 
-
   const handleNavClick = (event, item) => {
-    // Desktop: menu click should not open or lock dropdown.
-    // Navigation through the main menu link remains available.
-    if (window.matchMedia("(min-width: 1001px)").matches) {
-      setActiveDropdown(null);
+    const isDesktop = window.matchMedia(
+      "(min-width: 1001px)"
+    ).matches;
+
+    if (isDesktop) {
+      // Desktop links navigate normally.
+      closeMenus();
       return;
     }
-  
-    // Mobile: first tap opens the submenu.
+
     if (item.menu) {
-      if (activeDropdown !== item.menu) {
-        event.preventDefault();
-        setActiveDropdown(item.menu);
-      } else {
-        // Second tap navigates to the main menu page.
-        closeMenus();
-      }
+      event.preventDefault();
+
+      setActiveDropdown((current) =>
+        current === item.menu ? null : item.menu
+      );
     } else {
       closeMenus();
     }
   };
-  
+
+  const selectDropdownItem = () => {
+    closeMenus();
+  };
 
   const toggleMenu = () => {
     setMenuOpen((current) => !current);
     setActiveDropdown(null);
   };
 
-  const selectDropdownItem = () => {
-    setDropdownDismissed(true);
-    closeMenus();
+  const handleItemMouseEnter = (item) => {
+    if (window.matchMedia("(min-width: 1001px)").matches) {
+      setActiveDropdown(item.menu || null);
+    }
+  };
+
+  const handleItemMouseLeave = () => {
+    if (window.matchMedia("(min-width: 1001px)").matches) {
+      setActiveDropdown(null);
+    }
   };
 
   return (
     <header
       ref={navbarRef}
-      className={`navbar ${scrolled ? "navbar-scrolled" : ""
-        } ${menuOpen ? "menu-open" : ""}`}
+      className={`navbar ${
+        scrolled ? "navbar-scrolled" : ""
+      } ${menuOpen ? "menu-open" : ""}`}
     >
       <nav className="navbar-inner" aria-label="Main navigation">
-
         <Link
           to="/"
           className="navbar-logo"
@@ -341,42 +322,30 @@ export default function Navbar() {
         >
           <img
             src={kravsLogo}
-            alt="Kravs"
+            alt="Kravs Infotech"
             className="navbar-logo-image"
           />
         </Link>
 
-
-
         <div
           id="mobile-navigation"
-          className={`navbar-links ${menuOpen ? "links-open" : ""}`}
-          // onMouseLeave={() => {
-          //   if (window.matchMedia("(min-width: 1001px)").matches) {
-          //     setActiveDropdown(null);
-          //   }
-          // }}
+          className={`navbar-links ${
+            menuOpen ? "links-open" : ""
+          }`}
         >
-
-
           {navItems.map((item) => (
             <div
               key={item.label}
               className={`nav-item ${
                 item.menu ? "has-dropdown" : ""
               } ${
-                activeDropdown === item.menu ? "dropdown-active" : ""
-              } ${
-                dropdownDismissed ? "dropdown-dismissed" : ""
+                activeDropdown === item.menu
+                  ? "dropdown-active"
+                  : ""
               }`}
-                onMouseEnter={() => {
-                  if (window.matchMedia("(min-width: 1001px)").matches) {
-                    setDropdownDismissed(false);
-                    setActiveDropdown(item.menu || null);
-                  }
-                }}
+              onMouseEnter={() => handleItemMouseEnter(item)}
+              onMouseLeave={handleItemMouseLeave}
             >
-
               <Link
                 to={item.href}
                 className="nav-link"
@@ -407,9 +376,7 @@ export default function Navbar() {
                   <span
                     className="dropdown-chevron"
                     aria-hidden="true"
-                  >
-
-                  </span>
+                  />
                 )}
               </Link>
 
@@ -424,6 +391,7 @@ export default function Navbar() {
                         <div className="dropdown-heading">
                           <span
                             className={`service-icon icon-${group.color}`}
+                            aria-hidden="true"
                           >
                             {group.icon}
                           </span>
@@ -451,9 +419,13 @@ export default function Navbar() {
                 <div className="dropdown-panel industries-dropdown">
                   <div className="industry-column">
                     <div className="dropdown-heading">
-                      <span className="service-icon icon-blue">
+                      <span
+                        className="service-icon icon-blue"
+                        aria-hidden="true"
+                      >
                         ▤
                       </span>
+
                       <h3>Industries</h3>
                     </div>
 
@@ -471,9 +443,13 @@ export default function Navbar() {
 
                   <div className="industry-column">
                     <div className="dropdown-heading">
-                      <span className="service-icon icon-purple">
+                      <span
+                        className="service-icon icon-purple"
+                        aria-hidden="true"
+                      >
                         ≋
                       </span>
+
                       <h3>Types Of Business</h3>
                     </div>
 
@@ -512,7 +488,10 @@ export default function Navbar() {
             className="navbar-cta mobile-cta"
             onClick={closeMenus}
           >
-            Let's talk <span className="cta-arrow">↗</span>
+            Let&apos;s talk{" "}
+            <span className="cta-arrow" aria-hidden="true">
+              ↗
+            </span>
           </Link>
         </div>
 
@@ -521,12 +500,16 @@ export default function Navbar() {
           className="navbar-cta desktop-cta"
           onClick={closeMenus}
         >
-          Let's talk <span className="cta-arrow"></span>
+          Let&apos;s talk{" "}
+          <span className="cta-arrow" aria-hidden="true">
+            ↗
+          </span>
         </Link>
 
         <button
-          className={`navbar-toggle ${menuOpen ? "toggle-active" : ""
-            }`}
+          className={`navbar-toggle ${
+            menuOpen ? "toggle-active" : ""
+          }`}
           onClick={toggleMenu}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
