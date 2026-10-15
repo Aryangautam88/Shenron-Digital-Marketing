@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Preloader from"./components/Preloader";
 import Footer from"./components/Footer";
+import Service from "./pages/Service";
 
 import Hero from "./pages/Hero";
 
@@ -16,7 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Hero />} />
 
-        <Route path="/services" element={<main id="services" />} />
+        <Route path="/services" element={<Service/>} />
         <Route path="/services/seo" element={<main />} />
         <Route path="/services/paid-advertising" element={<main />} />
         <Route path="/services/influencer-marketing" element={<main />} />
