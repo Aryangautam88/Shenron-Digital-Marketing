@@ -3354,7 +3354,7 @@ body {
   margin: 0;
   font-size: clamp(40px, 5vw, 64px);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 0.9;
   letter-spacing: -2px;
 }
 

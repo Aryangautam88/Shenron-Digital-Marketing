@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Preloader from"./components/Preloader";
 import Footer from"./components/Footer";
 import Service from "./pages/Service";
+import Industry from "./pages/Industry";
 
 import Hero from "./pages/Hero";
 
@@ -24,7 +25,7 @@ export default function App() {
     <Route path="/services/digital-design" element={<main />} />
     <Route path="/services/web-development" element={<main />} />
 
-    <Route path="/industries" element={<main id="industries" />} />
+    <Route path="/industries" element={<Industry/>} />
     <Route path="/industries/:industry" element={<main />} />
 
     <Route path="/business-types" element={<main />} />
