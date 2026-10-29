@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import kravsLogo from "../assets/kravsLogo.png";
+import { industries } from "../data/industries";
 
 const serviceGroups = [
   {
@@ -73,19 +74,6 @@ const serviceGroups = [
       "Custom Web Development",
     ],
   },
-];
-
-const industries = [
-  "Finance",
-  "SaaS",
-  "Crypto",
-  "Ecommerce",
-  "Real Estate",
-  "Healthcare",
-  "IT & Software",
-  "Gaming",
-  "iGaming",
-  "Forex",
 ];
 
 const businessTypes = [
@@ -432,8 +420,8 @@ export default function Navbar() {
                     <div className="dropdown-list">
                       {industries.map((industry) => (
                         <DropdownLink
-                          key={industry}
-                          label={industry}
+                          key={industry.slug}
+                          label={industry.name}
                           color="blue"
                           onSelect={selectDropdownItem}
                         />

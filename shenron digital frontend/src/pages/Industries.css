@@ -1,0 +1,3931 @@
+/* =========================================
+   KRAVS INFOTECH — INDUSTRIES HERO
+========================================= */
+
+.industries-page {
+  --industry-ink: #101321;
+  --industry-muted: #526071;
+  --industry-purple: #6530f5;
+  --industry-paper: #f7f3eb;
+
+  width: 100%;
+  overflow: hidden;
+  color: var(--industry-ink);
+  background: var(--industry-paper);
+  font-family: "Inter", sans-serif;
+}
+
+.industries-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 760px;
+  overflow: hidden;
+  background-color: var(--industry-paper);
+  background-image: url("../assets/industriesbg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.industries-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: min(100% - 100px, 1320px);
+  min-height: 760px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 110px 0 80px;
+}
+
+.industries-content {
+  width: min(58%, 720px);
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+/* Eyebrow */
+
+.industries-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--industry-purple);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.industries-eyebrow-line {
+  display: inline-block;
+  width: 36px;
+  height: 2px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg,
+      #6530f5,
+      #d8b7ff);
+}
+
+/* Main heading */
+
+.industries-title {
+  max-width: 750px;
+  margin: 22px 0 18px;
+  color: #101321;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(54px, 5.3vw, 76px);
+  font-weight: 700;
+  letter-spacing: -2.8px;
+  line-height: 1.04;
+}
+
+.industries-title span {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: block;
+}
+
+.industries-title em {
+  display: block;
+  margin-top: 2px;
+  color: var(--industry-purple);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.98em;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -2.5px;
+  line-height: 1.12;
+}
+
+/* Description */
+
+.industries-description {
+  max-width: 490px;
+  margin: 0;
+  color: #4e596b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* CTA buttons */
+
+.industries-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.industries-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 0 23px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.industries-button:hover {
+  transform: translateY(-3px);
+}
+
+.industries-button-primary {
+  min-width: 165px;
+  color: #fff;
+  background: #101321;
+  box-shadow: 0 7px 18px rgba(16, 19, 33, 0.12);
+}
+
+.industries-button-primary:hover {
+  background: var(--industry-purple);
+  box-shadow: 0 10px 25px rgba(101, 48, 245, 0.2);
+}
+
+.industries-button-secondary {
+  min-width: 150px;
+  color: #171827;
+  border-color: #d7d1c9;
+  background: rgba(255, 253, 249, 0.8);
+}
+
+.industries-button-secondary:hover {
+  border-color: var(--industry-purple);
+  background: #fff;
+}
+
+/* Keyboard accessibility */
+
+.industries-button:focus-visible {
+  outline: 3px solid rgba(101, 48, 245, 0.35);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   RESPONSIVE — LAPTOP
+========================================= */
+
+@media (max-width: 1180px) {
+
+  .industries-hero,
+  .industries-hero-inner {
+    min-height: 700px;
+  }
+
+  .industries-hero-inner {
+    width: calc(100% - 72px);
+  }
+
+  .industries-content {
+    width: 60%;
+  }
+
+  .industries-title {
+    font-size: clamp(48px, 5.5vw, 66px);
+    letter-spacing: -2px;
+  }
+
+  .industries-title em {
+    letter-spacing: -1.8px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .industries-hero,
+  .industries-hero-inner {
+    min-height: 680px;
+  }
+
+  .industries-hero-inner {
+    width: calc(100% - 56px);
+    padding-top: 100px;
+    padding-bottom: 65px;
+  }
+
+  .industries-content {
+    width: 68%;
+  }
+
+  .industries-title {
+    font-size: clamp(43px, 6.2vw, 58px);
+    letter-spacing: -1.8px;
+  }
+
+  .industries-description {
+    max-width: 440px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .industries-hero {
+    min-height: 690px;
+    background-image: url("../assets/industriesbg_phone.png");
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .industries-hero-inner {
+    width: calc(100% - 36px);
+    min-height: 690px;
+    align-items: flex-start;
+    padding-top: 105px;
+    padding-bottom: 45px;
+  }
+
+  .industries-content {
+    width: 100%;
+    max-width: 520px;
+    padding-bottom: 0;
+    margin-top: 70px;
+  }
+
+  .industries-eyebrow {
+    gap: 9px;
+    font-size: 9px;
+    letter-spacing: 1.1px;
+  }
+
+  .industries-eyebrow-line {
+    width: 28px;
+  }
+
+  .industries-title {
+    margin: 18px 0 15px;
+    font-size: clamp(39px, 9vw, 52px);
+    letter-spacing: -1.7px;
+    line-height: 1.08;
+  }
+
+  .industries-title em {
+    margin-top: 4px;
+    font-size: 0.95em;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+  }
+
+  .industries-description {
+    max-width: 390px;
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  .industries-actions {
+    gap: 10px;
+    margin-top: 21px;
+  }
+
+  .industries-button {
+    min-height: 44px;
+    gap: 9px;
+    padding: 0 15px;
+    font-size: 11px;
+  }
+
+  .industries-button-primary {
+    min-width: 145px;
+  }
+
+  .industries-button-secondary {
+    min-width: 130px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+  .industries-hero,
+  .industries-hero-inner {
+    min-height: 650px;
+  }
+
+  .industries-hero-inner {
+    width: calc(100% - 28px);
+    padding-top: 95px;
+  }
+
+  .industries-title {
+    font-size: 36px;
+    letter-spacing: -1.3px;
+  }
+
+  .industries-description {
+    font-size: 12px;
+  }
+
+  .industries-actions {
+    gap: 8px;
+  }
+
+  .industries-button {
+    padding: 0 12px;
+    font-size: 10px;
+  }
+}
+
+/* Reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .industries-page *,
+  .industries-page *::before,
+  .industries-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*=============================================== Second Page=============================================== */
+
+
+/* =========================================
+   INDUSTRIES SECTION — PREMIUM CREAM THEME
+========================================= */
+
+.industries-content-wrap {
+  width: 100%;
+  padding: 20px 0 70px;
+  background: #F7F3EB;
+  color: #211b32;
+  font-family: "DM Sans", sans-serif;
+}
+
+.industries-section {
+  width: min(1240px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.industries-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 42px;
+  margin-bottom: 34px;
+}
+
+.industries-section-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.industries-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #7555c7;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.industries-eyebrow-line {
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: #8564d8;
+  position: relative;
+}
+
+.industries-eyebrow-line::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #8564d8;
+}
+
+.industries-section-title {
+  margin: 0;
+  color: #211b32;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.7px;
+  line-height: 1.17;
+}
+
+.industries-section-title em {
+  display: block;
+  margin-top: 3px;
+  color: #6530f5;
+  font-weight: 500;
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  letter-spacing: -0.2px;
+}
+
+.industries-section-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 285px;
+  gap: 17px;
+  padding-bottom: 5px;
+}
+
+.industries-section-description {
+  max-width: 290px;
+  margin: 0;
+  color: #716b79;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+.industries-outline-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px 15px;
+  border: 1px solid #e2d9ec;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.65);
+  color: #302344;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.industries-outline-link:hover {
+  background: #7854c5;
+  border-color: #7854c5;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   INDUSTRY CARD GRID
+========================================= */
+
+.industries-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  scroll-margin-top: 100px;
+}
+
+/* =========================================
+   INDUSTRY CARD
+========================================= */
+
+.industry-card {
+  --card-accent: #8461cf;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 225px;
+  padding: 17px 17px 18px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid #eee7f0;
+  border-radius: 15px;
+  background:
+    radial-gradient(circle at 100% 0%,
+      rgba(145, 111, 214, 0.09),
+      transparent 42%),
+    linear-gradient(145deg, #ffffff 0%, #fbf8f2 100%);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 3px 14px rgba(49, 32, 67, 0.025);
+  transition:
+    transform 0.32s ease,
+    box-shadow 0.32s ease,
+    border-color 0.32s ease;
+}
+
+.industry-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -40px;
+  top: 55px;
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  background: var(--card-accent);
+  opacity: 0.035;
+  filter: blur(1px);
+  transition:
+    transform 0.45s ease,
+    opacity 0.35s ease;
+}
+
+.industry-card:hover {
+  transform: translateY(-5px);
+  border-color: #d8c9ef;
+  box-shadow: 0 15px 35px rgba(66, 43, 94, 0.09);
+}
+
+.industry-card:hover::before {
+  opacity: 0.09;
+  transform: scale(1.3);
+}
+
+/* Card numbering and top arrow */
+
+.industry-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.industry-card-topline>span:first-child {
+  color: var(--card-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.industry-card-top-arrow {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid #eee8f1;
+  border-radius: 50%;
+  background: #fff;
+  color: #6d5c82;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.industry-card:hover .industry-card-top-arrow {
+  color: #fff;
+  background: var(--card-accent);
+  transform: rotate(45deg);
+}
+
+/* =========================================
+   ICON ART AREA — NO IMAGES
+========================================= */
+
+.industry-card-art-space {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 82px;
+  padding: 12px 0 8px;
+}
+
+.industry-card-icon {
+  position: relative;
+  display: grid;
+  width: 67px;
+  height: 67px;
+  place-items: center;
+  border: 1px solid rgba(132, 97, 207, 0.14);
+  border-radius: 19px;
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(240, 232, 251, 0.86));
+  color: var(--card-accent);
+  box-shadow:
+    0 8px 20px rgba(68, 43, 100, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-radius 0.35s ease;
+}
+
+.industry-card-icon svg {
+  width: 31px;
+  height: 31px;
+  stroke-width: 1.55;
+}
+
+.industry-card:hover .industry-card-icon {
+  transform: translateY(-3px) rotate(-4deg);
+  border-radius: 22px;
+  box-shadow: 0 12px 25px rgba(95, 66, 150, 0.13);
+}
+
+/* =========================================
+   CARD TEXT
+========================================= */
+
+.industry-card-copy {
+  padding-right: 5px;
+  padding-bottom: 10px;
+}
+
+.industry-card-copy h3 {
+  margin: 0 0 7px;
+  color: #292137;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.35px;
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+.industry-card-copy p {
+  max-width: 245px;
+  margin: 0;
+  color: #77717e;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.industry-card:hover .industry-card-copy h3 {
+  color: var(--card-accent);
+}
+
+/* Bottom-right navigation arrow */
+
+.industry-card-arrow {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border: 1px solid #e8e0f1;
+  border-radius: 50%;
+  background: #fff;
+  color: #7856c6;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.industry-card:hover .industry-card-arrow {
+  color: #fff;
+  background: #7856c6;
+  border-color: #7856c6;
+  transform: translateX(3px);
+}
+
+/* =========================================
+   INDIVIDUAL INDUSTRY ACCENTS
+========================================= */
+
+.industry-card:nth-child(4n + 1) {
+  --card-accent: #8160c7;
+}
+
+.industry-card:nth-child(4n + 2) {
+  --card-accent: #a16d83;
+}
+
+.industry-card:nth-child(4n + 3) {
+  --card-accent: #6b8a77;
+}
+
+.industry-card:nth-child(4n + 4) {
+  --card-accent: #b17d4e;
+}
+
+/* =========================================
+   RESPONSIVE — TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  .industries-section-heading {
+    gap: 25px;
+  }
+
+  .industries-section-side {
+    flex-basis: 245px;
+  }
+
+  .industries-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .industry-card {
+    min-height: 220px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — SMALL TABLET
+========================================= */
+
+@media (max-width: 760px) {
+  .industries-content-wrap {
+    padding: 25px 0 50px;
+  }
+
+  .industries-section {
+    width: 91%;
+  }
+
+  .industries-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 25px;
+  }
+
+  .industries-section-title {
+    font-size: clamp(32px, 6vw, 42px);
+  }
+
+  .industries-section-side {
+    flex-basis: auto;
+    width: 100%;
+    gap: 13px;
+  }
+
+  .industries-section-description {
+    max-width: 480px;
+    font-size: 13px;
+  }
+
+  .industries-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .industry-card {
+    min-height: 218px;
+    padding: 15px;
+    border-radius: 13px;
+  }
+
+  .industry-card-art-space {
+    min-height: 76px;
+  }
+
+  .industry-card-icon {
+    width: 59px;
+    height: 59px;
+    border-radius: 16px;
+  }
+
+  .industry-card-copy h3 {
+    font-size: 14px;
+  }
+
+  .industry-card-copy p {
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE — MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .industries-section {
+    width: 92%;
+  }
+
+  .industries-section-title {
+    font-size: 31px;
+    letter-spacing: -1px;
+  }
+
+  .industries-section-title em {
+    font-size: 27px;
+    letter-spacing: -0.8px;
+  }
+
+  .industries-card-grid {
+    gap: 10px;
+  }
+
+  .industry-card {
+    min-height: 213px;
+    padding: 12px 11px 15px;
+    border-radius: 12px;
+  }
+
+  .industry-card-topline>span:first-child {
+    font-size: 10px;
+  }
+
+  .industry-card-top-arrow {
+    width: 25px;
+    height: 25px;
+  }
+
+  .industry-card-art-space {
+    min-height: 69px;
+    padding: 9px 0;
+  }
+
+  .industry-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .industry-card-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .industry-card-copy h3 {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .industry-card-copy p {
+    font-size: 10.5px;
+    line-height: 1.6;
+  }
+
+  .industry-card-arrow {
+    right: 9px;
+    bottom: 9px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .industry-card,
+  .industry-card *,
+  .industries-outline-link {
+    transition: none !important;
+  }
+}
+
+/* =================================================Third Page=========================================== */
+
+/* =========================================
+   KRAVS INFOTECH — SAAS HERO
+   Clean Cream + Purple Design
+========================================= */
+
+.saas-hero {
+  --saas-bg: #F7F3EB;
+  --saas-purple: #7650ee;
+  --saas-purple-dark: #261b3e;
+  --saas-text: #20192f;
+  --saas-muted: #706b78;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--saas-text);
+  font-family: "DM Sans", sans-serif;
+
+  /* Desktop background — no gradient overlay */
+  background-color: #F7F3EB;
+  background-image: url("../assets/industries_saas_bg.png");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+}
+
+.saas-hero,
+.saas-hero * {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.saas-hero-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(1320px, calc(100% - 100px));
+  min-height: 80vh;
+  margin-inline: auto;
+  padding: 90px 0;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.saas-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 58%;
+  max-width: 700px;
+}
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.saas-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--saas-purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.saas-eyebrow-line {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg,
+      var(--saas-purple),
+      #d8bfff);
+}
+
+.saas-eyebrow-line::after {
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--saas-purple);
+  content: "";
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.saas-hero-title {
+  max-width: 720px;
+  margin: 0;
+  color: var(--saas-text);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -2.3px;
+  line-height: 1.09;
+}
+
+.saas-hero-title em {
+  color: var(--saas-purple);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -1.8px;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.saas-hero-description {
+  max-width: 450px;
+  margin: 21px 0 26px;
+  color: var(--saas-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.saas-hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 15px;
+  max-width: 600px;
+  margin-bottom: 29px;
+}
+
+.saas-feature {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.saas-feature-icon {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(118, 80, 238, 0.12);
+  border-radius: 10px;
+  background: rgba(239, 232, 255, 0.92);
+  color: var(--saas-purple);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.saas-feature:hover .saas-feature-icon {
+  transform: translateY(-2px);
+  background: #e7dcff;
+}
+
+.saas-feature-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.saas-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #30283d;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.saas-feature-text span+span {
+  font-weight: 400;
+}
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.saas-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.saas-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 46px;
+  padding: 0 21px;
+  border: 1px solid var(--saas-purple-dark);
+  border-radius: 50px;
+  background: var(--saas-purple-dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(38, 27, 62, 0.1);
+  transition:
+    background 0.28s ease,
+    border-color 0.28s ease,
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.saas-hero-cta:hover {
+  transform: translateY(-3px);
+  border-color: var(--saas-purple);
+  background: var(--saas-purple);
+  box-shadow: 0 10px 24px rgba(118, 80, 238, 0.2);
+}
+
+.saas-hero-cta svg {
+  flex-shrink: 0;
+  transition: transform 0.28s ease;
+}
+
+.saas-hero-cta:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.saas-hero-cta:focus-visible {
+  outline: 3px solid rgba(118, 80, 238, 0.4);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   DECORATIVE VISUAL AREA
+========================================= */
+
+.saas-hero-visual {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 48%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.saas-hero-glow {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  width: 75%;
+  height: 65%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse,
+      rgba(190, 163, 255, 0.12),
+      transparent 70%);
+  filter: blur(25px);
+}
+
+.saas-hero-orbit {
+  position: absolute;
+  width: 115%;
+  height: 50%;
+  border: 1px solid rgba(126, 83, 243, 0.14);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+.saas-orbit-one {
+  top: 12%;
+  right: -30%;
+}
+
+.saas-orbit-two {
+  top: 19%;
+  right: -34%;
+  border-color: rgba(126, 83, 243, 0.08);
+  transform: rotate(-28deg);
+}
+
+/* =========================================
+   LAPTOP — 1200px
+========================================= */
+
+@media (max-width: 1200px) {
+  .saas-hero {
+    background-position: center right;
+    background-size: auto 100%;
+  }
+
+  .saas-hero-container {
+    width: calc(100% - 80px);
+    min-height: 85vh;
+    padding-block: 75px;
+  }
+
+  .saas-hero-content {
+    width: 62%;
+  }
+
+  .saas-hero-title {
+    font-size: clamp(40px, 4.8vw, 58px);
+    letter-spacing: -1.8px;
+  }
+
+  .saas-hero-description {
+    max-width: 410px;
+    font-size: 12px;
+  }
+
+  .saas-hero-features {
+    gap: 10px;
+  }
+
+  .saas-feature {
+    gap: 7px;
+  }
+
+  .saas-feature-text {
+    font-size: 9px;
+  }
+}
+
+/* =========================================
+   TABLET — 850px
+========================================= */
+
+@media (max-width: 850px) {
+  .saas-hero {
+    min-height: auto;
+    background-position: center right;
+    background-size: auto 100%;
+  }
+
+  .saas-hero-container {
+    width: calc(100% - 56px);
+    min-height: 680px;
+    padding-block: 100px 65px;
+  }
+
+  .saas-hero-content {
+    width: 72%;
+  }
+
+  .saas-hero-title {
+    font-size: clamp(38px, 5.5vw, 48px);
+    letter-spacing: -1.5px;
+  }
+
+  .saas-hero-title em {
+    letter-spacing: -1px;
+  }
+
+  .saas-hero-description {
+    max-width: 390px;
+    margin-block: 17px 22px;
+    font-size: 12px;
+  }
+
+  .saas-hero-features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .saas-feature {
+    gap: 10px;
+  }
+
+  .saas-feature-text {
+    font-size: 10px;
+  }
+
+  .saas-hero-visual {
+    width: 40%;
+  }
+}
+
+/* =========================================
+   MOBILE — 600px
+========================================= */
+
+@media (max-width: 600px) {
+  .saas-hero {
+    min-height: 100vh;
+    background-color: var(--saas-bg);
+
+    /* Mobile background — no gradient overlay */
+    background-image: url("../assets/industries_saas_bg_phone.png");
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+
+  .saas-hero-container {
+    width: calc(100% - 38px);
+    min-height: auto;
+    padding: 85px 0 50px;
+  }
+
+  .saas-hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin-top: -40px;
+  }
+
+  .saas-hero-eyebrow {
+    gap: 9px;
+    margin-bottom: 16px;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .saas-eyebrow-line {
+    width: 25px;
+  }
+
+  .saas-hero-title {
+    font-size: clamp(33px, 7.5vw, 44px);
+    letter-spacing: -1.2px;
+    line-height: 1.12;
+  }
+
+  .saas-hero-title em {
+    letter-spacing: -0.9px;
+  }
+
+  .saas-hero-description {
+    max-width: 440px;
+    margin: 16px 0 22px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .saas-hero-features {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 24px;
+  }
+
+  .saas-feature {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .saas-feature-icon {
+    flex-basis: 31px;
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+  }
+
+  .saas-feature-text {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .saas-hero-cta {
+    min-height: 44px;
+    gap: 15px;
+    padding-inline: 17px;
+    display: none;
+    font-size: 10.5px;
+  }
+
+  .saas-hero-visual {
+    display: none;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE — 400px
+========================================= */
+
+@media (max-width: 400px) {
+  .saas-hero {
+    background-position: center top;
+    background-size: 100% auto;
+  }
+
+  .saas-hero-container {
+    width: calc(100% - 30px);
+    /* padding-top: 72px; */
+    padding-bottom: 38px;
+  }
+
+  .saas-hero-title {
+    font-size: 31px;
+    letter-spacing: -0.8px;
+  }
+
+  .saas-hero-title em {
+    letter-spacing: -0.6px;
+  }
+
+  .saas-hero-description {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .saas-hero-features {
+    gap: 6px;
+  }
+
+  .saas-feature {
+    gap: 7px;
+  }
+
+  .saas-feature-icon {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .saas-feature-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .saas-feature-text {
+    font-size: 8px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE — 340px
+========================================= */
+
+@media (max-width: 340px) {
+  .saas-hero-container {
+    width: calc(100% - 26px);
+    padding-top: 62px;
+  }
+
+  .saas-hero-title {
+    font-size: 28px;
+  }
+
+  .saas-hero-description {
+    font-size: 10.5px;
+  }
+
+  .saas-hero-features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .saas-feature {
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .saas-feature-text {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .saas-hero *,
+  .saas-hero *::before,
+  .saas-hero *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================forth page======================================== */
+
+/* ==================================================
+   KRAVS INFOTECH — SIGNATURE STATS EXPERIENCE
+   Premium Cream / Violet / Editorial UI
+================================================== */
+
+.industry-stats-section {
+  --stats-paper: #f7f3eb;
+  --stats-card: #fffdf9;
+  --stats-ink: #211832;
+  --stats-muted: #746d80;
+  --stats-purple: #7650ee;
+  --stats-purple-dark: #5231b5;
+  --stats-border: rgba(75, 49, 119, 0.13);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(22px, 3.6vh, 38px) 0 18px;
+  overflow: hidden;
+  color: var(--stats-ink);
+  font-family: "DM Sans", sans-serif;
+  margin-top: -70px;
+}
+
+.industry-stats-section *,
+.industry-stats-section *::before,
+.industry-stats-section *::after {
+  box-sizing: border-box;
+}
+
+/* Background details */
+
+.industry-stats-section::before {
+  position: absolute;
+  z-index: -1;
+  top: -190px;
+  right: -100px;
+  width: 450px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(118, 80, 238, 0.12);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.industry-stats-section::after {
+  position: absolute;
+  z-index: -1;
+  right: -35px;
+  bottom: -285px;
+  width: 490px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(118, 80, 238, 0.08);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 34px rgba(118, 80, 238, 0.018),
+    0 0 0 70px rgba(118, 80, 238, 0.015);
+  content: "";
+  pointer-events: none;
+}
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.industry-stats-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  width: min(1440px, calc(100% - 104px));
+  min-height: 0;
+  margin-inline: auto;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.industry-stats-header {
+  max-width: 760px;
+  margin: 0 auto clamp(20px, 3vh, 30px);
+  text-align: center;
+}
+
+.industry-stats-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 11px;
+  color: var(--stats-purple-dark);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.industry-stats-eyebrow-line {
+  width: 29px;
+  height: 1px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg,
+      var(--stats-purple),
+      #d8c8ff);
+}
+
+.industry-stats-header h2 {
+  margin: 0;
+  color: var(--stats-ink);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(34px, 3.4vw, 47px);
+  font-weight: 700;
+  letter-spacing: -1.6px;
+  line-height: 1.13;
+}
+
+.industry-stats-header h2 em {
+  color: var(--stats-purple);
+  font-weight: 500;
+  font-family: "Playfair Display", Georgia, serif;
+
+  font-style: italic;
+}
+
+.industry-stats-header>p {
+  max-width: 510px;
+  margin: 10px auto 0;
+  color: var(--stats-muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+/* ==================================================
+   EDITORIAL GRID
+   Keeps the original 12-column layout
+================================================== */
+
+.industry-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(11px, 1.15vw, 16px);
+  align-items: stretch;
+  min-height: 0;
+}
+
+/* Original layout sizes */
+
+.industry-stat-small {
+  grid-column: span 3;
+}
+
+.industry-stat-wide {
+  grid-column: span 6;
+}
+
+/* ==================================================
+   STAT CARD
+================================================== */
+
+.industry-stat-card {
+  --card-accent: #7650ee;
+  --card-accent-soft: #f0eaff;
+  --card-accent-border: rgba(118, 80, 238, 0.17);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(16px, 2.2vh, 23px) clamp(16px, 1.65vw, 24px);
+  overflow: hidden;
+  border: 1px solid var(--stats-border);
+  border-radius: 17px;
+  background: rgba(255, 253, 249, 0.88);
+  box-shadow:
+    0 3px 12px rgba(40, 28, 65, 0.025),
+    0 12px 28px rgba(40, 28, 65, 0.025),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  transition:
+    transform 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease,
+    background-color 280ms ease;
+  animation: industryStatAppear 550ms both;
+  animation-delay: calc(var(--card-index, 0) * 65ms);
+}
+
+/* Top accent */
+
+.industry-stat-card::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 22px;
+  width: 48px;
+  height: 3px;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(90deg,
+      var(--card-accent),
+      rgba(118, 80, 238, 0.12));
+  content: "";
+  display: none;
+}
+
+/* Restrained light effect */
+
+.industry-stat-card::after {
+  position: absolute;
+  z-index: -1;
+  top: -82px;
+  right: -75px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      var(--card-accent-soft) 0%,
+      rgba(255, 255, 255, 0) 72%);
+  opacity: 0.78;
+  content: "";
+  pointer-events: none;
+}
+
+.industry-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-accent-border);
+  background: #fffefa;
+  box-shadow:
+    0 15px 32px rgba(39, 27, 65, 0.065),
+    0 4px 12px rgba(118, 80, 238, 0.045);
+}
+
+/* Accent variations */
+
+.industry-stat-blue {
+  --card-accent: #5e68df;
+  --card-accent-soft: #eaedff;
+  --card-accent-border: rgba(94, 104, 223, 0.23);
+}
+
+.industry-stat-purple {
+  --card-accent: #9254d7;
+  --card-accent-soft: #f1e7ff;
+  --card-accent-border: rgba(146, 84, 215, 0.23);
+}
+
+.industry-stat-peach {
+  --card-accent: #d16b67;
+  --card-accent-soft: #ffede4;
+  --card-accent-border: rgba(209, 107, 103, 0.23);
+}
+
+/* ==================================================
+   CARD TOP
+================================================== */
+
+.industry-stat-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: clamp(10px, 1.6vh, 17px);
+}
+
+.industry-stat-icon {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+  place-items: center;
+  border: 1px solid var(--card-accent-border);
+  border-radius: 12px;
+  background: var(--card-accent-soft);
+  color: var(--card-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition:
+    transform 260ms ease,
+    border-radius 260ms ease;
+}
+
+.industry-stat-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.industry-stat-card:hover .industry-stat-icon {
+  transform: translateY(-2px) rotate(-4deg);
+  border-radius: 14px;
+}
+
+.industry-stat-index {
+  color: #a49bad;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==================================================
+   COUNTER / NUMBER
+================================================== */
+
+.industry-stat-main {
+  position: relative;
+  z-index: 1;
+}
+
+.industry-stat-number {
+  display: block;
+  color: var(--stats-ink);
+  font-family: "Plus Jakarta Sans", "DM Sans", sans-serif;
+  font-size: clamp(34px, 3.15vw, 49px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.industry-stat-main h3 {
+  width: fit-content;
+  max-width: 100%;
+  margin: 9px 0 0;
+  color: var(--card-accent);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(12px, 1.05vw, 15px);
+  font-weight: 650;
+  letter-spacing: -0.2px;
+  line-height: 1.45;
+}
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.industry-stat-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: clamp(12px, 2vh, 20px);
+}
+
+.industry-stat-bottom p {
+  max-width: 410px;
+  margin: 0;
+  color: var(--stats-muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.7;
+}   
+
+.industry-stat-arrow {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  place-items: center;
+  border: 1px solid var(--card-accent-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--card-accent);
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+.industry-stat-arrow svg {
+  width: 15px;
+  height: 15px;
+}
+
+.industry-stat-card:hover .industry-stat-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.industry-stats-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: clamp(14px, 2.2vh, 22px);
+  text-align: center;
+}
+
+.industry-stats-footer-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: var(--stats-purple);
+  box-shadow: 0 0 0 4px rgba(118, 80, 238, 0.11);
+}
+
+.industry-stats-footer p {
+  margin: 0;
+  color: #81788d;
+  font-size: 10px;
+  letter-spacing: 0.1px;
+  line-height: 1.6;
+}
+
+/* ==================================================
+   ANIMATION
+================================================== */
+
+@keyframes industryStatAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================================================
+   LAPTOP — 1200px
+================================================== */
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .industry-stats-container {
+    width: calc(100% - 64px);
+  }
+
+  .industry-stats-header {
+    margin-bottom: 20px;
+  }
+
+  .industry-stats-header h2 {
+    font-size: clamp(31px, 3.5vw, 40px);
+  }
+
+  .industry-stats-header>p {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  .industry-stats-grid {
+    gap: 12px;
+  }
+
+  .industry-stat-card {
+    padding: 15px 17px;
+    border-radius: 14px;
+  }
+
+  .industry-stat-top {
+    margin-bottom: 10px;
+  }
+
+  .industry-stat-icon {
+    width: 33px;
+    height: 33px;
+    flex-basis: 33px;
+  }
+
+  .industry-stat-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .industry-stat-number {
+    font-size: clamp(31px, 3.2vw, 39px);
+  }
+
+  .industry-stat-main h3 {
+    margin-top: 7px;
+    font-size: 12px;
+  }
+
+  .industry-stat-bottom {
+    padding-top: 10px;
+  }
+
+  .industry-stat-bottom p {
+    font-size: 10px;
+  }
+
+  .industry-stats-footer {
+    margin-top: 13px;
+  }
+}
+
+/* Short laptop / compact desktop */
+
+@media (min-width: 901px) and (max-height: 760px) {
+  .industry-stats-section {
+    padding-top: 15px;
+    padding-bottom: 12px;
+  }
+
+  .industry-stats-header {
+    margin-bottom: 14px;
+  }
+
+  .industry-stats-header h2 {
+    font-size: clamp(28px, 2.7vw, 36px);
+  }
+
+  .industry-stats-header>p {
+    margin-top: 6px;
+    font-size: 10px;
+  }
+
+  .industry-stats-eyebrow {
+    margin-bottom: 7px;
+    font-size: 9px;
+  }
+
+  .industry-stats-grid {
+    gap: 10px;
+  }
+
+  .industry-stat-card {
+    padding: 12px 16px;
+  }
+
+  .industry-stat-card::before {
+    left: 16px;
+  }
+
+  .industry-stat-top {
+    margin-bottom: 8px;
+  }
+
+  .industry-stat-icon {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+    border-radius: 9px;
+  }
+
+  .industry-stat-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .industry-stat-number {
+    font-size: clamp(28px, 2.8vw, 35px);
+  }
+
+  .industry-stat-main h3 {
+    margin-top: 6px;
+    font-size: 11px;
+  }
+
+  .industry-stat-bottom {
+    padding-top: 8px;
+  }
+
+  .industry-stat-bottom p {
+    font-size: 9px;
+    line-height: 1.55;
+  }
+
+  .industry-stats-footer {
+    margin-top: 10px;
+  }
+
+  .industry-stats-footer p {
+    font-size: 9px;
+  }
+}
+
+/* ==================================================
+   TABLET — 900px
+================================================== */
+
+@media (max-width: 900px) {
+  .industry-stats-section {
+    padding: 45px 0 28px;
+  }
+
+  .industry-stats-container {
+    width: calc(100% - 48px);
+  }
+
+  .industry-stats-header {
+    margin-bottom: 25px;
+  }
+
+  .industry-stats-header h2 {
+    font-size: clamp(31px, 4.5vw, 42px);
+  }
+
+  .industry-stats-header>p {
+    font-size: 12px;
+  }
+
+  .industry-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 13px;
+  }
+
+  .industry-stat-small,
+  .industry-stat-wide {
+    grid-column: span 1;
+  }
+
+  .industry-stat-card {
+    min-height: 195px;
+    padding: 19px;
+    border-radius: 15px;
+  }
+
+  .industry-stat-number {
+    font-size: clamp(34px, 5vw, 45px);
+  }
+
+  .industry-stat-main h3 {
+    font-size: 12px;
+  }
+
+  .industry-stat-bottom p {
+    font-size: 10.5px;
+  }
+
+  .industry-stat-arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ==================================================
+   MOBILE — 600px
+================================================== */
+
+@media (max-width: 600px) {
+  .industry-stats-section {
+    min-height: 100svh;
+    padding: 48px 0 25px;
+  }
+
+  .industry-stats-container {
+    width: calc(100% - 32px);
+  }
+
+  .industry-stats-header {
+    margin-bottom: 23px;
+  }
+
+  .industry-stats-eyebrow {
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .industry-stats-eyebrow-line {
+    width: 22px;
+  }
+
+  .industry-stats-header h2 {
+    font-size: clamp(28px, 7.2vw, 37px);
+    letter-spacing: -0.9px;
+    line-height: 1.17;
+  }
+
+  .industry-stats-header>p {
+    max-width: 370px;
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 1.75;
+  }
+
+  .industry-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .industry-stat-card {
+    min-height: 190px;
+    padding: 15px 12px;
+    border-radius: 13px;
+  }
+
+  .industry-stat-card::before {
+    left: 12px;
+    width: 35px;
+  }
+
+  .industry-stat-card::after {
+    top: -45px;
+    right: -45px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .industry-stat-top {
+    margin-bottom: 14px;
+  }
+
+  .industry-stat-icon {
+    width: 31px;
+    height: 31px;
+    flex-basis: 31px;
+    border-radius: 9px;
+  }
+
+  .industry-stat-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .industry-stat-index {
+    font-size: 8px;
+  }
+
+  .industry-stat-number {
+    font-size: clamp(26px, 7.6vw, 35px);
+    letter-spacing: -1.5px;
+  }
+
+  .industry-stat-main h3 {
+    margin-top: 7px;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .industry-stat-bottom {
+    align-items: flex-start;
+    padding-top: 13px;
+  }
+
+  .industry-stat-bottom p {
+    font-size: 9px;
+    line-height: 1.65;
+  }
+
+  .industry-stat-arrow {
+    display: none;
+  }
+
+  .industry-stats-footer {
+    margin-top: 19px;
+    gap: 8px;
+  }
+
+  .industry-stats-footer p {
+    font-size: 9px;
+  }
+}
+
+/* ==================================================
+   SMALL MOBILE — 400px
+================================================== */
+
+@media (max-width: 400px) {
+  .industry-stats-container {
+    width: calc(100% - 24px);
+  }
+
+  .industry-stats-header h2 {
+    font-size: 27px;
+  }
+
+  .industry-stats-grid {
+    gap: 8px;
+  }
+
+  .industry-stat-card {
+    min-height: 185px;
+    padding: 13px 10px;
+    border-radius: 12px;
+  }
+
+  .industry-stat-card::before {
+    left: 10px;
+  }
+
+  .industry-stat-top {
+    margin-bottom: 12px;
+  }
+
+  .industry-stat-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .industry-stat-number {
+    font-size: clamp(24px, 8vw, 31px);
+    letter-spacing: -1.2px;
+  }
+
+  .industry-stat-main h3 {
+    font-size: 10px;
+  }
+
+  .industry-stat-bottom {
+    padding-top: 12px;
+  }
+
+  .industry-stat-bottom p {
+    font-size: 8.5px;
+  }
+}
+
+/* ==================================================
+   EXTRA SMALL MOBILE — 340px
+================================================== */
+
+@media (max-width: 340px) {
+  .industry-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .industry-stat-small,
+  .industry-stat-wide {
+    grid-column: span 1;
+  }
+
+  .industry-stat-card {
+    min-height: 170px;
+    padding: 17px;
+  }
+
+  .industry-stat-card::before {
+    left: 17px;
+  }
+
+  .industry-stat-number {
+    font-size: 37px;
+  }
+
+  .industry-stat-main h3 {
+    font-size: 12px;
+  }
+
+  .industry-stat-bottom p {
+    font-size: 10px;
+  }
+}
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+.industry-stat-card:focus-within {
+  outline: 2px solid var(--stats-purple);
+  outline-offset: 3px;
+}
+
+@media (hover: none) {
+  .industry-stat-arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .industry-stat-card {
+    animation: none;
+    transition: none;
+  }
+
+  .industry-stat-card *,
+  .industry-stat-card::before,
+  .industry-stat-card::after {
+    transition: none !important;
+  }
+}
+
+/*============================================================== Fifth Page===================================================== */
+
+/* ============================================
+   KRAVS INFOTECH — INDUSTRY INSIGHTS
+   Reference-matched premium layout
+============================================ */
+
+
+.industry-insights {
+
+  --ii-ink: #21172f;
+
+  --ii-muted: #62596f;
+
+  --ii-purple: #7041ee;
+
+  --ii-paper: #F7F3EB;
+
+
+
+  position: relative;
+
+  isolation: isolate;
+
+  width: 100%;
+
+  min-height: 0;  
+
+  height: auto;
+  min-height: 100vh;
+
+
+
+  padding: 30px 0 42px;
+
+  overflow: hidden;
+
+
+
+  color: var(--ii-ink);
+
+  background-color: #f7f3eb;
+
+
+
+  background-image:
+
+    linear-gradient(40deg,
+
+      rgba(250, 246, 239, 0.78) 0%,
+
+      rgba(250, 246, 239, 0.65) 25%,
+
+      rgba(250, 246, 239, 0.42) 45%,
+
+      rgba(250, 246, 239, 0.18) 80%),
+
+    url("../assets/Industries_insight.png");
+
+
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  background-size: cover;
+
+
+
+  font-family: "DM Sans", sans-serif;
+
+}
+
+
+
+.industry-insights *,
+
+.industry-insights *::before,
+
+.industry-insights *::after {
+
+  box-sizing: border-box;
+
+}
+
+
+
+/* ============================================*
+
+*   MAIN LAYOUT*
+
+*============================================ */
+
+
+
+.industry-insights-container {
+
+  position: relative;
+
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.2fr) minmax(350px, 0.8fr);
+
+  align-items: center;
+
+  gap: clamp(38px, 5.5vw, 88px);
+
+  width: min(1400px, calc(100% - 12%));
+
+  margin-inline: auto;
+
+}
+
+
+
+.industry-insights-content {
+
+  width: 100%;
+
+  max-width: 750px;
+
+  min-width: 0;
+
+  animation: iiRevealLeft 650ms ease both;
+
+}
+
+
+
+/* ============================================*
+
+*   EYEBROW*
+
+*============================================ */
+
+
+
+.industry-insights-eyebrow {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+
+
+  margin-bottom: 15px;
+
+
+
+  color: #6037d8;
+
+  font-size: 9px;
+
+  font-weight: 750;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+}
+
+
+
+.industry-insights-eyebrow-line {
+
+  position: relative;
+
+  width: 32px;
+
+  height: 1px;
+
+  flex-shrink: 0;
+
+
+
+  background: linear-gradient(90deg, #7041ee, #c7b3ff);
+
+}
+
+
+
+.industry-insights-eyebrow-line::after {
+
+  position: absolute;
+
+  top: 50%;
+
+  right: -2px;
+
+
+
+  width: 5px;
+
+  height: 5px;
+
+
+
+  border-radius: 50%;
+
+  background: var(--ii-purple);
+
+  content: "";
+
+  transform: translateY(-50%);
+
+}
+
+
+
+/* ============================================*
+
+*   HEADING*
+
+*============================================ */
+
+
+
+.industry-insights-title {
+
+  max-width: 750px;
+
+  margin: 0;
+
+
+
+  color: var(--ii-ink);
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  font-size: clamp(53px, 4.2vw, 42px);
+
+  font-weight: 700;
+
+  line-height: 1.02;
+
+  letter-spacing: -2px;
+
+}
+
+
+
+.industry-insights-title em {
+
+  display: block;
+
+  margin-top: 7px;
+
+  font-family: "Playfair Display", Georgia, serif;
+
+  color: var(--ii-purple);
+
+  font-size: clamp(43px, 4.2vw, 62px);
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  letter-spacing: -0.7px;
+
+}
+
+
+
+/* ============================================*
+
+*   DESCRIPTION*
+
+*============================================ */
+
+
+
+.industry-insights-description {
+
+  max-width: 560px;
+
+  margin: 19px 0 0;
+
+
+
+  color: #5e556b;
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  line-height: 1.9;
+
+}
+
+
+
+/* ============================================*
+
+*   FEATURE CARDS*
+
+*============================================ */
+
+
+
+.industry-insights-features {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  max-width: 760px;
+
+  margin-top: 25px;
+
+}
+
+
+
+.industry-insights-feature {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+
+
+  min-width: 0;
+
+  min-height: 55px;
+
+  padding: 9px 10px;
+
+
+
+  border: 1px solid rgba(103, 74, 153, 0.11);
+
+  border-radius: 13px;
+
+
+
+  background: rgba(255, 253, 250, 0.94);
+
+  box-shadow: 0 4px 14px rgba(42, 27, 63, 0.035);
+
+
+
+  transition:
+
+    transform 220ms ease,
+
+    border-color 220ms ease,
+
+    box-shadow 220ms ease;
+
+}
+
+
+
+.industry-insights-feature:hover {
+
+  transform: translateY(-3px);
+
+  border-color: rgba(112, 65, 238, 0.25);
+
+  box-shadow: 0 9px 22px rgba(42, 27, 63, 0.065);
+
+}
+
+
+
+.industry-insights-feature-icon {
+
+  display: grid;
+
+  place-items: center;
+
+
+
+  width: 31px;
+
+  height: 31px;
+
+  flex: 0 0 31px;
+
+
+
+  border: 1px solid rgba(112, 65, 238, 0.08);
+
+  border-radius: 9px;
+
+
+
+  background: #f0e9ff;
+
+  color: var(--ii-purple);
+
+}
+
+
+
+.industry-insights-feature-text {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+
+
+
+  color: var(--ii-ink);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+}
+
+
+
+.industry-insights-feature-text span+span {
+
+  color: var(--ii-muted);
+
+  font-weight: 450;
+
+  font-size: 10px;
+
+}
+
+
+
+/* ============================================*
+
+*   RIGHT PANEL*
+
+*============================================ */
+
+
+
+.industry-insights-panel {
+
+  position: relative;
+
+
+
+  width: 100%;
+
+  max-width: 470px;
+
+  min-width: 0;
+
+  justify-self: end;
+
+
+
+  padding: 24px 25px 18px;
+
+
+
+  border: 1px solid rgba(112, 65, 238, 0.10);
+
+  border-radius: 19px;
+
+
+
+  background: rgba(255, 253, 250, 0.94);
+
+
+
+  box-shadow:
+
+    0 15px 40px rgba(44, 28, 68, 0.055),
+
+    0 2px 8px rgba(44, 28, 68, 0.025),
+
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+
+
+  animation: iiRevealRight 750ms 100ms ease both;
+
+}
+
+
+
+.industry-insights-panel-heading {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+
+
+  margin-bottom: 7px;
+
+}
+
+
+
+.industry-insights-panel-heading h2 {
+
+  margin: 0;
+
+
+
+  color: var(--ii-ink);
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.3px;
+
+}
+
+
+
+.industry-insights-panel-mark {
+
+  display: grid;
+
+  place-items: center;
+
+
+
+  width: 31px;
+
+  height: 31px;
+
+  flex: 0 0 31px;
+
+
+
+  border: 1px solid rgba(112, 65, 238, 0.15);
+
+  border-radius: 50%;
+
+
+
+  background: #fff;
+
+  color: var(--ii-purple);
+
+
+
+  transition:
+
+    background 220ms ease,
+
+    color 220ms ease,
+
+    transform 220ms ease;
+
+}
+
+
+
+.industry-insights-panel:hover .industry-insights-panel-mark {
+
+  color: #fff;
+
+  background: var(--ii-purple);
+
+  transform: rotate(45deg);
+
+}
+
+
+
+/* ============================================*
+
+*   FOCUS ITEMS*
+
+*============================================ */
+
+
+
+.industry-insights-focus-list {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+
+.industry-insights-focus {
+
+  display: grid;
+
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+
+  align-items: start;
+
+  gap: 12px;
+
+
+
+  padding: 15px 0;
+
+
+
+  border-bottom: 1px solid rgba(75, 49, 119, 0.075);
+
+
+
+  transition: padding-left 220ms ease;
+
+}
+
+
+
+.industry-insights-focus:last-child {
+
+  padding-bottom: 13px;
+
+  border-bottom: none;
+
+}
+
+
+
+.industry-insights-focus:hover {
+
+  padding-left: 3px;
+
+}
+
+
+
+.industry-insights-focus-icon {
+
+  display: grid;
+
+  place-items: center;
+
+
+
+  width: 32px;
+
+  height: 32px;
+
+
+
+  border-radius: 10px;
+
+  background: #f0e9ff;
+
+  color: var(--ii-purple);
+
+}
+
+
+
+.industry-insights-focus-copy {
+
+  min-width: 0;
+
+}
+
+
+
+.industry-insights-focus-copy h3 {
+
+  margin: 1px 0 5px;
+
+
+
+  color: var(--ii-ink);
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  line-height: 1.45;
+
+}
+
+
+
+.industry-insights-focus-copy p {
+
+  max-width: 290px;
+
+  margin: 0;
+
+
+
+  color: var(--ii-muted);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+}
+
+
+
+.industry-insights-focus-number {
+
+  padding-top: 3px;
+
+
+
+  color: #aa98c9;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+}
+
+
+
+/* ============================================*
+
+*   PANEL FOOTER*
+
+*============================================ */
+
+
+
+.industry-insights-panel-footer {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+
+
+  margin-top: 0;
+
+  padding-top: 14px;
+
+
+
+  border-top: 1px solid rgba(75, 49, 119, 0.075);
+
+
+
+  color: #746a83;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+
+}
+
+
+
+.industry-insights-status-dot {
+
+  width: 7px;
+
+  height: 7px;
+
+  flex: 0 0 7px;
+
+
+
+  border-radius: 50%;
+
+  background: #8055e9;
+
+  box-shadow: 0 0 0 4px rgba(125, 97, 216, 0.10);
+
+}
+
+
+
+/* ============================================*
+
+*   ANIMATIONS*
+
+*============================================ */
+
+
+
+@keyframes iiRevealLeft {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+@keyframes iiRevealRight {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateX(10px);
+
+  }
+
+
+
+  to {
+
+    opacity: 1;
+
+    transform: translateX(0);
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   LARGE LAPTOP*
+
+*============================================ */
+
+
+
+@media (min-width: 1440px) {
+
+  .industry-insights {
+
+    padding-top: 34px;
+
+    padding-bottom: 42px;
+
+  }
+
+
+
+  .industry-insights-container {
+
+    width: min(1400px, calc(100% - 12%));
+
+    gap: clamp(55px, 5.5vw, 90px);
+
+  }
+
+
+
+  .industry-insights-title {
+
+    font-size: clamp(55px, 4.2vw, 66px);
+
+  }
+
+
+
+  .industry-insights-panel {
+
+    max-width: 470px;
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   LAPTOP*
+
+*============================================ */
+
+
+
+@media (max-width: 1200px) {
+
+  .industry-insights {
+
+    padding: 36px 0 42px;
+
+  }
+
+
+
+  .industry-insights-container {
+
+    width: calc(100% - 76px);
+
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+
+    gap: 32px;
+
+  }
+
+
+
+  .industry-insights-title {
+
+    font-size: clamp(39px, 4.5vw, 53px);
+
+  }
+
+
+
+  .industry-insights-description {
+
+    font-size: 11px;
+
+  }
+
+
+
+  .industry-insights-panel {
+
+    padding: 20px;
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   TABLET*
+
+*============================================ */
+
+
+
+@media (max-width: 900px) {
+
+  .industry-insights {
+
+    padding: 35px 0 40px;
+
+
+
+    background-image:
+
+      linear-gradient(90deg,
+
+        rgba(250, 246, 239, 0.97),
+
+        rgba(250, 246, 239, 0.85)),
+
+      url("../assets/Industries_insight.png");
+
+  }
+
+
+
+  .industry-insights-container {
+
+    width: calc(100% - 48px);
+
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.88fr);
+
+    gap: 22px;
+
+    height: 100vh;
+
+  }
+
+
+
+  .industry-insights-title {
+
+    font-size: clamp(32px, 4.5vw, 43px);
+
+    letter-spacing: -1.3px;
+
+  }
+
+
+
+  .industry-insights-title em {
+
+    font-size: 0.66em;
+
+  }
+
+
+
+  .industry-insights-description {
+
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+  }
+
+
+
+  .industry-insights-features {
+
+    gap: 6px;
+
+    margin-top: 19px;
+
+  }
+
+
+
+  .industry-insights-feature {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    min-height: 68px;
+
+    padding: 9px;
+
+  }
+
+
+
+  .industry-insights-feature-text {
+
+    font-size: 8px;
+
+  }
+
+
+
+  .industry-insights-panel {
+
+    padding: 17px 15px;
+
+    border-radius: 16px;
+
+  }
+
+
+
+  .industry-insights-focus {
+
+    gap: 9px;
+
+    padding: 12px 0;
+
+  }
+
+
+
+  .industry-insights-focus-copy h3 {
+
+    font-size: 9px;
+
+  }
+
+
+
+  .industry-insights-focus-copy p {
+
+    font-size: 8px;
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   MOBILE*
+
+*============================================ */
+
+
+
+@media (max-width: 600px) {
+
+  .industry-insights {
+
+    height: auto;
+
+    min-height: 0;
+
+    padding: 32px 0 28px;
+
+
+
+    background-image:
+
+      linear-gradient(180deg,
+
+        rgba(250, 246, 239, 0.93) 0%,
+
+        rgba(250, 246, 239, 0.86) 60%,
+
+        rgba(250, 246, 239, 0.78) 100%),
+
+      url("../assets/Industries_insight_phone.png");
+
+
+
+    background-position: center, center top;
+
+    background-repeat: no-repeat;
+
+    background-size: cover, 100% 100%;
+
+  }
+
+
+
+  .industry-insights-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 23px;
+
+
+
+    width: calc(100% - 36px);
+
+    margin-inline: auto;
+
+  }
+
+
+
+  .industry-insights-content {
+
+    max-width: none;
+
+  }
+
+
+
+  .industry-insights-eyebrow {
+
+    margin-bottom: 13px;
+
+  }
+
+
+
+  .industry-insights-title {
+
+    font-size: clamp(34px, 8.2vw, 46px);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.2px;
+
+  }
+
+
+
+  .industry-insights-title em {
+
+    margin-top: 7px;
+
+    font-size: 0.68em;
+
+    line-height: 1.3;
+
+  }
+
+
+
+  .industry-insights-description {
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+  }
+
+
+
+  .industry-insights-features {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 7px;
+
+    margin-top: 20px;
+
+  }
+
+
+
+  .industry-insights-feature {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 7px;
+
+
+
+    min-height: 74px;
+
+    padding: 9px 8px;
+
+  }
+
+
+
+  .industry-insights-feature-text {
+
+    font-size: 8px;
+
+  }
+
+
+
+  .industry-insights-panel {
+
+    width: 100%;
+
+    max-width: none;
+
+    padding: 19px 17px 15px;
+
+    border-radius: 16px;
+
+  }
+
+
+
+  .industry-insights-panel-heading h2 {
+
+    font-size: 14px;
+
+  }
+
+
+
+  .industry-insights-focus {
+
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+
+    gap: 10px;
+
+    padding: 13px 0;
+
+  }
+
+
+
+  .industry-insights-focus-copy h3 {
+
+    font-size: 10px;
+
+  }
+
+
+
+  .industry-insights-focus-copy p {
+
+    font-size: 9px;
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   SMALL MOBILE*
+
+*============================================ */
+
+
+
+@media (max-width: 400px) {
+
+  .industry-insights {
+
+    padding: 27px 0 24px;
+
+  }
+
+
+
+  .industry-insights-container {
+
+    width: calc(100% - 28px);
+
+    gap: 19px;
+
+  }
+
+
+
+  .industry-insights-title {
+
+    font-size: clamp(31px, 8.8vw, 36px);
+
+    letter-spacing: -1px;
+
+  }
+
+
+
+  .industry-insights-description {
+
+    font-size: 11px;
+
+  }
+
+
+
+  .industry-insights-features {
+
+    gap: 5px;
+
+  }
+
+
+
+  .industry-insights-feature {
+
+    gap: 6px;
+
+    padding: 8px 6px;
+
+  }
+
+
+
+  .industry-insights-feature-icon {
+
+    width: 26px;
+
+    height: 26px;
+
+    flex-basis: 26px;
+
+  }
+
+
+
+  .industry-insights-feature-text {
+
+    font-size: 7.5px;
+
+  }
+
+
+
+  .industry-insights-panel {
+
+    padding: 16px 13px;
+
+  }
+
+
+
+  .industry-insights-focus {
+
+    gap: 8px;
+
+  }
+
+
+
+  .industry-insights-focus-copy p {
+
+    font-size: 8px;
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   SHORT DESKTOP VIEWPORTS*
+
+*============================================ */
+
+
+
+@media (min-width: 901px) and (max-height: 750px) {
+
+  .industry-insights {
+
+    padding-block: 24px 30px;
+
+  }
+
+
+
+  .industry-insights-container {
+
+    gap: 35px;
+
+  }
+
+
+
+  .industry-insights-title {
+
+    font-size: clamp(36px, 3.8vw, 49px);
+
+  }
+
+
+
+  .industry-insights-description {
+
+    margin-top: 13px;
+
+    line-height: 1.7;
+
+  }
+
+
+
+  .industry-insights-features {
+
+    margin-top: 17px;
+
+  }
+
+
+
+  .industry-insights-panel {
+
+    padding-block: 16px 13px;
+
+  }
+
+
+
+  .industry-insights-focus {
+
+    padding-block: 10px;
+
+  }
+
+
+
+  .industry-insights-panel-footer {
+
+    padding-top: 10px;
+
+  }
+
+}
+
+
+
+/* ============================================*
+
+*   REDUCED MOTION*
+
+*============================================ */
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .industry-insights *,
+
+  .industry-insights *::before,
+
+  .industry-insights *::after {
+
+    animation: none !important;
+
+    transition: none !important;
+
+  }
+
+}
+
+
+/* ============================================
+   LAPTOP HEIGHT UPDATE
+   Keeps mobile/tablet layouts unchanged
+============================================ */
+
+@media (min-width: 901px) and (max-width: 1440px) {
+  .industry-insights {
+    height: auto;
+    min-height: 100vh;
+    /* padding-top: 100px; */
+    /* padding-bottom: 110px; */
+    margin-top: -30px;
+  }
+
+  .industry-insights-container {
+    min-height: 680px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1441px) {
+  .industry-insights {
+    height: auto;
+    min-height: 80vh;
+    /* padding-top: 110px; */
+    /* padding-bottom: 120px; */
+  }
+
+  .industry-insights-container {
+    min-height: 700px;
+    align-items: center;
+  }
+}
