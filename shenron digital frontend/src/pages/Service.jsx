@@ -10,6 +10,132 @@ import "./Service.css";
 //   { number: "04", label: "Growth" },
 // ];
 
+const leftServices = [
+    {
+        title: "Marketing Strategy",
+        description:
+            "We create research-backed marketing strategies that connect your business objectives with audience needs and sustainable growth.",
+        tags: [
+            "Market Research & Positioning",
+            "Channel Strategy & Budget Planning",
+            "Go-to-Market Roadmaps",
+        ],
+    },
+    {
+        title: "Social Media Marketing (SMM)",
+        description:
+            "We turn social channels into growth engines with engaging content, active communities, and performance-led campaigns.",
+        tags: [
+            "Content Strategy & Planning",
+            "Community Management",
+            "Engagement & Performance Tracking",
+        ],
+    },
+    {
+        title: "Paid Advertising (PPC)",
+        description:
+            "We build and optimize paid campaigns with targeted audiences, creative experimentation, and measurable return on investment.",
+        tags: [
+            "Campaign Setup & Optimization",
+            "Ad Creative & Audience Targeting",
+            "Conversion Tracking",
+        ],
+    },
+    {
+        title: "SEO & ASO",
+        description:
+            "We strengthen your organic visibility through technical improvements, relevant keywords, and search-focused content strategies.",
+        tags: [
+            "Technical & On-page SEO",
+            "Keyword Research & Content",
+            "App Store Optimization",
+        ],
+    },
+    {
+        title: "Conversion Rate Optimization (CRO)",
+        description:
+            "We improve digital experiences using user behavior insights, UX experiments, and smarter conversion journeys.",
+        tags: [
+            "Funnel & UX Analysis",
+            "A/B Testing & Experiments",
+            "Conversion Optimization",
+        ],
+    },
+    {
+        title: "Email Marketing",
+        description:
+            "We create personalized email journeys that nurture prospects, strengthen customer relationships, and improve retention.",
+        tags: [
+            "Audience Segmentation & Automation",
+            "Campaign Design & Delivery",
+            "Performance Monitoring",
+        ],
+    },
+];
+
+const rightServices = [
+    {
+        title: "Influencer Marketing",
+        description:
+            "We pair your brand with relevant creators to build authentic partnerships that increase awareness, engagement, and trust.",
+        tags: [
+            "Creator Discovery & Selection",
+            "Campaign Management",
+            "ROI Measurement & Reporting",
+        ],
+    },
+    {
+        title: "PR & Media Relations",
+        description:
+            "We shape compelling brand stories, build meaningful media relationships, and strengthen your reputation across relevant channels.",
+        tags: [
+            "Brand Storytelling & Positioning",
+            "Media Outreach & Relations",
+            "Coverage Monitoring",
+        ],
+    },
+    {
+        title: "Content Marketing",
+        description:
+            "We develop valuable content that educates your audience, builds credibility, and supports your business goals across channels.",
+        tags: [
+            "Content Planning & Strategy",
+            "SEO-focused Copywriting",
+            "Multi-channel Distribution",
+        ],
+    },
+    {
+        title: "Data & Web Analytics",
+        description:
+            "We transform digital performance data into actionable insights through tracking systems, dashboards, and clear reporting.",
+        tags: [
+            "Analytics & Dashboard Setup",
+            "Conversion Funnel Reporting",
+            "Data-driven Recommendations",
+        ],
+    },
+    {
+        title: "Digital Design",
+        description:
+            "We design cohesive digital experiences and creative assets that communicate your message and make your brand stand out.",
+        tags: [
+            "Website & App Design",
+            "Landing Pages & UI/UX",
+            "Custom Visual Assets",
+        ],
+    },
+    {
+        title: "AI Marketing",
+        description:
+            "We bring AI-powered insights and automation into marketing workflows to improve efficiency, targeting, and campaign performance.",
+        tags: [
+            "Marketing Workflow Automation",
+            "Audience Intelligence",
+            "Predictive Campaign Planning",
+        ],
+    },
+];
+
 const services = [
     {
         number: "01",
@@ -118,6 +244,26 @@ function ServiceIcon({ type }) {
     };
 
     return <svg {...common}>{paths[type]}</svg>;
+}
+
+function ServiceCard({ service }) {
+    return (
+        <article className="sov-card">
+            <h3>{service.title}</h3>
+
+            <p className="sov-card-description">
+                {service.description}
+            </p>
+
+            <div className="sov-tags">
+                {service.tags.map((tag) => (
+                    <span className="sov-tag" key={tag}>
+                        {tag}
+                    </span>
+                ))}
+            </div>
+        </article>
+    );
 }
 
 export default function Service() {
@@ -264,7 +410,56 @@ export default function Service() {
                 </div>
             </main>
 
-            {/*--------------------------------------------- third Page---------------------------------- */}
+            {/*-------------------------------------------- Third page----------------------------------- */}
+
+            <main className="sov-section" id="services-overview">
+                <div className="sov-container">
+                    <header className="sov-header">
+                        <span className="sov-eyebrow">
+                            OUR SERVICES
+                        </span>
+
+                        <h1>
+                            Full-service digital
+                            
+                            marketing solutions
+                        </h1>
+
+                        <p>
+                            Everything your brand needs, all in one place.
+                        </p>
+                    </header>
+
+                    <div className="sov-grid">
+                        <div className="sov-column">
+                            {leftServices.map((service) => (
+                                <ServiceCard
+                                    key={service.title}
+                                    service={service}
+                                />
+                            ))}
+                        </div>
+
+                        <div className="sov-column">
+                            {rightServices.map((service) => (
+                                <ServiceCard
+                                    key={service.title}
+                                    service={service}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="sov-bottom-cta">
+                        <a href="/contact" className="sov-cta-button">
+                            Book an Intro Call
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </main>
+
+            {/*--------------------------------------------- fourth Page---------------------------------- */}
 
             <section className="service-approach" id="our-approach">
                 <div className="sa-container">
@@ -314,7 +509,7 @@ export default function Service() {
             </section>
 
 
-            {/*-------------------------------------------- Fourth page---------------------------------  */}
+            {/*-------------------------------------------- Fifth page---------------------------------  */}
 
 
             <section className="service-last-section">
@@ -362,6 +557,7 @@ export default function Service() {
 
                 </div>
             </section>
+
 
         </>
     );

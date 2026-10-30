@@ -1,0 +1,444 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+.about-page {
+  --about-bg: #F7F3EB;
+  --about-purple: #8045FF;
+  --about-black: #0B0D17;
+  --about-text: #55535D;
+
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: var(--about-bg);
+  color: var(--about-black);
+}
+
+
+/* =========================================
+   ABOUT HERO
+========================================= */
+
+.about-hero {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--about-bg);
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(247, 243, 235, 0.08) 0%,
+      rgba(247, 243, 235, 0) 65%
+    ),
+    url("../assets/aboutImg.png");
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.about-container {
+  position: relative;
+  z-index: 2;
+
+  width: calc(100% - 112px);
+  max-width: 1600px;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.92fr)
+    minmax(0, 1.08fr);
+
+  align-items: center;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.about-content {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 840px;
+
+  padding: 10px 0 58px 60px;
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 30px;
+
+  color: #77747B;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 1.25px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.about-eyebrow-line {
+  display: block;
+
+  flex: 0 0 34px;
+  width: 34px;
+  height: 2px;
+
+  background: var(--about-purple);
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.about-heading {
+  max-width: 780px;
+
+  margin: 0;
+  padding: 0;
+
+  color: #080A12;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(48px, 5.1vw, 82px);
+
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -3px;
+
+  overflow: visible;
+}
+
+.about-heading span {
+  display: block;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin-top: 5px;
+  padding: 0 5px 12px 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+
+  font-style: italic;
+  font-weight: 500;
+
+  line-height: 1.2;
+  letter-spacing: -2.8px;
+
+  background: linear-gradient(
+    110deg,
+    #B99AFF 0%,
+    #8855FF 45%,
+    #6946EF 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.about-description {
+  max-width: 460px;
+
+  margin: 32px 0 0;
+
+  color: #55535D;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .about-container {
+    width: calc(100% - 120px);
+  }
+
+  .about-content {
+    padding-left: 25px;
+  }
+
+  .about-heading {
+    font-size: clamp(76px, 5vw, 92px);
+  }
+
+  .about-heading span {
+    line-height: 1.2;
+    padding-bottom: 14px;
+  }
+
+  .about-description {
+    font-size: 15px;
+    max-width: 490px;
+  }
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .about-container {
+    width: calc(100% - 72px);
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 0.9fr);
+  }
+
+  .about-content {
+    padding-left: 0;
+  }
+
+  .about-heading {
+    font-size: clamp(43px, 5vw, 62px);
+    letter-spacing: -2px;
+    line-height: 1.06;
+  }
+
+  .about-heading span {
+    letter-spacing: -1.8px;
+    line-height: 1.2;
+    padding-bottom: 10px;
+  }
+
+  .about-description {
+    max-width: 410px;
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .about-container {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    max-width: 560px;
+    padding: 0;
+  }
+
+  .about-eyebrow {
+    margin-bottom: 22px;
+    font-size: 10px;
+  }
+
+  .about-heading {
+    font-size: clamp(42px, 7vw, 58px);
+    line-height: 1.06;
+    letter-spacing: -1.8px;
+  }
+
+  .about-heading span {
+    letter-spacing: -1.3px;
+    line-height: 1.2;
+    padding-bottom: 9px;
+  }
+
+  .about-description {
+    max-width: 440px;
+    margin-top: 22px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .about-hero {
+    display: block;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    background-color: var(--about-bg);
+
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(247, 243, 235, 0.02) 0%,
+        rgba(247, 243, 235, 0.12) 50%
+      ),
+      url("../assets/About-bg.png");
+
+    background-size: auto 100%, 100% auto;
+    background-position: center, center bottom;
+    background-repeat: no-repeat;
+  }
+
+  .about-container {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    margin: 0;
+    padding: 0 22px;
+  }
+
+  .about-content {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 120px 0 320px;
+  }
+
+  .about-eyebrow {
+    gap: 10px;
+    margin-bottom: 23px;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .about-eyebrow-line {
+    flex-basis: 28px;
+    width: 28px;
+  }
+
+  .about-heading {
+    max-width: 100%;
+
+    font-size: clamp(38px, 9vw, 49px);
+    line-height: 1.06;
+    letter-spacing: -1.5px;
+  }
+
+  .about-heading span {
+    width: fit-content;
+    max-width: 100%;
+
+    margin-top: 4px;
+    padding-bottom: 8px;
+
+    font-size: 1em;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+  }
+
+  .about-description {
+    max-width: 390px;
+
+    margin-top: 21px;
+
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .about-container {
+    padding-inline: 18px;
+  }
+
+  .about-content {
+    padding-top: 105px;
+  }
+
+  .about-heading {
+    font-size: clamp(34px, 8.5vw, 40px);
+    letter-spacing: -1px;
+  }
+
+  .about-heading span {
+    line-height: 1.2;
+    padding-bottom: 7px;
+  }
+
+  .about-description {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-page *,
+  .about-page *::before,
+  .about-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

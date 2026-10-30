@@ -2,524 +2,626 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
+
 import kravsLogo from "../assets/kravsLogo.png";
+import kravsLogoNew from "../assets/kravsNewLogoMob.jpeg";
 
 const serviceGroups = [
   {
     title: "SEO",
-    color: "blue",
     icon: "⌕",
+    color: "blue",
     items: [
-      "Local SEO",
-      "Technical SEO",
-      "International SEO",
-      "Multilingual SEO",
-      "Generative Engine Optimization",
-      "E-commerce SEO",
-      "Enterprise SEO",
+      ["Local SEO", "/services/seo/local-seo"],
+      ["Technical SEO", "/services/seo/technical-seo"],
+      ["International SEO", "/services/seo/international-seo"],
+      ["Multilingual SEO", "/services/seo/multilingual-seo"],
+      ["Generative Engine Optimization", "/services/seo/geo"],
+      ["E-commerce SEO", "/services/seo/ecommerce-seo"],
+      ["Enterprise SEO", "/services/seo/enterprise-seo"],
     ],
   },
   {
     title: "Paid Advertising",
-    color: "purple",
     icon: "↗",
+    color: "purple",
     items: [
-      "Google Ads",
-      "Facebook Ads",
-      "Instagram Ads",
-      "YouTube Ads",
-      "LinkedIn Ads",
-      "Remarketing Campaigns",
-    ],
-  },
-  {
-    title: "Influencer Marketing",
-    color: "pink",
-    icon: "◎",
-    items: [
-      "Nano Influencer",
-      "Micro Influencer",
-      "Instagram Influencer",
-      "YouTube Influencer",
-      "TikTok Influencer",
-      "Influencer Campaigns",
+      ["Google Ads", "/services/paid-advertising/google-ads"],
+      ["Facebook Ads", "/services/paid-advertising/facebook-ads"],
+      ["Instagram Ads", "/services/paid-advertising/instagram-ads"],
+      ["YouTube Ads", "/services/paid-advertising/youtube-ads"],
+      ["LinkedIn Ads", "/services/paid-advertising/linkedin-ads"],
+      ["Remarketing Campaigns", "/services/paid-advertising/remarketing"],
     ],
   },
   {
     title: "Digital Design",
-    color: "orange",
     icon: "✳",
+    color: "orange",
     items: [
-      "UI/UX Design",
-      "Website UI Design",
-      "Brand Identity",
-      "Landing Page Design",
-      "Visual Design",
-      "Brand Strategy",
-      "Creative Assets",
+      ["UI/UX Design", "/services/digital-design/ui-ux"],
+      ["Website UI Design", "/services/digital-design/website-ui"],
+      ["Brand Identity", "/services/digital-design/brand-identity"],
+      ["Landing Page Design", "/services/digital-design/landing-pages"],
+      ["Visual Design", "/services/digital-design/visual-design"],
+      ["Brand Strategy", "/services/digital-design/brand-strategy"],
+      ["Creative Assets", "/services/digital-design/creative-assets"],
     ],
   },
   {
     title: "Web Development",
-    color: "rose",
     icon: "⌘",
+    color: "rose",
     items: [
-      "Website Design",
-      "Landing Pages",
-      "Business Websites",
-      "SaaS Websites",
-      "Website Redesign",
-      "E-commerce Websites",
-      "Custom Web Development",
+      ["Website Design", "/services/web-development/website-design"],
+      ["Landing Pages", "/services/web-development/landing-pages"],
+      ["Business Websites", "/services/web-development/business-websites"],
+      ["SaaS Websites", "/services/web-development/saas-websites"],
+      ["Website Redesign", "/services/web-development/redesign"],
+      ["E-commerce Websites", "/services/web-development/ecommerce"],
+      ["Custom Web Development", "/services/web-development/custom"],
+    ],
+  },
+  {
+    title: "Influencer Marketing",
+    icon: "◎",
+    color: "pink",
+    items: [
+      ["Nano Influencer", "/services/influencer-marketing/nano"],
+      ["Micro Influencer", "/services/influencer-marketing/micro"],
+      ["Instagram Influencer", "/services/influencer-marketing/instagram"],
+      ["Influencer Campaigns", "/services/influencer-marketing/campaigns"],
     ],
   },
 ];
 
 const industries = [
-  "Finance",
-  "SaaS",
-  "Crypto",
-  "Ecommerce",
-  "Real Estate",
-  "Healthcare",
-  "IT & Software",
-  "Gaming",
-  "iGaming",
-  "Forex",
+  ["Finance", "/industries/finance"],
+  ["SaaS", "/industries/saas"],
+  ["Crypto", "/industries/crypto"],
+  ["Ecommerce", "/industries/ecommerce"],
+  ["Real Estate", "/industries/real-estate"],
+  ["Healthcare", "/industries/healthcare"],
+  ["IT & Software", "/industries/it-software"],
+  ["Gaming", "/industries/gaming"],
+  ["iGaming", "/industries/igaming"],
+  ["Forex", "/industries/forex"],
 ];
 
 const businessTypes = [
-  "B2B",
-  "B2C",
-  "Small Business",
-  "Startup",
-  "Enterprise",
+  ["B2B", "/business-types/b2b"],
+  ["B2C", "/business-types/b2c"],
+  ["Small Business", "/business-types/small-business"],
+  ["Startup", "/business-types/startup"],
+  ["Enterprise", "/business-types/enterprise"],
 ];
 
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services", menu: "services" },
-  { label: "Industries", href: "/industries", menu: "industries" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Company", href: "/company/about", menu: "company" },
-];
-
-const routeMap = {
-  "Local SEO": "/services/seo/local",
-  "Technical SEO": "/services/seo/technical",
-  "International SEO": "/services/seo/international",
-  "Multilingual SEO": "/services/seo/multilingual",
-  "Generative Engine Optimization": "/services/seo/geo",
-  "E-commerce SEO": "/services/seo/ecommerce",
-  "Enterprise SEO": "/services/seo/enterprise",
-  SEO: "/services/seo",
-  "Paid Advertising": "/services/paid-advertising",
-  "Google Ads": "/services/paid-advertising/google-ads",
-  "Facebook Ads": "/services/paid-advertising/facebook-ads",
-  "Instagram Ads": "/services/paid-advertising/instagram-ads",
-  "YouTube Ads": "/services/paid-advertising/youtube-ads",
-  "LinkedIn Ads": "/services/paid-advertising/linkedin-ads",
-  "Remarketing Campaigns": "/services/paid-advertising/remarketing",
-  "Influencer Marketing": "/services/influencer-marketing",
-  "Nano Influencer": "/services/influencer-marketing/nano",
-  "Micro Influencer": "/services/influencer-marketing/micro",
-  "Instagram Influencer": "/services/influencer-marketing/instagram",
-  "YouTube Influencer": "/services/influencer-marketing/youtube",
-  "TikTok Influencer": "/services/influencer-marketing/tiktok",
-  "Influencer Campaigns": "/services/influencer-marketing/campaigns",
-  "Digital Design": "/services/digital-design",
-  "UI/UX Design": "/services/digital-design/ui-ux",
-  "Website UI Design": "/services/digital-design/website-ui",
-  "Brand Identity": "/services/digital-design/brand-identity",
-  "Landing Page Design": "/services/digital-design/landing-pages",
-  "Visual Design": "/services/digital-design/visual-design",
-  "Brand Strategy": "/services/digital-design/brand-strategy",
-  "Creative Assets": "/services/digital-design/creative-assets",
-  "Web Development": "/services/web-development",
-  "Website Design": "/services/web-development/website-design",
-  "Landing Pages": "/services/web-development/landing-pages",
-  "Business Websites": "/services/web-development/business-websites",
-  "SaaS Websites": "/services/web-development/saas",
-  "Website Redesign": "/services/web-development/redesign",
-  "E-commerce Websites": "/services/web-development/ecommerce",
-  "Custom Web Development": "/services/web-development/custom",
-  Industries: "/industries",
-  Finance: "/industries/finance",
-  SaaS: "/industries/saas",
-  Crypto: "/industries/crypto",
-  Ecommerce: "/industries/ecommerce",
-  "Real Estate": "/industries/real-estate",
-  Healthcare: "/industries/healthcare",
-  "IT & Software": "/industries/it-software",
-  Gaming: "/industries/gaming",
-  iGaming: "/industries/igaming",
-  Forex: "/industries/forex",
-  "Types Of Business": "/business-types",
-  B2B: "/business-types/b2b",
-  B2C: "/business-types/b2c",
-  "Small Business": "/business-types/small-business",
-  Startup: "/business-types/startup",
-  Enterprise: "/business-types/enterprise",
-  Home: "/",
-  Services: "/services",
-  Testimonials: "/testimonials",
-  "About Us": "/company/about",
-  "Contact Us": "/company/contact",
-};
-
-function DropdownLink({ label, onSelect, color = "blue" }) {
+function Chevron({ open = false }) {
   return (
-    <Link
-      to={routeMap[label] || "/services"}
-      className="dropdown-link"
-      onClick={onSelect}
+    <svg
+      className={`nav-chevron ${open ? "is-open" : ""}`}
+      width="13"
+      height="13"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
     >
-      <span className={`dropdown-dot dot-${color}`} aria-hidden="true" />
-      <span>{label}</span>
+      <path
+        d="m3.5 6 4.5 4 4.5-4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ArrowUpRight() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 20 20"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 15 15 5M6 5h9v9"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MenuIcon({ open }) {
+  return (
+    <span className={`hamburger-lines ${open ? "is-open" : ""}`}>
+      <span />
+      <span />
+    </span>
+  );
+}
+
+function MenuLink({ item, color = "blue", onNavigate }) {
+  return (
+    <Link to={item[1]} className="mega-link" onClick={onNavigate}>
+      <span className={`mega-dot dot-${color}`} />
+      <span>{item[0]}</span>
     </Link>
   );
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(
+    () => typeof window !== "undefined" && window.scrollY > 35
+  );
+
+  // Desktop dropdown state
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const navbarRef = useRef(null);
+  // Mobile dropdown state is deliberately separate
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const closeTimer = useRef(null);
   const location = useLocation();
 
-  const closeMenus = () => {
-    setMenuOpen(false);
-    setActiveDropdown(null);
-  };
-
-  // Desktop scroll animation and menu closing.
   useEffect(() => {
-    let previousScrolled = window.scrollY > 50;
-
-    setScrolled(previousScrolled);
-
     const handleScroll = () => {
-      const nextScrolled = window.scrollY > 50;
-
-      if (nextScrolled !== previousScrolled) {
-        previousScrolled = nextScrolled;
-        setScrolled(nextScrolled);
-        setActiveDropdown(null);
-        setMenuOpen(false);
-      }
+      setIsScrolled(window.scrollY > 35);
     };
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus after navigation.
   useEffect(() => {
-    closeMenus();
-    window.scrollTo({ top: 0, behavior: "auto" });
+    clearTimeout(closeTimer.current);
+    setActiveDropdown(null);
+    setMobileDropdown(null);
+    setMobileOpen(false);
   }, [location.pathname]);
 
-  // Close menus when clicking outside the navbar.
   useEffect(() => {
-    if (!menuOpen && !activeDropdown) return undefined;
-
-    const handleOutsideClick = (event) => {
-      if (
-        navbarRef.current &&
-        !navbarRef.current.contains(event.target)
-      ) {
-        closeMenus();
-      }
-    };
-
-    document.addEventListener("pointerdown", handleOutsideClick);
+    document.body.classList.toggle("nav-mobile-open", mobileOpen);
 
     return () => {
-      document.removeEventListener(
-        "pointerdown",
-        handleOutsideClick
-      );
+      document.body.classList.remove("nav-mobile-open");
     };
-  }, [menuOpen, activeDropdown]);
+  }, [mobileOpen]);
 
-  // Close menus with Escape.
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
-        closeMenus();
+        setActiveDropdown(null);
+        setMobileDropdown(null);
+        setMobileOpen(false);
       }
     };
 
     document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
+    return () => document.removeEventListener("keydown", handleEscape);
   }, []);
 
-  const handleNavClick = (event, item) => {
-    const isDesktop = window.matchMedia(
-      "(min-width: 1001px)"
-    ).matches;
+  useEffect(() => {
+    return () => clearTimeout(closeTimer.current);
+  }, []);
 
-    if (isDesktop) {
-      // Desktop links navigate normally.
-      closeMenus();
-      return;
-    }
-
-    if (item.menu) {
-      event.preventDefault();
-
-      setActiveDropdown((current) =>
-        current === item.menu ? null : item.menu
-      );
-    } else {
-      closeMenus();
-    }
-  };
-
-  const selectDropdownItem = () => {
-    closeMenus();
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen((current) => !current);
+  const closeMenus = () => {
+    clearTimeout(closeTimer.current);
     setActiveDropdown(null);
+    setMobileDropdown(null);
+    setMobileOpen(false);
   };
 
-  const handleItemMouseEnter = (item) => {
-    if (window.matchMedia("(min-width: 1001px)").matches) {
-      setActiveDropdown(item.menu || null);
-    }
+  const openDropdown = (name) => {
+    if (!window.matchMedia("(min-width: 769px)").matches) return;
+
+    clearTimeout(closeTimer.current);
+    setActiveDropdown(name);
   };
 
-  const handleItemMouseLeave = () => {
-    if (window.matchMedia("(min-width: 1001px)").matches) {
+  const toggleDropdown = (name) => {
+    clearTimeout(closeTimer.current);
+    setActiveDropdown((current) => (current === name ? null : name));
+  };
+
+  const toggleMobileDropdown = (name) => {
+    setMobileDropdown((current) => (current === name ? null : name));
+  };
+
+  const scheduleClose = () => {
+    if (!window.matchMedia("(min-width: 769px)").matches) return;
+
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => {
       setActiveDropdown(null);
-    }
+    }, 220);
   };
+
+  const isActive = (path) =>
+    location.pathname === path || location.pathname.startsWith(`${path}/`);
+
+  const navClass = [
+    "kravs-navbar",
+    isScrolled ? "is-scrolled" : "",
+    mobileOpen ? "mobile-menu-open" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <header
-      ref={navbarRef}
-      className={`navbar ${
-        scrolled ? "navbar-scrolled" : ""
-      } ${menuOpen ? "menu-open" : ""}`}
-    >
-      <nav className="navbar-inner" aria-label="Main navigation">
+    <header className={navClass}>
+      <div className="navbar-capsule" onMouseLeave={scheduleClose}>
+        {/* Logo */}
         <Link
           to="/"
           className="navbar-logo"
+          aria-label="KRAVS Infotech home"
           onClick={closeMenus}
-          aria-label="Kravs Home"
         >
           <img
+            className="logo-desktop"
             src={kravsLogo}
-            alt="Kravs Infotech"
-            className="navbar-logo-image"
+            alt="KRAVS Infotech"
+          />
+          <img
+            className="logo-mobile"
+            src={kravsLogoNew}
+            alt="KRAVS Infotech"
           />
         </Link>
 
-        <div
-          id="mobile-navigation"
-          className={`navbar-links ${
-            menuOpen ? "links-open" : ""
-          }`}
-        >
-          {navItems.map((item) => (
-            <div
-              key={item.label}
-              className={`nav-item ${
-                item.menu ? "has-dropdown" : ""
-              } ${
-                activeDropdown === item.menu
-                  ? "dropdown-active"
-                  : ""
-              }`}
-              onMouseEnter={() => handleItemMouseEnter(item)}
-              onMouseLeave={handleItemMouseLeave}
-            >
-              <Link
-                to={item.href}
-                className="nav-link"
-                aria-haspopup={item.menu ? "true" : undefined}
-                aria-expanded={
-                  item.menu
-                    ? activeDropdown === item.menu
-                    : undefined
-                }
-                onClick={(event) =>
-                  handleNavClick(event, item)
-                }
-              >
-                <span className="nav-link-inner">
-                  <span className="nav-link-text">
-                    {item.label}
-                  </span>
-
-                  <span
-                    className="nav-link-text nav-link-text-clone"
-                    aria-hidden="true"
-                  >
-                    {item.label}
-                  </span>
-                </span>
-
-                {item.menu && (
-                  <span
-                    className="dropdown-chevron"
-                    aria-hidden="true"
-                  />
-                )}
-              </Link>
-
-              {item.menu === "services" && (
-                <div className="dropdown-panel services-dropdown">
-                  <div className="services-grid">
-                    {serviceGroups.map((group) => (
-                      <div
-                        className="service-column"
-                        key={group.title}
-                      >
-                        <div className="dropdown-heading">
-                          <span
-                            className={`service-icon icon-${group.color}`}
-                            aria-hidden="true"
-                          >
-                            {group.icon}
-                          </span>
-
-                          <h3>{group.title}</h3>
-                        </div>
-
-                        <div className="dropdown-list">
-                          {group.items.map((service) => (
-                            <DropdownLink
-                              key={service}
-                              label={service}
-                              color={group.color}
-                              onSelect={selectDropdownItem}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {item.menu === "industries" && (
-                <div className="dropdown-panel industries-dropdown">
-                  <div className="industry-column">
-                    <div className="dropdown-heading">
-                      <span
-                        className="service-icon icon-blue"
-                        aria-hidden="true"
-                      >
-                        ▤
-                      </span>
-
-                      <h3>Industries</h3>
-                    </div>
-
-                    <div className="dropdown-list">
-                      {industries.map((industry) => (
-                        <DropdownLink
-                          key={industry}
-                          label={industry}
-                          color="blue"
-                          onSelect={selectDropdownItem}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="industry-column">
-                    <div className="dropdown-heading">
-                      <span
-                        className="service-icon icon-purple"
-                        aria-hidden="true"
-                      >
-                        ≋
-                      </span>
-
-                      <h3>Types Of Business</h3>
-                    </div>
-
-                    <div className="dropdown-list">
-                      {businessTypes.map((type) => (
-                        <DropdownLink
-                          key={type}
-                          label={type}
-                          color="purple"
-                          onSelect={selectDropdownItem}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {item.menu === "company" && (
-                <div className="dropdown-panel company-dropdown">
-                  <DropdownLink
-                    label="About Us"
-                    onSelect={selectDropdownItem}
-                  />
-
-                  <DropdownLink
-                    label="Contact Us"
-                    onSelect={selectDropdownItem}
-                  />
-                </div>
-              )}
-            </div>
-          ))}
-
+        {/* Desktop navigation */}
+        <nav className="navbar-links" aria-label="Main navigation">
           <Link
-            to="/company/contact"
-            className="navbar-cta mobile-cta"
+            to="/"
+            className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
             onClick={closeMenus}
           >
-            Let&apos;s talk{" "}
-            <span className="cta-arrow" aria-hidden="true">
-              ↗
-            </span>
+            Home
           </Link>
-        </div>
 
-        <Link
-          to="/company/contact"
-          className="navbar-cta desktop-cta"
-          onClick={closeMenus}
-        >
-          Let&apos;s talk{" "}
-          <span className="cta-arrow" aria-hidden="true">
-            ↗
-          </span>
+          {/* SERVICES */}
+          <div
+            className={`nav-item ${activeDropdown === "services" ? "dropdown-active" : ""
+              }`}
+            onMouseEnter={() => openDropdown("services")}
+          >
+            <div className="nav-trigger-wrap">
+              <Link
+                to="/services"
+                className={`nav-link ${isActive("/services") ? "active" : ""}`}
+                onClick={closeMenus}
+              >
+                Services
+              </Link>
+
+              <button
+                type="button"
+                className="nav-dropdown-toggle"
+                aria-label="Toggle Services menu"
+                aria-expanded={activeDropdown === "services"}
+                onClick={() => toggleDropdown("services")}
+              >
+                <Chevron open={activeDropdown === "services"} />
+              </button>
+            </div>
+
+            {activeDropdown === "services" && (
+              <div className="mega-dropdown services-dropdown">
+                {serviceGroups.map((group) => (
+                  <div className="mega-column" key={group.title}>
+                    <Link
+                      to="/services"
+                      className="mega-heading"
+                      onClick={closeMenus}
+                    >
+                      <span className={`mega-icon icon-${group.color}`}>
+                        {group.icon}
+                      </span>
+                      <span>{group.title}</span>
+                    </Link>
+
+                    <div className="mega-list">
+                      {group.items.map((item) => (
+                        <MenuLink
+                          key={item[1]}
+                          item={item}
+                          color={group.color}
+                          onNavigate={closeMenus}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* INDUSTRIES */}
+          <div
+            className={`nav-item ${activeDropdown === "industries" ? "dropdown-active" : ""
+              }`}
+            onMouseEnter={() => openDropdown("industries")}
+          >
+            <div className="nav-trigger-wrap">
+              <Link
+                to="/industries"
+                className={`nav-link ${isActive("/industries") || isActive("/business-types")
+                  ? "active"
+                  : ""
+                  }`}
+                onClick={closeMenus}
+              >
+                Industries
+              </Link>
+
+              <button
+                type="button"
+                className="nav-dropdown-toggle"
+                aria-label="Toggle Industries menu"
+                aria-expanded={activeDropdown === "industries"}
+                onClick={() => toggleDropdown("industries")}
+              >
+                <Chevron open={activeDropdown === "industries"} />
+              </button>
+            </div>
+
+            {activeDropdown === "industries" && (
+              <div className="mega-dropdown industries-dropdown">
+                <div className="industry-column">
+                  <Link
+                    to="/industries"
+                    className="mega-heading"
+                    onClick={closeMenus}
+                  >
+                    Industries
+                  </Link>
+
+                  {industries.map((item) => (
+                    <MenuLink
+                      key={item[1]}
+                      item={item}
+                      color="blue"
+                      onNavigate={closeMenus}
+                    />
+                  ))}
+                </div>
+
+                <div className="industry-column business-column">
+                  <Link
+                    to="/business-types"
+                    className="mega-heading"
+                    onClick={closeMenus}
+                  >
+                    Business Types
+                  </Link>
+
+                  {businessTypes.map((item) => (
+                    <MenuLink
+                      key={item[1]}
+                      item={item}
+                      color="purple"
+                      onNavigate={closeMenus}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/testimonials"
+            className={`nav-link ${isActive("/testimonials") ? "active" : ""
+              }`}
+            onClick={closeMenus}
+          >
+            Testimonials
+          </Link>
+
+          {/* COMPANY */}
+          <div
+            className={`nav-item company-nav-item ${activeDropdown === "company" ? "dropdown-active" : ""
+              }`}
+            onMouseEnter={() => openDropdown("company")}
+          >
+            <div className="nav-trigger-wrap">
+              <button
+                type="button"
+                className={`nav-link company-trigger-button ${isActive("/about") || isActive("/contact") ? "active" : ""
+                  }`}
+                aria-expanded={activeDropdown === "company"}
+                onClick={() => toggleDropdown("company")}
+              >
+                Company
+                <Chevron open={activeDropdown === "company"} />
+              </button>
+            </div>
+
+            {activeDropdown === "company" && (
+              <div className="mega-dropdown company-dropdown">
+                <Link to="/company/about" className="company-link" onClick={closeMenus}>
+                  About Us
+                </Link>
+
+                <Link to="/contact" className="company-link" onClick={closeMenus}>
+                  Contact Us
+                </Link>
+              </div>
+            )}
+          </div>
+        </nav>
+
+        {/* Desktop CTA */}
+        <Link to="/contact" className="navbar-cta" onClick={closeMenus}>
+          <span>Let's talk</span>
+          <ArrowUpRight />
         </Link>
 
+        {/* Mobile hamburger */}
         <button
-          className={`navbar-toggle ${
-            menuOpen ? "toggle-active" : ""
-          }`}
-          onClick={toggleMenu}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
           type="button"
+          className="mobile-menu-toggle"
+          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation-panel"
+          onClick={() => {
+            clearTimeout(closeTimer.current);
+            setMobileOpen((current) => !current);
+            setMobileDropdown(null);
+            setActiveDropdown(null);
+          }}
         >
-          <span />
-          <span />
+          <MenuIcon open={mobileOpen} />
         </button>
-      </nav>
+
+        {/* Mobile navigation */}
+        <div
+          id="mobile-navigation-panel"
+          className="mobile-nav-panel"
+          aria-hidden={!mobileOpen}
+        >
+          <Link to="/" className="mobile-nav-link" onClick={closeMenus}>
+            Home
+          </Link>
+
+          {/* Mobile Services */}
+          <div className="mobile-nav-group">
+            <button
+              type="button"
+              className="mobile-nav-link mobile-nav-trigger"
+              aria-expanded={mobileDropdown === "services"}
+              onClick={() => toggleMobileDropdown("services")}
+            >
+              <span>Services</span>
+              <Chevron open={mobileDropdown === "services"} />
+            </button>
+
+            {mobileDropdown === "services" && (
+              <div className="mobile-submenu">
+                <Link to="/services" onClick={closeMenus}>
+                  All Services
+                </Link>
+
+                {serviceGroups.map((group) => (
+                  <div className="mobile-subgroup" key={group.title}>
+                    <span className="mobile-subheading">{group.title}</span>
+
+                    {group.items.map((item) => (
+                      <Link
+                        to={item[1]}
+                        key={item[1]}
+                        onClick={closeMenus}
+                      >
+                        {item[0]}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Industries */}
+          <div className="mobile-nav-group">
+            <button
+              type="button"
+              className="mobile-nav-link mobile-nav-trigger"
+              aria-expanded={mobileDropdown === "industries"}
+              onClick={() => toggleMobileDropdown("industries")}
+            >
+              <span>Industries & Business Types</span>
+              <Chevron open={mobileDropdown === "industries"} />
+            </button>
+
+            {mobileDropdown === "industries" && (
+              <div className="mobile-submenu">
+                <Link to="/industries" onClick={closeMenus}>
+                  All Industries
+                </Link>
+
+                <span className="mobile-subheading">Industries</span>
+
+                {industries.map((item) => (
+                  <Link
+                    to={item[1]}
+                    key={item[1]}
+                    onClick={closeMenus}
+                  >
+                    {item[0]}
+                  </Link>
+                ))}
+
+                <span className="mobile-subheading">Business Types</span>
+
+                {businessTypes.map((item) => (
+                  <Link
+                    to={item[1]}
+                    key={item[1]}
+                    onClick={closeMenus}
+                  >
+                    {item[0]}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/testimonials"
+            className="mobile-nav-link"
+            onClick={closeMenus}
+          >
+            Testimonials
+          </Link>
+
+          {/* Mobile Company */}
+          <div className="mobile-nav-group">
+            <button
+              type="button"
+              className="mobile-nav-link mobile-nav-trigger"
+              aria-expanded={mobileDropdown === "company"}
+              onClick={() => toggleMobileDropdown("company")}
+            >
+              <span>Company</span>
+              <Chevron open={mobileDropdown === "company"} />
+            </button>
+
+            {mobileDropdown === "company" && (
+              <div className="mobile-submenu">
+                <Link to="/about" onClick={closeMenus}>
+                  About Us
+                </Link>
+                <Link to="/contact" onClick={closeMenus}>
+                  Contact Us
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <Link to="/contact" className="mobile-cta" onClick={closeMenus}>
+            Let's talk
+            <ArrowUpRight />
+          </Link>
+        </div>
+      </div>
+
+      {/* Backdrop sits behind the mobile menu */}
+      {mobileOpen && (
+        <button
+          type="button"
+          className="mobile-nav-backdrop"
+          aria-label="Close navigation menu"
+          onClick={closeMenus}
+        />
+      )}
     </header>
   );
 }
