@@ -1,106 +1,78 @@
 
-import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
 
-import Service from "./pages/Service";
-import Industries from "./pages/Industries";
-<<<<<<< HEAD
-=======
-
-import About from "./subpages/About";
-import Contact from "./subpages/Contact";
-import ServiceDetail from "./subpages/ServiceDetail";
-
-
->>>>>>> 1eceb596f34cd4bb82c2938199a551ae00252239
-import Hero from "./pages/Hero";
-import Testimonials from "./pages/Testimonials";
-import Blog from "./pages/Blog";
+const Service = lazy(() => import("./pages/Service"));
+const Industries = lazy(() => import("./pages/Industries"));
+const Hero = lazy(() => import("./pages/Hero"));
+const Testimonials = lazy(() => import("./pages/Testimonials"));
+const Blog = lazy(() => import("./pages/Blog"));
+const About = lazy(() => import("./subpages/About"));
+const Contact = lazy(() => import("./subpages/Contact"));
+const ServiceDetail = lazy(() => import("./subpages/ServiceDetail"));
+const AdminBlogPage = lazy(() => import("./admin/AdminBlogPage"));
 
 export default function App() {
-<<<<<<< HEAD
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
     <>
-      <Navbar />
-      <Preloader />
-=======
- return (
-  <>
-   <Navbar />
-   <Preloader/>
+      {!isAdminRoute && <Navbar />}
+      {!isAdminRoute && <Preloader />}
 
-   <Routes>
-    <Route path="/" element={<Hero />} />
->>>>>>> 1eceb596f34cd4bb82c2938199a551ae00252239
+      <Suspense
+        fallback={<main aria-busy="true" style={{ minHeight: "65vh" }} />}
+      >
+        <Routes>
+          <Route path="/" element={<Hero />} />
 
-    <Route path="/services" element={<Service/>} />
-    <Route path="/services/:category" element={<ServiceDetail />} />
-    <Route path="/services/:category/:offering" element={<ServiceDetail />} />
+          {/* Services */}
+          <Route path="/services" element={<Service />} />
+          <Route path="/services/:category" element={<ServiceDetail />} />
+          <Route
+            path="/services/:category/:offering"
+            element={<ServiceDetail />}
+          />
 
-<<<<<<< HEAD
-        {/* Services */}
-        <Route path="/services" element={<Service />} />
-        <Route path="/services/seo" element={<main />} />
-        <Route path="/services/paid-advertising" element={<main />} />
-        <Route
-          path="/services/influencer-marketing"
-          element={<main />}
-        />
-        <Route path="/services/digital-design" element={<main />} />
-        <Route
-          path="/services/web-development"
-          element={<main />}
-        />
+          {/* Industries */}
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/:industry" element={<main />} />
 
-        {/* Industries */}
-        <Route path="/industries" element={<Industries />} />
-        <Route path="/industries/:industry" element={<main />} />
+          {/* Business Types */}
+          <Route path="/business-types" element={<main />} />
+          <Route path="/business-types/:type" element={<main />} />
 
-        {/* Business Types */}
-        <Route path="/business-types" element={<main />} />
-        <Route path="/business-types/:type" element={<main />} />
+          {/* Testimonials remain available by direct URL. */}
+          <Route path="/testimonials" element={<Testimonials />} />
 
-        {/* Testimonials */}
-        <Route
-          path="/testimonials"
-          element={<Testimonials />}
-        />
+          {/* Blog */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<Blog />} />
 
-        {/* Blog */}
-        <Route path="/blog" element={<Blog />} />
+          {/* Admin */}
+          <Route
+            path="/admin"
+            element={<Navigate to="/admin/blogs" replace />}
+          />
+          <Route path="/admin/blogs" element={<AdminBlogPage />} />
 
-        {/* Company */}
-        <Route path="/company/about" element={<main />} />
-        <Route path="/company/contact" element={<main />} />
+          {/* Company */}
+          <Route path="/about" element={<About />} />
+          <Route path="/company/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/company/contact" element={<Contact />} />
 
-        {/* 404 fallback */}
-        <Route path="*" element={<main />} />
-      </Routes>
+          {/* 404 fallback */}
+          <Route path="*" element={<main />} />
+        </Routes>
+      </Suspense>
 
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </>
   );
-=======
-    <Route path="/industries" element={<Industries/>} />
-    <Route path="/industries/:industry" element={<main />} />
-
-    <Route path="/business-types" element={<main />} />
-    <Route path="/business-types/:type" element={<main />} />
-
-    <Route path="/testimonials" element={<main />} />
-
-  
-    <Route path="/company/about" element={<About />} />
-    <Route path="/company/contact" element={<Contact />} />
-    <Route path="/contact" element={<Contact />} />
-
-    <Route path="*" element={<main />} />
-   </Routes>
-   <Footer/>
-  </>
- );
->>>>>>> 1eceb596f34cd4bb82c2938199a551ae00252239
 }

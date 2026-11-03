@@ -1,5 +1,5 @@
 import ServiceHeroMotif from './ServiceHeroMotif';
-﻿import { ArrowUpRight, Check, Code2, Globe2, Layers, MapPin, Megaphone, MousePointer2, Play, Search, Sparkles, Users } from 'lucide-react';
+import { ArrowUpRight, Check, Code2, Globe2, Layers, MapPin, Megaphone, MousePointer2, Play, Search, Sparkles, Users } from 'lucide-react';
 
 const symbols = { seo: Search, 'paid-advertising': Megaphone, 'digital-design': Layers, 'web-development': Code2, 'influencer-marketing': Users };
 

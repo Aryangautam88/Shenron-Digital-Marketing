@@ -96,84 +96,7 @@ const businessTypes = [
   ["Enterprise", "/business-types/enterprise"],
 ];
 
-<<<<<<< HEAD
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services", menu: "services" },
-  { label: "Industries", href: "/industries", menu: "industries" },
-  { label: "Blog", href: "/blog" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Company", href: "/company/about", menu: "company" },
-];
-
-const routeMap = {
-  "Local SEO": "/services/seo/local",
-  "Technical SEO": "/services/seo/technical",
-  "International SEO": "/services/seo/international",
-  "Multilingual SEO": "/services/seo/multilingual",
-  "Generative Engine Optimization": "/services/seo/geo",
-  "E-commerce SEO": "/services/seo/ecommerce",
-  "Enterprise SEO": "/services/seo/enterprise",
-  SEO: "/services/seo",
-  "Paid Advertising": "/services/paid-advertising",
-  "Google Ads": "/services/paid-advertising/google-ads",
-  "Facebook Ads": "/services/paid-advertising/facebook-ads",
-  "Instagram Ads": "/services/paid-advertising/instagram-ads",
-  "YouTube Ads": "/services/paid-advertising/youtube-ads",
-  "LinkedIn Ads": "/services/paid-advertising/linkedin-ads",
-  "Remarketing Campaigns": "/services/paid-advertising/remarketing",
-  "Influencer Marketing": "/services/influencer-marketing",
-  "Nano Influencer": "/services/influencer-marketing/nano",
-  "Micro Influencer": "/services/influencer-marketing/micro",
-  "Instagram Influencer": "/services/influencer-marketing/instagram",
-  "YouTube Influencer": "/services/influencer-marketing/youtube",
-  "TikTok Influencer": "/services/influencer-marketing/tiktok",
-  "Influencer Campaigns": "/services/influencer-marketing/campaigns",
-  "Digital Design": "/services/digital-design",
-  "UI/UX Design": "/services/digital-design/ui-ux",
-  "Website UI Design": "/services/digital-design/website-ui",
-  "Brand Identity": "/services/digital-design/brand-identity",
-  "Landing Page Design": "/services/digital-design/landing-pages",
-  "Visual Design": "/services/digital-design/visual-design",
-  "Brand Strategy": "/services/digital-design/brand-strategy",
-  "Creative Assets": "/services/digital-design/creative-assets",
-  "Web Development": "/services/web-development",
-  "Website Design": "/services/web-development/website-design",
-  "Landing Pages": "/services/web-development/landing-pages",
-  "Business Websites": "/services/web-development/business-websites",
-  "SaaS Websites": "/services/web-development/saas",
-  "Website Redesign": "/services/web-development/redesign",
-  "E-commerce Websites": "/services/web-development/ecommerce",
-  "Custom Web Development": "/services/web-development/custom",
-  Industries: "/industries",
-  Finance: "/industries/finance",
-  SaaS: "/industries/saas",
-  Crypto: "/industries/crypto",
-  Ecommerce: "/industries/ecommerce",
-  "Real Estate": "/industries/real-estate",
-  Healthcare: "/industries/healthcare",
-  "IT & Software": "/industries/it-software",
-  Gaming: "/industries/gaming",
-  iGaming: "/industries/igaming",
-  Forex: "/industries/forex",
-  "Types Of Business": "/business-types",
-  B2B: "/business-types/b2b",
-  B2C: "/business-types/b2c",
-  "Small Business": "/business-types/small-business",
-  Startup: "/business-types/startup",
-  Enterprise: "/business-types/enterprise",
-  Home: "/",
-  Services: "/services",
-  Blog: "/blog",
-  Testimonials: "/testimonials",
-  "About Us": "/company/about",
-  "Contact Us": "/company/contact",
-};
-
-function DropdownLink({ label, onSelect, color = "blue" }) {
-=======
 function Chevron({ open = false }) {
->>>>>>> 1eceb596f34cd4bb82c2938199a551ae00252239
   return (
     <svg
       className={`nav-chevron ${open ? "is-open" : ""}`}
@@ -495,12 +418,11 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/testimonials"
-            className={`nav-link ${isActive("/testimonials") ? "active" : ""
-              }`}
+            to="/blog"
+            className={`nav-link ${isActive("/blog") ? "active" : ""}`}
             onClick={closeMenus}
           >
-            Testimonials
+            Blog
           </Link>
 
           {/* COMPANY */}
@@ -512,7 +434,7 @@ export default function Navbar() {
             <div className="nav-trigger-wrap">
               <button
                 type="button"
-                className={`nav-link company-trigger-button ${isActive("/about") || isActive("/contact") ? "active" : ""
+              className={`nav-link company-trigger-button ${isActive("/about") || isActive("/company/about") || isActive("/contact") || isActive("/company/contact") ? "active" : ""
                   }`}
                 aria-expanded={activeDropdown === "company"}
                 onClick={() => toggleDropdown("company")}
@@ -651,12 +573,8 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link
-            to="/testimonials"
-            className="mobile-nav-link"
-            onClick={closeMenus}
-          >
-            Testimonials
+          <Link to="/blog" className="mobile-nav-link" onClick={closeMenus}>
+            Blog
           </Link>
 
           {/* Mobile Company */}

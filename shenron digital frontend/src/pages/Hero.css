@@ -2518,7 +2518,9 @@ body {
   left: -55px;
   width: 270px;
   height: 230px;
-  background-image: url("/images/process-top-left.png");
+  border: 1px solid rgba(113, 56, 255, 0.08);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(113, 56, 255, 0.12), transparent 70%);
 }
 
 .kp-decoration-bottom {
@@ -2526,7 +2528,9 @@ body {
   bottom: -45px;
   width: 320px;
   height: 250px;
-  background-image: url("/images/process-bottom-right.png");
+  border: 1px solid rgba(113, 56, 255, 0.08);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(113, 56, 255, 0.1), transparent 70%);
 }
 
 .kravs-process::before,
