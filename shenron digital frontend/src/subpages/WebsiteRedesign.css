@@ -1,0 +1,12 @@
+/* Website Redesign: page-specific composition. */
+.service-web-development-redesign { --page-accent: #8045FF; background: #F7F3EB; }
+.service-web-development-redesign .sd-orbital-approach { background-position: 45% center; }
+.service-web-development-redesign .sd-capability { border-radius: 36px 12px 12px 36px; }
+.service-web-development-redesign .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-web-development-redesign .sd-scope-orb { animation-duration: 13s; }
+.service-web-development-redesign .sd-overview-art { padding-inline: 40px; }
+.service-web-development-redesign .sd-measures { border-radius: 18px; }
+@media (max-width: 800px) {
+  .service-web-development-redesign .sd-orbital-approach { background-position: center bottom; }
+  .service-web-development-redesign .sd-overview-art { padding-inline: 20px; }
+}

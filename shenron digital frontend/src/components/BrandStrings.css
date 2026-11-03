@@ -1,0 +1,25 @@
+﻿.has-brand-strings { position: relative; isolation: isolate; }
+.brand-strings { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: .5; }
+.brand-strings svg { display: block; width: 100%; height: 100%; min-height: 320px; }
+.brand-strings path:not(.brand-string-tracer) { animation: brand-thread-breathe 12s ease-in-out infinite alternate; animation-delay: calc(var(--thread-index) * -480ms); transform-origin: center; }
+.brand-string-tracer { animation: brand-thread-travel 22s linear infinite; }
+.brand-strings-orbit { opacity: .36; }
+.brand-strings-edge { inset: -20% -15%; opacity: .4; transform: rotate(-8deg); }
+.brand-strings-edge svg { transform: scaleY(.8); }
+@keyframes brand-thread-breathe { from { opacity: .35; transform: translateY(-5px); } to { opacity: .9; transform: translateY(5px); } }
+@keyframes brand-thread-travel { to { stroke-dashoffset: -2060; } }
+@media(max-width:700px) { .brand-strings { opacity: .28; }.brand-strings svg { width: 160%; margin-left: -30%; }.brand-strings-edge { inset: 0; } }
+@media(prefers-reduced-motion:reduce) { .brand-strings path { animation: none !important; } }
+
+/* The front pages keep their existing artwork; fine threads add depth between it. */
+.has-brand-strings .brand-strings { mix-blend-mode: multiply; }
+.has-brand-strings .kr-service-card { transition: transform 450ms cubic-bezier(.2,.8,.2,1),box-shadow 450ms,border-color 350ms; }
+.has-brand-strings .kr-service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 45px #8045ff14; }
+.has-brand-strings .kr-service-card__icon { transition: transform 450ms,background 350ms,color 350ms; }
+.has-brand-strings .kr-service-card:hover .kr-service-card__icon { transform: rotate(-7deg) scale(1.08); }
+.has-brand-strings .industry-stat-card { transition: transform 450ms cubic-bezier(.2,.8,.2,1),box-shadow 450ms; }
+.has-brand-strings .industry-stat-card:hover { transform: translateY(-6px); box-shadow: 0 20px 45px #8045ff15; }
+.has-brand-strings .industry-stat-arrow { transition: transform 350ms; }
+.has-brand-strings .industry-stat-card:hover .industry-stat-arrow { transform: rotate(-8deg); }
+@media(hover:none) { .has-brand-strings .kr-service-card:hover,.has-brand-strings .industry-stat-card:hover { transform: none; } }
+@media(prefers-reduced-motion:reduce) { .has-brand-strings .kr-service-card,.has-brand-strings .industry-stat-card,.has-brand-strings .kr-service-card__icon,.has-brand-strings .industry-stat-arrow { transition: none !important; }.has-brand-strings .kr-service-card:hover,.has-brand-strings .industry-stat-card:hover,.has-brand-strings .kr-service-card:hover .kr-service-card__icon { transform: none; } }

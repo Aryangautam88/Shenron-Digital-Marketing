@@ -1,0 +1,12 @@
+/* Website UI Design: page-specific composition. */
+.service-digital-design-website-ui { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-website-ui .sd-orbital-approach { background-position: 48% center; }
+.service-digital-design-website-ui .sd-capability { border-radius: 14px 34px 14px 34px; }
+.service-digital-design-website-ui .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-website-ui .sd-scope-orb { animation-duration: 10s; }
+.service-digital-design-website-ui .sd-overview-art { padding-inline: 31px; }
+.service-digital-design-website-ui .sd-measures { border-radius: 28px 28px 10px 10px; }
+@media (max-width: 800px) {
+  .service-digital-design-website-ui .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-website-ui .sd-overview-art { padding-inline: 20px; }
+}

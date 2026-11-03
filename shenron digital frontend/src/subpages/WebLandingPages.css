@@ -1,0 +1,12 @@
+/* Landing Pages: page-specific composition. */
+.service-web-development-landing-pages { --page-accent: #8045FF; background: #F7F3EB; }
+.service-web-development-landing-pages .sd-orbital-approach { background-position: 48% center; }
+.service-web-development-landing-pages .sd-capability { border-radius: 14px 34px 14px 34px; }
+.service-web-development-landing-pages .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-web-development-landing-pages .sd-scope-orb { animation-duration: 10s; }
+.service-web-development-landing-pages .sd-overview-art { padding-inline: 31px; }
+.service-web-development-landing-pages .sd-measures { border-radius: 28px 28px 10px 10px; }
+@media (max-width: 800px) {
+  .service-web-development-landing-pages .sd-orbital-approach { background-position: center bottom; }
+  .service-web-development-landing-pages .sd-overview-art { padding-inline: 20px; }
+}

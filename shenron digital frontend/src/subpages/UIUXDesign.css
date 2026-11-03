@@ -1,0 +1,12 @@
+/* UI/UX Design: page-specific composition. */
+.service-digital-design-ui-ux { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-ui-ux .sd-orbital-approach { background-position: 52% center; }
+.service-digital-design-ui-ux .sd-capability { border-radius: 30px 12px 30px 12px; }
+.service-digital-design-ui-ux .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-ui-ux .sd-scope-orb { animation-duration: 9s; }
+.service-digital-design-ui-ux .sd-overview-art { padding-inline: 28px; }
+.service-digital-design-ui-ux .sd-measures { border-radius: 14px 34px 14px 34px; }
+@media (max-width: 800px) {
+  .service-digital-design-ui-ux .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-ui-ux .sd-overview-art { padding-inline: 20px; }
+}

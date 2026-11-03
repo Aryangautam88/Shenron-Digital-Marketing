@@ -1,0 +1,12 @@
+/* YouTube Ads: page-specific composition. */
+.service-paid-advertising-youtube-ads { --page-accent: #8045FF; background: #F7F3EB; }
+.service-paid-advertising-youtube-ads .sd-orbital-approach { background-position: 55% center; }
+.service-paid-advertising-youtube-ads .sd-capability { border-radius: 12px 30px 30px 12px; }
+.service-paid-advertising-youtube-ads .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-paid-advertising-youtube-ads .sd-scope-orb { animation-duration: 12s; }
+.service-paid-advertising-youtube-ads .sd-overview-art { padding-inline: 37px; }
+.service-paid-advertising-youtube-ads .sd-measures { border-radius: 36px 12px 12px 36px; }
+@media (max-width: 800px) {
+  .service-paid-advertising-youtube-ads .sd-orbital-approach { background-position: center bottom; }
+  .service-paid-advertising-youtube-ads .sd-overview-art { padding-inline: 20px; }
+}

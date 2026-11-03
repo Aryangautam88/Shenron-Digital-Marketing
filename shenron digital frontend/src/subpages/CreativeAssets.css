@@ -1,0 +1,12 @@
+/* Creative Assets: page-specific composition. */
+.service-digital-design-creative-assets { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-creative-assets .sd-orbital-approach { background-position: center; }
+.service-digital-design-creative-assets .sd-capability { border-radius: 30px; }
+.service-digital-design-creative-assets .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-creative-assets .sd-scope-orb { animation-duration: 15s; }
+.service-digital-design-creative-assets .sd-overview-art { padding-inline: 46px; }
+.service-digital-design-creative-assets .sd-measures { border-radius: 24px; }
+@media (max-width: 800px) {
+  .service-digital-design-creative-assets .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-creative-assets .sd-overview-art { padding-inline: 20px; }
+}

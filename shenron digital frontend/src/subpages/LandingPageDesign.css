@@ -1,0 +1,12 @@
+/* Landing Page Design: page-specific composition. */
+.service-digital-design-landing-pages { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-landing-pages .sd-orbital-approach { background-position: 55% center; }
+.service-digital-design-landing-pages .sd-capability { border-radius: 12px 30px 30px 12px; }
+.service-digital-design-landing-pages .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-landing-pages .sd-scope-orb { animation-duration: 12s; }
+.service-digital-design-landing-pages .sd-overview-art { padding-inline: 37px; }
+.service-digital-design-landing-pages .sd-measures { border-radius: 36px 12px 12px 36px; }
+@media (max-width: 800px) {
+  .service-digital-design-landing-pages .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-landing-pages .sd-overview-art { padding-inline: 20px; }
+}

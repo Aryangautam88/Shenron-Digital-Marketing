@@ -1,0 +1,12 @@
+/* Website Design: page-specific composition. */
+.service-web-development-website-design { --page-accent: #8045FF; background: #F7F3EB; }
+.service-web-development-website-design .sd-orbital-approach { background-position: 52% center; }
+.service-web-development-website-design .sd-capability { border-radius: 30px 12px 30px 12px; }
+.service-web-development-website-design .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-web-development-website-design .sd-scope-orb { animation-duration: 9s; }
+.service-web-development-website-design .sd-overview-art { padding-inline: 28px; }
+.service-web-development-website-design .sd-measures { border-radius: 14px 34px 14px 34px; }
+@media (max-width: 800px) {
+  .service-web-development-website-design .sd-orbital-approach { background-position: center bottom; }
+  .service-web-development-website-design .sd-overview-art { padding-inline: 20px; }
+}

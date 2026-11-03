@@ -1,0 +1,39 @@
+/* Local SEO: page-specific composition. */
+.service-seo-local-seo {
+  --page-accent: #8045FF;
+  background: #F7F3EB;
+}
+
+.service-seo-local-seo .sd-orbital-approach {
+  background-position: 52% center;
+}
+
+.service-seo-local-seo .sd-capability {
+  border-radius: 30px 12px 30px 12px;
+}
+
+.service-seo-local-seo .sd-cta>.sd-wrap {
+  border-radius: 30px;
+}
+
+.service-seo-local-seo .sd-scope-orb {
+  animation-duration: 9s;
+}
+
+.service-seo-local-seo .sd-overview-art {
+  padding-inline: 28px;
+}
+
+.service-seo-local-seo .sd-measures {
+  border-radius: 14px 34px 14px 34px;
+}
+
+@media (max-width: 800px) {
+  .service-seo-local-seo .sd-orbital-approach {
+    background-position: center bottom;
+  }
+
+  .service-seo-local-seo .sd-overview-art {
+    padding-inline: 20px;
+  }
+}

@@ -1,0 +1,12 @@
+/* Micro Influencer: page-specific composition. */
+.service-influencer-marketing-micro { --page-accent: #8045FF; background: #F7F3EB; }
+.service-influencer-marketing-micro .sd-orbital-approach { background-position: 48% center; }
+.service-influencer-marketing-micro .sd-capability { border-radius: 14px 34px 14px 34px; }
+.service-influencer-marketing-micro .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-influencer-marketing-micro .sd-scope-orb { animation-duration: 10s; }
+.service-influencer-marketing-micro .sd-overview-art { padding-inline: 31px; }
+.service-influencer-marketing-micro .sd-measures { border-radius: 28px 28px 10px 10px; }
+@media (max-width: 800px) {
+  .service-influencer-marketing-micro .sd-orbital-approach { background-position: center bottom; }
+  .service-influencer-marketing-micro .sd-overview-art { padding-inline: 20px; }
+}

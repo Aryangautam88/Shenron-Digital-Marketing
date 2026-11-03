@@ -1,0 +1,12 @@
+/* Instagram Ads: page-specific composition. */
+.service-paid-advertising-instagram-ads { --page-accent: #8045FF; background: #F7F3EB; }
+.service-paid-advertising-instagram-ads .sd-orbital-approach { background-position: center 55%; }
+.service-paid-advertising-instagram-ads .sd-capability { border-radius: 28px 28px 10px 10px; }
+.service-paid-advertising-instagram-ads .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-paid-advertising-instagram-ads .sd-scope-orb { animation-duration: 11s; }
+.service-paid-advertising-instagram-ads .sd-overview-art { padding-inline: 34px; }
+.service-paid-advertising-instagram-ads .sd-measures { border-radius: 12px 30px 30px 12px; }
+@media (max-width: 800px) {
+  .service-paid-advertising-instagram-ads .sd-orbital-approach { background-position: center bottom; }
+  .service-paid-advertising-instagram-ads .sd-overview-art { padding-inline: 20px; }
+}

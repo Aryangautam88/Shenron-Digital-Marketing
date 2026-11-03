@@ -1,0 +1,12 @@
+/* Multilingual SEO: page-specific composition. */
+.service-seo-multilingual-seo { --page-accent: #8045FF; background: #F7F3EB; }
+.service-seo-multilingual-seo .sd-orbital-approach { background-position: 55% center; }
+.service-seo-multilingual-seo .sd-capability { border-radius: 12px 30px 30px 12px; }
+.service-seo-multilingual-seo .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-seo-multilingual-seo .sd-scope-orb { animation-duration: 12s; }
+.service-seo-multilingual-seo .sd-overview-art { padding-inline: 37px; }
+.service-seo-multilingual-seo .sd-measures { border-radius: 36px 12px 12px 36px; }
+@media (max-width: 800px) {
+  .service-seo-multilingual-seo .sd-orbital-approach { background-position: center bottom; }
+  .service-seo-multilingual-seo .sd-overview-art { padding-inline: 20px; }
+}

@@ -1,3 +1,4 @@
+import BrandStrings from '../components/BrandStrings';
 
 import React from "react";
 import "./Service.css";
@@ -270,7 +271,8 @@ export default function Service() {
     return (
         <>
             <main className="service-page">
-                <section className="service-hero">
+                <section className="service-hero has-brand-strings">
+          <BrandStrings variant="edge" />
                     <div className="service-container">
 
                         {/* LEFT CONTENT */}
@@ -334,7 +336,8 @@ export default function Service() {
 
             {/*------------------------------------------------- Second Page ----------------------------*/}
 
-            <main className="kr-services" id="services">
+            <main className="kr-services has-brand-strings" id="services">
+          <BrandStrings variant="flow" />
                 <div className="kr-services__glow kr-services__glow--top" />
                 <div className="kr-services__glow kr-services__glow--left" />
 
@@ -461,7 +464,8 @@ export default function Service() {
 
             {/*--------------------------------------------- fourth Page---------------------------------- */}
 
-            <section className="service-approach" id="our-approach">
+            <section className="service-approach has-brand-strings" id="our-approach">
+          <BrandStrings variant="orbit" />
                 <div className="sa-container">
 
                     {/* LEFT CONTENT */}

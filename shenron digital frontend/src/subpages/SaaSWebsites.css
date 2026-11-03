@@ -1,0 +1,12 @@
+/* SaaS Websites: page-specific composition. */
+.service-web-development-saas-websites { --page-accent: #8045FF; background: #F7F3EB; }
+.service-web-development-saas-websites .sd-orbital-approach { background-position: 55% center; }
+.service-web-development-saas-websites .sd-capability { border-radius: 12px 30px 30px 12px; }
+.service-web-development-saas-websites .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-web-development-saas-websites .sd-scope-orb { animation-duration: 12s; }
+.service-web-development-saas-websites .sd-overview-art { padding-inline: 37px; }
+.service-web-development-saas-websites .sd-measures { border-radius: 36px 12px 12px 36px; }
+@media (max-width: 800px) {
+  .service-web-development-saas-websites .sd-orbital-approach { background-position: center bottom; }
+  .service-web-development-saas-websites .sd-overview-art { padding-inline: 20px; }
+}

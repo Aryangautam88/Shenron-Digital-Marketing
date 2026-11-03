@@ -1,0 +1,12 @@
+/* LinkedIn Ads: page-specific composition. */
+.service-paid-advertising-linkedin-ads { --page-accent: #8045FF; background: #F7F3EB; }
+.service-paid-advertising-linkedin-ads .sd-orbital-approach { background-position: 45% center; }
+.service-paid-advertising-linkedin-ads .sd-capability { border-radius: 36px 12px 12px 36px; }
+.service-paid-advertising-linkedin-ads .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-paid-advertising-linkedin-ads .sd-scope-orb { animation-duration: 13s; }
+.service-paid-advertising-linkedin-ads .sd-overview-art { padding-inline: 40px; }
+.service-paid-advertising-linkedin-ads .sd-measures { border-radius: 18px; }
+@media (max-width: 800px) {
+  .service-paid-advertising-linkedin-ads .sd-orbital-approach { background-position: center bottom; }
+  .service-paid-advertising-linkedin-ads .sd-overview-art { padding-inline: 20px; }
+}

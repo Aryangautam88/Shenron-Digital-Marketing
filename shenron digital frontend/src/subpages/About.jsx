@@ -113,6 +113,7 @@ export default function About() {
         <details><summary>Can we focus on one part of our marketing?<span aria-hidden="true">+</span></summary><p>Yes. The starting point can be a specific need, such as search visibility, paid campaigns, brand design, or a website. The plan should fit your priorities rather than require every channel at once.</p></details>
         <details><summary>How do we decide what success looks like?<span aria-hidden="true">+</span></summary><p>We connect the work to an agreed objective, then choose relevant measures: qualified enquiries, conversions, engagement, or search visibility. Those measures guide the review and the next round of improvements.</p></details>
       </div></section>
+      <section className="about-next-chapter"><div className="about-container"><div><p className="about-eyebrow"><span />LET'S BUILD TOGETHER</p><h2>Your next chapter<br /><em>starts here.</em></h2><p>Bring your ideas. Let's find a clear direction together.</p></div><Link className="about-button" to="/contact">Start a conversation <span><ArrowUpRight size={18} /></span></Link></div></section>
     </main>
   );
 }

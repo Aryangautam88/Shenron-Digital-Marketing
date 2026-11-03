@@ -1,0 +1,12 @@
+/* Custom Web Development: page-specific composition. */
+.service-web-development-custom { --page-accent: #8045FF; background: #F7F3EB; }
+.service-web-development-custom .sd-orbital-approach { background-position: center; }
+.service-web-development-custom .sd-capability { border-radius: 30px; }
+.service-web-development-custom .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-web-development-custom .sd-scope-orb { animation-duration: 15s; }
+.service-web-development-custom .sd-overview-art { padding-inline: 46px; }
+.service-web-development-custom .sd-measures { border-radius: 24px; }
+@media (max-width: 800px) {
+  .service-web-development-custom .sd-orbital-approach { background-position: center bottom; }
+  .service-web-development-custom .sd-overview-art { padding-inline: 20px; }
+}

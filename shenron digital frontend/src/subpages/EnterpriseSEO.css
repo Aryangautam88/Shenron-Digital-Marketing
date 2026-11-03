@@ -1,0 +1,12 @@
+/* Enterprise SEO: page-specific composition. */
+.service-seo-enterprise-seo { --page-accent: #8045FF; background: #F7F3EB; }
+.service-seo-enterprise-seo .sd-orbital-approach { background-position: center; }
+.service-seo-enterprise-seo .sd-capability { border-radius: 30px; }
+.service-seo-enterprise-seo .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-seo-enterprise-seo .sd-scope-orb { animation-duration: 15s; }
+.service-seo-enterprise-seo .sd-overview-art { padding-inline: 46px; }
+.service-seo-enterprise-seo .sd-measures { border-radius: 24px; }
+@media (max-width: 800px) {
+  .service-seo-enterprise-seo .sd-orbital-approach { background-position: center bottom; }
+  .service-seo-enterprise-seo .sd-overview-art { padding-inline: 20px; }
+}

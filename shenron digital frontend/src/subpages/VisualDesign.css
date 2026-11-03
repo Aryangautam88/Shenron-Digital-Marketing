@@ -1,0 +1,12 @@
+/* Visual Design: page-specific composition. */
+.service-digital-design-visual-design { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-visual-design .sd-orbital-approach { background-position: 45% center; }
+.service-digital-design-visual-design .sd-capability { border-radius: 36px 12px 12px 36px; }
+.service-digital-design-visual-design .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-visual-design .sd-scope-orb { animation-duration: 13s; }
+.service-digital-design-visual-design .sd-overview-art { padding-inline: 40px; }
+.service-digital-design-visual-design .sd-measures { border-radius: 18px; }
+@media (max-width: 800px) {
+  .service-digital-design-visual-design .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-visual-design .sd-overview-art { padding-inline: 20px; }
+}

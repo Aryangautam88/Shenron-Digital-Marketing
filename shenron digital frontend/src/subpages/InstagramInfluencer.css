@@ -1,0 +1,12 @@
+/* Instagram Influencer: page-specific composition. */
+.service-influencer-marketing-instagram { --page-accent: #8045FF; background: #F7F3EB; }
+.service-influencer-marketing-instagram .sd-orbital-approach { background-position: center 55%; }
+.service-influencer-marketing-instagram .sd-capability { border-radius: 28px 28px 10px 10px; }
+.service-influencer-marketing-instagram .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-influencer-marketing-instagram .sd-scope-orb { animation-duration: 11s; }
+.service-influencer-marketing-instagram .sd-overview-art { padding-inline: 34px; }
+.service-influencer-marketing-instagram .sd-measures { border-radius: 12px; }
+@media (max-width: 800px) {
+  .service-influencer-marketing-instagram .sd-orbital-approach { background-position: center bottom; }
+  .service-influencer-marketing-instagram .sd-overview-art { padding-inline: 20px; }
+}

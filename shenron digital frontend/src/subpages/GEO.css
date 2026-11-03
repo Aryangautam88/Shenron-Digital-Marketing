@@ -1,0 +1,12 @@
+/* Generative Engine Optimization: page-specific composition. */
+.service-seo-geo { --page-accent: #8045FF; background: #F7F3EB; }
+.service-seo-geo .sd-orbital-approach { background-position: 45% center; }
+.service-seo-geo .sd-capability { border-radius: 36px 12px 12px 36px; }
+.service-seo-geo .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-seo-geo .sd-scope-orb { animation-duration: 13s; }
+.service-seo-geo .sd-overview-art { padding-inline: 40px; }
+.service-seo-geo .sd-measures { border-radius: 18px; }
+@media (max-width: 800px) {
+  .service-seo-geo .sd-orbital-approach { background-position: center bottom; }
+  .service-seo-geo .sd-overview-art { padding-inline: 20px; }
+}

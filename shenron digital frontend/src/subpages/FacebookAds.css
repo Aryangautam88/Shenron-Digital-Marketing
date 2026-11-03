@@ -1,0 +1,12 @@
+/* Facebook Ads: page-specific composition. */
+.service-paid-advertising-facebook-ads { --page-accent: #8045FF; background: #F7F3EB; }
+.service-paid-advertising-facebook-ads .sd-orbital-approach { background-position: 48% center; }
+.service-paid-advertising-facebook-ads .sd-capability { border-radius: 14px 34px 14px 34px; }
+.service-paid-advertising-facebook-ads .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-paid-advertising-facebook-ads .sd-scope-orb { animation-duration: 10s; }
+.service-paid-advertising-facebook-ads .sd-overview-art { padding-inline: 31px; }
+.service-paid-advertising-facebook-ads .sd-measures { border-radius: 28px 28px 10px 10px; }
+@media (max-width: 800px) {
+  .service-paid-advertising-facebook-ads .sd-orbital-approach { background-position: center bottom; }
+  .service-paid-advertising-facebook-ads .sd-overview-art { padding-inline: 20px; }
+}
