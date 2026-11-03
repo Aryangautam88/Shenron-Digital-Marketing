@@ -6,6 +6,8 @@ import Service from "./pages/Service";
 import Industries from "./pages/Industries";
 
 import About from "./subpages/About";
+import Contact from "./subpages/Contact";
+import ServiceDetail from "./subpages/ServiceDetail";
 
 
 import Hero from "./pages/Hero";
@@ -22,11 +24,8 @@ export default function App() {
     <Route path="/" element={<Hero />} />
 
     <Route path="/services" element={<Service/>} />
-    <Route path="/services/seo" element={<main />} />
-    <Route path="/services/paid-advertising" element={<main />} />
-    <Route path="/services/influencer-marketing" element={<main />} />
-    <Route path="/services/digital-design" element={<main />} />
-    <Route path="/services/web-development" element={<main />} />
+    <Route path="/services/:category" element={<ServiceDetail />} />
+    <Route path="/services/:category/:offering" element={<ServiceDetail />} />
 
     <Route path="/industries" element={<Industries/>} />
     <Route path="/industries/:industry" element={<main />} />
@@ -38,7 +37,8 @@ export default function App() {
 
   
     <Route path="/company/about" element={<About />} />
-    <Route path="/company/contact" element={<main />} />
+    <Route path="/company/contact" element={<Contact />} />
+    <Route path="/contact" element={<Contact />} />
 
     <Route path="*" element={<main />} />
    </Routes>

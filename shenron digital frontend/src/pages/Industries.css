@@ -87,26 +87,29 @@
 }
 
 .industries-title em {
-  display: block;
-  margin-top: 2px;
-  color: var(--industry-purple);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 0.98em;
-  font-weight: 500;
+  display: inline-block;
+  margin-left: 0.02em;
+  background: linear-gradient(110deg, #c2a6ff 0%, #8865ff 47%, #6946ef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.12em;
   font-style: italic;
-  letter-spacing: -2.5px;
-  line-height: 1.12;
+  font-weight: 500;
+  letter-spacing: -7px;
 }
 
 /* Description */
 
 .industries-description {
-  max-width: 490px;
-  margin: 0;
-  color: #4e596b;
-  font-size: 14px;
+  max-width: 440px;
+  margin: 28px 0 0;
+  color: #55535d;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.52;
 }
 
 /* CTA buttons */
