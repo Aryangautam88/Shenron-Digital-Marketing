@@ -1,4 +1,3 @@
-import BrandStrings from '../components/BrandStrings';
 
 import React, { useState } from "react";
 import "./Hero.css";
@@ -286,8 +285,7 @@ const Hero = () => {
     <>
       {/* ================= -----------------HERO SECTION-=-=----------------=-- ================= */}
 
-      <section className="hero has-brand-strings" id="home">
-          <BrandStrings variant="edge" />
+      <section className="hero" id="home">
         {/* Background decoration */}
 
         <div className="hero-bg-glow"></div>
@@ -399,8 +397,7 @@ const Hero = () => {
 
       <main className="kravs-about">
         {/* ABOUT HERO */}
-        <section className="ka-hero has-brand-strings">
-          <BrandStrings variant="flow" />
+        <section className="ka-hero">
           <div className="ka-hero-copy">
             <div className="ka-eyebrow">
               <span className="ka-eyebrow-line" />
@@ -481,8 +478,7 @@ const Hero = () => {
 
       <main className="kravs-services">
         {/* HERO */}
-        <section className="ks-hero has-brand-strings">
-          <BrandStrings variant="orbit" />
+        <section className="ks-hero">
           <div className="ks-hero-copy">
             <div className="ks-eyebrow">
               <span className="ks-eyebrow-line" />
@@ -605,8 +601,7 @@ const Hero = () => {
       {/*--------------------------------- Process-------------------------------------- */}
 
 
-      <section className="kravs-process has-brand-strings" id="our-process">
-          <BrandStrings variant="flow" />
+      <section className="kravs-process" id="our-process">
         {/* Decorative image spaces */}
         <div
           className="kp-decoration kp-decoration-top"

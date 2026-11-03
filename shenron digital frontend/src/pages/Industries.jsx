@@ -1,4 +1,3 @@
-import BrandStrings from '../components/BrandStrings';
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
@@ -348,10 +347,9 @@ export default function Industries() {
       ===================================== */}
 
       <section
-        className="industries-hero has-brand-strings"
+        className="industries-hero"
         aria-labelledby="industries-title"
       >
-          <BrandStrings variant="edge" />
         <div className="industries-hero-inner">
           <div className="industries-content">
             <div className="industries-eyebrow">
@@ -605,11 +603,10 @@ export default function Industries() {
       ===================================== */}
 
       <section
-        className="industry-stats-section has-brand-strings"
+        className="industry-stats-section"
         ref={statsRef}
         aria-labelledby="industry-stats-heading"
       >
-          <BrandStrings variant="flow" />
         <div className="industry-stats-container">
           <div className="industry-stats-header">
             <div className="industry-stats-eyebrow">
@@ -699,10 +696,9 @@ export default function Industries() {
       ===================================== */}
 
       <section
-        className="industry-insights has-brand-strings"
+        className="industry-insights"
         aria-labelledby="industry-insights-title"
       >
-          <BrandStrings variant="orbit" />
         <div className="industry-insights-container">
           {/* LEFT CONTENT */}
           <div className="industry-insights-content">
