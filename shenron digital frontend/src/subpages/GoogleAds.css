@@ -1,0 +1,12 @@
+/* Google Ads: page-specific composition. */
+.service-paid-advertising-google-ads { --page-accent: #8045FF; background: #F7F3EB; }
+.service-paid-advertising-google-ads .sd-orbital-approach { background-position: 52% center; }
+.service-paid-advertising-google-ads .sd-capability { border-radius: 30px 12px 30px 12px; }
+.service-paid-advertising-google-ads .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-paid-advertising-google-ads .sd-scope-orb { animation-duration: 9s; }
+.service-paid-advertising-google-ads .sd-overview-art { padding-inline: 28px; }
+.service-paid-advertising-google-ads .sd-measures { border-radius: 14px 34px 14px 34px; }
+@media (max-width: 800px) {
+  .service-paid-advertising-google-ads .sd-orbital-approach { background-position: center bottom; }
+  .service-paid-advertising-google-ads .sd-overview-art { padding-inline: 20px; }
+}

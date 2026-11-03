@@ -1,0 +1,77 @@
+import { lazy } from 'react';
+
+const SeoSeoOverviewPage = lazy(() => import('./SEOOverview'));
+const SeoLocalSeoPage = lazy(() => import('./LocalSEO'));
+const SeoTechnicalSeoPage = lazy(() => import('./TechnicalSEO'));
+const SeoInternationalSeoPage = lazy(() => import('./InternationalSEO'));
+const SeoMultilingualSeoPage = lazy(() => import('./MultilingualSEO'));
+const SeoGeoPage = lazy(() => import('./GEO'));
+const SeoEcommerceSeoPage = lazy(() => import('./EcommerceSEO'));
+const SeoEnterpriseSeoPage = lazy(() => import('./EnterpriseSEO'));
+const PaidAdvertisingPaidAdvertisingOverviewPage = lazy(() => import('./PaidAdvertisingOverview'));
+const PaidAdvertisingGoogleAdsPage = lazy(() => import('./GoogleAds'));
+const PaidAdvertisingFacebookAdsPage = lazy(() => import('./FacebookAds'));
+const PaidAdvertisingInstagramAdsPage = lazy(() => import('./InstagramAds'));
+const PaidAdvertisingYoutubeAdsPage = lazy(() => import('./YouTubeAds'));
+const PaidAdvertisingLinkedinAdsPage = lazy(() => import('./LinkedInAds'));
+const PaidAdvertisingRemarketingPage = lazy(() => import('./RemarketingCampaigns'));
+const DigitalDesignDigitalDesignOverviewPage = lazy(() => import('./DigitalDesignOverview'));
+const DigitalDesignUiUxPage = lazy(() => import('./UIUXDesign'));
+const DigitalDesignWebsiteUiPage = lazy(() => import('./WebsiteUIDesign'));
+const DigitalDesignBrandIdentityPage = lazy(() => import('./BrandIdentity'));
+const DigitalDesignLandingPagesPage = lazy(() => import('./LandingPageDesign'));
+const DigitalDesignVisualDesignPage = lazy(() => import('./VisualDesign'));
+const DigitalDesignBrandStrategyPage = lazy(() => import('./BrandStrategy'));
+const DigitalDesignCreativeAssetsPage = lazy(() => import('./CreativeAssets'));
+const WebDevelopmentWebDevelopmentOverviewPage = lazy(() => import('./WebDevelopmentOverview'));
+const WebDevelopmentWebsiteDesignPage = lazy(() => import('./WebsiteDesign'));
+const WebDevelopmentLandingPagesPage = lazy(() => import('./WebLandingPages'));
+const WebDevelopmentBusinessWebsitesPage = lazy(() => import('./BusinessWebsites'));
+const WebDevelopmentSaasWebsitesPage = lazy(() => import('./SaaSWebsites'));
+const WebDevelopmentRedesignPage = lazy(() => import('./WebsiteRedesign'));
+const WebDevelopmentEcommercePage = lazy(() => import('./EcommerceWebsites'));
+const WebDevelopmentCustomPage = lazy(() => import('./CustomWebDevelopment'));
+const InfluencerMarketingInfluencerMarketingOverviewPage = lazy(() => import('./InfluencerMarketingOverview'));
+const InfluencerMarketingNanoPage = lazy(() => import('./NanoInfluencer'));
+const InfluencerMarketingMicroPage = lazy(() => import('./MicroInfluencer'));
+const InfluencerMarketingInstagramPage = lazy(() => import('./InstagramInfluencer'));
+const InfluencerMarketingCampaignsPage = lazy(() => import('./InfluencerCampaigns'));
+
+export const servicePageRoutes = [
+  { path: '/services/seo', Component: SeoSeoOverviewPage },
+  { path: '/services/seo/local-seo', Component: SeoLocalSeoPage },
+  { path: '/services/seo/technical-seo', Component: SeoTechnicalSeoPage },
+  { path: '/services/seo/international-seo', Component: SeoInternationalSeoPage },
+  { path: '/services/seo/multilingual-seo', Component: SeoMultilingualSeoPage },
+  { path: '/services/seo/geo', Component: SeoGeoPage },
+  { path: '/services/seo/ecommerce-seo', Component: SeoEcommerceSeoPage },
+  { path: '/services/seo/enterprise-seo', Component: SeoEnterpriseSeoPage },
+  { path: '/services/paid-advertising', Component: PaidAdvertisingPaidAdvertisingOverviewPage },
+  { path: '/services/paid-advertising/google-ads', Component: PaidAdvertisingGoogleAdsPage },
+  { path: '/services/paid-advertising/facebook-ads', Component: PaidAdvertisingFacebookAdsPage },
+  { path: '/services/paid-advertising/instagram-ads', Component: PaidAdvertisingInstagramAdsPage },
+  { path: '/services/paid-advertising/youtube-ads', Component: PaidAdvertisingYoutubeAdsPage },
+  { path: '/services/paid-advertising/linkedin-ads', Component: PaidAdvertisingLinkedinAdsPage },
+  { path: '/services/paid-advertising/remarketing', Component: PaidAdvertisingRemarketingPage },
+  { path: '/services/digital-design', Component: DigitalDesignDigitalDesignOverviewPage },
+  { path: '/services/digital-design/ui-ux', Component: DigitalDesignUiUxPage },
+  { path: '/services/digital-design/website-ui', Component: DigitalDesignWebsiteUiPage },
+  { path: '/services/digital-design/brand-identity', Component: DigitalDesignBrandIdentityPage },
+  { path: '/services/digital-design/landing-pages', Component: DigitalDesignLandingPagesPage },
+  { path: '/services/digital-design/visual-design', Component: DigitalDesignVisualDesignPage },
+  { path: '/services/digital-design/brand-strategy', Component: DigitalDesignBrandStrategyPage },
+  { path: '/services/digital-design/creative-assets', Component: DigitalDesignCreativeAssetsPage },
+  { path: '/services/web-development', Component: WebDevelopmentWebDevelopmentOverviewPage },
+  { path: '/services/web-development/website-design', Component: WebDevelopmentWebsiteDesignPage },
+  { path: '/services/web-development/landing-pages', Component: WebDevelopmentLandingPagesPage },
+  { path: '/services/web-development/business-websites', Component: WebDevelopmentBusinessWebsitesPage },
+  { path: '/services/web-development/saas-websites', Component: WebDevelopmentSaasWebsitesPage },
+  { path: '/services/web-development/redesign', Component: WebDevelopmentRedesignPage },
+  { path: '/services/web-development/ecommerce', Component: WebDevelopmentEcommercePage },
+  { path: '/services/web-development/custom', Component: WebDevelopmentCustomPage },
+  { path: '/services/influencer-marketing', Component: InfluencerMarketingInfluencerMarketingOverviewPage },
+  { path: '/services/influencer-marketing/nano', Component: InfluencerMarketingNanoPage },
+  { path: '/services/influencer-marketing/micro', Component: InfluencerMarketingMicroPage },
+  { path: '/services/influencer-marketing/instagram', Component: InfluencerMarketingInstagramPage },
+  { path: '/services/influencer-marketing/campaigns', Component: InfluencerMarketingCampaignsPage },
+];

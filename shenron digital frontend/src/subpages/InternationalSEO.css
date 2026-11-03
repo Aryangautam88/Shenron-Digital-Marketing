@@ -1,0 +1,12 @@
+/* International SEO: page-specific composition. */
+.service-seo-international-seo { --page-accent: #8045FF; background: #F7F3EB; }
+.service-seo-international-seo .sd-orbital-approach { background-position: center 55%; }
+.service-seo-international-seo .sd-capability { border-radius: 28px 28px 10px 10px; }
+.service-seo-international-seo .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-seo-international-seo .sd-scope-orb { animation-duration: 11s; }
+.service-seo-international-seo .sd-overview-art { padding-inline: 34px; }
+.service-seo-international-seo .sd-measures { border-radius: 12px 30px 30px 12px; }
+@media (max-width: 800px) {
+  .service-seo-international-seo .sd-orbital-approach { background-position: center bottom; }
+  .service-seo-international-seo .sd-overview-art { padding-inline: 20px; }
+}

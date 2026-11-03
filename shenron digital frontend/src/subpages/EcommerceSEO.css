@@ -1,0 +1,12 @@
+/* E-commerce SEO: page-specific composition. */
+.service-seo-ecommerce-seo { --page-accent: #8045FF; background: #F7F3EB; }
+.service-seo-ecommerce-seo .sd-orbital-approach { background-position: center 45%; }
+.service-seo-ecommerce-seo .sd-capability { border-radius: 18px; }
+.service-seo-ecommerce-seo .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-seo-ecommerce-seo .sd-scope-orb { animation-duration: 14s; }
+.service-seo-ecommerce-seo .sd-overview-art { padding-inline: 43px; }
+.service-seo-ecommerce-seo .sd-measures { border-radius: 30px; }
+@media (max-width: 800px) {
+  .service-seo-ecommerce-seo .sd-orbital-approach { background-position: center bottom; }
+  .service-seo-ecommerce-seo .sd-overview-art { padding-inline: 20px; }
+}

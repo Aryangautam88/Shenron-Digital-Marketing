@@ -1,0 +1,12 @@
+/* Influencer Campaigns: page-specific composition. */
+.service-influencer-marketing-campaigns { --page-accent: #8045FF; background: #F7F3EB; }
+.service-influencer-marketing-campaigns .sd-orbital-approach { background-position: 55% center; }
+.service-influencer-marketing-campaigns .sd-capability { border-radius: 12px 30px 30px 12px; }
+.service-influencer-marketing-campaigns .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-influencer-marketing-campaigns .sd-scope-orb { animation-duration: 12s; }
+.service-influencer-marketing-campaigns .sd-overview-art { padding-inline: 37px; }
+.service-influencer-marketing-campaigns .sd-measures { border-radius: 36px 12px 12px 36px; }
+@media (max-width: 800px) {
+  .service-influencer-marketing-campaigns .sd-orbital-approach { background-position: center bottom; }
+  .service-influencer-marketing-campaigns .sd-overview-art { padding-inline: 20px; }
+}

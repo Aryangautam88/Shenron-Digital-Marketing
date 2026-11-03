@@ -1,0 +1,12 @@
+/* Brand Identity: page-specific composition. */
+.service-digital-design-brand-identity { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-brand-identity .sd-orbital-approach { background-position: center 55%; }
+.service-digital-design-brand-identity .sd-capability { border-radius: 28px 28px 10px 10px; }
+.service-digital-design-brand-identity .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-brand-identity .sd-scope-orb { animation-duration: 11s; }
+.service-digital-design-brand-identity .sd-overview-art { padding-inline: 34px; }
+.service-digital-design-brand-identity .sd-measures { border-radius: 12px 30px 30px 12px; }
+@media (max-width: 800px) {
+  .service-digital-design-brand-identity .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-brand-identity .sd-overview-art { padding-inline: 20px; }
+}

@@ -1,0 +1,12 @@
+/* Technical SEO: page-specific composition. */
+.service-seo-technical-seo { --page-accent: #8045FF; background: #F7F3EB; }
+.service-seo-technical-seo .sd-orbital-approach { background-position: 48% center; }
+.service-seo-technical-seo .sd-capability { border-radius: 14px 34px 14px 34px; }
+.service-seo-technical-seo .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-seo-technical-seo .sd-scope-orb { animation-duration: 10s; }
+.service-seo-technical-seo .sd-overview-art { padding-inline: 31px; }
+.service-seo-technical-seo .sd-measures { border-radius: 28px 28px 10px 10px; }
+@media (max-width: 800px) {
+  .service-seo-technical-seo .sd-orbital-approach { background-position: center bottom; }
+  .service-seo-technical-seo .sd-overview-art { padding-inline: 20px; }
+}

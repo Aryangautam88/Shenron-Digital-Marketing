@@ -1,0 +1,12 @@
+/* E-commerce Websites: page-specific composition. */
+.service-web-development-ecommerce { --page-accent: #8045FF; background: #F7F3EB; }
+.service-web-development-ecommerce .sd-orbital-approach { background-position: center 45%; }
+.service-web-development-ecommerce .sd-capability { border-radius: 18px; }
+.service-web-development-ecommerce .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-web-development-ecommerce .sd-scope-orb { animation-duration: 14s; }
+.service-web-development-ecommerce .sd-overview-art { padding-inline: 43px; }
+.service-web-development-ecommerce .sd-measures { border-radius: 30px; }
+@media (max-width: 800px) {
+  .service-web-development-ecommerce .sd-orbital-approach { background-position: center bottom; }
+  .service-web-development-ecommerce .sd-overview-art { padding-inline: 20px; }
+}

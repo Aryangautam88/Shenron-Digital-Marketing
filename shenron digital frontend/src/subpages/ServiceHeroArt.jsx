@@ -1,22 +1,18 @@
-import ServiceHeroMotif from './ServiceHeroMotif';
-﻿import { ArrowUpRight, Check, Code2, Globe2, Layers, MapPin, Megaphone, MousePointer2, Play, Search, Sparkles, Users } from 'lucide-react';
-
-const symbols = { seo: Search, 'paid-advertising': Megaphone, 'digital-design': Layers, 'web-development': Code2, 'influencer-marketing': Users };
+﻿import { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import { serviceCategories } from './serviceContent';
+import ServiceHeroScene, { ServiceHeroSceneSelection } from './ServiceHeroScene';
+import './ServiceHeroArt.css';
 
 export default function ServiceHeroArt({ category, name, deliverables, variant }) {
-  const Icon = symbols[category];
-  if (variant > 0) return <div className={`sh-art sh-${category} sh-offering sh-layout-${variant}`} role="img" aria-label={`${name}: ${deliverables.join(', ')}`}><ServiceHeroMotif category={category} name={name} deliverables={deliverables} variant={variant} /></div>;
-  return (
-    <div className={`sh-art sh-${category} sh-layout-${variant}`} aria-label={`${name}: ${deliverables.join(', ')}`} role="img">
-      <div className="sh-orbit sh-orbit-one" aria-hidden="true" /><div className="sh-orbit sh-orbit-two" aria-hidden="true" />
-      <span className="sh-floating-icon" aria-hidden="true"><Icon size={30} strokeWidth={1.4} /></span>
-      {category === 'seo' && <div className="sh-window sh-search-window"><div className="sh-window-top"><span /><span /><span /><small>SEARCH / DISCOVER</small></div><div className="sh-search"><Search size={17} /><span>{name}</span><Globe2 size={16} /></div><div className="sh-search-result"><span className="sh-site"><span className="sh-site-icon"><Globe2 size={16} /></span>Your next discovery</span><strong>{deliverables[0]}</strong><p>Clear answers. Useful content. A stronger foundation.</p></div><div className="sh-search-result sh-secondary"><strong>{deliverables[1]}</strong><div className="sh-line" /><div className="sh-line sh-short" /></div><div className="sh-location"><MapPin size={20} /><span>{deliverables[2]}</span></div></div>}
-      {category === 'paid-advertising' && <div className="sh-window sh-campaign-window"><div className="sh-window-top"><span /><span /><span /><small>CAMPAIGN / CREATIVE</small></div><div className="sh-campaign-visual"><span className="sh-mini">A MESSAGE THAT CONNECTS</span><strong>Right audience.<br /><em>Real interest.</em></strong><span className="sh-play"><Play size={22} fill="currentColor" /></span></div><div className="sh-campaign-foot"><span>{deliverables[0]}</span><ArrowUpRight size={20} /></div><div className="sh-bars" aria-hidden="true">{[34,55,42,75,60,88,72,100].map((height,i) => <i key={i} style={{height:`${height}%`}} />)}</div><span className="sh-mini">TEST / LEARN / REFINE</span></div>}
-      {category === 'digital-design' && <div className="sh-window sh-design-window"><div className="sh-window-top"><span /><span /><span /><small>DESIGN / EXPLORATION</small></div><div className="sh-design-canvas"><span className="sh-mini">{name}</span><strong>Aa<span>Ideas into<br /><em>identity.</em></span></strong><div className="sh-swatches"><i /><i /><i /><i /></div><div className="sh-design-label">{deliverables[0]}</div><MousePointer2 className="sh-cursor" size={28} fill="#8045ff" /></div><div className="sh-design-tools"><Layers size={17} /><span>Shape. Refine. Make it yours.</span><Sparkles size={17} /></div></div>}
-      {category === 'web-development' && <div className="sh-window sh-browser-window"><div className="sh-window-top"><span /><span /><span /><small>BUILD / EXPERIENCE</small></div><div className="sh-address"><Globe2 size={13} /><span>your-next-chapter.web</span></div><div className="sh-browser-nav"><span className="sh-brand">your brand.</span><i /><i /><span className="sh-nav-button" /></div><div className="sh-browser-body"><div><span className="sh-mini">MADE FOR YOUR NEXT MOVE</span><strong>Built around<br /><em>your ideas.</em></strong><span className="sh-browser-cta">Explore <ArrowUpRight size={12} /></span></div><div className="sh-web-shape"><Code2 size={50} strokeWidth={1} /></div></div><div className="sh-code"><code>&lt;experience&gt;</code><span>{deliverables[0]}</span><code>&lt;/experience&gt;</code></div></div>}
-      {category === 'influencer-marketing' && <div className="sh-window sh-creator-window"><div className="sh-window-top"><span /><span /><span /><small>PEOPLE / CONNECTIONS</small></div><span className="sh-mini">VOICES WITH A SHARED PURPOSE</span><div className="sh-creators"><div><Users size={32} /><span>Community</span></div><div><Megaphone size={32} /><span>Creator</span></div><div><Sparkles size={32} /><span>Your brand</span></div></div><strong>Real voices.<br /><em>Shared stories.</em></strong><p>{deliverables[0]}</p><div className="sh-creator-pills"><span>Relevance</span><span>Creativity</span><span>Connection</span></div></div>}
-      <div className="sh-note"><span className="sh-note-icon"><Check size={17} /></span><div><small>THE FOCUS</small><strong>{deliverables[variant % deliverables.length]}</strong></div></div>
-      <span className="sh-caption">{String(variant + 1).padStart(2, '0')} / {name}</span>
-    </div>
-  );
+  const [active, setActive] = useState(0);
+  const group = serviceCategories[category];
+  const offering = group.items[variant - 1]?.[0];
+  const scene = `${category}/${offering || 'overview'}`;
+  return <div className={`service-hero-visual hv-experience hv-family-${category} hv-page-${offering || "overview"}`}>
+    <div className="hv-experience-heading"><span>{name} / EXPLORE THE APPROACH</span><span className="hv-live-dot" aria-hidden="true" /></div>
+    <div className="hv-stage" key={scene}><ServiceHeroSceneSelection active={active} onSelect={setActive}><ServiceHeroScene scene={scene} active={active} onSelect={setActive}/></ServiceHeroSceneSelection></div>
+    <div className="hv-focus-options" role="group" aria-label={`Explore ${name} focus areas`}>{deliverables.map((label,index)=><button key={label} type="button" aria-label={label} aria-pressed={active===index} aria-controls="hero-focus-detail" onClick={()=>setActive(index)}><span>0{index+1}</span><span className="hv-option-label">{label.split(" ").slice(0, 2).join(" ")}</span><ArrowUpRight size={13} aria-hidden="true"/></button>)}</div>
+    <div className="hv-selected-focus" id="hero-focus-detail" aria-live="polite" aria-atomic="true"><span>IN FOCUS</span><strong key={active}>{deliverables[active]}</strong><a href={`#service-capability-${active+1}`} aria-label={`Read about ${deliverables[active]}`}><ArrowUpRight size={18}/></a></div>
+  </div>;
 }

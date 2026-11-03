@@ -1,0 +1,12 @@
+/* Remarketing Campaigns: page-specific composition. */
+.service-paid-advertising-remarketing { --page-accent: #8045FF; background: #F7F3EB; }
+.service-paid-advertising-remarketing .sd-orbital-approach { background-position: center 45%; }
+.service-paid-advertising-remarketing .sd-capability { border-radius: 18px; }
+.service-paid-advertising-remarketing .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-paid-advertising-remarketing .sd-scope-orb { animation-duration: 14s; }
+.service-paid-advertising-remarketing .sd-overview-art { padding-inline: 43px; }
+.service-paid-advertising-remarketing .sd-measures { border-radius: 30px; }
+@media (max-width: 800px) {
+  .service-paid-advertising-remarketing .sd-orbital-approach { background-position: center bottom; }
+  .service-paid-advertising-remarketing .sd-overview-art { padding-inline: 20px; }
+}

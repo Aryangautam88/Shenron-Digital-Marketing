@@ -1,0 +1,12 @@
+/* Brand Strategy: page-specific composition. */
+.service-digital-design-brand-strategy { --page-accent: #8045FF; background: #F7F3EB; }
+.service-digital-design-brand-strategy .sd-orbital-approach { background-position: center 45%; }
+.service-digital-design-brand-strategy .sd-capability { border-radius: 18px; }
+.service-digital-design-brand-strategy .sd-cta > .sd-wrap { border-radius: 12px; }
+.service-digital-design-brand-strategy .sd-scope-orb { animation-duration: 14s; }
+.service-digital-design-brand-strategy .sd-overview-art { padding-inline: 43px; }
+.service-digital-design-brand-strategy .sd-measures { border-radius: 30px; }
+@media (max-width: 800px) {
+  .service-digital-design-brand-strategy .sd-orbital-approach { background-position: center bottom; }
+  .service-digital-design-brand-strategy .sd-overview-art { padding-inline: 20px; }
+}

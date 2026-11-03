@@ -118,6 +118,7 @@ export default function Contact() {
           <details><summary>What should I include in my message?<span aria-hidden="true">+</span></summary><p>Your goals, a link to your website if you have one, and any timeline or budget you have in mind are helpful. It's also fine if you're still figuring those out.</p></details>
         </div>
       </section>
+      <section className="contact-next-chapter"><div className="contact-container"><div><p className="contact-eyebrow"><span />EXPLORE WHAT'S POSSIBLE</p><h2>A little inspiration.<br /><em>A clearer next step.</em></h2><p>Explore the ways we can help bring your next idea to life.</p></div><Link className="contact-hero-button" to="/services">Explore our services <span><ArrowUpRight size={18} /></span></Link></div></section>
     </main>
   );
 }
