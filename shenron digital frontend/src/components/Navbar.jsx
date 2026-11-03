@@ -88,6 +88,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services", menu: "services" },
   { label: "Industries", href: "/industries", menu: "industries" },
+  { label: "Blog", href: "/blog" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "Company", href: "/company/about", menu: "company" },
 ];
@@ -150,6 +151,7 @@ const routeMap = {
   Enterprise: "/business-types/enterprise",
   Home: "/",
   Services: "/services",
+  Blog: "/blog",
   Testimonials: "/testimonials",
   "About Us": "/company/about",
   "Contact Us": "/company/contact",
