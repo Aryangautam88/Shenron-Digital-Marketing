@@ -1183,8 +1183,8 @@
     color: #77717e;
     font-size: 14px;
     text-decoration: none;
-    transform: translateX(3px);
-    transition: transform 0.25s ease;
+    transform: translateX(0);
+    transition: color 0.2s ease, transform 0.2s ease;
 
   }
   
@@ -1200,13 +1200,12 @@
   }
   
   .company-dropdown .company-link:hover {
-    color: #7540f8;
+    background: transparent !important;
+    color: #8957ff !important;
     transform: translateX(3px);
-    transition: transform 0.25s ease;
 
   }
   
   .company-dropdown .company-link:hover::before {
-    background: #7540f8;
-    transform: translateX(3px);
+    transform: none;
   }

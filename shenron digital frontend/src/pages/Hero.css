@@ -484,7 +484,7 @@ body {
 }
 
 /* Tablets */
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
   .hero {
     min-height: 100vh;
     min-height: 100svh;
@@ -559,6 +559,13 @@ body {
     justify-content: center;
     border-right: none;
     border-bottom: none;
+  }
+
+  .stat-number {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    font-size: 12px;
   }
 
   .stat-content h3 {
