@@ -1,0 +1,110 @@
+.home-blog.blog-insights-section {
+  --blog-cream: #f7f3eb;
+  --blog-paper: #fffdfa;
+  --blog-ink: #15141c;
+  --blog-muted: #666271;
+  --blog-purple: #7138ff;
+  --blog-line: rgba(50, 38, 65, 0.12);
+  padding: 88px 0 96px;
+  background: var(--blog-cream);
+}
+
+.home-blog-heading {
+  align-items: center;
+}
+
+.home-blog-heading h2 {
+  color: var(--blog-ink);
+}
+
+.home-blog-all-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 17px;
+  border: 1px solid rgba(21, 20, 28, 0.16);
+  border-radius: 999px;
+  color: var(--blog-ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.home-blog-all-link:hover {
+  border-color: var(--blog-purple);
+  color: #fff;
+  background: var(--blog-purple);
+}
+
+.home-blog .blog-article-grid {
+  margin-top: 31px;
+}
+
+.home-blog-message {
+  display: grid;
+  min-height: 160px;
+  place-content: center;
+  gap: 12px;
+  margin: 31px 0 0;
+  padding: 28px;
+  border: 1px dashed var(--blog-line);
+  border-radius: 18px;
+  color: var(--blog-muted);
+  background: rgba(255, 253, 250, 0.65);
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.home-blog-message p {
+  margin: 0;
+}
+
+.home-blog-message button {
+  justify-self: center;
+  padding: 8px 14px;
+  border: 1px solid rgba(113, 56, 255, 0.26);
+  border-radius: 999px;
+  color: var(--blog-purple);
+  background: #fffdfa;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.home-blog button:focus-visible,
+.home-blog a:focus-visible {
+  outline: 3px solid rgba(113, 56, 255, 0.65);
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .home-blog.blog-insights-section {
+    padding: 62px 0 70px;
+  }
+
+  .home-blog-heading {
+    gap: 18px;
+  }
+
+  .home-blog-all-link {
+    min-height: 42px;
+  }
+
+  .home-blog .blog-article-grid {
+    margin-top: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-blog * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

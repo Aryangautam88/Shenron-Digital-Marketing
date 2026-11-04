@@ -10,6 +10,7 @@ import influencerMarketing from "../assets/influencer_marketing.png";
 import leadGeneration from "../assets/lead_generation.png";
 import uiuxBranding from "../assets/uiux_branding.png";
 import seoImage from "../assets/seo.png";
+import BlogSection from "./BlogSection";
 
 import {
   Code2,
@@ -27,75 +28,10 @@ import {
   UserRound,
   Rocket,
   ArrowRight,
-  ArrowLeft,
   Menu, 
   X,
   Plus,
-  Star,
-  Quote,
 } from "lucide-react";
-
-// testimonial
-
-const testimonials = [
-  {
-    name: "Rohit Sharma",
-    role: "Founder, TrendKart",
-    initials: "RS",
-    rating: 5,
-    featured: false,
-    text: "Kravs Infotech delivered an amazing website for our business. The design, performance, and support were outstanding. Highly recommended!",
-  },
-  {
-    name: "Sneha Verma",
-    role: "CEO, NutriPure",
-    initials: "SV",
-    rating: 5,
-    featured: true,
-    text: "Professional team, clear communication, and excellent results. Our new website has significantly improved our online presence and customer engagement.",
-  },
-  {
-    name: "Amit Jain",
-    role: "Owner, The Chanchal Restaurant",
-    initials: "AJ",
-    rating: 5,
-    featured: false,
-    text: "They understood our vision perfectly and created a modern, user-friendly website. The entire process was smooth and hassle-free.",
-  },
-  {
-    name: "Priya Mehta",
-    role: "Marketing Head, NovaJoy Remedies",
-    initials: "PM",
-    rating: 5,
-    featured: false,
-    text: "Great experience working with Kravs Infotech. The team is skilled, responsive, and truly cares about delivering value.",
-  },
-  {
-    name: "Karan Patel",
-    role: "Founder, BuildNext",
-    initials: "KP",
-    rating: 5,
-    featured: false,
-    text: "The team brought our ideas to life with a clean, professional design and a smooth experience across devices.",
-  },
-  {
-    name: "Ananya Singh",
-    role: "Director, EduSphere",
-    initials: "AS",
-    rating: 5,
-    featured: false,
-    text: "Communication was clear throughout the project. The final website looks professional and gives our brand a stronger online presence.",
-  },
-];
-
-const brands = [
-  "TrendKart",
-  "NutriPure",
-  "The Chanchal Restaurant",
-  "NovaJoy Remedies",
-  "BuildNext",
-  "EduSphere",
-];
 
 // process
 
@@ -257,24 +193,6 @@ const timelinePath =
   "M 70 48 C 160 48, 190 76, 300 76 S 440 30, 500 48 S 650 76, 700 76 S 850 30, 900 48 S 1050 76, 1130 48";
 
 const Hero = () => {
-
-  const [page, setPage] = useState(0);
-
-  const visibleTestimonials = Array.from(
-    { length: 4 },
-    (_, index) => testimonials[(page + index) % testimonials.length]
-  );
-
-  const nextPage = () => {
-    setPage((current) => (current + 1) % testimonials.length);
-  };
-
-  const previousPage = () => {
-    setPage(
-      (current) =>
-        (current - 1 + testimonials.length) % testimonials.length
-    );
-  };
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -713,146 +631,7 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* --------------------------------Testimonial---------------------------------- */}
-
-      <section className="kravs-testimonials" id="testimonials">
-      <div className="kt-container">
-        <header className="kt-header">
-          <div className="kt-intro">
-            <span className="kt-eyebrow">
-              <span className="kt-eyebrow-line" />
-              CLIENT TESTIMONIALS
-            </span>
-
-            <h2>
-              What our clients
-              <br />
-              <span>say about us.</span>
-            </h2>
-
-            <p>
-              Real stories from businesses we've helped grow through
-              modern websites, creative design, and digital solutions.
-            </p>
-          </div>
-
-          <div className="kt-stats">
-            <div className="kt-stat">
-              <strong>50+</strong>
-              <span>HAPPY CLIENTS</span>
-            </div>
-
-            <div className="kt-stat">
-              <strong>100+</strong>
-              <span>PROJECTS DELIVERED</span>
-            </div>
-
-            <div className="kt-stat">
-              <strong>100%</strong>
-              <span>COMMITMENT</span>
-            </div>
-          </div>
-        </header>
-
-        <div className="kt-section-label">
-          <span>WHAT PEOPLE SAY</span>
-
-          <div className="kt-controls">
-            <button
-              type="button"
-              onClick={previousPage}
-              aria-label="Previous testimonials"
-            >
-              <ArrowLeft size={18} />
-            </button>
-
-            <button
-              type="button"
-              onClick={nextPage}
-              aria-label="Next testimonials"
-            >
-              <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-
-        <div className="kt-grid">
-          {visibleTestimonials.map((item, index) => (
-            <article
-              className={`kt-card ${item.featured ? "kt-featured" : ""}`}
-              key={`${item.name}-${page}`}
-            >
-              <div className="kt-card-top">
-                <Quote className="kt-quote" size={32} />
-
-                <div className="kt-stars" aria-label={`${item.rating} out of 5 stars`}>
-                  {Array.from({ length: item.rating }, (_, starIndex) => (
-                    <Star
-                      key={starIndex}
-                      size={14}
-                      fill="currentColor"
-                      strokeWidth={1.5}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <p className="kt-review">{item.text}</p>
-
-              <div className="kt-client">
-                <div className={`kt-avatar kt-avatar-${index}`}>
-                  {item.initials}
-                </div>
-
-                <div className="kt-client-info">
-                  <h3>{item.name}</h3>
-                  <span>{item.role}</span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="kt-pagination" aria-label="Testimonial navigation">
-          {testimonials.map((item, index) => (
-            <button
-              type="button"
-              key={item.name}
-              className={page === index ? "active" : ""}
-              onClick={() => setPage(index)}
-              aria-label={`Show testimonials starting from ${item.name}`}
-              aria-current={page === index ? "true" : undefined}
-            />
-          ))}
-        </div>
-
-        <div className="kt-brands">
-          <div className="kt-brands-heading">
-            <span />
-            <p>BUILT FOR BUSINESSES WITH BIG AMBITIONS</p>
-            <span />
-          </div>
-
-          <div className="kt-brand-list">
-            {brands.map((brand) => (
-              <span key={brand}>{brand}</span>
-            ))}
-          </div>
-        </div>
-
-        <div className="kt-bottom-cta">
-          <div>
-            <span>YOUR STORY COULD BE NEXT</span>
-            <h3>Let's build something worth talking about.</h3>
-          </div>
-
-          <a href="/contact">
-            Start a Project
-            <ArrowUpRight size={18} />
-          </a>
-        </div>
-      </div>
-    </section>
+      <BlogSection />
 
       {/*------------------------------------ FAQ----------------------------------------- */}
 
