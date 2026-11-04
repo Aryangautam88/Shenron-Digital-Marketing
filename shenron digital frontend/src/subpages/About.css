@@ -105,7 +105,7 @@
   margin: 0;
   color: #080a12;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(66px, 5.3vw, 100px);
+  font-size: clamp(66px, 5.1vw, 90px);
   font-weight: 760;
   line-height: 0.94;
   letter-spacing: -2.8px;
@@ -1211,31 +1211,140 @@
     min-height: 74px;
   }
 }
+
 /* Keep a continuous cream canvas between content sections. */
-.about-page,.about-page > section,.about-discipline-bar { background-color: #F7F3EB; border-block: 0; }
+.about-page,
+.about-page>section,
+.about-discipline-bar {
+  background-color: #F7F3EB;
+  border-block: 0;
+}
 
 /* The same flowing closing banner used on the main Services page. */
-.about-next-chapter { padding-block: 30px 80px; }
-.about-next-chapter > div { display: flex; align-items: center; justify-content: space-between; gap: 35px; padding: 45px 50px; border-radius: 24px; background: linear-gradient(90deg,#f7f3ebf2,#f7f3ebaf 45%,#f7f3eb10),url('../assets/service-last.png') center/cover; box-shadow: 0 18px 40px #30203905; }
-.about-next-chapter p:not(.about-eyebrow) { color: #55535d; font-size: 14px; line-height: 1.8; margin-top: 20px; }
-.about-next-chapter .about-button { flex-shrink: 0; }
-.about-purpose { background: #F7F3EB url('../assets/Service-bg-mid.png') center/cover no-repeat; }
-.about-purpose-copy { background: #f7f3ebcf; border-radius: 16px; padding-block: 20px; }
-.about-button > span,.about-text-link svg { transition: transform 350ms cubic-bezier(.2,.8,.2,1),background 300ms; }
-.about-button:hover > span { transform: rotate(-8deg); background: #e9ddff; }
-.about-text-link:hover svg { transform: translate(3px,-3px); }
-.about-principle:hover { box-shadow: 0 18px 40px #49315c12; }
-.about-approach-controls button:hover svg { transform: translate(2px,-2px); }
-@media(max-width:700px) { .about-next-chapter > div { flex-direction: column; align-items: flex-start; padding: 35px 25px; }.about-purpose { background-position: left center; }.about-purpose-copy { padding: 20px; } }
-@media(prefers-reduced-motion:reduce) { .about-page *,.about-page *::before,.about-page *::after { transition: none !important; animation: none !important; } }
+.about-next-chapter {
+  padding-block: 30px 80px;
+}
+
+.about-next-chapter>div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 45px 50px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #f7f3ebf2, #f7f3ebaf 45%, #f7f3eb10), url('../assets/service-last.png') center/cover;
+  box-shadow: 0 18px 40px #30203905;
+}
+
+.about-next-chapter p:not(.about-eyebrow) {
+  color: #55535d;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+.about-next-chapter .about-button {
+  flex-shrink: 0;
+}
+
+.about-purpose {
+  background: #F7F3EB url('../assets/Service-bg-mid.png') center/cover no-repeat;
+}
+
+.about-purpose-copy {
+  background: #f7f3ebcf;
+  border-radius: 16px;
+  padding-block: 20px;
+}
+
+.about-button>span,
+.about-text-link svg {
+  transition: transform 350ms cubic-bezier(.2, .8, .2, 1), background 300ms;
+}
+
+.about-button:hover>span {
+  transform: rotate(-8deg);
+  background: #e9ddff;
+}
+
+.about-text-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.about-principle:hover {
+  box-shadow: 0 18px 40px #49315c12;
+}
+
+.about-approach-controls button:hover svg {
+  transform: translate(2px, -2px);
+}
+
+@media(max-width:700px) {
+  .about-next-chapter>div {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 25px;
+  }
+
+  .about-purpose {
+    background-position: left center;
+  }
+
+  .about-purpose-copy {
+    padding: 20px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+  .about-page *,
+  .about-page *::before,
+  .about-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
 
 /* A dark process chapter between the cream sections. */
-.about-page .about-method { background: #1B1921; color: #F7F3EB; }
-.about-page .about-method .about-eyebrow,.about-page .about-method .about-section-heading > p,.about-page .about-method .about-process-grid p,.about-page .about-method .about-step-details li { color: #C3BDCD; }
-.about-page .about-method h2 em { color: #B99AFF; }
-.about-page .about-method .about-process-grid > li { background: #131017; border-color: #493653; }
-.about-page .about-method .about-process-number { background: #21162B; color: #C6ABFF; border-color: #6E4C89; }
-.about-page .about-method .about-step-details { border-color: #493653; }
-.about-page .about-method .about-step-details summary span { color: #C6ABFF; }
+.about-page .about-method {
+  background: #1B1921;
+  color: #F7F3EB;
+}
 
-.about-page h1 em,.about-page h2 em,.about-page h3 em { font-family: 'Playfair Display',Georgia,serif; font-style: italic; font-weight: 600; }
+.about-page .about-method .about-eyebrow,
+.about-page .about-method .about-section-heading>p,
+.about-page .about-method .about-process-grid p,
+.about-page .about-method .about-step-details li {
+  color: #C3BDCD;
+}
+
+.about-page .about-method h2 em {
+  color: #B99AFF;
+}
+
+.about-page .about-method .about-process-grid>li {
+  background: #131017;
+  border-color: #493653;
+}
+
+.about-page .about-method .about-process-number {
+  background: #21162B;
+  color: #C6ABFF;
+  border-color: #6E4C89;
+}
+
+.about-page .about-method .about-step-details {
+  border-color: #493653;
+}
+
+.about-page .about-method .about-step-details summary span {
+  color: #C6ABFF;
+}
+
+.about-page h1 em,
+.about-page h2 em,
+.about-page h3 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+}

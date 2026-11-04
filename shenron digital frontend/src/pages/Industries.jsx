@@ -400,6 +400,7 @@ export default function Industries() {
               </Link>
             </div>
           </div>
+
         </div>
       </section>
 

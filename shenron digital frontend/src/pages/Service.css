@@ -508,7 +508,7 @@ body {
     min-height: 100vh;
     min-height: 100svh;
     height: auto;
-
+    margin-top: -150px;
     background-color: var(--service-bg);
     background-image: url("../assets/Service-bg_phone.png");
     background-size: 100% auto;
@@ -531,6 +531,7 @@ body {
     width: 100%;
     max-width: 100%;
     padding: 45px 0 300px;
+    padding-top: 300px;
   }
 
   .service-eyebrow {
@@ -603,6 +604,7 @@ body {
   .service-content {
     padding-top: 36px;
     padding-top: 180px;
+    margin-top: 160px;
   }
 
   .service-eyebrow {
@@ -655,6 +657,7 @@ body {
   .service-content {
     padding-top: 32px;
     padding-bottom: 230px;
+
   }
 
   .service-heading {

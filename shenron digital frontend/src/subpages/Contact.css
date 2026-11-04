@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 .contact-page {
@@ -56,15 +56,24 @@
   background: var(--contact-purple);
 }
 
-.contact-page h1 {
-  font: 800 clamp(40px, 4.4vw, 66px)/1.12 "Plus Jakarta Sans", sans-serif;
-  letter-spacing: -2.5px;
+.contact-hero h1 {
+  max-width: 760px;
+  font: 800 clamp(48px, 5.1vw, 82px)/0.98 "Plus Jakarta Sans", sans-serif;
+  letter-spacing: -3px;
 }
 
-.contact-page h1 em {
-  font-family: Georgia, serif;
+.contact-hero h1 em {
+  display: inline-block;
+  padding-block: 5px;
+  background: linear-gradient(110deg, #b99aff 0%, #8855ff 45%, #6946ef 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
   font-weight: 500;
-  color: var(--contact-purple);
+  font-style: italic;
+  letter-spacing: -3px;
 }
 
 .contact-intro {
@@ -373,7 +382,7 @@
     padding-top: 130px;
   }
 
-  .contact-page h1 {
+  .contact-hero h1 {
     font-size: clamp(36px, 9vw, 50px);
     letter-spacing: -1.5px;
   }
@@ -414,19 +423,68 @@
 }
 
 .contact-hero {
-  border-bottom: 1px solid #ddd5c9;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: var(--contact-paper);
+  background-image:
+    linear-gradient(90deg,
+      rgba(247, 243, 235, 0.99) 0%,
+      rgba(247, 243, 235, 0.96) 31%,
+      rgba(247, 243, 235, 0.8) 48%,
+      rgba(247, 243, 235, 0.2) 68%,
+      rgba(247, 243, 235, 0) 84%),
+    url("../assets/contact-hero-messaging.png");
+  background-repeat: no-repeat;
+  background-position: center, center right;
+  background-size: cover, cover;
 }
 
 .contact-hero-inner {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 70px;
-  padding-block: 180px 85px;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: 135px 78px;
+}
+
+.contact-hero-copy {
+  position: relative;
+  z-index: 1;
+  width: min(58%, 720px);
+  animation: contact-hero-enter 750ms ease both;
+}
+
+.contact-hero .contact-eyebrow {
+  gap: 13px;
+  margin-bottom: 30px !important;
+  color: #77747b;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.25px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.contact-hero .contact-eyebrow > span {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 2px;
 }
 
 .contact-hero .contact-intro {
-  max-width: 490px;
+  max-width: 470px;
+  margin-top: 25px !important;
+  color: #55535d;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 .contact-hero-button {
@@ -456,6 +514,82 @@
 
 .contact-hero-button:hover {
   background: #6430cb;
+}
+
+.contact-hero .contact-hero-button {
+  transition: background 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+.contact-hero .contact-hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px #8045ff22;
+}
+
+.contact-hero .contact-hero-button > span svg {
+  transition: transform 250ms ease;
+}
+
+.contact-hero .contact-hero-button:hover > span svg {
+  transform: translate(2px, -2px);
+}
+
+.contact-hero-reassurance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px !important;
+  color: #706b78;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.contact-hero-reassurance svg {
+  flex: 0 0 auto;
+  color: var(--contact-purple);
+}
+
+.contact-hero-note {
+  position: absolute;
+  right: 0;
+  bottom: 42px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 17px 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 16px;
+  background: rgba(255, 253, 250, 0.82);
+  box-shadow: 0 12px 35px rgba(54, 35, 78, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.contact-hero-note-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 1px solid rgba(128, 69, 255, 0.12);
+  border-radius: 13px;
+  color: var(--contact-purple);
+  background: linear-gradient(145deg, #fff, #eee6ff);
+}
+
+.contact-hero-note > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-hero-note strong {
+  color: var(--contact-ink);
+  font: 700 12px/1.35 "Plus Jakarta Sans", sans-serif;
+}
+
+.contact-hero-note small {
+  color: var(--contact-muted);
+  font: 400 11px/1.4 Inter, Arial, sans-serif;
 }
 
 .contact-layout {
@@ -618,9 +752,43 @@
 }
 
 @media (max-width: 900px) {
+  .contact-hero {
+    background-image:
+      linear-gradient(90deg,
+        rgba(247, 243, 235, 0.99) 0%,
+        rgba(247, 243, 235, 0.96) 46%,
+        rgba(247, 243, 235, 0.74) 68%,
+        rgba(247, 243, 235, 0.22) 100%),
+      url("../assets/contact-hero-messaging.png");
+    background-position: center, 78% center;
+    background-size: cover, auto 100%;
+  }
+
   .contact-hero-inner {
-    gap: 30px;
-    padding-block: 150px 60px;
+    padding-block: 125px 70px;
+  }
+
+  .contact-hero-copy {
+    width: min(68%, 620px);
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(46px, 7vw, 66px);
+    letter-spacing: -2px;
+  }
+
+  .contact-hero h1 em {
+    letter-spacing: -2px;
+  }
+
+  .contact-hero .contact-intro {
+    max-width: 420px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .contact-hero-note {
+    display: none;
   }
 
   .contact-layout {
@@ -641,10 +809,70 @@
 }
 
 @media (max-width: 600px) {
+  .contact-hero {
+    align-items: flex-start;
+    background-image:
+      linear-gradient(180deg,
+        rgba(247, 243, 235, 1) 0%,
+        rgba(247, 243, 235, 0.98) 39%,
+        rgba(247, 243, 235, 0.82) 56%,
+        rgba(247, 243, 235, 0.12) 100%),
+      url("../assets/contact-hero-messaging.png");
+    background-position: center, 72% bottom;
+    background-size: cover, auto 55%;
+  }
+
   .contact-hero-inner {
-    grid-template-columns: 1fr;
-    padding-block: 140px 45px;
-    gap: 32px;
+    align-items: flex-start;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: 118px 275px;
+  }
+
+  .contact-hero-copy {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .contact-hero .contact-eyebrow {
+    gap: 9px;
+    margin-bottom: 22px !important;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .contact-hero .contact-eyebrow > span {
+    flex-basis: 25px;
+    width: 25px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(40px, 9.5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+  }
+
+  .contact-hero h1 em {
+    letter-spacing: -1.5px;
+  }
+
+  .contact-hero .contact-intro {
+    max-width: 440px;
+    margin-top: 19px !important;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .contact-hero .contact-hero-button {
+    gap: 15px;
+    margin-top: 22px;
+    padding-left: 18px;
+    font-size: 11px;
+  }
+
+  .contact-hero-reassurance {
+    margin-top: 13px !important;
+    font-size: 11px;
   }
 
   .contact-section-heading {
@@ -678,58 +906,6 @@
   }
 }
 
-
-/* Full-bleed illustrated hero, matching the Services and Industries layout. */
-<<<<<<< HEAD
-.contact-hero {
-  background: var(--contact-paper) url('../assets/contact-hero-messaging.png') center/cover no-repeat;
-=======
-.contact-hero { background: var(--contact-paper) url('../assets/contact-hero-fibre-phone-clean.png') center/cover no-repeat; }
-.contact-hero-inner { display: flex; min-height: 100vh; min-height: 100svh; align-items: center; padding-block: 140px 90px; }
-.contact-hero-inner > div { width: 53%; animation: contact-hero-enter 750ms ease both; }
-.contact-page h1 { font-size: clamp(48px,5.1vw,82px); line-height: 1.02; letter-spacing: -3px; }
-.contact-page h1 em { display: inline-block; padding-block: 5px; background: linear-gradient(110deg,#b99aff,#8855ff 45%,#6946ef); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.contact-steps li { transition: transform 200ms,border-color 200ms; }
-.contact-steps li:hover { transform: translateY(-4px); border-color: #b99adc; }
-.contact-copy,.contact-form,.contact-section-heading,.contact-steps li,.contact-faq > div { transition: opacity 650ms,translate 650ms; }
-.contact-pending { opacity: 0; translate: 0 24px; }
-.contact-pending:focus-within { opacity: 1; translate: none; }
-@keyframes contact-hero-enter { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@media (max-width: 600px) {
-.contact-hero { background-image: linear-gradient(180deg,#f7f3eb 0%,#f7f3ebee 40%,#f7f3eb00 75%),url('../assets/contact-hero-fibre-phone-clean.png'); background-position: 68% bottom; }
-.contact-hero-inner { align-items: flex-start; padding-block: 140px 300px; }
-.contact-hero-inner > div { width: 100%; }
-.contact-page h1 { font-size: clamp(40px,9vw,54px); letter-spacing: -1.7px; }
->>>>>>> 97c8aa86b1ac200df21756c27db2a3b82405ea92
-}
-
-.contact-hero-inner {
-  display: flex;
-  min-height: 100vh;
-  /* min-height: 100svh; */
-  align-items: center;
-  padding-block: 140px 90px;
-}
-
-.contact-hero-inner>div {
-  width: 53%;
-  animation: contact-hero-enter 750ms ease both;
-}
-
-.contact-page h1 {
-  font-size: clamp(48px, 5.1vw, 82px);
-  line-height: 1.02;
-  letter-spacing: -3px;
-}
-
-.contact-page h1 em {
-  display: inline-block;
-  padding-block: 5px;
-  background: linear-gradient(110deg, #b99aff, #8855ff 45%, #6946ef);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .contact-steps li {
   transition: transform 200ms, border-color 200ms;
@@ -767,29 +943,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 600px) {
-  .contact-hero {
-    background-image: linear-gradient(180deg, #f7f3eb 0%, #f7f3ebf2 37%, #f7f3eb8c 61%, #f7f3eb00 81%), url('../assets/contact-hero-messaging.png');
-    background-position: center top, 72% bottom;
-    background-size: 100% 100%, auto 62%;
-    background-repeat: no-repeat;
-  }
-
-  .contact-hero-inner {
-    align-items: flex-start;
-    padding-block: 140px 300px;
-  }
-
-  .contact-hero-inner>div {
-    width: 100%;
-  }
-
-  .contact-page h1 {
-    font-size: clamp(40px, 9vw, 54px);
-    letter-spacing: -1.7px;
   }
 }
 
@@ -954,7 +1107,6 @@
 }
 
 /* A contrasting dark chapter, framed by the cream page. */
-<<<<<<< HEAD
 .contact-page .contact-next {
   background: #1B1921;
   color: #F7F3EB;
@@ -992,19 +1144,3 @@
     border-radius: 20px;
   }
 }
-=======
-.contact-page .contact-next { background: #1B1921; color: #F7F3EB; border-radius: 28px; padding-inline: 35px; margin-block: 30px; }
-.contact-page .contact-next h2 em { color: #B99AFF; }
-.contact-page .contact-next .contact-eyebrow,.contact-page .contact-next .contact-section-heading > p,.contact-page .contact-next .contact-steps p { color: #C3BDCD; }
-.contact-page .contact-next .contact-steps li { background: #131017; border-color: #493653; }
-.contact-page .contact-next .contact-steps li > div { color: #C6ABFF; }
-.contact-page .contact-next .contact-steps li:hover { border-color: #AA7AFF; }
-@media(max-width:600px) { .contact-page .contact-next { padding-inline: 22px; border-radius: 20px; } }
-
-.contact-page h1 em,.contact-page h2 em,.contact-page h3 em { font-family: 'Playfair Display',Georgia,serif; font-style: italic; font-weight: 600; }
-
-/* Match Home's full-bleed flowing artwork and editorial heading treatment. */
-.contact-hero h1 { font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 800; color: #080a12; }
-.contact-hero .contact-intro { max-width: 440px; line-height: 1.65; color: #55535d; }
-.contact-hero-button { box-shadow: 0 9px 24px #10111e12; }
->>>>>>> 97c8aa86b1ac200df21756c27db2a3b82405ea92

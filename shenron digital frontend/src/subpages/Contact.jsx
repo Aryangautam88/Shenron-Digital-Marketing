@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, MessageCircle } from "lucide-react";
 import "./Contact.css";
 
 const services = ["SEO", "Paid advertising", "Brand & digital design", "Web development", "Influencer marketing", "Not sure yet"];
@@ -57,11 +57,16 @@ export default function Contact() {
     <main className="contact-page" ref={pageRef}>
       <section className="contact-hero" aria-labelledby="contact-hero-title">
         <div className="contact-container contact-hero-inner">
-          <div>
-            <p className="contact-eyebrow"><span /> A CONVERSATION IS A GOOD START</p>
-            <h1 id="contact-hero-title">Big ideas start with<br /><em>a simple hello.</em></h1>
-            <p className="contact-intro">A new brand. A better website. Your next stage of growth. Tell us what's on your mind, and let's find the way forward together.</p>
-            <a href="#contact-form" className="contact-hero-button">Let's talk about your project <span><ArrowDown size={18} /></span></a>
+          <div className="contact-hero-copy">
+            <p className="contact-eyebrow"><span /> LET'S START A CONVERSATION</p>
+            <h1 id="contact-hero-title">Let's start with<br /><em>a conversation.</em></h1>
+            <p className="contact-intro">Tell us what you're building, where you want to go, or what you'd like to solve. We'll help turn that starting point into a clear next step.</p>
+            <a href="#contact-form" className="contact-hero-button">Tell us about your project <span><ArrowUpRight size={18} /></span></a>
+            <p className="contact-hero-reassurance"><Check size={15} aria-hidden="true" /> No finished brief needed to get started.</p>
+          </div>
+          <div className="contact-hero-note">
+            <span className="contact-hero-note-icon" aria-hidden="true"><MessageCircle size={19} /></span>
+            <span><strong>Start with what you know.</strong><small>We can shape the rest together.</small></span>
           </div>
         </div>
       </section>

@@ -432,14 +432,21 @@ export default function Navbar() {
             onMouseEnter={() => openDropdown("company")}
           >
             <div className="nav-trigger-wrap">
+              <Link
+                to="/about"
+                className={`nav-link ${isActive("/about") || isActive("/contact") ? "active" : ""
+                  }`}
+                onClick={closeMenus}
+              >
+                Company
+              </Link>
               <button
                 type="button"
-                className={`nav-link company-trigger-button ${isActive("/about") || isActive("/contact") ? "active" : ""
-                  }`}
+                className="nav-dropdown-toggle"
+                aria-label="Toggle Company menu"
                 aria-expanded={activeDropdown === "company"}
                 onClick={() => toggleDropdown("company")}
               >
-                Company
                 <Chevron open={activeDropdown === "company"} />
               </button>
             </div>
@@ -493,18 +500,28 @@ export default function Navbar() {
 
           {/* Mobile Services */}
           <div className="mobile-nav-group">
-            <button
-              type="button"
-              className="mobile-nav-link mobile-nav-trigger"
-              aria-expanded={mobileDropdown === "services"}
-              onClick={() => toggleMobileDropdown("services")}
-            >
-              <span>Services</span>
-              <Chevron open={mobileDropdown === "services"} />
-            </button>
+            <div className="mobile-nav-row">
+              <Link
+                to="/services"
+                className="mobile-nav-link mobile-nav-category"
+                onClick={closeMenus}
+              >
+                Services
+              </Link>
+              <button
+                type="button"
+                className="mobile-nav-link mobile-nav-trigger"
+                aria-label="Toggle Services submenu"
+                aria-controls="mobile-services-submenu"
+                aria-expanded={mobileDropdown === "services"}
+                onClick={() => toggleMobileDropdown("services")}
+              >
+                <Chevron open={mobileDropdown === "services"} />
+              </button>
+            </div>
 
             {mobileDropdown === "services" && (
-              <div className="mobile-submenu">
+              <div className="mobile-submenu" id="mobile-services-submenu">
                 <Link to="/services" onClick={closeMenus}>
                   All Services
                 </Link>
@@ -530,18 +547,28 @@ export default function Navbar() {
 
           {/* Mobile Industries */}
           <div className="mobile-nav-group">
-            <button
-              type="button"
-              className="mobile-nav-link mobile-nav-trigger"
-              aria-expanded={mobileDropdown === "industries"}
-              onClick={() => toggleMobileDropdown("industries")}
-            >
-              <span>Industries & Business Types</span>
-              <Chevron open={mobileDropdown === "industries"} />
-            </button>
+            <div className="mobile-nav-row">
+              <Link
+                to="/industries"
+                className="mobile-nav-link mobile-nav-category"
+                onClick={closeMenus}
+              >
+                Industries &amp; Business Types
+              </Link>
+              <button
+                type="button"
+                className="mobile-nav-link mobile-nav-trigger"
+                aria-label="Toggle Industries and Business Types submenu"
+                aria-controls="mobile-industries-submenu"
+                aria-expanded={mobileDropdown === "industries"}
+                onClick={() => toggleMobileDropdown("industries")}
+              >
+                <Chevron open={mobileDropdown === "industries"} />
+              </button>
+            </div>
 
             {mobileDropdown === "industries" && (
-              <div className="mobile-submenu">
+              <div className="mobile-submenu" id="mobile-industries-submenu">
                 <Link to="/industries" onClick={closeMenus}>
                   All Industries
                 </Link>
@@ -583,18 +610,28 @@ export default function Navbar() {
 
           {/* Mobile Company */}
           <div className="mobile-nav-group">
-            <button
-              type="button"
-              className="mobile-nav-link mobile-nav-trigger"
-              aria-expanded={mobileDropdown === "company"}
-              onClick={() => toggleMobileDropdown("company")}
-            >
-              <span>Company</span>
-              <Chevron open={mobileDropdown === "company"} />
-            </button>
+            <div className="mobile-nav-row">
+              <Link
+                to="/about"
+                className="mobile-nav-link mobile-nav-category"
+                onClick={closeMenus}
+              >
+                Company
+              </Link>
+              <button
+                type="button"
+                className="mobile-nav-link mobile-nav-trigger"
+                aria-label="Toggle Company submenu"
+                aria-controls="mobile-company-submenu"
+                aria-expanded={mobileDropdown === "company"}
+                onClick={() => toggleMobileDropdown("company")}
+              >
+                <Chevron open={mobileDropdown === "company"} />
+              </button>
+            </div>
 
             {mobileDropdown === "company" && (
-              <div className="mobile-submenu">
+              <div className="mobile-submenu" id="mobile-company-submenu">
                 <Link to="/about" onClick={closeMenus}>
                   About Us
                 </Link>

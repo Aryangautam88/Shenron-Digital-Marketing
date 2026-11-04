@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Clock3, Search } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import seoImage from "../assets/seo.png";
-import blogHeroImage from "../assets/blog-hero-editorial.png";
 import { blogApi } from "../lib/blogApi";
 import "./Blog.css";
 
@@ -206,10 +205,6 @@ export default function Blog() {
             Explore the latest insights
             <span className="blog-round-arrow" aria-hidden="true"><ArrowRight size={17} /></span>
           </a>
-        </div>
-        <div className="blog-hero-art" aria-hidden="true">
-          <img src={blogHeroImage} alt="" />
-          <span className="blog-hero-art-label">STRATEGY <i /> DESIGN <i /> GROWTH</span>
         </div>
         <div className="blog-hero-note" aria-hidden="true">
           <span className="blog-hero-note-dot" />

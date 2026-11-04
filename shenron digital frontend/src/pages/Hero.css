@@ -491,7 +491,7 @@ body {
     padding-top: 100px;
     padding-bottom: 20px;
     background-size: auto 100%;
-    background-position: 90% center;
+    background-position: 80% center;
   }
 
   /* .hero::before {
@@ -593,7 +593,7 @@ body {
   }
 
   .hero-content {
-    margin-top: -200px;
+    /* margin-top: -200px; */
   }
 
   /* .hero::before {
