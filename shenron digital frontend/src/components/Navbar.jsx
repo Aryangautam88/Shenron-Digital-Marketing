@@ -417,12 +417,12 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/testimonials"
-            className={`nav-link ${isActive("/testimonials") ? "active" : ""
+            to="/blog"
+            className={`nav-link ${isActive("/blog") ? "active" : ""
               }`}
             onClick={closeMenus}
           >
-            Testimonials
+            Blog
           </Link>
 
           {/* COMPANY */}
@@ -574,11 +574,11 @@ export default function Navbar() {
           </div>
 
           <Link
-            to="/testimonials"
+            to="/blog"
             className="mobile-nav-link"
             onClick={closeMenus}
           >
-            Testimonials
+            Blog
           </Link>
 
           {/* Mobile Company */}
