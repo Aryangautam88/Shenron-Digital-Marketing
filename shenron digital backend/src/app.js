@@ -7,6 +7,8 @@ import { createAuthRoutes } from "./routes/authRoutes.js";
 import { createAdminBlogRoutes } from "./routes/adminBlogRoutes.js";
 import { publicBlogRoutes } from "./routes/publicBlogRoutes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
+import { createContactRoutes, createAdminEnquiryRoutes } from "./routes/enquiryRoutes.js";
+import { createMediaRoutes } from "./routes/mediaRoutes.js";
 
 export function createApp(env) {
   const app = express();
@@ -23,6 +25,10 @@ export function createApp(env) {
   }));
   app.use(express.json({ limit: "1mb" }));
   app.use(cookieParser());
+  app.use("/api/admin", (req, res, next) => { res.set("Cache-Control", "no-store"); next(); });
+  app.use("/api/contact", createContactRoutes());
+  app.use("/api/admin/enquiries", createAdminEnquiryRoutes(env));
+  app.use("/api", createMediaRoutes(env));
 
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", database: mongoose.connection.readyState === 1 ? "connected" : "disconnected" });

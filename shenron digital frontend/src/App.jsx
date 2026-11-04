@@ -1,19 +1,19 @@
 
-import { lazy, Suspense } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { createElement, lazy, Suspense } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
-import { industryPageRoutes } from "./SubPages/industries/industryPageRoutes";
+import { industryPageRoutes } from "./subpages/industries/industryPageRoutes";
 const Service = lazy(() => import("./pages/Service"));
 const Hero = lazy(() => import("./pages/Hero"));
 const Testimonials = lazy(() => import("./pages/Testimonials"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Industries = lazy(() => import("./pages/Industries"));
-const About = lazy(() => import("./SubPages/About"));
-const Contact = lazy(() => import("./SubPages/Contact"));
-const ServiceDetail = lazy(() => import("./SubPages/ServiceDetail"));
+const About = lazy(() => import("./subpages/About"));
+const Contact = lazy(() => import("./subpages/Contact"));
+const ServiceDetail = lazy(() => import("./subpages/ServiceDetail"));
 const AdminBlogPage = lazy(() => import("./admin/AdminBlogPage"));
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
             <Route
               key={path}
               path={path}
-              element={<PageComponent />}
+              element={createElement(PageComponent)}
             />
           ))}
 
@@ -59,9 +59,11 @@ export default function App() {
           {/* Admin */}
           <Route
             path="/admin"
-            element={<Navigate to="/admin/blogs" replace />}
+            element={<AdminBlogPage />}
           />
           <Route path="/admin/blogs" element={<AdminBlogPage />} />
+          <Route path="/admin/blogs/new" element={<AdminBlogPage />} />
+          <Route path="/admin/enquiries" element={<AdminBlogPage />} />
 
           {/* Company */}
           <Route path="/about" element={<About />} />

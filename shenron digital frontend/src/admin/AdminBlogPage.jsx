@@ -1,21 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import {
-  ArrowUpRight,
-  BookOpen,
-  Check,
-  CirclePlus,
-  Eye,
-  EyeOff,
-  FileText,
-  LogOut,
-  Pencil,
-  Search,
-  Trash2,
-} from "lucide-react";
-import { Link } from "react-router-dom";
-import kravsBrandLogo from "../assets/kravsLogo.png";
+import { ArrowUpRight, BookOpen, Eye, EyeOff } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { blogApi, jsonBody } from "../lib/blogApi";
 import "./AdminBlogPage.css";
+import AdminWorkspace from "./AdminWorkspace";
+import "./AdminDesk.css";
 
 const categories = ["Strategy", "Web development", "SEO", "Paid media", "Design"];
 const emptyForm = {
@@ -27,6 +16,9 @@ const emptyForm = {
   seoKeywords: "",
   category: "Strategy",
   coverImage: "",
+  coverAlt: "",
+  featuredVideo: "",
+  richContent: null,
   content: "",
   author: "Kravs Infotech",
   status: "draft",
@@ -41,12 +33,6 @@ function slugify(value) {
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
-}
-
-function formatDate(value) {
-  if (!value) return "Not published";
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "Not published" : date.toLocaleDateString();
 }
 
 export default function AdminBlogPage() {
@@ -68,6 +54,28 @@ export default function AdminBlogPage() {
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState("");
   const [slugTouched, setSlugTouched] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const section = new URLSearchParams(location.search).get('view') || (location.pathname.endsWith('enquiries') ? 'enquiries' : location.pathname.endsWith('new') ? 'editor' : 'blogs');
+  const setSection = view => navigate(view === 'blogs' ? '/admin' : '/admin?view=' + view);
+  const [uploading, setUploading] = useState(false);
+  const expireSession = useCallback(() => setAuthState("signed-out"), []);
+
+  async function uploadCover(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    if (!["image/png", "image/jpeg", "image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024) {
+      setError("Choose a PNG, JPEG, or WebP image up to 5 MB."); return;
+    }
+    setUploading(true); setError("");
+    try {
+      const result = await blogApi("/admin/uploads", { method: "POST", headers: { "Content-Type": file.type }, body: file });
+      const apiBase = import.meta.env.VITE_API_BASE_URL;
+      const url = apiBase?.startsWith("http") ? new URL(result.url, apiBase).href : result.url;
+      setForm(current => ({ ...current, coverImage: url }));
+    } catch (err) { setError(err.message); if (err.status === 401) expireSession(); }
+    finally { setUploading(false); event.target.value = ""; }
+  }
 
   const loadBlogs = useCallback(async () => {
     setLoadingBlogs(true);
@@ -109,7 +117,7 @@ export default function AdminBlogPage() {
   const filteredBlogs = useMemo(() => {
     const query = search.trim().toLowerCase();
     return blogs.filter((blog) => {
-      const matchesSearch = !query || `${blog.title} ${blog.slug} ${blog.category}`.toLowerCase().includes(query);
+      const matchesSearch = !query || `${blog.title} ${blog.description} ${blog.slug} ${blog.category}`.toLowerCase().includes(query);
       const matchesStatus = statusFilter === "all" || blog.status === statusFilter;
       return matchesSearch && matchesStatus;
     });
@@ -133,6 +141,7 @@ export default function AdminBlogPage() {
       seoKeywords: Array.isArray(blog.seoKeywords) ? blog.seoKeywords.join(", ") : blog.seoKeywords || "",
     });
     setEditingId(blog._id);
+    setSection("editor");
     setSlugTouched(true);
     setNotice("");
     setError("");
@@ -162,7 +171,8 @@ export default function AdminBlogPage() {
       setError("Enter a URL slug using letters or numbers.");
       return;
     }
-    const payload = { ...form, slug };
+    const publication = event.nativeEvent?.submitter?.value;
+    const payload = { ...form, slug, status: ["draft", "published"].includes(publication) ? publication : form.status };
     if (payload.status === "published" && payload.content.trim().length < 80) {
       setError("Articles must contain at least 80 characters before they can be published.");
       return;
@@ -174,11 +184,14 @@ export default function AdminBlogPage() {
         method: editingId ? "PUT" : "POST",
         body: jsonBody(payload),
       });
-      setNotice(editingId ? "Article updated successfully." : "Article saved successfully.");
+      const message = editingId ? "Article updated successfully." : "Article saved successfully.";
       resetEditor();
+      setNotice(message);
+      setSection("blogs");
       await loadBlogs();
     } catch (requestError) {
       setError(requestError.message);
+      if (requestError.status === 401) expireSession();
     } finally {
       setSaving(false);
     }
@@ -195,6 +208,7 @@ export default function AdminBlogPage() {
       await loadBlogs();
     } catch (requestError) {
       setError(requestError.message);
+      if (requestError.status === 401) expireSession();
     } finally {
       setBusyId("");
     }
@@ -203,13 +217,12 @@ export default function AdminBlogPage() {
   async function logout() {
     try {
       await blogApi("/admin/logout", { method: "POST" });
-    } catch {
-      // Clear local admin state even if the API is unavailable during sign-out.
-    } finally {
       setAdmin(null);
       setAuthState("signed-out");
       setBlogs([]);
       resetEditor();
+    } catch {
+      setError("Could not sign out. Check the backend connection and try again.");
     }
   }
 
@@ -293,115 +306,5 @@ export default function AdminBlogPage() {
     );
   }
 
-  return (
-    <main className="blog-admin-page">
-      <div className="admin-shell">
-        <header className="admin-topbar">
-          <Link className="admin-brand admin-brand-image" to="/blog" aria-label="Kravs Infotech blog admin">
-            <img src={kravsBrandLogo} alt="Kravs Infotech" />
-          </Link>
-          <div className="admin-topbar-actions">
-            <span className="admin-user-email">{admin?.email}</span>
-            <Link className="admin-view-site" to="/blog">View blog <ArrowUpRight size={15} /></Link>
-            <button className="admin-logout-button" type="button" onClick={logout}><LogOut size={16} /> Sign out</button>
-          </div>
-        </header>
-
-        <section className="admin-welcome">
-          <div><span className="admin-eyebrow">CONTENT MANAGEMENT</span><h1>Your journal, <em>your voice.</em></h1><p>Create and manage the stories your readers see on the Blog page.</p></div>
-          <div className="admin-summary-card"><span><FileText size={18} /></span><strong>{blogs.length}</strong><small>{blogs.length === 1 ? "ARTICLE" : "ARTICLES"}</small></div>
-        </section>
-
-        {error && <div className="admin-alert admin-alert-error" role="alert">{error}</div>}
-        {notice && <div className="admin-alert admin-alert-success" role="status"><Check size={16} />{notice}</div>}
-
-        <div className="admin-workspace">
-          <section className="admin-editor-panel" aria-labelledby="admin-editor-title">
-            <div className="admin-panel-heading">
-              <div><span className="admin-eyebrow">{editingId ? "EDIT ARTICLE" : "NEW ARTICLE"}</span><h2 id="admin-editor-title">{editingId ? "Shape the story." : "Write something useful."}</h2></div>
-              {editingId && <button className="admin-quiet-button" type="button" onClick={resetEditor}>Cancel edit</button>}
-            </div>
-
-            <form className="admin-blog-form" onSubmit={saveBlog}>
-              <label>Article title<input id="admin-article-title" maxLength={160} required value={form.title} onChange={(event) => setForm((current) => ({ ...current, title: event.target.value, slug: slugTouched ? current.slug : slugify(event.target.value) }))} placeholder="A clear, helpful headline" /></label>
-              <label>URL slug<div className="admin-slug-field"><span>/blog/</span><input maxLength={180} value={form.slug} onChange={(event) => { setSlugTouched(true); setForm((current) => ({ ...current, slug: slugify(event.target.value) })); }} placeholder="article-url" /></div><small className="admin-field-hint">Leave blank to generate the URL from the article title.</small></label>
-              <div className="admin-form-row">
-                <label>Category<select value={form.category} onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))}>{categories.map((category) => <option key={category}>{category}</option>)}</select></label>
-                <label>Publication<select value={form.status} onChange={(event) => setForm((current) => ({ ...current, status: event.target.value }))}><option value="draft">Save as draft</option><option value="published">Publish now</option></select></label>
-              </div>
-              <label>Short description<textarea required maxLength={320} rows={3} value={form.description} onChange={(event) => setForm((current) => ({ ...current, description: event.target.value }))} placeholder="A concise summary for the Blog page" /><small className="admin-character-count">{form.description.length}/320</small></label>
-              <label>Cover image URL<input type="url" value={form.coverImage} onChange={(event) => setForm((current) => ({ ...current, coverImage: event.target.value }))} placeholder="https://your-image-url.com/cover.jpg" /><small className="admin-field-hint">Paste a public image URL. Leave blank to use the journal artwork.</small></label>
-              {form.coverImage && <div className="admin-image-preview"><img src={form.coverImage} alt="Cover preview" onError={(event) => { event.currentTarget.style.display = "none"; }} /></div>}
-              <div className="admin-form-row">
-                <label>Author<input maxLength={100} value={form.author} onChange={(event) => setForm((current) => ({ ...current, author: event.target.value }))} /></label>
-                <label className="admin-featured-toggle"><input type="checkbox" checked={form.featured} onChange={(event) => setForm((current) => ({ ...current, featured: event.target.checked }))} /><span>Feature this story</span></label>
-              </div>
-              <label>Article content<textarea className="admin-content-input" maxLength={50000} rows={12} value={form.content} onChange={(event) => setForm((current) => ({ ...current, content: event.target.value }))} placeholder="Write the article here. Use a blank line between paragraphs." /><small className="admin-field-hint">Plain text is safe to publish. Use blank lines to create paragraphs. Published articles need at least 80 characters.</small></label>
-              <section className="admin-seo-settings" aria-labelledby="admin-seo-title">
-                <div className="admin-seo-heading">
-                  <span className="admin-eyebrow">SEARCH ENGINE SETTINGS</span>
-                  <h3 id="admin-seo-title">Search appearance</h3>
-                  <p>Customize how this article appears in search results.</p>
-                </div>
-                <label>SEO title<input maxLength={70} value={form.seoMetaTitle} onChange={(event) => setForm((current) => ({ ...current, seoMetaTitle: event.target.value }))} placeholder="Leave blank to use the article title" /><small className="admin-field-hint">{form.seoMetaTitle.length}/70 characters. Leave blank to use the article title.</small></label>
-                <label>Meta description<textarea maxLength={160} rows={3} value={form.seoMetaDescription} onChange={(event) => setForm((current) => ({ ...current, seoMetaDescription: event.target.value }))} placeholder="Summarize this article in up to 160 characters." /><small className="admin-field-hint">{form.seoMetaDescription.length}/160 characters. Leave blank to use the short description above.</small></label>
-                <label>SEO keywords<input maxLength={1400} value={form.seoKeywords} onChange={(event) => setForm((current) => ({ ...current, seoKeywords: event.target.value }))} placeholder="digital strategy, web design, search optimization" /><small className="admin-field-hint">{form.seoKeywords.split(",").filter((keyword) => keyword.trim()).length}/20 keywords. Separate keywords with commas; each can be up to 60 characters.</small></label>
-              </section>
-              <div className="admin-editor-actions">
-                <button className="admin-primary-button" type="submit" disabled={saving}>{saving ? "Saving..." : editingId ? "Save changes" : "Save article"}<ArrowUpRight size={17} /></button>
-                <button className="admin-quiet-button" type="button" onClick={resetEditor}>Clear form</button>
-              </div>
-            </form>
-          </section>
-
-          <section className="admin-library-panel" aria-labelledby="admin-library-title">
-            <div className="admin-panel-heading admin-library-heading">
-              <div><span className="admin-eyebrow">YOUR ARTICLES</span><h2 id="admin-library-title">The library.</h2></div>
-              <button className="admin-new-button" type="button" onClick={resetEditor}><CirclePlus size={17} /> New</button>
-            </div>
-            <div className="admin-library-controls">
-              <label className="admin-search"><Search size={16} /><span className="admin-visually-hidden">Search articles</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Find an article" /></label>
-              <select aria-label="Filter articles by status" value={statusFilter} onChange={(event) => setStatusFilter(event.target.value)}><option value="all">All status</option><option value="published">Published</option><option value="draft">Drafts</option></select>
-            </div>
-            {loadingBlogs ? <div className="admin-library-state" role="status">Loading articles...</div> : filteredBlogs.length ? (
-              <div className="admin-article-list">
-                {filteredBlogs.map((blog) => (
-                  <article className="admin-article-row" key={blog._id}>
-                    <div className="admin-article-cover">{blog.coverImage ? <img src={blog.coverImage} alt="" loading="lazy" onError={(event) => { event.currentTarget.style.display = "none"; }} /> : <BookOpen size={20} aria-hidden="true" />}</div>
-                    <div className="admin-article-info"><div><span className={`admin-status admin-status-${blog.status}`}>{blog.status}</span>{blog.featured && <span className="admin-featured-label">featured</span>}</div><h3>{blog.title}</h3><p>{blog.category} <span>·</span> {formatDate(blog.updatedAt)}</p></div>
-                    <div className="admin-row-actions">
-                      {blog.status === "published" && <Link to={`/blog/${blog.slug}`} aria-label={`View ${blog.title}`}><ArrowUpRight size={16} /></Link>}
-                      <button type="button" onClick={() => editBlog(blog)} aria-label={`Edit ${blog.title}`}><Pencil size={16} /></button>
-                      <button className="admin-delete-action" type="button" disabled={busyId === blog._id} onClick={() => deleteBlog(blog)} aria-label={`Delete ${blog.title}`}><Trash2 size={16} /></button>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            ) : blogs.length ? (
-              <div className="admin-library-state admin-library-no-results">
-                <span><Search size={20} /></span>
-                <h3>No matching articles</h3>
-                <p>Try another search or change the status filter.</p>
-              </div>
-            ) : (
-              <div className="admin-empty-library">
-                <div className="admin-empty-art" aria-hidden="true"><span /><BookOpen size={28} /></div>
-                <span className="admin-empty-kicker">A FRESH PAGE</span>
-                <h3>Your first story starts here.</h3>
-                <p>Turn what you know into something useful for your readers.</p>
-                <div className="admin-empty-steps">
-                  <span><b>01</b> Give your idea a clear headline</span>
-                  <span><b>02</b> Add the details readers need</span>
-                  <span><b>03</b> Save a draft or publish when ready</span>
-                </div>
-                <button className="admin-empty-cta" type="button" onClick={() => document.getElementById("admin-article-title")?.focus()}>
-                  Start writing <ArrowUpRight size={16} />
-                </button>
-              </div>
-            )}
-          </section>
-        </div>
-      </div>
-    </main>
-  );
+  return <AdminWorkspace admin={admin} section={section} setSection={setSection} blogs={blogs} loadingBlogs={loadingBlogs} form={form} setForm={setForm} editingId={editingId} slugTouched={slugTouched} setSlugTouched={setSlugTouched} search={search} setSearch={setSearch} statusFilter={statusFilter} setStatusFilter={setStatusFilter} filteredBlogs={filteredBlogs} saving={saving} uploading={uploading} setUploading={setUploading} busyId={busyId} error={error} notice={notice} setError={setError} onSave={saveBlog} onEdit={editBlog} onDelete={deleteBlog} onReset={resetEditor} onUploadCover={uploadCover} onLogout={logout} onExpired={expireSession} onReload={loadBlogs} categories={categories}/>;
 }

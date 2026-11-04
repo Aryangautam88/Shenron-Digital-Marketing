@@ -1,0 +1,10 @@
+.article-rich-content { font-size:16px; line-height:1.85; overflow-wrap:anywhere; }
+.article-rich-content p { margin:0 0 1.2em; white-space:pre-wrap; }
+.article-rich-content h2,.article-rich-content h3,.article-rich-content h4 { margin:1.5em 0 .7em; line-height:1.3; font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:-.6px; }
+.article-rich-content h2 { font-size:28px; }.article-rich-content h3 { font-size:23px; }.article-rich-content h4 { font-size:19px; }
+.article-rich-content img { display:block; width:auto; max-width:100%; max-height:650px; border-radius:12px; margin:24px auto; object-fit:contain; }
+.article-rich-content ul,.article-rich-content ol { padding-left:28px; margin:18px 0; }.article-rich-content li { margin:8px 0; }.article-rich-content li p { margin:0; }
+.article-rich-content blockquote { margin:24px 0; padding:12px 22px; border-left:3px solid #8957ff; background:#8957ff08; }
+.article-rich-content a { color:#7841df; text-decoration:underline; }.article-rich-content pre { white-space:pre-wrap; padding:20px; background:#efebf3; border-radius:8px; }
+.article-rich-content hr { border:0; border-top:1px solid #dfd6e5; margin:28px 0; }
+.article-video { display:block; width:100%; aspect-ratio:16/9; border:0; border-radius:12px; margin:24px 0; background:#17121e; }

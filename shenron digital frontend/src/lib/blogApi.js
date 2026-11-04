@@ -22,7 +22,7 @@ export async function blogApi(path, options = {}) {
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
     const fallbackMessage = response.status >= 500
-      ? `Backend returned HTTP ${response.status}. Check the API server and database setup.`
+      ? `The API server is unavailable or returned an invalid response (HTTP ${response.status}). Start the backend and check its database configuration.`
       : `Request failed (${response.status}).`;
     const error = new Error(payload.message || fallbackMessage);
     error.status = response.status;

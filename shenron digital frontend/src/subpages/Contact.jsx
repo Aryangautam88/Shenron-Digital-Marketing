@@ -4,7 +4,7 @@ import { ArrowUpRight, Check, MessageCircle } from "lucide-react";
 import "./Contact.css";
 
 const services = ["SEO", "Paid advertising", "Brand & digital design", "Web development", "Influencer marketing", "Not sure yet"];
-const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
+const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT || `${(import.meta.env.VITE_API_BASE_URL || "/api").replace(/\/$/, "")}/contact`;
 
 export default function Contact() {
   const pageRef = useRef(null);

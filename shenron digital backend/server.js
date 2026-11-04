@@ -2,8 +2,15 @@ import { createServer } from "node:http";
 import { connectDatabase } from "./src/config/database.js";
 import { loadEnv } from "./src/config/env.js";
 import { createApp } from "./src/app.js";
+import { startAcknowledgements } from "./src/utils/acknowledgements.js";
 
-const env = loadEnv();
+let env;
+try {
+  env = loadEnv();
+} catch (error) {
+  console.error(`Backend configuration error: ${error.message}`);
+  process.exit(1);
+}
 
 try {
   await connectDatabase(env.mongoUri);
@@ -15,6 +22,7 @@ try {
 }
 
 const server = createServer(createApp(env));
+const stopAcknowledgements = startAcknowledgements(env);
 server.on("error", (error) => {
   if (error.code === "EADDRINUSE") {
     console.error(`Port ${env.port} is already in use. Configure PORT or stop the other service.`);
@@ -29,5 +37,5 @@ server.listen(env.port, env.host, () => {
 });
 
 for (const signal of ["SIGINT", "SIGTERM"]) {
-  process.on(signal, () => server.close(() => process.exit(0)));
+  process.on(signal, () => { stopAcknowledgements(); server.close(() => process.exit(0)); });
 }

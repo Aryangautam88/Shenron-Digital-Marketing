@@ -1,4 +1,5 @@
 import { BLOG_CATEGORIES } from "../models/Blog.js";
+import { validateRichContent, richText, safeContentUrl } from "./richContent.js";
 
 export function slugify(value) {
   return String(value || "")
@@ -22,7 +23,11 @@ export function buildBlogFields(input, current = null) {
   const keywordList = Array.isArray(keywordInput) ? keywordInput : String(keywordInput).split(",");
   const seoKeywords = [...new Set(keywordList.map((keyword) => String(keyword).trim()).filter(Boolean))];
   const category = String(input.category ?? current?.category ?? "").trim();
-  const content = String(input.content ?? current?.content ?? "").trim();
+  const richContent = validateRichContent(input.richContent === undefined ? current?.richContent : input.richContent);
+  const content = richContent ? richText(richContent).trim() : String(input.content ?? current?.content ?? "").trim();
+  const coverAlt = String(input.coverAlt ?? current?.coverAlt ?? "").trim();
+  const featuredVideo = String(input.featuredVideo ?? current?.featuredVideo ?? "").trim();
+  if (coverAlt.length > 200 || (featuredVideo && !safeContentUrl(featuredVideo))) throw Object.assign(new Error("Check the cover alt text and video URL."), { status: 400 });
   const coverImage = String(input.coverImage ?? current?.coverImage ?? "").trim();
   const author = String(input.author ?? current?.author ?? "Kravs Infotech").trim();
   const status = String(input.status ?? current?.status ?? "draft");
@@ -69,6 +74,9 @@ export function buildBlogFields(input, current = null) {
     seoKeywords,
     category,
     content,
+    richContent,
+    coverAlt,
+    featuredVideo,
     coverImage,
     author: author || "Kravs Infotech",
     status,
