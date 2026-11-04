@@ -651,7 +651,7 @@
         rgba(251, 245, 237, 0.93) 38%,
         rgba(251, 245, 237, 0.65) 59%,
         rgba(251, 245, 237, 0.12) 83%),
-      url("../assets/blog-hero-blended.png");
+      url("../assets/BlogBg.png");
     background-position: center, 70% center;
   }
 
