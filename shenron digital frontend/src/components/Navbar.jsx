@@ -75,27 +75,6 @@ const serviceGroups = [
   },
 ];
 
-const industries = [
-  ["Finance", "/industries/finance"],
-  ["SaaS", "/industries/saas"],
-  ["Crypto", "/industries/crypto"],
-  ["Ecommerce", "/industries/ecommerce"],
-  ["Real Estate", "/industries/real-estate"],
-  ["Healthcare", "/industries/healthcare"],
-  ["IT & Software", "/industries/it-software"],
-  ["Gaming", "/industries/gaming"],
-  ["iGaming", "/industries/igaming"],
-  ["Forex", "/industries/forex"],
-];
-
-const businessTypes = [
-  ["B2B", "/business-types/b2b"],
-  ["B2C", "/business-types/b2c"],
-  ["Small Business", "/business-types/small-business"],
-  ["Startup", "/business-types/startup"],
-  ["Enterprise", "/business-types/enterprise"],
-];
-
 function Chevron({ open = false }) {
   return (
     <svg
@@ -345,78 +324,6 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* INDUSTRIES */}
-          <div
-            className={`nav-item ${activeDropdown === "industries" ? "dropdown-active" : ""
-              }`}
-            onMouseEnter={() => openDropdown("industries")}
-          >
-            <div className="nav-trigger-wrap">
-              <Link
-                to="/industries"
-                className={`nav-link ${isActive("/industries") || isActive("/business-types")
-                  ? "active"
-                  : ""
-                  }`}
-                onClick={closeMenus}
-              >
-                Industries
-              </Link>
-
-              <button
-                type="button"
-                className="nav-dropdown-toggle"
-                aria-label="Toggle Industries menu"
-                aria-expanded={activeDropdown === "industries"}
-                onClick={() => toggleDropdown("industries")}
-              >
-                <Chevron open={activeDropdown === "industries"} />
-              </button>
-            </div>
-
-            {activeDropdown === "industries" && (
-              <div className="mega-dropdown industries-dropdown">
-                <div className="industry-column">
-                  <Link
-                    to="/industries"
-                    className="mega-heading"
-                    onClick={closeMenus}
-                  >
-                    Industries
-                  </Link>
-
-                  {industries.map((item) => (
-                    <MenuLink
-                      key={item[1]}
-                      item={item}
-                      color="blue"
-                      onNavigate={closeMenus}
-                    />
-                  ))}
-                </div>
-
-                <div className="industry-column business-column">
-                  <Link
-                    to="/business-types"
-                    className="mega-heading"
-                    onClick={closeMenus}
-                  >
-                    Business Types
-                  </Link>
-
-                  {businessTypes.map((item) => (
-                    <MenuLink
-                      key={item[1]}
-                      item={item}
-                      color="purple"
-                      onNavigate={closeMenus}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
           <Link
             to="/blog"
             className={`nav-link ${isActive("/blog") ? "active" : ""}`}
@@ -523,51 +430,6 @@ export default function Navbar() {
                       </Link>
                     ))}
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Mobile Industries */}
-          <div className="mobile-nav-group">
-            <button
-              type="button"
-              className="mobile-nav-link mobile-nav-trigger"
-              aria-expanded={mobileDropdown === "industries"}
-              onClick={() => toggleMobileDropdown("industries")}
-            >
-              <span>Industries & Business Types</span>
-              <Chevron open={mobileDropdown === "industries"} />
-            </button>
-
-            {mobileDropdown === "industries" && (
-              <div className="mobile-submenu">
-                <Link to="/industries" onClick={closeMenus}>
-                  All Industries
-                </Link>
-
-                <span className="mobile-subheading">Industries</span>
-
-                {industries.map((item) => (
-                  <Link
-                    to={item[1]}
-                    key={item[1]}
-                    onClick={closeMenus}
-                  >
-                    {item[0]}
-                  </Link>
-                ))}
-
-                <span className="mobile-subheading">Business Types</span>
-
-                {businessTypes.map((item) => (
-                  <Link
-                    to={item[1]}
-                    key={item[1]}
-                    onClick={closeMenus}
-                  >
-                    {item[0]}
-                  </Link>
                 ))}
               </div>
             )}

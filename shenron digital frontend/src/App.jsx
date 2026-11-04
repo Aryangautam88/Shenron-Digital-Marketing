@@ -5,15 +5,13 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
-
 const Service = lazy(() => import("./pages/Service"));
-const Industries = lazy(() => import("./pages/Industries"));
 const Hero = lazy(() => import("./pages/Hero"));
 const Testimonials = lazy(() => import("./pages/Testimonials"));
 const Blog = lazy(() => import("./pages/Blog"));
-const About = lazy(() => import("./subpages/About"));
-const Contact = lazy(() => import("./subpages/Contact"));
-const ServiceDetail = lazy(() => import("./subpages/ServiceDetail"));
+const About = lazy(() => import("./SubPages/About"));
+const Contact = lazy(() => import("./SubPages/Contact"));
+const ServiceDetail = lazy(() => import("./SubPages/ServiceDetail"));
 const AdminBlogPage = lazy(() => import("./admin/AdminBlogPage"));
 
 export default function App() {
@@ -38,14 +36,6 @@ export default function App() {
             path="/services/:category/:offering"
             element={<ServiceDetail />}
           />
-
-          {/* Industries */}
-          <Route path="/industries" element={<Industries />} />
-          <Route path="/industries/:industry" element={<main />} />
-
-          {/* Business Types */}
-          <Route path="/business-types" element={<main />} />
-          <Route path="/business-types/:type" element={<main />} />
 
           {/* Testimonials remain available by direct URL. */}
           <Route path="/testimonials" element={<Testimonials />} />

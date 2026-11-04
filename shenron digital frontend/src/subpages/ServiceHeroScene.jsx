@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-﻿import { ArrowUpRight, Check, Pause, Search, MapPin, Globe2, Code2, Layers, Play, MousePointer2, Users, Megaphone, Sparkles, ShoppingBag, Compass, FileText, Mail, Monitor, Smartphone } from 'lucide-react';
+import { ArrowUpRight, Check, Pause, Search, MapPin, Globe2, Code2, Layers, Play, MousePointer2, Users, Megaphone, Sparkles, ShoppingBag, Compass, FileText, Mail, Monitor, Smartphone } from 'lucide-react';
 
 const SceneSelection = createContext(null);
 const Tile = ({ children, className = '', focus }) => {
