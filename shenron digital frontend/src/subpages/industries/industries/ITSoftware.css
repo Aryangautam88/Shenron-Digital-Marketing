@@ -1,0 +1,19 @@
+/* IT & Software: independent page styling. */
+.industry-it-software .id-overview { grid-template-columns: 1.15fr 1fr; }
+.industry-it-software .id-context-board { border-radius: 24px 12px 24px 12px; }
+.industry-it-software .sd-capability { border-radius: 12px; }
+.industry-it-software .iv-stage { border-radius: 24px; }
+@media(min-width:901px) { .industry-it-software .sd-capabilities > :first-child { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; } }
+@media(max-width:800px) { .industry-it-software .id-overview { grid-template-columns: 1fr; } }
+
+@media(min-width:901px) { .industry-it-software .sd-capabilities > :last-child { grid-column: span 2; } }
+
+/* Industry-specific section composition. */
+.industry-it-software.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; gap: 20px; }
+.industry-it-software.id-page .sd-capabilities > .sd-capability { grid-row: auto; grid-column: auto; border-radius: 7px; }
+.industry-it-software.id-page .sd-card-top { flex-direction: row-reverse; }
+.industry-it-software.id-page .sd-capability::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: #d7c0e8; transform: scaleY(0); transform-origin: top; transition: transform 400ms; pointer-events: none; }
+.industry-it-software.id-page .sd-capability:hover::after { transform: scaleY(1); }
+.industry-it-software.id-page .sd-process { grid-template-columns: 1fr 1fr; gap: 30px; }
+
+@media(max-width:550px) { .industry-it-software.id-page .sd-capabilities { grid-template-columns: 1fr; } }

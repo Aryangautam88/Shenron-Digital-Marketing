@@ -1,0 +1,18 @@
+/* Ecommerce: independent page styling. */
+.industry-ecommerce .id-overview { grid-template-columns: 1.15fr 1fr; }
+.industry-ecommerce .id-context-board { border-radius: 12px 30px 12px 30px; }
+.industry-ecommerce .sd-capability { border-radius: 18px; }
+.industry-ecommerce .iv-stage { border-radius: 24px; }
+@media(min-width:901px) { .industry-ecommerce .sd-capabilities > :first-child { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; } }
+@media(max-width:800px) { .industry-ecommerce .id-overview { grid-template-columns: 1fr; } }
+
+@media(min-width:901px) { .industry-ecommerce .sd-capabilities > :last-child { grid-column: span 2; } }
+
+/* Industry-specific section composition. */
+.industry-ecommerce.id-page .sd-capabilities { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
+.industry-ecommerce.id-page .sd-capabilities > .sd-capability { grid-column: auto; grid-row: auto; padding: 26px; }
+.industry-ecommerce.id-page .sd-card-top { flex-direction: column; align-items: flex-start; gap: 25px; }
+.industry-ecommerce.id-page .sd-card-top > svg { padding: 18px; border-radius: 18px; }
+@media(max-width:1100px) { .industry-ecommerce.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; } }
+
+@media(max-width:550px) { .industry-ecommerce.id-page .sd-capabilities { grid-template-columns: 1fr; } }

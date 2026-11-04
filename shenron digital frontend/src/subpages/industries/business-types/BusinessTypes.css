@@ -1,0 +1,11 @@
+﻿.bt-hero-map { display: grid; gap: 12px; padding: 10px; }
+.bt-hero-map > a { display: flex; align-items: center; gap: 18px; min-height: 73px; padding: 20px 24px; border: 1px solid #e2d7cb; border-radius: 12px; color: #84638e; text-decoration: none; background: #fcfaf6; transition: transform 300ms,border-color 300ms,box-shadow 300ms; }
+.bt-hero-map strong { flex: 1; font: 600 17px 'Plus Jakarta Sans',sans-serif; color: #38283f; }
+.bt-hero-map > a:nth-child(even) { margin-left: 25px; }
+.bt-hero-map > a:hover { transform: translateX(5px); border-color: #b795d4; box-shadow: 0 12px 30px #8045ff0a; }
+.bt-hero-map > a:focus-visible { outline: 2px solid #8045ff; outline-offset: 4px; }
+.bt-page .sd-method .sd-pillars article { border: 0; }
+.bt-page .sd-method .sd-pillars svg { color: #b99aff; margin-bottom: 20px; }
+.bt-page .sd-method .sd-pillars p { color: #c3bdcd; }
+@media(max-width:800px) { .bt-hero-map { padding: 35px 0 0; }.bt-hero-map > a:nth-child(even) { margin-left: 0; } }
+@media(prefers-reduced-motion:reduce) { .bt-hero-map > a { transition: none; }.bt-hero-map > a:hover { transform: none; } }

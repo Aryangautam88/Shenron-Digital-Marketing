@@ -1,101 +1,81 @@
-import { useEffect, useState } from "react";
-import "./Preloader.css";
+﻿import { useEffect, useRef, useState } from 'react';
+import './Preloader.css';
 
-const Preloader = () => {
-    const [visible, setVisible] = useState(true);
-    const [progress, setProgress] = useState(0);
-    const [exiting, setExiting] = useState(false);
+export default function Preloader() {
+  const [phase, setPhase] = useState('loading');
+  const overlayRef = useRef(null);
+  const hidden = phase === 'hidden';
 
-    useEffect(() => {
-        const start = Date.now();
-        const duration = 2200;
-        let exitTimeout;
+  useEffect(() => {
+    if (phase === 'hidden') return;
+    const overlay = overlayRef.current;
+    const parent = overlay?.parentElement;
+    const previousOverflow = document.body.style.overflow;
+    const siblings = new Map();
+    const makeInert = () => {
+      for (const element of parent?.children || []) {
+        if (element !== overlay && !siblings.has(element)) {
+          siblings.set(element, element.inert);
+          element.inert = true;
+        }
+      }
+    };
+    makeInert();
+    const observer = new MutationObserver(makeInert);
+    if (parent) observer.observe(parent, { childList: true });
+    document.body.style.overflow = 'hidden';
+    return () => {
+      observer.disconnect();
+      siblings.forEach((previous, element) => { element.inert = previous; });
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [hidden]);
 
-        const interval = setInterval(() => {
-            const elapsed = Date.now() - start;
-            const value = Math.min(Math.round((elapsed / duration) * 100), 100);
-            setProgress(value);
+  useEffect(() => {
+    let cancelled = false;
+    const timers = new Set();
+    const delay = (ms) => new Promise((resolve) => {
+      const timer = setTimeout(() => { timers.delete(timer); resolve(); }, ms);
+      timers.add(timer);
+    });
+    let onLoad;
+    const pageReady = document.readyState === 'complete' ? Promise.resolve() : new Promise((resolve) => {
+      onLoad = resolve;
+      window.addEventListener('load', onLoad, { once: true });
+    });
+    const fontsReady = document.fonts?.ready.catch(() => {}) || Promise.resolve();
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    async function finish() {
+      await Promise.all([
+        delay(reduced ? 0 : 2400),
+        Promise.race([Promise.all([pageReady, fontsReady]), delay(3800)]),
+      ]);
+      if (cancelled) return;
+      setPhase('leaving');
+      await delay(reduced ? 0 : 650);
+      if (!cancelled) setPhase('hidden');
+    }
+    finish();
+    return () => {
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      if (onLoad) window.removeEventListener('load', onLoad);
+    };
+  }, []);
 
-            if (value >= 100) {
-                clearInterval(interval);
-                setExiting(true);
-                exitTimeout = setTimeout(() => setVisible(false), 850);
-            }
-        }, 25);
+  if (phase === 'hidden') return null;
 
-        return () => {
-            clearInterval(interval);
-            clearTimeout(exitTimeout);
-        };
-    }, []);
-
-    if (!visible) return null;
-
-    return (
-        <div
-            className={`preloader${exiting ? " is-exiting" : ""}`}
-            aria-label="Loading website"
-            aria-busy={!exiting}
-        >
-            <div className="preloader-orb preloader-orb-one" aria-hidden="true" />
-            <div className="preloader-orb preloader-orb-two" aria-hidden="true" />
-            <div className="preloader-grid" aria-hidden="true" />
-
-            <div className="preloader-inner">
-                <div className="preloader-brand">
-                    <span className="brand-mark" aria-hidden="true">
-                        <span />
-                        <span />
-                        <span />
-                    </span>
-                    <span className="brand-name">SHENRON</span>
-                    <span className="brand-light">DIGITAL</span>
-                </div>
-
-                <div className="preloader-eyebrow">
-                    <span className="eyebrow-line" />
-                    CREATIVITY MEETS TECHNOLOGY
-                </div>
-
-                <div className="preloader-headline">
-                    <div className="headline-line headline-line-one">Ideas into</div>
-                    <div className="headline-line headline-accent">Digital Impact<span>.</span></div>
-                </div>
-
-                <p className="preloader-caption">
-                    We are preparing something meaningful.
-                </p>
-
-                <div className="loader-bottom">
-                    <div
-                        className="loader-track"
-                        role="progressbar"
-                        aria-label="Website loading progress"
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                        aria-valuenow={progress}
-                    >
-                        <div className="loader-progress" style={{ width: `${progress}%` }} />
-                    </div>
-
-                    <div className="loader-meta">
-                        <span className="loader-status">
-                            <span className="status-dot" /> BUILDING WHAT'S NEXT
-                        </span>
-                        <span className="loader-percent">{String(progress).padStart(2, "0")}<span>%</span></span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="preloader-footer" aria-hidden="true">
-                <span>INNOVATION</span>
-                <span className="footer-divider" />
-                <span>DESIGN</span>
-                <span className="footer-divider" />
-                <span>DEVELOPMENT</span>
-            </div>
+  return (
+    <div className={`kr-preloader ${phase === 'leaving' ? 'is-leaving' : ''}`} ref={overlayRef}>
+      <div className="kr-loader-lockup" role="img" aria-label="KRAVS. Infotech. Think beyond. Build together.">
+        <div className="kr-loader-word" aria-hidden="true">
+          <svg className="kr-loader-k" viewBox="0 0 80 110"><text className="kr-k-letter" x="1" y="88">K</text></svg>
+          <span className="kr-loader-tail">{['R','A','V','S','.'].map((letter,index)=><span key={letter} style={{'--letter-index':index}}>{letter}</span>)}</span>
         </div>
-    );
-};
-
-export default Preloader;
+        <span className="kr-loader-infotech" aria-hidden="true">INFOTECH</span>
+        <span className="kr-loader-tagline" aria-hidden="true">Think beyond. Build together.</span>
+      </div>
+      <div className="kr-loader-status" role="status"><span className="kr-loader-status-dot" aria-hidden="true"/>{phase === 'leaving' ? 'Welcome to KRAVS' : 'Preparing your experience'}</div>
+    </div>
+  );
+}

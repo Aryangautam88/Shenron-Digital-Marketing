@@ -1,0 +1,22 @@
+/* Crypto: independent page styling. */
+.industry-crypto .id-overview { grid-template-columns: 1fr 1.15fr; }
+.industry-crypto .id-context-board { border-radius: 24px 12px 24px 12px; }
+.industry-crypto .sd-capability { border-radius: 12px; }
+.industry-crypto .iv-stage { border-radius: 14px; }
+@media(min-width:901px) { .industry-crypto .sd-capabilities > :first-child { grid-column: auto; } }
+@media(max-width:800px) { .industry-crypto .id-overview { grid-template-columns: 1fr; } }
+
+/* Industry-specific section composition. */
+.industry-crypto.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; gap: 28px; }
+.industry-crypto.id-page .sd-capabilities > .sd-capability { grid-row: auto; grid-column: auto; border-radius: 30px 10px 30px 10px; }
+.industry-crypto.id-page .sd-capability:nth-child(even) { border-radius: 10px 30px 10px 30px; }
+.industry-crypto.id-page .sd-card-top > svg { border-radius: 50%; }
+.industry-crypto.id-page .sd-pillars { gap: 20px; }.industry-crypto.id-page .sd-pillars article { border: 1px solid #dfd1e8; border-radius: 20px; padding: 28px; }
+
+@media(max-width:550px) { .industry-crypto.id-page .sd-capabilities { grid-template-columns: 1fr; } }
+
+/* Give the ecosystem and its supporting content more breathing room. */
+.industry-crypto .itx-workspace { grid-template-columns: .9fr 1.2fr; gap: 50px; }
+.industry-crypto .itx-demo { min-height: 425px; border-radius: 28px; }
+.industry-crypto .itx-context-crypto { border-radius: 28px; }
+@media(max-width:900px) { .industry-crypto .itx-workspace { grid-template-columns: 1fr; gap: 30px; } }

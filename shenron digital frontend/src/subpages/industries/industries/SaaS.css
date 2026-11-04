@@ -1,0 +1,15 @@
+/* SaaS: independent page styling. */
+.industry-saas .id-overview { grid-template-columns: 1fr 1fr; }
+.industry-saas .id-context-board { border-radius: 12px 30px 12px 30px; }
+.industry-saas .sd-capability { border-radius: 18px; }
+.industry-saas .iv-stage { border-radius: 14px; }
+@media(min-width:901px) { .industry-saas .sd-capabilities > :first-child { grid-column: auto; } }
+@media(max-width:800px) { .industry-saas .id-overview { grid-template-columns: 1fr; } }
+
+/* Industry-specific section composition. */
+.industry-saas.id-page .sd-capabilities { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.industry-saas.id-page .sd-capabilities > .sd-capability:first-child { grid-column: 1 / -1; grid-row: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; }
+.industry-saas.id-page .sd-capability:first-child .sd-card-top { grid-row: span 2; }.industry-saas.id-page .sd-capability:first-child .sd-explore { grid-column: 2; }
+@media(max-width:900px) { .industry-saas.id-page .sd-capabilities { grid-template-columns: 1fr; }.industry-saas.id-page .sd-capabilities > .sd-capability:first-child { display: flex; } }
+
+@media(max-width:550px) { .industry-saas.id-page .sd-capabilities { grid-template-columns: 1fr; } }

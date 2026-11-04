@@ -1,0 +1,16 @@
+/* Real Estate: independent page styling. */
+.industry-real-estate .id-overview { grid-template-columns: 1fr 1fr; }
+.industry-real-estate .id-context-board { border-radius: 24px 12px 24px 12px; }
+.industry-real-estate .sd-capability { border-radius: 12px; }
+.industry-real-estate .iv-stage { border-radius: 14px; }
+@media(min-width:901px) { .industry-real-estate .sd-capabilities > :first-child { grid-column: auto; } }
+@media(max-width:800px) { .industry-real-estate .id-overview { grid-template-columns: 1fr; } }
+
+/* Industry-specific section composition. */
+.industry-real-estate.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; gap: 30px; }
+.industry-real-estate.id-page .sd-capabilities > .sd-capability { grid-column: auto; grid-row: auto; border-radius: 36px 36px 10px 10px; padding: 35px; }
+.industry-real-estate.id-page .sd-card-top > svg { border-radius: 30px 30px 7px 7px; padding: 18px; }
+.industry-real-estate.id-page .sd-pillars { grid-template-columns: 1fr; gap: 15px; }.industry-real-estate.id-page .sd-pillars article { display: grid; grid-template-columns: 75px 1fr 1.4fr; gap: 22px; align-items: start; border: 0; padding: 20px; }.industry-real-estate.id-page .sd-pillars p,.industry-real-estate.id-page .sd-large-number { margin: 0; }
+@media(max-width:800px) { .industry-real-estate.id-page .sd-pillars article { grid-template-columns: 45px 1fr; }.industry-real-estate.id-page .sd-pillars p { grid-column: 2; } }
+
+@media(max-width:550px) { .industry-real-estate.id-page .sd-capabilities { grid-template-columns: 1fr; } }

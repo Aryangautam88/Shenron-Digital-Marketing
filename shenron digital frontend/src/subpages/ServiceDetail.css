@@ -1,4 +1,5 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 .sd-page { --sd-paper: #f7f3eb; --sd-ink: #101321; --sd-purple: #8045ff; --sd-muted: #55535d; background: var(--sd-paper); color: var(--sd-ink); font-family: Inter,Arial,sans-serif; overflow: clip; }
 .sd-page *, .sd-page *::before, .sd-page *::after { box-sizing: border-box; }
 .sd-page h1,.sd-page h2,.sd-page h3,.sd-page p { margin: 0; }
@@ -526,3 +527,10 @@
 .sd-page .subpage-hero::before,.sd-page .subpage-hero::after { display: none; }
 .sd-page .subpage-hero .sd-hero-inner { min-height: 560px; gap: clamp(35px,6vw,90px); }
 @media(max-width:800px) { .sd-page .subpage-hero .sd-hero-inner { min-height: 0; gap: 0; } }
+
+/* Match the main site's bold headings and the Playfair 'digitally' accent. */
+.sd-page h1 em,.sd-page h2 em,.sd-page h3 em { font-family: 'Playfair Display',Georgia,serif; font-style: italic; font-weight: 600; }
+.sd-page .sd-hero .sd-hero-copy h1 { font-family: 'Plus Jakarta Sans',sans-serif; font-size: clamp(44px,4.9vw,78px); line-height: 1.02; letter-spacing: -2.8px; font-weight: 800; }
+.sd-page .sd-hero .sd-hero-copy h1 em { font-family: 'Playfair Display',Georgia,serif; font-size: .88em; font-style: italic; font-weight: 600; line-height: 1.12; letter-spacing: -2px; margin-top: 8px; background: linear-gradient(110deg,#c2a6ff 0%,#8865ff 47%,#6946ef 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+@media(max-width:1100px) and (min-width:801px) { .sd-page .sd-hero .sd-hero-copy h1 { font-size: clamp(42px,4.8vw,60px); letter-spacing: -2px; } }
+@media(max-width:800px) { .sd-page .sd-hero .sd-hero-copy h1 { font-size: clamp(39px,8vw,58px); letter-spacing: -1.7px; }.sd-page .sd-hero .sd-hero-copy h1 em { font-size: .92em; letter-spacing: -1.3px; } }
