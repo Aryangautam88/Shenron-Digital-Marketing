@@ -5,6 +5,7 @@ import seoImage from "../assets/seo.png";
 import blogHeroImage from "../assets/blog-hero-editorial.png";
 import { blogApi } from "../lib/blogApi";
 import "./Blog.css";
+import ArticleContent, { FeaturedVideo } from "../components/ArticleContent";
 
 const categories = ["Strategy", "Web development", "SEO", "Paid media", "Design"];
 
@@ -160,7 +161,6 @@ export default function Blog() {
       );
     }
 
-    const paragraphs = article.content.split(/\n\s*\n/).map((paragraph) => paragraph.trim()).filter(Boolean);
     return (
       <main className="blog-page blog-detail-page">
         <section className="blog-detail-hero">
@@ -177,10 +177,11 @@ export default function Blog() {
               <span className="blog-read-time"><Clock3 size={15} aria-hidden="true" /> {readTime(article.readingTime)}</span>
             </div>
           </div>
-          <img className="blog-detail-cover" src={article.coverImage || seoImage} alt={article.title} />
+          <img className="blog-detail-cover" src={article.coverImage || seoImage} alt={article.coverAlt || article.title} />
         </section>
         <article className="blog-detail-content">
-          {paragraphs.length ? paragraphs.map((paragraph, index) => <p key={`${index}-${paragraph.slice(0, 18)}`}>{paragraph}</p>) : <p>This article has no body text yet.</p>}
+          <FeaturedVideo url={article.featuredVideo}/>
+          <ArticleContent richContent={article.richContent} content={article.content}/>
         </article>
         <BlogContactSection />
       </main>
