@@ -1,0 +1,16 @@
+/* Gaming: independent page styling. */
+.industry-gaming .id-overview { grid-template-columns: 1fr 1fr; }
+.industry-gaming .id-context-board { border-radius: 12px 30px 12px 30px; }
+.industry-gaming .sd-capability { border-radius: 18px; }
+.industry-gaming .iv-stage { border-radius: 14px; }
+@media(min-width:901px) { .industry-gaming .sd-capabilities > :first-child { grid-column: auto; } }
+@media(max-width:800px) { .industry-gaming .id-overview { grid-template-columns: 1fr; } }
+
+/* Industry-specific section composition. */
+.industry-gaming.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; gap: 25px; }
+.industry-gaming.id-page .sd-capabilities > .sd-capability { grid-row: auto; grid-column: auto; border-radius: 6px 30px 6px 30px; padding: 35px; }
+.industry-gaming.id-page .sd-card-top > svg { rotate: -8deg; background: #e7d6f4; }
+.industry-gaming.id-page .sd-pillars article { position: relative; padding: 30px; border: 1px solid #dcd0e6; border-radius: 8px 25px 8px 25px; overflow: hidden; }
+.industry-gaming.id-page .sd-large-number { color: #ad8dc9; }
+
+@media(max-width:550px) { .industry-gaming.id-page .sd-capabilities { grid-template-columns: 1fr; } }

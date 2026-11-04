@@ -1,0 +1,63 @@
+import { Link } from 'react-router-dom';
+import { ArrowDown, ArrowUpRight, Check, Compass, Layers, Target, ChartNoAxesCombined } from 'lucide-react';
+import { businessTypeContent as industryContent } from './businessTypeContent';
+import { serviceCategories } from '../../serviceContent';
+import IndustryHeroVisual from '../IndustryHeroVisual';
+import useIndustryPage from '../useIndustryPage';
+import orbitalArt from '../../../assets/service T-right.png';
+import '../../ServiceDetail.css';
+import '../IndustryPages.css';
+import './Startup.css';
+
+const icons = [Compass, Layers, Target, ChartNoAxesCombined];
+
+export default function Startup() {
+  const industry = 'startup';
+  const data = industryContent[industry];
+  const pageRef = useIndustryPage(data.name);
+  const process = [
+    ['Understand the context', 'We explore your audience, business model, existing materials, and the decisions visitors need to make.'],
+    ['Shape the experience', 'We define a page structure, visual direction, and content priorities around your industry-specific journeys.'],
+    ['Build and validate', 'We develop the agreed experience, review key interactions, and coordinate content and integration checks with your team.'],
+    ['Launch and learn', 'We agree launch responsibilities, review relevant signals, and identify the next improvements using real audience feedback.'],
+  ];
+  return (
+    <main className={`sd-page id-page industry-${industry}`} ref={pageRef}>
+      <section className="sd-hero subpage-hero" aria-labelledby="industry-title">
+        <div className="sd-wrap sd-hero-inner">
+          <div className="sd-hero-copy">
+            <nav className="sd-breadcrumb" aria-label="Breadcrumb"><Link to="/business-types">Business Types</Link><span>/</span><span aria-current="page">{data.name}</span></nav>
+            <p className="sd-eyebrow"><span />DIGITAL SOLUTIONS FOR {data.name}</p>
+            <h1 id="industry-title">{data.title}<br /><em>{data.accent}</em></h1>
+            <p className="sd-intro">{data.intro}</p>
+            <div className="sd-actions"><Link to="/contact" className="sd-button">Let's talk about your goals <span><ArrowUpRight size={18}/></span></Link><a href="#industry-overview" className="sd-text-link">Explore the approach <ArrowDown size={16}/></a></div>
+          </div>
+          <IndustryHeroVisual industry={industry} data={data}/>
+        </div>
+        <a href="#industry-overview" className="sd-scroll"><span>SCROLL TO EXPLORE</span><ArrowDown size={16}/></a>
+      </section>
+      <div className="id-audiences"><div className="sd-wrap"><span className="sd-mini">BUILT AROUND YOUR CONTEXT</span>{data.audiences.map((audience)=><span key={audience}><Check size={14}/>{audience}</span>)}</div></div>
+      <section className="sd-wrap sd-section id-overview" id="industry-overview" aria-labelledby="industry-overview-title">
+        <div className="id-context-board" data-service-reveal><span className="sd-mini">{data.name} / THE AUDIENCE JOURNEY</span><h3>People first.<br /><em>Context in every detail.</em></h3><ol>{data.journey.map((step,index)=><li key={step}><span>0{index+1}</span><strong>{step}</strong><ArrowUpRight size={18}/></li>)}</ol><p>Illustrative journeys, shaped around your actual audience during discovery.</p></div>
+        <div data-service-reveal><p className="sd-eyebrow"><span />UNDERSTAND YOUR BUSINESS</p><h2 id="industry-overview-title">The right context.<br /><em>A stronger starting point.</em></h2><p className="sd-body">{data.context}</p><p className="sd-body">We connect your business goals with the information, design, and functionality your visitors need. The scope is shaped around your current experience, internal workflows, and the priorities that matter most.</p><a className="sd-text-link" href="#industry-solutions">Explore the possibilities <ArrowDown size={16}/></a></div>
+      </section>
+      <section className="sd-scope sd-section" id="industry-solutions" aria-labelledby="industry-solutions-title"><div className="sd-wrap">
+        <div className="sd-heading sd-scope-heading" data-service-reveal><div><p className="sd-eyebrow"><span />SOLUTIONS FOR {data.name}</p><h2 id="industry-solutions-title">Useful ideas.<br /><em>Connected execution.</em></h2></div><p>Services shaped around the needs of {data.name.toLowerCase()} businesses, from clear communication to the next meaningful audience action.</p></div>
+        <img className="sd-scope-orb" src={orbitalArt} alt="" loading="lazy" aria-hidden="true"/>
+        <div className="sd-capabilities">{data.capabilities.map(([title,text],index)=>{const Icon=icons[index];const service=data.services[index % data.services.length];return <article className="sd-capability" data-service-reveal key={title}><div className="sd-card-top"><Icon size={24} strokeWidth={1.5}/><span>0{index+1}</span></div><h3>{title}</h3><p>{text}</p><Link className="sd-explore" to={`/services/${service}`}>{serviceCategories[service].name}<ArrowUpRight size={18}/></Link></article>;})}</div>
+      </div></section>
+      <section className="sd-wrap sd-section" aria-labelledby="industry-priorities-title"><div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow"><span />WHAT MATTERS TO YOUR AUDIENCE</p><h2 id="industry-priorities-title">Designed for people.<br /><em>Grounded in your goals.</em></h2></div><p>Each decision connects the audience, the information, and the experience you want to create.</p></div><div className="sd-pillars">{data.priorities.map(([title,text],index)=><article key={title} data-service-reveal><span className="sd-large-number">0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+      <section className="sd-orbital-approach" aria-labelledby="industry-approach-title"><div className="sd-wrap sd-orbital-inner"><div data-service-reveal><p className="sd-eyebrow"><span />A CONSIDERED APPROACH</p><h2 id="industry-approach-title">Your audience.<br />Your context.<br /><em>A shared direction.</em></h2><p>{data.note}</p><Link className="sd-button" to="/contact">Discuss your requirements <span><ArrowUpRight size={18}/></span></Link></div><div className="sd-orbital-space" aria-hidden="true"><span className="sd-orbital-tag">Ideas into motion.</span></div></div></section>
+      <section className="sd-method sd-section" aria-labelledby="industry-method-title"><div className="sd-wrap"><div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow"><span />HOW WE WORK</p><h2 id="industry-method-title">From understanding<br /><em>to useful execution.</em></h2></div><p>A collaborative process that gives your team visibility into priorities, decisions, and delivery.</p></div><ol className="sd-process">{process.map(([title,text],index)=><li key={title} data-service-reveal><span>0{index+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></div></section>
+      <section className="sd-outcomes-band" aria-labelledby="industry-outcomes-title"><div className="sd-wrap sd-section sd-outcomes"><div data-service-reveal><p className="sd-eyebrow"><span />CLARITY ON PROGRESS</p><h2 id="industry-outcomes-title">Know what matters.<br /><em>Learn what comes next.</em></h2><p className="sd-body">We agree measures that fit your objectives and the data available, then review the context behind the results. Audience response and feedback inform the next step; no performance outcome is guaranteed.</p></div><div className="sd-measures" data-service-reveal><span className="sd-mini">WHAT WE CAN REVIEW TOGETHER</span>{data.measures.map((measure,index)=><div key={measure}><span>0{index+1}</span><h3>{measure}</h3><Check size={18}/></div>)}<p>These are potential review areas, selected with your team during scoping rather than pre-set performance promises.</p></div></div></section>
+      <section className="sd-wrap sd-section sd-faq" aria-labelledby="industry-faq-title"><div data-service-reveal><p className="sd-eyebrow"><span />BEFORE WE BEGIN</p><h2 id="industry-faq-title">A little clarity.<br /><em>A better beginning.</em></h2><p className="sd-body">A few things to know about planning a digital experience for {data.name.toLowerCase()}.</p></div><div className="sd-questions" data-service-reveal>{[
+        ...data.faqs,
+        ['Can we begin with one specific problem?', 'Yes. We can start with a focused need such as website structure, search visibility, visual design, or a particular enquiry journey. The initial scope should reflect your priorities.'],
+        ['What will you need from our team?', 'Your business goals, audience information, existing website or brand materials, and relevant access are useful starting points. We also agree content ownership, reviewers, and integration responsibilities.'],
+        ['How are delivery milestones agreed?', 'We define the scope, dependencies, review stages, and implementation responsibilities before confirming a delivery plan. The work is reviewed with your team at agreed checkpoints.'],
+      ].map(([question,answer])=><details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
+      <section className="sd-cta" data-service-reveal><div className="sd-wrap"><p className="sd-eyebrow"><span />YOUR NEXT CHAPTER</p><h2>A clearer direction.<br /><em>A stronger experience.</em></h2><p>Tell us about your {data.name.toLowerCase()} business and the next challenge you want to solve.</p><Link className="sd-button" to="/contact">Start a conversation <span><ArrowUpRight size={18}/></span></Link></div></section>
+      <nav className="sd-wrap sd-related" aria-label="Explore other business types"><span className="sd-mini">EXPLORE OTHER BUSINESS TYPES</span><div>{Object.entries(industryContent).filter(([slug])=>slug!==industry).map(([slug,value])=><Link key={slug} to={`/business-types/${slug}`}>{value.name}<ArrowUpRight size={16}/></Link>)}</div></nav>
+    </main>
+  );
+}

@@ -1,0 +1,15 @@
+/* iGaming: independent page styling. */
+.industry-igaming .id-overview { grid-template-columns: 1fr 1.15fr; }
+.industry-igaming .id-context-board { border-radius: 24px 12px 24px 12px; }
+.industry-igaming .sd-capability { border-radius: 12px; }
+.industry-igaming .iv-stage { border-radius: 14px; }
+@media(min-width:901px) { .industry-igaming .sd-capabilities > :first-child { grid-column: auto; } }
+@media(max-width:800px) { .industry-igaming .id-overview { grid-template-columns: 1fr; } }
+
+/* Industry-specific section composition. */
+.industry-igaming.id-page .sd-capabilities { grid-template-columns: 1fr; gap: 14px; }
+.industry-igaming.id-page .sd-capabilities > .sd-capability { grid-row: auto; grid-column: auto; display: grid; grid-template-columns: 75px 1fr 1fr; gap: 0 25px; border-radius: 12px; }
+.industry-igaming.id-page .sd-card-top { grid-row: span 2; flex-direction: column; gap: 15px; margin: 0; align-items: flex-start; }.industry-igaming.id-page .sd-capability h3 { grid-column: 2; }.industry-igaming.id-page .sd-capability p { grid-column: 3; grid-row: 1 / 3; margin: 0; }.industry-igaming.id-page .sd-capability .sd-explore { grid-column: 2; }
+@media(max-width:800px) { .industry-igaming.id-page .sd-capabilities > .sd-capability { display: flex; }.industry-igaming.id-page .sd-card-top { flex-direction: row; margin-bottom: 25px; }.industry-igaming.id-page .sd-capability p { margin-top: 14px; } }
+
+@media(max-width:550px) { .industry-igaming.id-page .sd-capabilities { grid-template-columns: 1fr; } }

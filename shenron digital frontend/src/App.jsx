@@ -10,6 +10,8 @@ import About from "./subpages/About";
 import Contact from "./subpages/Contact";
 import ServiceDetail from "./subpages/ServiceDetail";
 import { servicePageRoutes } from "./subpages/servicePageRoutes";
+import { industryPageRoutes } from "./subpages/industries/industryPageRoutes";
+import IndustryNotFound from "./subpages/industries/IndustryNotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
 
@@ -33,10 +35,11 @@ export default function App() {
     <Route path="/services/:category/:offering" element={<ServiceDetail />} />
 
     <Route path="/industries" element={<Industries/>} />
-    <Route path="/industries/:industry" element={<main />} />
+    {industryPageRoutes.map(({ path, Component }) => <Route key={path} path={path} element={<Suspense fallback={<main style={{ minHeight: "100vh", padding: "150px 6%", background: "#F7F3EB" }} aria-busy="true">Loading industry...</main>}><Component /></Suspense>} />)}
+    <Route path="/industries/:industry" element={<IndustryNotFound />} />
 
     <Route path="/business-types" element={<main />} />
-    <Route path="/business-types/:type" element={<main />} />
+    <Route path="/business-types/:type" element={<IndustryNotFound section="business-types" />} />
 
     <Route path="/testimonials" element={<main />} />
 

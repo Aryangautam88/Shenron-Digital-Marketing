@@ -1,0 +1,38 @@
+﻿/* Inherit Services typography, cream palette, dark chapters, CTA artwork and motion. */
+.id-page .id-audiences { background: #F7F3EB; }
+.id-audiences > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding-block: 25px; }
+.id-audiences > div > span:not(.sd-mini) { display: flex; align-items: center; gap: 9px; font-size: 10px; color: #7c6e86; }
+.id-audiences svg { color: #9e70c7; }
+.id-page .id-overview { display: grid; align-items: center; gap: clamp(35px,6vw,85px); }
+.id-context-board { background: #faf6ef; border: 1px solid #e1d6c9; padding: 32px; }
+.id-page .id-context-board h3 { font-size: 29px; margin-top: 25px; line-height: 1.3; }
+.id-context-board ol { list-style: none; padding: 0; margin: 28px 0 0; }
+.id-context-board li { display: flex; align-items: center; gap: 16px; padding-block: 18px; }
+.id-context-board li > span { color: #aa88c4; font-size: 10px; }
+.id-context-board li > strong { flex: 1; font-size: 12px; font-weight: 500; color: #77627f; }
+.id-context-board li > svg { color: #aa82c9; }
+.id-context-board > p { font-size: 10px; line-height: 1.8; color: #a08aa9; margin-top: 18px; }
+.id-page .sd-overview .sd-text-link,.id-overview .sd-text-link { margin-top: 20px; }
+.id-page .sd-capability { display: flex; flex-direction: column; }
+.id-page .sd-capability .sd-explore { margin-top: auto; padding-top: 25px; text-decoration: none; }
+.id-page .sd-capabilities { align-items: stretch; }
+.id-page .sd-scope > .sd-wrap { position: relative; }
+.id-page .sd-scope-orb { top: -5px; }
+.id-page .sd-process h3 { font-size: 18px; }
+.id-page .sd-method { padding-bottom: 65px; }
+.id-page .sd-outcomes-band .sd-outcomes { padding-top: 65px; }
+.id-page .sd-related a { font-size: 11px; }
+@media(max-width:900px) { .id-audiences > div { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; }.id-page .sd-capabilities > :first-child { grid-row: auto; } }
+@media(max-width:800px) { .id-page .id-overview { grid-template-columns: 1fr; }.id-page .id-overview > .id-context-board { order: 1; }.id-page .sd-scope-orb { top: auto; }.id-context-board { padding: 27px; }.id-page .sd-method { padding-bottom: 45px; }.id-page .sd-outcomes-band .sd-outcomes { padding-top: 45px; } }
+@media(max-width:550px) { .id-audiences > div { grid-template-columns: 1fr; }.id-page .sd-capabilities { grid-template-columns: 1fr; }.id-audiences > div > span:not(.sd-mini) { font-size: 11px; } }
+
+/* Topic-specific layouts collapse naturally on smaller screens. */
+@media(max-width:550px) { .id-page.industry-finance .sd-capabilities,.id-page.industry-saas .sd-capabilities,.id-page.industry-crypto .sd-capabilities,.id-page.industry-ecommerce .sd-capabilities,.id-page.industry-real-estate .sd-capabilities,.id-page.industry-healthcare .sd-capabilities,.id-page.industry-it-software .sd-capabilities,.id-page.industry-gaming .sd-capabilities,.id-page.industry-igaming .sd-capabilities,.id-page.industry-forex .sd-capabilities { grid-template-columns: 1fr; } }
+
+/* Keep the complete preview above the next section, rather than dropping below it. */
+.id-page .subpage-hero .sd-hero-inner { align-items: start; }
+.id-page .subpage-hero .industry-hero-visual { align-self: start; margin-top: -12px; padding-bottom: 15px; }
+.id-page .industry-hero-visual .iv-stage { min-height: 330px; }
+.id-page .industry-hero-visual .iv-focus { min-height: 82px; padding-top: 14px; }
+.id-page .subpage-hero { padding-bottom: 100px; }
+@media(max-width:800px) { .id-page .subpage-hero .industry-hero-visual { margin-top: 38px; padding-bottom: 0; }.id-page .subpage-hero { padding-bottom: 65px; } }

@@ -1,0 +1,24 @@
+/* Forex: independent page styling. */
+.industry-forex .id-overview { grid-template-columns: 1.15fr 1fr; }
+.industry-forex .id-context-board { border-radius: 12px 30px 12px 30px; }
+.industry-forex .sd-capability { border-radius: 18px; }
+.industry-forex .iv-stage { border-radius: 24px; }
+@media(min-width:901px) { .industry-forex .sd-capabilities > :first-child { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; } }
+@media(max-width:800px) { .industry-forex .id-overview { grid-template-columns: 1fr; } }
+
+@media(min-width:901px) { .industry-forex .sd-capabilities > :last-child { grid-column: span 2; } }
+
+/* Industry-specific section composition. */
+.industry-forex.id-page .sd-capabilities { grid-template-columns: 1fr 1fr; gap: 25px; }
+.industry-forex.id-page .sd-capabilities > .sd-capability { grid-row: auto; grid-column: auto; border-radius: 5px 20px 20px 5px; border-left: 6px solid #d0b5e3; }
+.industry-forex.id-page .sd-card-top > svg { border-radius: 6px; }
+.industry-forex.id-page .sd-pillars { grid-template-columns: 1fr; gap: 20px; }.industry-forex.id-page .sd-pillars article { display: grid; grid-template-columns: 70px 1fr; gap: 0 22px; padding: 23px; border: 1px solid #e1d3e9; border-radius: 12px; }.industry-forex.id-page .sd-large-number { grid-row: span 2; margin: 0; }.industry-forex.id-page .sd-pillars p { grid-column: 2; }
+
+@media(max-width:550px) { .industry-forex.id-page .sd-capabilities { grid-template-columns: 1fr; } }
+
+/* Resource-library details continue the editorial design into the body. */
+.industry-forex .itx-library { gap: 22px; }
+.industry-forex .itx-resource-cover { box-shadow: 8px 9px 0 #eee5f3,0 15px 28px #4a2d5d0b; }
+.industry-forex .itx-library-index > div { min-height: 52px; }
+.industry-forex.id-page .sd-pillars article { background: #fcfaf5; }
+@media(max-width:450px) { .industry-forex .itx-library { gap: 12px; } }

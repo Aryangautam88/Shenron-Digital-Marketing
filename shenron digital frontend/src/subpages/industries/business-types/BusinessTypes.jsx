@@ -1,0 +1,18 @@
+﻿import { Link } from 'react-router-dom';
+import { ArrowUpRight, Check, Compass, Layers, Users, Target, Globe2 } from 'lucide-react';
+import { businessTypeContent } from './businessTypeContent';
+import useIndustryPage from '../useIndustryPage';
+import '../../ServiceDetail.css';
+import './BusinessTypes.css';
+
+const icons = [Users,Target,Compass,Layers,Globe2];
+
+export default function BusinessTypes() {
+  const pageRef = useIndustryPage('Business Types');
+  return <main className="sd-page bt-page" ref={pageRef}>
+    <section className="sd-hero subpage-hero" aria-labelledby="business-types-title"><div className="sd-wrap sd-hero-inner"><div className="sd-hero-copy"><p className="sd-eyebrow"><span/>BUILT AROUND YOUR BUSINESS</p><h1 id="business-types-title">Different businesses.<br/><em>A considered approach.</em></h1><p className="sd-intro">Your audience, stage of growth, and way of working shape the right digital experience. Explore an approach that fits the business behind the brand.</p><div className="sd-actions"><Link className="sd-button" to="/contact">Start a conversation <span><ArrowUpRight size={18}/></span></Link><a className="sd-text-link" href="#business-types">Explore business types</a></div></div><div className="bt-hero-map" aria-label="Five business types">{Object.entries(businessTypeContent).map(([slug,data],index)=>{const Icon=icons[index];return <Link key={slug} to={`/business-types/${slug}`}><Icon size={23}/><strong>{data.name}</strong><ArrowUpRight size={17}/></Link>;})}</div></div></section>
+    <section className="sd-wrap sd-section" id="business-types" aria-labelledby="business-types-explore"><div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow"><span/>FIND YOUR STARTING POINT</p><h2 id="business-types-explore">Your context.<br/><em>The right next step.</em></h2></div><p>Each business type has a dedicated page with audience priorities, solutions, and practical considerations.</p></div><div className="sd-capabilities">{Object.entries(businessTypeContent).map(([slug,data],index)=>{const Icon=icons[index];return <Link className="sd-capability sd-capability-link" data-service-reveal key={slug} to={`/business-types/${slug}`}><div className="sd-card-top"><Icon size={24}/><span>0{index+1}</span></div><h3>{data.name}</h3><p>{data.intro}</p><span className="sd-explore">Explore the approach <ArrowUpRight size={18}/></span></Link>;})}</div></section>
+    <section className="sd-method sd-section"><div className="sd-wrap"><div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow"><span/>CONNECTED THINKING</p><h2>Start with the business.<br/><em>Design for the audience.</em></h2></div><p>A useful scope brings the audience, the content, and your team's capacity into one shared plan.</p></div><div className="sd-pillars">{[['Understand','Map the audience, goals, and the experience you have today.'],['Prioritise','Identify the pages, content, and journeys that matter first.'],['Build together','Agree responsibilities, review points, and a practical delivery plan.']].map(([title,text])=><article key={title} data-service-reveal><Check size={20}/><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+    <section className="sd-cta" data-service-reveal><div className="sd-wrap"><p className="sd-eyebrow"><span/>YOUR NEXT CHAPTER</p><h2>Let's find<br/><em>your starting point.</em></h2><p>Tell us about your business and the next challenge you want to solve.</p><Link className="sd-button" to="/contact">Start a conversation <span><ArrowUpRight size={18}/></span></Link></div></section>
+  </main>;
+}

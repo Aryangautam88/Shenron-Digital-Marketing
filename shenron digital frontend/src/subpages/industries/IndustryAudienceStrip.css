@@ -1,0 +1,15 @@
+﻿.id-audience-strip { background: #F7F3EB; padding-block: 30px 45px; position: relative; }
+.ia-layout { display: grid; grid-template-columns: .8fr 2.4fr; gap: 35px; align-items: center; }
+.ia-intro p { font: 600 16px/1.6 'Plus Jakarta Sans',sans-serif; color: #58475f; margin-top: 13px; }
+.ia-intro em { font-family: 'Playfair Display',Georgia,serif; font-weight: 600; color: #9a72bb; }
+.ia-cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
+.ia-card { position: relative; display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 12px; min-height: 105px; padding: 20px; border: 1px solid #e6dcd0; border-radius: 12px; background: #fcfaf5; color: #83658e; text-decoration: none; transition: transform 350ms,border-color 350ms,box-shadow 350ms,background 350ms; }
+.ia-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #ede3f5; color: #a276c3; transition: transform 350ms,background 350ms; }
+.ia-name { font: 500 11px/1.7 Inter,sans-serif; color: #7f6b88; padding-right: 10px; }
+.ia-index { position: absolute; top: 9px; right: 12px; font-size: 7px; color: #baa2c7; }
+.ia-arrow { position: absolute; right: 11px; bottom: 11px; color: #b092c2; transition: transform 350ms; }
+.ia-card:focus-visible { outline: 2px solid #8045ff; outline-offset: 4px; }
+@media(hover:hover) { .ia-card:hover { transform: translateY(-5px); border-color: #c3a4d8; background: #fcf8ff; box-shadow: 0 15px 30px #8045ff0b; }.ia-card:hover .ia-icon { transform: rotate(-7deg); background: #e4d3f5; }.ia-card:hover .ia-arrow { transform: translate(2px,-2px); } }
+@media(max-width:1100px) { .ia-layout { grid-template-columns: 1fr; gap: 24px; }.ia-intro { display: flex; align-items: center; justify-content: space-between; gap: 20px; }.ia-intro p { margin: 0; } }
+@media(max-width:600px) { .ia-intro { display: block; }.ia-intro p { margin-top: 12px; }.ia-cards { grid-template-columns: 1fr; gap: 10px; }.ia-card { min-height: 82px; }.id-audience-strip { padding-block: 25px 35px; } }
+@media(prefers-reduced-motion:reduce) { .ia-card,.ia-icon,.ia-arrow { transition: none; }.ia-card:hover,.ia-card:hover .ia-icon,.ia-card:hover .ia-arrow { transform: none; } }
