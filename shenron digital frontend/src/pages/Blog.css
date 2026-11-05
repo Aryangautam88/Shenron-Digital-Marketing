@@ -1116,6 +1116,13 @@
     font-size: clamp(38px, 5.5vw, 54px);
   }
 }
+@media (max-width: 400px) {
+    .blog-hero-content {
+        width: 100%;
+        max-width: 560px;
+        margin-top: -30px;
+    }
+}
 
 @media (max-width: 700px) {
   .blog-detail-hero {

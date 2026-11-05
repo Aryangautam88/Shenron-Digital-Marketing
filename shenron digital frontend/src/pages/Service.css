@@ -604,16 +604,17 @@ body {
   .service-content {
     padding-top: 36px;
     padding-top: 180px;
-    margin-top: 160px;
+    margin-top: 70px;
   }
 
   .service-eyebrow {
     margin-bottom: 20px;
-    font-size: 8px;
+    font-size: 9px;
+    font-weight: 500;
   }
 
   .service-heading {
-    font-size: clamp(30px, 8.3vw, 34px);
+    font-size: 43px;
     letter-spacing: -0.9px;
   }
 
@@ -622,6 +623,7 @@ body {
   }
 
   .service-description {
+    max-width: 210px;
     font-size: 11px;
   }
 

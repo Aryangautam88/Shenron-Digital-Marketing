@@ -99,6 +99,8 @@
   width: 50%;
   max-width: 550px;
   position: relative;
+  margin-left: 30px;
+  margin-top: -50px;
 }
 
 .about-page h1 {
@@ -124,7 +126,7 @@
 .about-description {
   max-width: 440px;
   margin-top: 24px !important;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.52;
   color: var(--about-muted);
 }
@@ -568,9 +570,9 @@
   }
 
   .about-hero-artwork {
-    top: auto;
+    top: 280px;
     height: 470px;
-    object-position: 78% bottom;
+    object-position: 68% bottom;
   }
 
   .about-hero::before {
@@ -591,6 +593,7 @@
   .about-hero-copy {
     width: 100%;
     max-width: 470px;
+    margin: 0;
   }
 
   .about-eyebrow {
@@ -606,7 +609,7 @@
   }
 
   .about-page h1 {
-    font-size: clamp(39px, 9vw, 52px);
+    font-size: 43px !important;
     letter-spacing: -1.7px;
     line-height: 1.08;
   }

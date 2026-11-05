@@ -278,9 +278,9 @@
 
   .industries-content {
     width: 100%;
-    max-width: 520px;
+    max-width: 420px !important;
     padding-bottom: 0;
-    margin-top: 70px;
+    margin-top: 0px;
   }
 
   .industries-eyebrow {
@@ -352,11 +352,13 @@
   }
 
   .industries-title {
+    /* max-width: 400px; */
     font-size: 36px;
     letter-spacing: -1.3px;
   }
 
   .industries-description {
+    max-width: 280px;
     font-size: 12px;
   }
 
@@ -414,6 +416,7 @@
   gap: 42px;
   margin-bottom: 34px;
 }
+
 
 .industries-section-copy {
   flex: 1;
@@ -1407,6 +1410,12 @@
   .saas-hero {
     background-position: center top;
     background-size: 100% auto;
+  }
+  .industries-title span{
+    font-size: 43px;
+  }
+  .industries-title em{
+    font-size: 43px;
   }
 
   .saas-hero-container {
