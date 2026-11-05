@@ -656,7 +656,6 @@ body {
   .hero-primary-btn {
     min-width: 158px;
     height: 46px;
-    padding-left: -21px;
     font-size: 12px;
     margin-top: -10px;
   }

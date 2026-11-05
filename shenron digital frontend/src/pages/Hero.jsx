@@ -241,9 +241,9 @@ const Hero = () => {
                 <span className="btn-arrow">↗</span>
               </a>
 
-              <a href="#work" className="hero-play-btn">
-                <span className="play-icon">▶</span>
-                <span>Watch Showreel</span>
+              <a href="/services" className="hero-play-btn">
+                <span className="play-icon"><ArrowRight size={16} aria-hidden="true" /></span>
+                <span>Explore Our Services</span>
               </a>
             </div>
           </div>

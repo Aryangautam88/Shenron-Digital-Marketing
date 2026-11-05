@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { createElement } from 'react';
 import { ArrowDown, ArrowUpRight, Check, Compass, Layers, Target, ChartNoAxesCombined, Landmark, Search, FileText, ShieldCheck, MoreHorizontal } from 'lucide-react';
 import { industryContent } from './industryContent';
 import { serviceCategories } from '../../serviceContent';
@@ -44,7 +45,7 @@ export default function Finance() {
                   {[[130,100],[250,78],[375,57],[515,22]].map(([cx,cy])=><circle key={cx} cx={cx} cy={cy} r="5" fill="#faf7fc" stroke="#8544f5" strokeWidth="2.5"/>)}
                 </svg>
                 <div className="finance-chart-axis"><span>Discover</span><span>Understand</span><span>Compare</span><span>Enquire</span></div>
-                <div className="finance-journey-steps">{[[Search,'DISCOVERY','Useful service information'],[FileText,'CONSIDERATION','Clear product details'],[Check,'NEXT STEP','Confident enquiry path']].map(([Icon,label,text])=><a href="#industry-overview" key={label}><Icon size={16}/><span><small>{label}</small><strong>{text}</strong></span><ArrowUpRight size={12}/></a>)}</div>
+                <div className="finance-journey-steps">{[[Search,'DISCOVERY','Useful service information'],[FileText,'CONSIDERATION','Clear product details'],[Check,'NEXT STEP','Confident enquiry path']].map(([Icon,label,text])=><a href="#industry-overview" key={label}>{createElement(Icon,{size:16})}<span><small>{label}</small><strong>{text}</strong></span><ArrowUpRight size={12}/></a>)}</div>
               </div>
             </div>
             <div className="finance-journey-caption"><span><i/>STRATEGY / CONTENT / TECHNOLOGY</span><span>01—03</span></div>

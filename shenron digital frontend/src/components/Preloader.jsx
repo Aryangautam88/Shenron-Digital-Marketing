@@ -7,7 +7,7 @@ export default function Preloader() {
   const hidden = phase === 'hidden';
 
   useEffect(() => {
-    if (phase === 'hidden') return;
+    if (hidden) return;
     const overlay = overlayRef.current;
     const parent = overlay?.parentElement;
     const previousOverflow = document.body.style.overflow;
