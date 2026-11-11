@@ -1,0 +1,154 @@
+/* Shared title scale for service and industry detail pages.
+   Company heroes use their route-scoped typography in their own CSS. */
+:is(#sd-title, #industry-title) {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(38px, 3.6vw, 56px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+  margin: 0;
+  max-width: 640px;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+:is(#sd-title, #industry-title) em {
+  display: inline-block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: .82em;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-top: 10px;
+  padding-bottom: 5px;
+}
+
+.sd-page .sd-hero.subpage-hero {
+  padding: 132px 0 76px;
+  min-height: 0;
+}
+
+.sd-page .sd-hero.subpage-hero > .sd-wrap.sd-hero-inner {
+  width: min(calc(100% - 100px), 1320px);
+  min-height: 480px;
+  margin-inline: auto;
+  padding: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 4.5vw, 68px);
+}
+
+.sd-page .sd-hero.subpage-hero .sd-hero-copy {
+  width: 100%;
+  min-width: 0;
+  max-width: 610px;
+}
+
+.sd-page .sd-hero.subpage-hero .sd-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 7px;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-bottom: 26px;
+}
+
+.sd-page .sd-hero.subpage-hero .sd-eyebrow {
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 1.3px;
+  margin-bottom: 20px !important;
+}
+
+.sd-page .sd-hero.subpage-hero .sd-intro {
+  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 22px !important;
+}
+
+.sd-page .sd-hero.subpage-hero .sd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 20px;
+  margin-top: 26px;
+}
+
+.sd-page .sd-hero.subpage-hero :is(.sd-button, .sd-text-link) {
+  font-size: 11px;
+}
+
+.sd-page .sd-hero.subpage-hero .sd-hero-inner > :not(.sd-hero-copy) {
+  min-width: 0;
+  width: 100%;
+  align-self: center;
+}
+
+.sd-page .sd-hero.subpage-hero .sd-scroll {
+  position: static;
+  display: flex;
+  width: fit-content;
+  margin: 36px auto 0;
+  transform: none;
+}
+
+.about-page .about-hero > .about-container.about-hero-inner,
+.contact-page .contact-hero > .contact-container.contact-hero-inner {
+  width: min(calc(100% - 100px), 1320px);
+  margin-inline: auto;
+  padding-block: 132px 80px;
+}
+
+.about-page .about-hero .about-hero-copy {
+  margin: 0;
+}
+
+@media (min-width: 1600px) {
+  .sd-page .sd-hero.subpage-hero { padding-top: 150px; }
+}
+
+@media (max-width: 1100px) and (min-width: 801px) {
+  .sd-page .sd-hero.subpage-hero > .sd-wrap.sd-hero-inner {
+    width: calc(100% - 72px);
+    gap: 30px;
+  }
+  :is(#sd-title, #industry-title) {
+    font-size: clamp(34px, 3.8vw, 42px);
+    letter-spacing: -1.3px;
+  }
+}
+
+@media (max-width: 800px) {
+  .sd-page .sd-hero.subpage-hero { padding: 118px 0 54px; }
+  .sd-page .sd-hero.subpage-hero > .sd-wrap.sd-hero-inner {
+    width: calc(100% - 40px);
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+  :is(#sd-title, #industry-title) {
+    font-size: clamp(34px, 6.2vw, 46px);
+    line-height: 1.14;
+    letter-spacing: -1.2px;
+    max-width: 580px;
+  }
+  :is(#sd-title, #industry-title) em {
+    font-size: .86em;
+    letter-spacing: -.7px;
+  }
+  .sd-page .sd-hero.subpage-hero .sd-intro { max-width: 540px; }
+  .about-page .about-hero > .about-container.about-hero-inner,
+  .contact-page .contact-hero > .contact-container.contact-hero-inner {
+    width: calc(100% - 40px);
+    padding-block: 118px 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  :is(#sd-title, #industry-title) {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+  .sd-page .sd-hero.subpage-hero .sd-actions { gap: 16px; }
+}

@@ -62,7 +62,7 @@ export default function Contact() {
             <h1 id="contact-hero-title">Let's start with<br /><em>a conversation.</em></h1>
             <p className="contact-intro">Tell us what you're building, where you want to go, or what you'd like to solve. We'll help turn that starting point into a clear next step.</p>
             <a href="#contact-form" className="contact-hero-button">Tell us about your project <span><ArrowUpRight size={18} /></span></a>
-            <p className="contact-hero-reassurance"><Check size={15} aria-hidden="true" /> No finished brief needed to get started.</p>
+            {/* <p className="contact-hero-reassurance"><Check size={15} aria-hidden="true" /> No finished brief needed to get started.</p> */}
           </div>
           <div className="contact-hero-note">
             <span className="contact-hero-note-icon" aria-hidden="true"><MessageCircle size={19} /></span>

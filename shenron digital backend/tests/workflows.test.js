@@ -5,6 +5,7 @@ import { createServer } from "node:http";
 import net from "node:net";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import { AdminAccount } from "../src/models/AdminAccount.js";
 import { createApp } from "../src/app.js";
 import { Enquiry } from "../src/models/Enquiry.js";
 import { validateEnquiry } from "../src/routes/enquiryRoutes.js";
@@ -123,6 +124,38 @@ test("authenticated enquiry, SMTP acknowledgement, upload and blog workflows", {
     assert.equal((await request(`/admin/blogs/${blog._id}`, "DELETE")).status, 200);
     assert.equal((await request(`/blogs/${blog.slug}`)).status, 404);
     assert.equal((await request("/admin/logout", "POST")).status, 200);
+    assert.equal((await request("/admin/session")).status, 401, "copied cookie is revoked on logout");
+    const relogin = await request("/admin/login", "POST", { email: env.adminEmail, password: "test-password-only" });
+    cookie = relogin.headers.get("set-cookie").split(";")[0];
+    const unknown = await request("/admin/forgot-password", "POST", { email: "unknown@example.test" });
+    const recovery = await request("/admin/forgot-password", "POST", { email: env.adminEmail });
+    assert.equal(recovery.status, 202);
+    assert.deepEqual(await unknown.json(), await recovery.json());
+    const decodeMail = message => /Content-Transfer-Encoding: base64/i.test(message)
+      ? Buffer.from(message.split(/\n\n/).slice(1).join("\n\n").replace(/\s/g, ""), "base64").toString("utf8")
+      : message.replace(/=\r?\n/g, "").replace(/=3D/g, "=");
+    for (let i = 0; i < 200; i++) {
+      if (messages.some(message => decodeMail(message).includes("reset="))) break;
+      await new Promise(resolve => setTimeout(resolve, 20));
+    }
+    const recoveryMail = messages.find(message => decodeMail(message).includes("reset="));
+    assert.ok(recoveryMail, "recovery mail reached local SMTP sink");
+    const decoded = decodeMail(recoveryMail);
+    const token = decoded.match(/reset=([a-f0-9]{64})/)?.[1];
+    assert.ok(token);
+    const stored = await AdminAccount.findOne({ email: env.adminEmail });
+    assert.notEqual(stored.resetHash, token);
+    const password = "new-secure-password-2026";
+    assert.equal((await request("/admin/reset-password", "POST", { token, password: "short" })).status, 400);
+    assert.equal((await request("/admin/reset-password", "POST", { token, password }, { Origin: "https://evil.example" })).status, 403);
+    await AdminAccount.updateOne({ _id: stored._id }, { $set: { resetExpiresAt: new Date(Date.now() - 1000) } });
+    assert.equal((await request("/admin/reset-password", "POST", { token, password })).status, 400);
+    await AdminAccount.updateOne({ _id: stored._id }, { $set: { resetExpiresAt: new Date(Date.now() + 60000) } });
+    const resets = await Promise.all([request("/admin/reset-password", "POST", { token, password }), request("/admin/reset-password", "POST", { token, password })]);
+    assert.deepEqual(resets.map(result => result.status).sort(), [200, 400], "one concurrent reset succeeds");
+    assert.equal((await request("/admin/session")).status, 401, "reset revokes existing sessions");
+    assert.equal((await request("/admin/login", "POST", { email: env.adminEmail, password: "test-password-only" })).status, 401);
+    assert.equal((await request("/admin/login", "POST", { email: env.adminEmail, password })).status, 200);
   } finally {
     stopMail?.();
     if (server) { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }

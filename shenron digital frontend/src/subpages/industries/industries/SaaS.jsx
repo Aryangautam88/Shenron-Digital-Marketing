@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowDown, ArrowUpRight, Check, Compass, Layers, Target, ChartNoAxesCombined } from 'lucide-react';
 import { industryContent } from './industryContent';
 import { serviceCategories } from '../../serviceContent';
-import IndustryHeroVisual from '../IndustryHeroVisual';
+import SaaSHeroPreview from './SaaSHeroPreview';
 import IndustryAudienceStrip from '../IndustryAudienceStrip';
 import useIndustryPage from '../useIndustryPage';
 import IndustryWorkshop, { IndustryContextVisual, IndustryScopeArtwork } from '../IndustryTopicSections';
@@ -25,12 +25,13 @@ export default function SaaS() {
         <div className="sd-wrap sd-hero-inner">
           <div className="sd-hero-copy">
             <nav className="sd-breadcrumb" aria-label="Breadcrumb"><Link to="/industries">Industries</Link><span>/</span><span aria-current="page">{data.name}</span></nav>
-            <p className="sd-eyebrow"><span />DIGITAL SOLUTIONS FOR {data.name}</p>
-            <h1 id="industry-title">{data.title}<br /><em>{data.accent}</em></h1>
+            <p className="sd-eyebrow"><span />BUILT FOR AMBITIOUS SAAS BRANDS</p>
+            <h1 id="industry-title">Complex product.<br /><em>Clear possibility.</em></h1>
             <p className="sd-intro">{data.intro}</p>
             <div className="sd-actions"><Link to="/contact" className="sd-button">Let's talk about your goals <span><ArrowUpRight size={18}/></span></Link><a href="#industry-overview" className="sd-text-link">Explore the approach <ArrowDown size={16}/></a></div>
+            <div className="saas-hero-services"><span><Check size={13}/>Product websites</span><span><Check size={13}/>Growth journeys</span><span><Check size={13}/>Demo experiences</span></div>
           </div>
-          <IndustryHeroVisual industry={industry} data={data}/>
+          <SaaSHeroPreview/>
         </div>
         <a href="#industry-overview" className="sd-scroll"><span>SCROLL TO EXPLORE</span><ArrowDown size={16}/></a>
       </section>

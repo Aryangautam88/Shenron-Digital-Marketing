@@ -15,9 +15,13 @@ try {
 try {
   await connectDatabase(env.mongoUri);
 } catch (error) {
-  console.error(
-    `MongoDB connection failed (${error?.code || error?.name || "unknown error"}). Check MONGODB_URI and database access.`,
-  );
+  const code = error?.code || error?.cause?.code || error?.name || "unknown error";
+  const atlasTimeout = env.mongoUri.startsWith("mongodb+srv://") &&
+    (code === "ETIMEOUT" || error?.name === "MongooseServerSelectionError");
+  const hint = atlasTimeout
+    ? "Check that the Atlas cluster is active, this machine's public IP is allowed in Network Access, and DNS/outbound MongoDB access is available."
+    : "Check MONGODB_URI and database access.";
+  console.error(`MongoDB connection failed (${code}). ${hint}`);
   process.exit(1);
 }
 

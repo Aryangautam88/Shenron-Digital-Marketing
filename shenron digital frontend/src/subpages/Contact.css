@@ -56,15 +56,19 @@
   background: var(--contact-purple);
 }
 
-.contact-hero h1 {
-  max-width: 760px;
+.contact-hero-copy h1 {
+  max-width: 780px;
+  color: #080a12;
   font: 800 clamp(48px, 5.1vw, 82px)/0.98 "Plus Jakarta Sans", sans-serif;
   letter-spacing: -3px;
 }
 
-.contact-hero h1 em {
-  display: inline-block;
-  padding-block: 5px;
+.contact-hero-copy h1 em {
+  display: block;
+  width: fit-content;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  padding: 0;
   background: linear-gradient(110deg, #b99aff 0%, #8855ff 45%, #6946ef 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -73,7 +77,8 @@
   font-size: 1.05em;
   font-weight: 500;
   font-style: italic;
-  letter-spacing: -3px;
+  line-height: 0.79;
+  letter-spacing: -2.8px;
 }
 
 .contact-intro {
@@ -351,6 +356,26 @@
   color: #24653e;
 }
 
+@media (max-width: 1200px) {
+  .contact-hero-inner {
+    width: calc(100% - 72px);
+  }
+
+  .contact-hero-copy h1 {
+    font-size: clamp(43px, 5vw, 62px);
+    letter-spacing: -2px;
+  }
+
+  .contact-hero-copy h1 em {
+    letter-spacing: -1.8px;
+  }
+
+  .contact-hero-copy > p.contact-intro {
+    max-width: 390px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 900px) {
   .contact-container {
     width: calc(100% - 56px);
@@ -380,11 +405,6 @@
 
   .contact-layout {
     padding-top: 130px;
-  }
-
-  .contact-hero h1 {
-    font-size: clamp(36px, 9vw, 50px);
-    letter-spacing: -1.5px;
   }
 
   .contact-intro {
@@ -459,7 +479,7 @@
   animation: contact-hero-enter 750ms ease both;
 }
 
-.contact-hero .contact-eyebrow {
+.contact-hero-copy > p.contact-eyebrow {
   gap: 13px;
   margin-bottom: 30px !important;
   color: #77747b;
@@ -471,35 +491,36 @@
   text-transform: uppercase;
 }
 
-.contact-hero .contact-eyebrow > span {
+.contact-hero-copy > p.contact-eyebrow > span {
   flex: 0 0 34px;
   width: 34px;
   height: 2px;
 }
 
-.contact-hero .contact-intro {
-  max-width: 470px;
-  margin-top: 25px !important;
+.contact-hero-copy > p.contact-intro {
+  max-width: 440px;
+  margin-top: 28px !important;
   color: #55535d;
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.52;
 }
 
 .contact-hero-button {
   display: inline-flex;
   align-items: center;
   gap: 22px;
-  margin-top: 28px;
+  margin-top: 26px;
   padding: 8px 8px 8px 22px;
   border-radius: 40px;
   background: var(--contact-ink);
   color: white;
   font-size: 12px;
-  font-weight: 600;
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 500;
   text-decoration: none;
-  min-height: 48px;
+  min-height: 46px;
 }
 
 .contact-hero-button>span {
@@ -516,20 +537,20 @@
   background: #6430cb;
 }
 
-.contact-hero .contact-hero-button {
+.contact-hero-copy .contact-hero-button {
   transition: background 250ms ease, transform 250ms ease, box-shadow 250ms ease;
 }
 
-.contact-hero .contact-hero-button:hover {
+.contact-hero-copy .contact-hero-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 28px #8045ff22;
 }
 
-.contact-hero .contact-hero-button > span svg {
+.contact-hero-copy .contact-hero-button > span svg {
   transition: transform 250ms ease;
 }
 
-.contact-hero .contact-hero-button:hover > span svg {
+.contact-hero-copy .contact-hero-button:hover > span svg {
   transform: translate(2px, -2px);
 }
 
@@ -772,19 +793,10 @@
     width: min(68%, 620px);
   }
 
-  .contact-hero h1 {
-    font-size: clamp(46px, 7vw, 66px);
-    letter-spacing: -2px;
-  }
-
-  .contact-hero h1 em {
-    letter-spacing: -2px;
-  }
-
-  .contact-hero .contact-intro {
-    max-width: 420px;
-    font-size: 14px;
-    line-height: 1.65;
+  .contact-hero-copy > p.contact-intro {
+    max-width: 390px;
+    font-size: 13px;
+    line-height: 1.52;
   }
 
   .contact-hero-note {
@@ -805,6 +817,36 @@
 
   .contact-faq {
     gap: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero-copy > p.contact-eyebrow {
+    margin-bottom: 22px !important;
+    font-size: 9px;
+  }
+
+  .contact-hero-copy h1 {
+    font-size: clamp(34px, 5.1vw, 44px);
+    line-height: 1.04;
+    letter-spacing: -1.4px;
+  }
+
+  .contact-hero-copy h1 em {
+    letter-spacing: -1.1px;
+  }
+
+  .contact-hero-copy > p.contact-intro {
+    max-width: 320px;
+    margin-top: 19px !important;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .contact-hero-copy .contact-hero-button {
+    margin-top: 22px;
+    min-height: 40px;
+    font-size: 10px;
   }
 }
 
@@ -834,40 +876,45 @@
     max-width: 520px;
   }
 
-  .contact-hero .contact-eyebrow {
-    gap: 9px;
-    margin-bottom: 22px !important;
+  .contact-hero-copy > p.contact-eyebrow {
+    gap: 10px;
+    margin-bottom: 23px !important;
     font-size: 9px;
     letter-spacing: 1px;
   }
 
-  .contact-hero .contact-eyebrow > span {
-    flex-basis: 25px;
-    width: 25px;
+  .contact-hero-copy > p.contact-eyebrow > span {
+    flex-basis: 28px;
+    width: 28px;
   }
 
-  .contact-hero h1 {
-    font-size: clamp(40px, 9.5vw, 56px);
-    line-height: 1.02;
-    letter-spacing: -1.8px;
-  }
-
-  .contact-hero h1 em {
+  .contact-hero-copy h1 {
+    font-size: clamp(35px, 8.5vw, 49px);
+    line-height: 1.04;
     letter-spacing: -1.5px;
   }
 
-  .contact-hero .contact-intro {
-    max-width: 440px;
-    margin-top: 19px !important;
-    font-size: 14px;
-    line-height: 1.65;
+  .contact-hero-copy h1 em {
+    margin-top: 4px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    line-height: 1.08;
+    letter-spacing: -1.2px;
   }
 
-  .contact-hero .contact-hero-button {
+  .contact-hero-copy > p.contact-intro {
+    max-width: 390px;
+    margin-top: 20px !important;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .contact-hero-copy .contact-hero-button {
     gap: 15px;
-    margin-top: 22px;
+    margin-top: 23px;
     padding-left: 18px;
-    font-size: 11px;
+    min-height: 42px;
+    font-size: 10px;
   }
 
   .contact-hero-reassurance {
@@ -903,6 +950,41 @@
   .contact-page h2 {
     font-size: 34px;
     letter-spacing: -1px;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-hero-copy > p.contact-eyebrow {
+    margin-bottom: 20px !important;
+  }
+
+  .contact-hero-inner {
+    width: calc(100% - 28px);
+  }
+
+  .contact-hero-copy h1 {
+    font-size: 43px;
+    letter-spacing: -0.9px;
+  }
+
+  .contact-hero-copy h1 em {
+    letter-spacing: -0.7px;
+  }
+
+  .contact-hero-copy > p.contact-intro {
+    max-width: 210px;
+    font-size: 11px;
+  }
+
+  .contact-hero-copy .contact-hero-button {
+    min-height: 39px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 340px) {
+  .contact-hero-copy h1 {
+    font-size: 28px;
   }
 }
 

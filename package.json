@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "backend:dev": "npm --prefix \"shenron digital backend\" run dev",
+    "backend:start": "npm --prefix \"shenron digital backend\" start"
+  },
   "dependencies": {
     "react-router-dom": "^7.18.4"
   }

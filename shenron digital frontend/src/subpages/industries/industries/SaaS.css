@@ -1,4 +1,43 @@
 /* SaaS: independent page styling. */
+@media(min-width:801px) {
+  .industry-saas.sd-page .sd-hero.subpage-hero .sd-hero-copy {
+    align-self: center;
+    margin-block: 0;
+    top: -65px;
+    transform: none;
+  }
+}
+.industry-saas.sd-page .subpage-hero { background:radial-gradient(ellipse at 85% 30%,#e7dbff 0,transparent 48%),#f7f3eb; }
+.industry-saas.sd-page .subpage-hero .sd-hero-inner { grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:clamp(30px,5vw,75px); }
+.industry-saas.sd-page .sd-hero .sd-hero-copy h1 { font-size:clamp(44px,4.7vw,72px); line-height:1.08; }
+.industry-saas .sd-hero .sd-intro { max-width:460px; }
+.saas-hero-services { display:flex; flex-wrap:wrap; gap:12px 18px; margin-top:30px; color:#73697f; font-size:11px; }
+.saas-hero-services span { display:flex; align-items:center; gap:6px; }.saas-hero-services svg { color:#8045ff; }
+.saas-preview { min-width:0; padding:20px; border:1px solid #ffffffc9; border-radius:24px; background:#ffffff59; box-shadow:0 30px 80px #5533920c; }
+.saas-preview-label { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 2px 18px; font-size:8px; letter-spacing:1.4px; color:#746282; }
+.saas-preview-label > span { display:flex; align-items:center; gap:7px; }.saas-preview-label i { width:6px; height:6px; border-radius:50%; background:#8b5cf6; box-shadow:0 0 0 4px #8b5cf615; }
+.saas-window { border:1px solid #ded5ea; border-radius:14px; overflow:hidden; background:#fffcff; box-shadow:0 20px 45px #35234d10; }
+.saas-window-bar { display:flex; align-items:center; gap:14px; background:#f4eff8; padding:14px 16px; color:#91849b; font-size:9px; border-bottom:1px solid #e8e0ef; }
+.saas-window-dots { display:flex; gap:5px; }.saas-window-dots i { width:6px; height:6px; border-radius:50%; background:#cbb7df; }.saas-window-dots i:first-child { background:#a584d1; }
+.saas-preview-tag { margin-left:auto; font-size:7px; letter-spacing:.8px; }
+.saas-workspace { display:flex; min-height:375px; }.saas-workspace > aside { display:flex; flex-direction:column; align-items:center; gap:12px; padding:21px 10px; background:#21182e; }
+.saas-workspace > aside button { display:grid; place-items:center; padding:10px; border:0; border-radius:9px; background:transparent; color:#9e8bb5; cursor:pointer; }.saas-workspace > aside button[aria-pressed='true'] { background:#8a55ef; color:white; box-shadow:0 5px 20px #8045ff44; }.saas-workspace > aside > span { margin-top:auto; color:#b698e0; }
+.saas-canvas { padding:25px 24px 18px; flex:1; min-width:0; animation:saas-preview-enter .35s ease both; }
+.saas-canvas-top { display:flex; justify-content:space-between; gap:10px; font-size:7px; letter-spacing:1px; color:#9a86b0; }.saas-canvas-top > span:first-child { display:flex; gap:7px; align-items:center; }
+.saas-canvas h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(19px,1.8vw,27px); line-height:1.3; letter-spacing:-.8px; margin:22px 0 9px; color:#241931; }
+.saas-canvas > p { font-size:11px; line-height:1.8; color:#8c7c99; max-width:320px; margin:0; }
+.saas-flow { display:flex; align-items:center; justify-content:center; margin:27px 0; padding:18px 12px; border-radius:12px; background:radial-gradient(ellipse,#ede1ff,transparent 75%),#f8f4fc; }
+.saas-flow-node { display:flex; flex-direction:column; align-items:center; gap:8px; color:#9173ae; font-size:9px; }.saas-flow-core { display:grid; place-items:center; width:65px; height:65px; flex-shrink:0; border-radius:18px; color:white; background:linear-gradient(135deg,#b38aff,#7545d9); box-shadow:0 0 0 7px #a57be515,0 10px 20px #8045ff25; transform:rotate(-6deg); transition:transform .3s; }.saas-flow-core:hover { transform:rotate(0) scale(1.08); }.saas-flow-line { height:1px; flex:1; max-width:40px; margin:0 12px; background:linear-gradient(90deg,#d8c4ec,#9a6ddb); }.saas-flow-1 .saas-flow-core { border-radius:50%; }.saas-flow-2 .saas-flow-core { transform:rotate(6deg); background:linear-gradient(135deg,#9675d4,#4b326f); }
+.saas-preview-checks { display:grid; gap:8px; }.saas-preview-checks > div { display:flex; align-items:center; gap:9px; padding:9px 11px; border:1px solid #eee7f4; border-radius:7px; font-size:10px; color:#655171; }.saas-preview-checks span { color:#b49bc7; font-size:8px; }.saas-preview-checks svg { margin-left:auto; color:#9870bd; }
+.saas-canvas-footer { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:20px; }.saas-canvas-footer > span { font-size:6px; letter-spacing:.8px; color:#b5a4c1; }.saas-canvas-footer button,.saas-canvas-footer a { display:flex; align-items:center; gap:5px; color:#8550c0; font-size:9px; background:none; border:0; text-decoration:none; cursor:pointer; }
+.saas-journey-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-top:16px; }.saas-journey-tabs button { display:flex; align-items:center; gap:9px; border:1px solid #e3d9ed; border-radius:9px; padding:13px 12px; color:#8b769d; background:#fffcff99; font-size:11px; cursor:pointer; transition:background .2s,box-shadow .2s; }.saas-journey-tabs button > span { font-size:8px; opacity:.6; }.saas-journey-tabs svg { margin-left:auto; }.saas-journey-tabs button[aria-pressed='true'] { background:#281d39; border-color:#281d39; color:#f3eaff; box-shadow:0 5px 12px #35234d17; }
+.saas-preview-note { display:flex; gap:18px; align-items:center; padding:18px 3px 0; min-height:78px; }.saas-preview-note > div { flex:1; }.saas-preview-note strong { display:block; font-size:12px; font-weight:600; color:#5e476f; }.saas-preview-note p { font-size:10px; line-height:1.7; color:#9682a4; margin:6px 0 0; }.saas-replay { display:grid; place-items:center; width:34px; height:34px; border:1px solid #d7c8e5; border-radius:50%; background:#ffffff80; color:#966ac0; cursor:pointer; flex-shrink:0; }
+.saas-preview button:focus-visible,.saas-preview a:focus-visible { outline:2px solid #8045ff; outline-offset:4px; }
+@keyframes saas-preview-enter { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:1000px) { .saas-preview { padding:14px; }.saas-canvas { padding:22px 16px 16px; }.saas-workspace > aside { padding-inline:7px; }.saas-journey-tabs button { padding:12px 8px; gap:6px; font-size:10px; } }
+@media(max-width:800px) { .industry-saas.sd-page .subpage-hero .sd-hero-inner { grid-template-columns:1fr; gap:40px; }.saas-preview { width:100%; max-width:590px; margin-inline:auto; }.saas-canvas h2 { font-size:26px; }.saas-hero-services { margin-top:24px; } }
+@media(max-width:420px) { .saas-preview { padding:10px; border-radius:16px; }.saas-preview-label { font-size:7px; letter-spacing:.7px; }.saas-preview-tag { display:none; }.saas-workspace > aside { padding-inline:5px; }.saas-workspace > aside button { padding:8px; }.saas-canvas { padding:20px 12px 15px; }.saas-canvas h2 { font-size:22px; }.saas-canvas-top { font-size:6px; letter-spacing:.5px; }.saas-canvas-footer > span { display:none; }.saas-canvas-footer { justify-content:flex-end; }.saas-journey-tabs svg { display:none; }.saas-journey-tabs button { justify-content:center; }.saas-flow { padding-inline:6px; }.saas-flow-core { width:52px; height:52px; }.saas-flow-line { margin-inline:8px; } }
+@media(prefers-reduced-motion:reduce) { .saas-canvas { animation:none; }.saas-preview * { transition:none; }.saas-flow-core:hover { transform:none; } }
 .industry-saas .id-overview { grid-template-columns: 1fr 1fr; }
 .industry-saas .id-context-board { border-radius: 12px 30px 12px 30px; }
 .industry-saas .sd-capability { border-radius: 18px; }

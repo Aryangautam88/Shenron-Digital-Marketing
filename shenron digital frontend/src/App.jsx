@@ -5,6 +5,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import "./subpages/SubpageHero.css";
 import { industryPageRoutes } from "./subpages/industries/industryPageRoutes";
 const Service = lazy(() => import("./pages/Service"));
 const Hero = lazy(() => import("./pages/Hero"));
@@ -22,6 +24,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTop />
       {!isAdminRoute && <Navbar />}
       {!isAdminRoute && <Preloader />}
 

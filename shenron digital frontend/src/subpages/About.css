@@ -24,13 +24,13 @@
   margin-inline: auto;
 }
 
-.about-page h1,
+.about-hero-copy h1,
 .about-page h2,
 .about-page h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.about-page h1,
+.about-hero-copy h1,
 .about-page h2,
 .about-page h3,
 .about-page p,
@@ -38,7 +38,7 @@
   margin: 0;
 }
 
-.about-page h1 em,
+.about-hero-copy h1 em,
 .about-page h2 em,
 .about-story-image em {
   font-family: Georgia, "Times New Roman", serif;
@@ -103,39 +103,53 @@
   margin-top: -50px;
 }
 
-.about-page h1 {
+.about-hero-copy h1 {
+  max-width: 780px;
   margin: 0;
   color: #080a12;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(66px, 5.1vw, 90px);
-  font-weight: 760;
-  line-height: 0.94;
-  letter-spacing: -2.8px;
+  font-size: clamp(48px, 5.1vw, 82px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -3px;
 }
 
-.about-page h1 em {
-  display: inline-block;
-  padding-block: 3px 10px;
-  background: linear-gradient(110deg, #b99aff, #8855ff 45%, #6946ef);
+.about-hero-copy h1 em {
+  display: block;
+  width: fit-content;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  padding: 0;
+  background: linear-gradient(110deg, #b99aff 0%, #8855ff 45%, #6946ef 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 0.79;
   letter-spacing: -2.8px;
 }
 
-.about-description {
+.about-hero-copy > p.about-description {
   max-width: 440px;
-  margin-top: 24px !important;
-  font-size: 14px;
+  margin-top: 28px !important;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
   line-height: 1.52;
   color: var(--about-muted);
+}
+
+.about-hero-copy > p.about-eyebrow {
+  margin-bottom: 30px !important;
 }
 
 .about-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 27px;
+  margin-top: 26px;
 }
 
 .about-button {
@@ -143,7 +157,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 18px;
-  min-height: 48px;
+  min-height: 46px;
   padding: 6px 8px 6px 22px;
   border: 1px solid var(--about-ink);
   border-radius: 50px;
@@ -461,6 +475,22 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .about-hero-copy h1 {
+    font-size: clamp(43px, 5vw, 62px);
+    letter-spacing: -2px;
+  }
+
+  .about-hero-copy h1 em {
+    letter-spacing: -1.8px;
+  }
+
+  .about-hero-copy > p.about-description {
+    max-width: 390px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 1180px) {
   .about-container {
     width: calc(100% - 72px);
@@ -468,15 +498,7 @@
 
   .about-hero-inner {
     min-height: 700px;
-  }
-
-  .about-page h1 {
-    font-size: clamp(43px, 5vw, 62px);
-    letter-spacing: -2px;
-  }
-
-  .about-page h1 em {
-    letter-spacing: -1.8px;
+    width: calc(100% - 72px);
   }
 
   .about-story,
@@ -494,12 +516,13 @@
 }
 
 @media (max-width: 900px) {
-  .about-page h1 {
-    font-size: clamp(38px, 5.1vw, 48px);
+  .about-hero-inner {
+    width: calc(100% - 56px);
   }
 
-  .about-description {
-    font-size: 14px;
+  .about-hero-copy {
+    width: min(68%, 620px);
+    max-width: 620px;
   }
 
   .about-hero-inner {
@@ -564,6 +587,39 @@
   }
 }
 
+@media (max-width: 768px) {
+  .about-hero-copy > p.about-eyebrow {
+    margin-bottom: 22px !important;
+    font-size: 9px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: clamp(34px, 5.1vw, 44px);
+    line-height: 1.04;
+    letter-spacing: -1.4px;
+  }
+
+  .about-hero-copy h1 em {
+    letter-spacing: -1.1px;
+  }
+
+  .about-hero-copy > p.about-description {
+    max-width: 320px;
+    margin-top: 19px !important;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .about-actions {
+    margin-top: 22px;
+  }
+
+  .about-button {
+    min-height: 40px;
+    font-size: 10px;
+  }
+}
+
 @media (max-width: 600px) {
   .about-container {
     width: calc(100% - 36px);
@@ -603,39 +659,47 @@
     gap: 10px;
   }
 
+  .about-hero-copy > p.about-eyebrow {
+    gap: 10px;
+    margin-bottom: 23px !important;
+    letter-spacing: 1px;
+  }
+
   .about-eyebrow>span {
     flex-basis: 28px;
     width: 28px;
   }
 
-  .about-page h1 {
-    font-size: 43px !important;
-    letter-spacing: -1.7px;
-    line-height: 1.08;
-  }
-
-  .about-page h1 em {
-    font-size: 0.98em;
+  .about-hero-copy h1 {
+    font-size: clamp(35px, 8.5vw, 49px);
     letter-spacing: -1.5px;
-    padding-bottom: 5px;
+    line-height: 1.04;
   }
 
-  .about-description {
+  .about-hero-copy h1 em {
+    margin-top: 4px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    line-height: 1.08;
+    letter-spacing: -1.2px;
+  }
+
+  .about-hero-copy > p.about-description {
     max-width: 390px;
     margin-top: 20px !important;
-    font-size: 12.5px;
-    line-height: 1.75;
+    font-size: 12px;
+    line-height: 1.8;
   }
 
   .about-actions {
     gap: 10px;
-    margin-top: 22px;
+    margin-top: 23px;
   }
 
   .about-button {
-    min-height: 44px;
+    min-height: 42px;
     padding-left: 16px;
-    font-size: 11px;
+    font-size: 10px;
     gap: 12px;
   }
 
@@ -773,21 +837,39 @@
     padding-top: 140px;
   }
 
-  .about-page h1 {
-    font-size: 36px;
-    letter-spacing: -1.3px;
+  .about-story-image img {
+    height: 290px;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-hero-copy > p.about-eyebrow {
+    margin-bottom: 20px !important;
   }
 
-  .about-description {
-    font-size: 12px;
+  .about-hero-copy h1 {
+    font-size: 43px;
+    letter-spacing: -0.9px;
+  }
+
+  .about-hero-copy h1 em {
+    letter-spacing: -0.7px;
+  }
+
+  .about-hero-copy > p.about-description {
+    max-width: 210px;
+    font-size: 11px;
   }
 
   .about-button {
-    font-size: 10px;
+    min-height: 39px;
+    font-size: 9px;
   }
+}
 
-  .about-story-image img {
-    height: 290px;
+@media (max-width: 340px) {
+  .about-hero-copy h1 {
+    font-size: 28px;
   }
 }
 
@@ -1344,10 +1426,37 @@
   color: #C6ABFF;
 }
 
-.about-page h1 em,
+.about-hero-copy h1 em,
 .about-page h2 em,
 .about-page h3 em {
   font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
   font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .about-principle {
+    padding: 22px;
+  }
+
+  .about-principle-top {
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+  }
+
+  .about-principle .about-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .about-principle h3 {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .about-principle > p {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, BookOpen, Plus, Mail, LogOut, Search, FileText, X, Eye, RefreshCw } from "lucide-react";
 import EnquiryInbox from "./EnquiryInbox";
+import AdminOverview from "./AdminOverview";
 import RichEditor from "./RichEditor";
 import { uploadAsset } from "../lib/uploadAsset";
 import ArticleContent, { FeaturedVideo } from "../components/ArticleContent";
@@ -52,14 +53,14 @@ export default function AdminWorkspace(props) {
     finally { setUploading(false); event.target.value = ''; }
   }
   return <main className="blog-admin-page desk-page">
-    <aside className="desk-sidebar"><Link className="desk-brand" to="/admin"><img src={logo} alt="Kravs Infotech"/><span>CONTENT DESK</span></Link><span className="desk-nav-label">WORKSPACE</span>
-      <nav aria-label="Admin workspace"><button aria-current={section === 'blogs' ? 'page' : undefined} onClick={() => setSection('blogs')}><FileText size={17}/>All articles<span>{blogs.length}</span></button><button aria-current={section === 'editor' ? 'page' : undefined} onClick={create}><Plus size={18}/>New article</button><button aria-current={section === 'enquiries' ? 'page' : undefined} onClick={() => setSection('enquiries')}><Mail size={17}/>Enquiries</button></nav>
+    <aside className="desk-sidebar"><Link className="desk-brand" to="/admin"><img src={logo} alt="Kravs Infotech"/><span>ADMIN WORKSPACE</span></Link><span className="desk-nav-label">WORKSPACE</span>
+      <nav aria-label="Admin workspace"><button aria-current={section === 'dashboard' ? 'page' : undefined} onClick={() => setSection('dashboard')}><BookOpen size={17}/>Overview</button><button aria-current={section === 'blogs' ? 'page' : undefined} onClick={() => setSection('blogs')}><FileText size={17}/>All articles<span>{blogs.length}</span></button><button aria-current={section === 'editor' ? 'page' : undefined} onClick={create}><Plus size={18}/>New article</button><button aria-current={section === 'enquiries' ? 'page' : undefined} onClick={() => setSection('enquiries')}><Mail size={17}/>Enquiries</button></nav>
       <div className="desk-sidebar-bottom"><div className="desk-avatar">{admin?.email?.[0]?.toUpperCase()}</div><div><strong>{admin?.email}</strong><small>Administrator</small></div><button aria-label="Sign out" title="Sign out" disabled={signingOut} onClick={async () => { setSigningOut(true); await onLogout(); setSigningOut(false); }}><LogOut size={17}/></button></div>
     </aside>
-    <div className="desk-main"><header className="desk-topbar"><div><span>CONTENT MANAGEMENT</span><strong>{section === 'enquiries' ? 'Client support' : 'Blog desk'}</strong></div><Link to="/blog" target="_blank" rel="noopener noreferrer">View public journal<ArrowUpRight size={14}/></Link></header>
+    <div className="desk-main"><header className="desk-topbar"><div><span>WEBSITE MANAGEMENT</span><strong>{section === 'dashboard' ? 'Dashboard' : section === 'enquiries' ? 'Client enquiries' : 'Blog management'}</strong></div><Link to="/" target="_blank" rel="noopener noreferrer">View website<ArrowUpRight size={14}/></Link></header>
       <div className="desk-content">
         {error && <p className="desk-alert is-error" role="alert">{error}</p>}{notice && <p className="desk-alert" role="status">{notice}</p>}
-        {section === 'enquiries' ? <EnquiryInbox onExpired={onExpired}/> : section === 'editor' ? <>
+        {section === 'dashboard' ? <AdminOverview blogs={blogs} loading={loadingBlogs} setSection={setSection} onCreate={create} onEdit={edit}/> : section === 'enquiries' ? <EnquiryInbox onExpired={onExpired}/> : section === 'editor' ? <>
           <div className="desk-page-heading"><div><span className="desk-eyebrow">{editingId ? 'EDIT ARTICLE' : 'NEW ARTICLE'}</span><h1>Shape the story.</h1><p>Save a draft at any point. Published articles appear in your public journal.</p></div><button className="desk-button" onClick={() => setSection('blogs')}>← Back to articles</button></div>
           <form className="desk-editor-layout" onSubmit={onSave}>
             <div className="desk-editor-main"><section className="desk-card desk-fields">

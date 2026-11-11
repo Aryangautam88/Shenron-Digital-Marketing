@@ -47,12 +47,12 @@ export default function Preloader() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     async function finish() {
       await Promise.all([
-        delay(reduced ? 0 : 2400),
-        Promise.race([Promise.all([pageReady, fontsReady]), delay(3800)]),
+        delay(reduced ? 0 : 1600),
+        Promise.race([Promise.all([pageReady, fontsReady]), delay(2100)]),
       ]);
       if (cancelled) return;
       setPhase('leaving');
-      await delay(reduced ? 0 : 650);
+      await delay(reduced ? 0 : 400);
       if (!cancelled) setPhase('hidden');
     }
     finish();
@@ -69,10 +69,19 @@ export default function Preloader() {
     <div className={`kr-preloader ${phase === 'leaving' ? 'is-leaving' : ''}`} ref={overlayRef}>
       <div className="kr-loader-lockup" role="img" aria-label="KRAVS. Infotech. Think beyond. Build together.">
         <div className="kr-loader-word" aria-hidden="true">
-          <svg className="kr-loader-k" viewBox="0 0 80 110"><text className="kr-k-letter" x="1" y="88">K</text></svg>
-          <span className="kr-loader-tail">{['R','A','V','S','.'].map((letter,index)=><span key={letter} style={{'--letter-index':index}}>{letter}</span>)}</span>
+          <div className="kr-clean-brand">
+            <div className="kr-clean-word">
+              <svg className="kr-clean-k" viewBox="0 0 74 86" aria-hidden="true">
+                <defs><linearGradient id="kr-k-purple" x1="0" y1="1" x2="1" y2="0"><stop stopColor="#5521dc"/><stop offset=".55" stopColor="#9750ff"/><stop offset="1" stopColor="#dd91ff"/></linearGradient></defs>
+                <path d="M3 4h16v68L3 84Z" fill="#7540ed"/>
+                <path d="M25 57C20 29 45 19 71 3c0 28-18 42-46 54Z" fill="url(#kr-k-purple)"/>
+                <path d="m29 62 15-15 28 36H47Z" fill="url(#kr-k-purple)"/>
+              </svg>
+              <span className="kr-clean-letters">RAVS<span className="kr-clean-dot" /></span>
+            </div>
+            <span className="kr-clean-infotech">INFOTECH</span>
+          </div>
         </div>
-        <span className="kr-loader-infotech" aria-hidden="true">INFOTECH</span>
         <span className="kr-loader-tagline" aria-hidden="true">Think beyond. Build together.</span>
       </div>
       <div className="kr-loader-status" role="status"><span className="kr-loader-status-dot" aria-hidden="true"/>{phase === 'leaving' ? 'Welcome to KRAVS' : 'Preparing your experience'}</div>
