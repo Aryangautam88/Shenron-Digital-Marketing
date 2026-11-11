@@ -1,16 +1,19 @@
 import jwt from "jsonwebtoken";
+import { getAdminAccount } from "../models/AdminAccount.js";
 
 const ISSUER = "shenron-digital";
 const AUDIENCE = "shenron-digital-admin";
 
 export function requireAdmin(env) {
-  return (req, res, next) => {
+  return async (req, res, next) => {
     const token = req.cookies?.[env.jwtCookieName];
     if (!token) return res.status(401).json({ message: "Admin sign-in is required." });
 
     try {
-      const session = jwt.verify(token, env.jwtSecret, { issuer: ISSUER, audience: AUDIENCE });
+      const session = jwt.verify(token, env.jwtSecret, { issuer: ISSUER, audience: AUDIENCE, algorithms: ["HS256"] });
       if (session.role !== "admin" || session.sub !== env.adminEmail) throw new Error("Invalid admin session.");
+      const account = await getAdminAccount(env);
+      if (session.version !== account.sessionVersion) throw new Error("Revoked session.");
       req.admin = { email: session.sub, role: session.role };
       return next();
     } catch {

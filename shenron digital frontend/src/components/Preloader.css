@@ -1,48 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@400;500&display=swap');
-/* Monochrome brand reveal: draw K, expand into KRAVS, resolve INFOTECH. */
-.kr-preloader,.kr-preloader * { box-sizing: border-box; }
-.kr-preloader { position: fixed; inset: 0; z-index: 99999; min-height: 100vh; min-height: 100dvh; overflow: hidden; display: grid; place-items: center; background: #080808; color: #f8f8f8; font-family: 'Manrope',Arial,sans-serif; }
-.kr-loader-lockup { position: relative; padding-bottom: 38px; }
-.kr-loader-word { display: flex; align-items: center; justify-content: center; font-size: clamp(64px,9vw,132px); font-family: 'Cormorant Garamond',Georgia,serif; font-weight: 600; line-height: 1; letter-spacing: .015em; }
-.kr-loader-k { display: block; width: .72em; height: 1em; flex-shrink: 0; overflow: visible; }
-.kr-loader-k path { stroke: #f8f8f8; stroke-width: 9; stroke-linecap: square; stroke-linejoin: miter; }
-.kr-k-stem { stroke-dasharray: 80; stroke-dashoffset: 80; animation: kr-draw-stem 550ms cubic-bezier(.4,0,.2,1) 100ms forwards; }
-.kr-k-arms { stroke-dasharray: 130; stroke-dashoffset: 130; animation: kr-draw-arms 650ms cubic-bezier(.4,0,.2,1) 250ms forwards; }
-.kr-loader-tail { display: flex; width: 0; overflow: hidden; padding-block: .1em; margin-left: -.025em; animation: kr-expand-word 950ms cubic-bezier(.76,0,.24,1) 750ms forwards; }
-.kr-loader-tail > span { display: block; flex-shrink: 0; opacity: 0; transform: translateY(105%); animation: kr-letter-enter 700ms cubic-bezier(.22,1,.36,1) forwards; animation-delay: calc(950ms + var(--letter-index) * 90ms); }
-.kr-loader-infotech { position: absolute; left: 0; right: 0; bottom: 0; display: block; text-align: center; padding-left: .65em; font-size: clamp(9px,1.1vw,14px); font-family: 'Manrope',Arial,sans-serif; font-weight: 400; letter-spacing: .65em; color: #a4a4a4; opacity: 0; transform: translateY(10px); animation: kr-infotech-enter 750ms cubic-bezier(.22,1,.36,1) 1400ms forwards; }
-.kr-loader-status { position: absolute; bottom: max(34px,env(safe-area-inset-bottom)); left: 20px; right: 20px; display: flex; align-items: center; justify-content: center; gap: 9px; font: 400 9px/1.6 Inter,Arial,sans-serif; letter-spacing: .65px; color: #777; opacity: 0; animation: kr-status-enter 500ms ease 1100ms forwards; }
-.kr-loader-status-dot { width: 3px; height: 3px; border-radius: 50%; background: #a8a8a8; animation: kr-status-pulse 1.4s ease-in-out infinite; }
-.kr-preloader.is-leaving { pointer-events: none; animation: kr-curtain-exit 650ms cubic-bezier(.76,0,.24,1) forwards; }
-.kr-preloader.is-leaving .kr-loader-lockup { animation: kr-lockup-exit 350ms ease forwards; }
-.kr-preloader.is-leaving .kr-loader-status { animation: kr-lockup-exit 200ms ease forwards; }
-@keyframes kr-draw-stem { to { stroke-dashoffset: 0; } }
-@keyframes kr-draw-arms { to { stroke-dashoffset: 0; } }
-@keyframes kr-expand-word { to { width: 2.95em; } }
-@keyframes kr-letter-enter { to { opacity: 1; transform: translateY(0); } }
-@keyframes kr-infotech-enter { to { opacity: 1; transform: translateY(0); } }
-@keyframes kr-status-enter { to { opacity: 1; } }
-@keyframes kr-status-pulse { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
-@keyframes kr-lockup-exit { to { opacity: 0; transform: translateY(-15px); } }
-@keyframes kr-curtain-exit { to { transform: translateY(-100%); } }
-@media(max-width:400px) { .kr-loader-word { font-size: 17vw; }.kr-loader-lockup { padding-bottom: 30px; }.kr-loader-infotech { font-size: 8px; letter-spacing: .6em; } }
-@media(prefers-reduced-motion:reduce) {
-.kr-preloader * { animation: none !important; }
-.kr-loader-k path { stroke-dashoffset: 0; }
-.kr-loader-tail { width: 2.95em; }
-.kr-loader-tail > span,.kr-loader-infotech,.kr-loader-status { opacity: 1; transform: none; }
-.kr-preloader.is-leaving { animation: none; opacity: 0; }
-}
-
-/* The opening K uses the same serif face as the completed wordmark. */
-.kr-loader-k { width: .72em; height: 1em; }
-.kr-k-letter { font-family: 'Cormorant Garamond',Georgia,serif; font-size: 110px; font-weight: 600; fill: transparent; stroke: #f8f8f8; stroke-width: .6; stroke-dasharray: 600; stroke-dashoffset: 600; animation: kr-serif-draw 1000ms cubic-bezier(.4,0,.2,1) 100ms forwards; }
-@keyframes kr-serif-draw { 0% { stroke-dashoffset: 600; fill: transparent; } 65% { fill: transparent; } 100% { stroke-dashoffset: 0; fill: #f8f8f8; } }
-@media(prefers-reduced-motion:reduce) { .kr-k-letter { fill: #f8f8f8; stroke-dashoffset: 0; } }
-
-/* Brand punctuation and closing thought arrive with the wordmark. */
-.kr-loader-lockup { padding-bottom: 73px; }
-.kr-loader-infotech { bottom: 35px; }
-.kr-loader-tagline { position: absolute; left: -25px; right: -25px; bottom: 0; text-align: center; font-family: 'Manrope',Arial,sans-serif; font-size: 11px; font-weight: 400; line-height: 1.6; letter-spacing: .6px; color: #8f8f8f; opacity: 0; transform: translateY(8px); animation: kr-infotech-enter 650ms cubic-bezier(.22,1,.36,1) 1750ms forwards; }
-@media(max-width:400px) { .kr-loader-lockup { padding-bottom: 65px; }.kr-loader-infotech { bottom: 30px; }.kr-loader-tagline { font-size: 9px; letter-spacing: .3px; } }
-@media(prefers-reduced-motion:reduce) { .kr-loader-tagline { opacity: 1; transform: none; } }
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap');
+.kr-preloader,.kr-preloader * { box-sizing:border-box; }
+.kr-preloader { position:fixed; inset:0; z-index:99999; min-height:100dvh; overflow:hidden; display:grid; place-items:center; background:#080808; color:#fafafa; font-family:'Plus Jakarta Sans',Arial,sans-serif; }
+.kr-loader-lockup { position:relative; padding-bottom:42px; }
+.kr-loader-word { display:flex; justify-content:center; }
+.kr-clean-brand { width:min(390px,78vw); }
+.kr-clean-word { display:flex; align-items:center; gap:9px; font-size:clamp(48px,13vw,92px); line-height:1; }
+.kr-clean-k { display:block; width:.78em; height:.9em; flex-shrink:0; animation:kr-k-arrive 1000ms cubic-bezier(.22,1,.36,1) both; }
+.kr-clean-letters { display:flex; align-items:baseline; gap:.075em; font-weight:800; letter-spacing:-.065em; white-space:nowrap; padding-right:.03em; animation:kr-word-arrive 600ms cubic-bezier(.22,1,.36,1) 500ms both; }
+.kr-clean-dot { display:inline-block; width:.14em; height:.14em; flex-shrink:0; border-radius:50%; background:linear-gradient(135deg,#b170ff,#6928ec); margin-left:.015em; }
+.kr-clean-infotech { display:block; text-align:center; font-size:clamp(9px,2vw,12px); font-weight:500; letter-spacing:.65em; padding-left:.65em; color:#b2aaba; margin-top:22px; animation:kr-detail-arrive 350ms ease 1000ms both; }
+.kr-loader-tagline { position:absolute; bottom:0; left:-10px; right:-10px; text-align:center; font-size:10px; line-height:1.7; letter-spacing:.3px; color:#8d8498; animation:kr-detail-arrive 300ms ease 1200ms both; }
+.kr-loader-status { position:absolute; bottom:max(34px,env(safe-area-inset-bottom)); left:20px; right:20px; display:flex; align-items:center; justify-content:center; gap:9px; color:#8d8498; font-size:9px; letter-spacing:.5px; animation:kr-detail-arrive 250ms ease 500ms both; }
+.kr-loader-status-dot { width:4px; height:4px; border-radius:50%; background:#985dff; animation:kr-status-pulse 1s ease-in-out infinite; }
+.kr-preloader.is-leaving { pointer-events:none; animation:kr-curtain-exit 400ms cubic-bezier(.76,0,.24,1) forwards; }
+.kr-preloader.is-leaving .kr-loader-lockup { animation:kr-lockup-exit 300ms ease forwards; }
+@keyframes kr-k-arrive { 0% { opacity:0; transform:translateX(145%) scale(.9); } 20%,45% { opacity:1; transform:translateX(145%) scale(1); } 100% { opacity:1; transform:translateX(0); } }
+@keyframes kr-word-arrive { from { opacity:0; clip-path:inset(0 100% 0 0); transform:translateX(-8px); } to { opacity:1; clip-path:inset(0); transform:translateX(0); } }
+@keyframes kr-detail-arrive { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+@keyframes kr-status-pulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
+@keyframes kr-lockup-exit { to { opacity:0; transform:translateY(-12px); } }
+@keyframes kr-curtain-exit { to { transform:translateY(-100%); } }
+@media(max-width:400px) { .kr-clean-word { gap:6px; }.kr-clean-infotech { margin-top:17px; }.kr-loader-tagline { font-size:9px; } }
+@media(prefers-reduced-motion:reduce) { .kr-preloader *, .kr-preloader.is-leaving { animation:none !important; }.kr-preloader.is-leaving { opacity:0; } }

@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaEnvelope,
   FaLinkedinIn,
@@ -32,9 +33,9 @@ const Footer = () => {
             to execution, we're here to bring your vision to life.
           </p>
 
-          <a href="/contact" className="footer-cta-button">
+          <Link to="/contact" className="footer-cta-button">
             Start a project
-          </a>
+          </Link>
         </section>
 
         {/* Footer Main Content */}
@@ -42,13 +43,13 @@ const Footer = () => {
 
           {/* Brand */}
           <div className="footer-brand">
-            <a href="/" className="footer-logo">
+            <Link to="/" className="footer-logo">
               {/* Replace with your logo image */}
               <img
                 src={shenronLogo}
                 alt="Your company logo"
               />
-            </a>
+            </Link>
 
             <p>
               Digital solutions for ambitious brands.
@@ -61,11 +62,11 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/work">Work</a></li>
-              <li><a href="/insights">Insights</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/work">Work</Link></li>
+              <li><Link to="/insights">Insights</Link></li>
             </ul>
           </div>
 
@@ -73,12 +74,12 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Our Services</h3>
             <ul>
-              <li><a href="/services/web-development">Web Development</a></li>
-              <li><a href="/services/paid-advertising">Paid Advertising</a></li>
-              <li><a href="/services/influencer-marketing">Influencer Marketing</a></li>
-              <li><a href="/services/lead-generation">Lead Generation</a></li>
-              <li><a href="/services/branding">UI/UX & Branding</a></li>
-              <li><a href="/services/seo">SEO</a></li>
+              <li><Link to="/services/web-development">Web Development</Link></li>
+              <li><Link to="/services/paid-advertising">Paid Advertising</Link></li>
+              <li><Link to="/services/influencer-marketing">Influencer Marketing</Link></li>
+              <li><Link to="/services/lead-generation">Lead Generation</Link></li>
+              <li><Link to="/services/branding">UI/UX & Branding</Link></li>
+              <li><Link to="/services/seo">SEO</Link></li>
             </ul>
           </div>
 
@@ -107,9 +108,9 @@ const Footer = () => {
                 <FaXTwitter />
               </a>
 
-              <a href="/" aria-label="Website">
+              <Link to="/" aria-label="Website">
                 <FaGlobe />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -120,8 +121,8 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Your Company. All rights reserved.</p>
 
           <div className="footer-legal">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-service">Terms of Service</a>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-of-service">Terms of Service</Link>
           </div>
         </div>
 

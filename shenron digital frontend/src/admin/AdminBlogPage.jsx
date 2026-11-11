@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { blogApi, jsonBody } from "../lib/blogApi";
 import "./AdminBlogPage.css";
 import AdminWorkspace from "./AdminWorkspace";
+import AdminRecovery from "./AdminRecovery";
 import "./AdminDesk.css";
 
 const categories = ["Strategy", "Web development", "SEO", "Paid media", "Design"];
@@ -36,6 +37,8 @@ function slugify(value) {
 }
 
 export default function AdminBlogPage() {
+  const [resetToken, setResetToken] = useState(() => new URLSearchParams(window.location.hash.slice(1)).get("reset") || "");
+  const [recoveryMode, setRecoveryMode] = useState(() => new URLSearchParams(window.location.hash.slice(1)).has("reset"));
   const [authState, setAuthState] = useState("checking");
   const [admin, setAdmin] = useState(null);
   const [retry, setRetry] = useState(0);
@@ -56,8 +59,9 @@ export default function AdminBlogPage() {
   const [slugTouched, setSlugTouched] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const section = new URLSearchParams(location.search).get('view') || (location.pathname.endsWith('enquiries') ? 'enquiries' : location.pathname.endsWith('new') ? 'editor' : 'blogs');
-  const setSection = view => navigate(view === 'blogs' ? '/admin' : '/admin?view=' + view);
+  const requestedSection = new URLSearchParams(location.search).get('view');
+  const section = ['dashboard', 'blogs', 'editor', 'enquiries'].includes(requestedSection) ? requestedSection : location.pathname.endsWith('enquiries') ? 'enquiries' : location.pathname.endsWith('new') ? 'editor' : location.pathname.endsWith('blogs') ? 'blogs' : 'dashboard';
+  const setSection = view => navigate(view === 'dashboard' ? '/admin' : view === 'blogs' ? '/admin/blogs' : view === 'enquiries' ? '/admin/enquiries' : '/admin/blogs/new');
   const [uploading, setUploading] = useState(false);
   const expireSession = useCallback(() => setAuthState("signed-out"), []);
 
@@ -92,8 +96,10 @@ export default function AdminBlogPage() {
   }, []);
 
   useEffect(() => {
+    if (window.location.hash.startsWith("#reset=")) window.history.replaceState(null, "", window.location.pathname + window.location.search);
     let active = true;
     async function checkSession() {
+      if (recoveryMode) { setAuthState("signed-out"); return; }
       setAuthState("checking");
       setLoginError("");
       setConnectionStatus(null);
@@ -112,7 +118,7 @@ export default function AdminBlogPage() {
     }
     checkSession();
     return () => { active = false; };
-  }, [loadBlogs, retry]);
+  }, [loadBlogs, retry, recoveryMode]);
 
   const filteredBlogs = useMemo(() => {
     const query = search.trim().toLowerCase();
@@ -221,6 +227,8 @@ export default function AdminBlogPage() {
       setAuthState("signed-out");
       setBlogs([]);
       resetEditor();
+      setLogin({ email: "", password: "" });
+      navigate("/admin", { replace: true });
     } catch {
       setError("Could not sign out. Check the backend connection and try again.");
     }
@@ -236,7 +244,7 @@ export default function AdminBlogPage() {
         <div className="admin-offline-shell">
           <Link className="admin-brand admin-offline-brand" to="/blog">
             <span className="admin-brand-mark"><BookOpen size={20} /></span>
-            <span>KRAVS <small>CONTENT STUDIO</small></span>
+            <span>KRAVS <small>ADMIN WORKSPACE</small></span>
           </Link>
           <section className="admin-offline-card" aria-labelledby="admin-offline-title">
             <div className="admin-offline-visual" aria-hidden="true">
@@ -244,13 +252,13 @@ export default function AdminBlogPage() {
               <div className="admin-offline-orbit admin-offline-orbit-two" />
               <span className="admin-offline-book"><BookOpen size={43} strokeWidth={1.35} /></span>
               <span className="admin-offline-pulse" />
-              <span className="admin-offline-visual-caption">YOUR IDEAS, READY TO PUBLISH</span>
+              <span className="admin-offline-visual-caption">CONTENT, CONVERSATIONS & UPDATES</span>
             </div>
             <div className="admin-offline-content">
               <span className="admin-offline-status"><i /> BACKEND SETUP NEEDED</span>
               <span className="admin-eyebrow">ADMIN ACCESS</span>
-              <h1 id="admin-offline-title">Let&apos;s connect your <em>journal.</em></h1>
-              <p className="admin-offline-intro">The content studio needs the Blog API and database before you can sign in or manage articles.</p>
+              <h1 id="admin-offline-title">Connect your <em>workspace.</em></h1>
+              <p className="admin-offline-intro">Connect the admin API and database to manage blog updates, review client enquiries, and keep your website current.</p>
               <div className="admin-setup-card">
                 <strong>Quick setup</strong>
                 <ol>
@@ -280,12 +288,23 @@ export default function AdminBlogPage() {
 
   if (authState === "signed-out") {
     return (
-      <main className="blog-admin-page">
+      <main className="blog-admin-page admin-access-page">
+        <div className="admin-access-layout">
+        <section className="admin-access-intro">
+          <Link className="admin-access-brand" to="/">KRAVS<span>INFOTECH / ADMIN</span></Link>
+          <span className="admin-eyebrow">YOUR WEBSITE WORKSPACE</span>
+          <h1>Content. Connections.<br /><em>All in one place.</em></h1>
+          <p>Keep your website moving with a dedicated space for your team’s everyday work.</p>
+          <div className="admin-access-feature"><BookOpen size={22}/><div><strong>Blog management</strong><p>Create articles, refine drafts, and publish your latest updates.</p></div></div>
+          <div className="admin-access-feature"><ArrowUpRight size={22}/><div><strong>Client enquiries</strong><p>Review new messages, follow up with clients, and track progress.</p></div></div>
+          <span className="admin-access-caption">KRAVS INFOTECH · ADMINISTRATION</span>
+        </section>
         <section className="admin-login-card">
           <span className="admin-brand-mark"><BookOpen size={22} /></span>
-          <span className="admin-eyebrow">KRAVS CONTENT STUDIO</span>
-          <h1>Manage your journal.</h1>
-          <p>Sign in to add, update, publish, or delete articles.</p>
+          <span className="admin-eyebrow">ADMIN ACCESS</span>
+          {recoveryMode ? <AdminRecovery token={resetToken} onBack={() => { setResetToken(""); setRecoveryMode(false); setLoginError(""); navigate("/admin", { replace: true }); }} /> : <>
+          <h1>Welcome back.</h1>
+          <p>Sign in to manage blog updates and client enquiries.</p>
           <form className="admin-login-form" onSubmit={submitLogin}>
             <label>Email address<input type="email" autoComplete="username" required value={login.email} onChange={(event) => setLogin((current) => ({ ...current, email: event.target.value }))} /></label>
             <div className="admin-password-group">
@@ -300,8 +319,11 @@ export default function AdminBlogPage() {
             {loginError && <p className="admin-form-error" role="alert">{loginError}</p>}
             <button className="admin-primary-button" type="submit">Sign in <ArrowUpRight size={17} /></button>
           </form>
-          <Link className="admin-public-link" to="/blog">Visit the public blog</Link>
+          <button className="admin-public-link" type="button" onClick={() => setRecoveryMode(true)}>Forgot password?</button>
+          </>}
+          <Link className="admin-public-link" to="/">Back to website <ArrowUpRight size={15}/></Link>
         </section>
+        </div>
       </main>
     );
   }
