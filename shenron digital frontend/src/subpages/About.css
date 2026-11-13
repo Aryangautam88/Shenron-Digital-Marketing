@@ -93,14 +93,19 @@
   display: flex;
   align-items: center;
   padding-block: 130px 90px;
+  /* margin-top: -49px; */
+  /* margin-top: 20px; */
 }
 
 .about-hero-copy {
   width: 50%;
-  max-width: 550px;
+  max-width: 900px;
   position: relative;
-  margin-left: 30px;
-  margin-top: -50px;
+  margin-left: 38px !important;
+  transform: translateY(-58px);
+  /* background-color: red; */
+  /* padding-top:-40px ; */
+
 }
 
 .about-hero-copy h1 {
@@ -110,7 +115,7 @@
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(48px, 5.1vw, 82px);
   font-weight: 800;
-  line-height: 0.98;
+  line-height: 0.78;
   letter-spacing: -3px;
 }
 
@@ -119,7 +124,7 @@
   width: fit-content;
   margin-top: 3px;
   margin-bottom: 10px;
-  padding: 0;
+  padding: 0 0 0.08em;
   background: linear-gradient(110deg, #b99aff 0%, #8855ff 45%, #6946ef 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -128,7 +133,7 @@
   font-size: 1.05em;
   font-weight: 500;
   font-style: italic;
-  line-height: 0.79;
+  line-height: 1.08;
   letter-spacing: -2.8px;
 }
 
@@ -626,9 +631,9 @@
   }
 
   .about-hero-artwork {
-    top: 280px;
+    top: 220px;
     height: 470px;
-    object-position: 68% bottom;
+    object-position: 82% bottom;
   }
 
   .about-hero::before {
@@ -637,7 +642,7 @@
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(180deg, #f7f3eb 0%, #f7f3eb 49%, #f7f3eb00 75%);
+    /* background: linear-gradient(180deg, #f7f3eb 0%, #f7f3eb 49%, #f7f3eb00 75%); */
   }
 
   .about-hero-inner {
@@ -649,7 +654,8 @@
   .about-hero-copy {
     width: 100%;
     max-width: 470px;
-    margin: 0;
+    margin: 0 !important;
+    transform: none;
   }
 
   .about-eyebrow {
@@ -848,7 +854,7 @@
   }
 
   .about-hero-copy h1 {
-    font-size: 43px;
+    font-size: clamp(35px, 10vw, 39px);
     letter-spacing: -0.9px;
   }
 
@@ -857,8 +863,9 @@
   }
 
   .about-hero-copy > p.about-description {
-    max-width: 210px;
-    font-size: 11px;
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 1.7;
   }
 
   .about-button {

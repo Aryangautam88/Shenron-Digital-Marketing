@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { createElement, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Check, Layers, MousePointer2, Play, Workflow, Zap } from 'lucide-react';
 
@@ -17,7 +17,7 @@ export default function SaaSHeroPreview() {
     <div className="saas-preview-label"><span><i/> THE PRODUCT EXPERIENCE</span><span>TRY IT OUT <MousePointer2 size={13}/></span></div>
     <div className="saas-window">
       <header className="saas-window-bar"><span className="saas-window-dots"><i/><i/><i/></span><span>product / experience</span><span className="saas-preview-tag">INTERACTIVE PREVIEW</span></header>
-      <div className="saas-workspace"><aside aria-label="Preview stages">{steps.map(({ icon: StageIcon, label }, index) => <button key={label} type="button" aria-label={label} aria-pressed={active === index} onClick={() => select(index)}><StageIcon size={19}/></button>)}<span>✦</span></aside>
+      <div className="saas-workspace"><aside aria-label="Preview stages">{steps.map(({ icon: StageIcon, label }, index) => <button key={label} type="button" aria-label={label} aria-pressed={active === index} onClick={() => select(index)}>{createElement(StageIcon, { size: 19 })}</button>)}<span>✦</span></aside>
         <div className="saas-canvas" key={active}>
           <div className="saas-canvas-top"><span><Icon size={15}/> YOUR PRODUCT, REIMAGINED</span><span>0{active + 1} / 03</span></div>
           <h2>{step.title}</h2><p>{step.text}</p>
