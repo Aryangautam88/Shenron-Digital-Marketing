@@ -10,6 +10,7 @@ import "./subpages/SubpageHero.css";
 import "./subpages/HeroTypography.css";
 import "./SectionTypography.css";
 import "./Layout.css";
+import "./MainPageHeroes.css";
 import { industryPageRoutes } from "./subpages/industries/industryPageRoutes";
 const Service = lazy(() => import("./pages/Service"));
 const Hero = lazy(() => import("./pages/Hero"));
@@ -18,6 +19,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const Industries = lazy(() => import("./pages/Industries"));
 const About = lazy(() => import("./subpages/About"));
 const Contact = lazy(() => import("./subpages/Contact"));
+const Legal = lazy(() => import("./subpages/Legal"));
 const ServiceDetail = lazy(() => import("./subpages/ServiceDetail"));
 const AdminBlogPage = lazy(() => import("./admin/AdminBlogPage"));
 
@@ -78,6 +80,8 @@ export default function App() {
           <Route path="/company/contact" element={<Contact />} />
 
           {/* 404 fallback */}
+          <Route path="/privacy-policy" element={<Legal type="privacy" />} />
+          <Route path="/terms-of-service" element={<Legal type="terms" />} />
           <Route path="*" element={<main />} />
         </Routes>
       </Suspense>

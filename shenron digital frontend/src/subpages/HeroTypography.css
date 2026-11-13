@@ -38,8 +38,10 @@
   font-weight: 500;
   line-height: inherit;
   letter-spacing: var(--hero-accent-tracking);
-  margin-top: 0;
-  padding-bottom: .08em;
+  margin-block: -.06em -.18em;
+  padding-block: .06em .18em;
+  margin-inline: -.12em -.08em;
+  padding-inline: .12em .08em;
   background: linear-gradient(110deg, #c2a6ff 0%, #8865ff 47%, #6946ef 100%);
   background-clip: text;
   -webkit-background-clip: text;

@@ -12,7 +12,7 @@ async function walk(dir) {
   }))).flat();
 }
 const sources = await Promise.all((await walk(root)).map(async filename => ({ filename, text: await readFile(filename, 'utf8') })));
-const routes = new Set(['/', '/services', '/industries', '/business-types', '/testimonials', '/blog', '/about', '/contact', '/company/about', '/company/contact']);
+const routes = new Set(['/', '/services', '/industries', '/business-types', '/testimonials', '/blog', '/about', '/contact', '/company/about', '/company/contact', '/privacy-policy', '/terms-of-service']);
 const industryRoutes = await readFile(path.join(root, 'subpages/industries/industryPageRoutes.js'), 'utf8');
 for (const match of industryRoutes.matchAll(/path:\s*'([^']+)'/g)) routes.add(match[1]);
 for (const [category, data] of Object.entries(serviceCategories)) {

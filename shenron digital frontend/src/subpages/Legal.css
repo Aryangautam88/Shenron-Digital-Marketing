@@ -1,0 +1,37 @@
+.legal-page {
+  min-height: 100svh;
+  padding: 155px 0 90px;
+  background: #f7f3eb;
+  color: #17151e;
+  font-family: Inter, Arial, sans-serif;
+}
+.legal-container {
+  width: var(--site-container-width);
+  margin-inline: auto;
+}
+.legal-header { max-width: 850px; margin-bottom: 50px; }
+.legal-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.4px; color: #693bff; }
+.legal-header h1 { margin: 22px 0; font: 800 clamp(38px, 4.5vw, 64px)/1.12 'Plus Jakarta Sans', sans-serif; letter-spacing: -.04em; }
+.legal-header > p:not(.legal-eyebrow) { color: #625d6c; font-size: 16px; line-height: 1.7; }
+.legal-header .legal-updated { font-size: 12px !important; }
+.legal-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(35px, 6vw, 90px); align-items: start; }
+.legal-contents { position: sticky; top: 115px; display: grid; gap: 16px; font-size: 13px; line-height: 1.6; }
+.legal-contents strong { margin-bottom: 5px; }
+.legal-contents a { color: #625d6c; text-decoration: none; }
+.legal-contents a:hover { color: #693bff; }
+.legal-content { max-width: 820px; min-width: 0; }
+.legal-content section { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #ded7e1; }
+.legal-content h2 { margin: 0 0 14px; font: 700 22px/1.4 'Plus Jakarta Sans', sans-serif; }
+.legal-content p { margin: 0; color: #625d6c; font-size: 15px; line-height: 1.85; }
+.legal-content a { color: #693bff; overflow-wrap: anywhere; text-underline-offset: 4px; }
+.legal-contact { padding: 24px; border-radius: 16px; background: #eee7fb; }
+.legal-contact p { margin-top: 16px; }
+.legal-page a:focus-visible { outline: 2px solid #693bff; outline-offset: 4px; }
+@media (max-width: 800px) {
+  .legal-page { padding-block: 125px 60px; }
+  .legal-layout { grid-template-columns: minmax(0, 1fr); gap: 35px; }
+  .legal-contents { position: static; padding: 22px; border: 1px solid #ded7e1; border-radius: 16px; }
+  .legal-header { margin-bottom: 30px; }
+  .legal-content h2 { font-size: 20px; }
+  .legal-content p { font-size: 14px; }
+}

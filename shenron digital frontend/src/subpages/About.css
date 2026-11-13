@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 /* Typography and container widths follow the Services and Industries pages. */
@@ -854,7 +854,8 @@
   }
 
   .about-hero-copy h1 {
-    font-size: clamp(35px, 10vw, 39px);
+    font-size: 39px;
+    font-weight: 800;
     letter-spacing: -0.9px;
   }
 

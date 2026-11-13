@@ -1,6 +1,6 @@
 /* One content edge for public pages; backgrounds remain full width. */
 :root {
-  --site-gutter: clamp(24px, 4vw, 64px);
+  --site-gutter: clamp(24px, 6.7vw, 108px);
   --site-content-width: 1420px;
   --site-container-width: min(calc(100% - 2 * var(--site-gutter)), var(--site-content-width));
 }
@@ -29,7 +29,7 @@
   .service-container, .kr-services__container, .sov-container, .sa-container,
   .industries-hero-inner, .industries-section, .saas-hero-container,
   .industry-stats-container, .industry-insights-container,
-  .about-container, .contact-container, .blog-shell, .footer-container) {
+  .about-container, .contact-container:not(.contact-next), .blog-shell, .footer-container) {
   box-sizing: border-box;
   padding-inline: 0;
 }

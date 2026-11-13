@@ -15,10 +15,10 @@ function httpsUrl(value) {
   try { const url = new URL(value); return url.protocol === "https:" ? url.href : null; }
   catch { return null; }
 }
-const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() || "hello@yourdomain.com";
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() || "info@kravsinfotech.com";
 const socials = [
-  ["LinkedIn", httpsUrl(import.meta.env.VITE_LINKEDIN_URL) || "https://linkedin.com", FaLinkedinIn],
-  ["Instagram", httpsUrl(import.meta.env.VITE_INSTAGRAM_URL) || "https://instagram.com", FaInstagram],
+  ["LinkedIn", httpsUrl(import.meta.env.VITE_LINKEDIN_URL) || "https://www.linkedin.com/company/kravs-infotech/posts/?viewAsMember=true", FaLinkedinIn],
+  ["Instagram", httpsUrl(import.meta.env.VITE_INSTAGRAM_URL) || "https://www.instagram.com/kravsinfotech/?hl=en", FaInstagram],
   ["X", httpsUrl(import.meta.env.VITE_X_URL) || "https://x.com", FaXTwitter],
 ];
 const legalLinks = [

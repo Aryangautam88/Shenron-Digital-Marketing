@@ -1,0 +1,296 @@
+/* Main-page heroes share one type scale and one content origin.
+   Detail-page heroes keep the smaller scale in HeroTypography.css. */
+#root :is(.service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) {
+  --main-hero-title: clamp(52px, 5.1vw, 82px);
+  box-sizing: border-box;
+  min-height: max(720px, 100svh);
+  height: auto;
+  margin: 0;
+}
+
+#root .service-hero > .service-container,
+#root .industries-hero > .industries-hero-inner,
+#root .about-page .about-hero > .about-container.about-hero-inner,
+#root .contact-page .contact-hero > .contact-container.contact-hero-inner {
+  display: flex;
+  align-items: center;
+  min-height: max(720px, 100svh);
+  padding-block: 150px 100px;
+}
+
+#root .blog-hero {
+  align-items: center;
+  padding-block: 150px 100px;
+}
+
+#root :is(.service-content, .industries-content, .blog-hero-content, .about-hero-copy, .contact-hero-copy) {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  width: min(58%, 780px);
+  max-width: 780px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  transform: none;
+  text-align: left;
+}
+
+/* Remove the route's old forced offset, including its !important rule. */
+#root .about-hero-copy { margin-left: 0 !important; }
+
+#root :is(.service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+  margin: 0;
+  max-width: 100%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--main-hero-title);
+  font-weight: 800;
+  line-height: .98;
+  letter-spacing: -.045em;
+  text-wrap: initial;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+
+#root :is(.industries-hero h1 > span) {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+#root :is(.service-hero h1 > span, .industries-hero h1 em, .blog-hero h1 em, .about-hero h1 em, .contact-hero h1 em) {
+  width: auto;
+  max-width: 100%;
+  margin: -.06em -.08em -.18em -.12em;
+  padding: .06em .08em .18em .12em;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05em;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  overflow-wrap: normal;
+}
+
+#root .service-hero h1 > span {
+  max-width: 6.5em;
+  line-height: .98;
+  margin-top: .04em;
+}
+
+/* Georgia's italic f extends far beyond its advance box on the left.
+   Give the gradient its own generous paint area without moving the text. */
+#root .industries-hero h1 em {
+  padding-left: .3em;
+  margin-left: -.3em;
+}
+
+/* Gradient paint needs room for italic ascenders and descenders.
+   Compensating margins preserve the surrounding section spacing. */
+#root :is(.service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+  overflow: visible;
+}
+
+#root .blog-hero h1 em {
+  display: inline;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+/* A block accent already starts a new line; a preceding br adds an empty line. */
+#root :is(.about-hero h1, .contact-hero h1) > br { display: none; }
+
+#root :is(.service-hero .service-eyebrow, .industries-hero .industries-eyebrow, .blog-hero .blog-eyebrow, .about-hero .about-eyebrow, .contact-hero .contact-eyebrow) {
+  margin: 0 0 30px !important;
+  font: 500 11px/1.4 Inter, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 1.25px;
+}
+
+#root :is(.service-hero .service-description, .industries-hero .industries-description, .blog-hero .blog-hero-copy, .about-hero .about-description, .contact-hero .contact-intro) {
+  width: 100%;
+  max-width: 460px;
+  margin: 32px 0 0 !important;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+}
+
+#root :is(.service-hero .service-actions, .industries-hero .industries-actions, .about-hero .about-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+#root :is(.contact-hero .contact-hero-button, .blog-hero .blog-hero-link) {
+  margin-top: 28px;
+}
+
+#root :is(.service-hero .service-btn, .industries-hero .industries-button, .about-hero .about-button, .contact-hero .contact-hero-button) {
+  box-sizing: border-box;
+  min-height: 48px;
+  height: auto;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) and (min-width: 601px) {
+  #root :is(.service-content, .industries-content, .blog-hero-content, .about-hero-copy, .contact-hero-copy) {
+    width: min(76%, 650px);
+  }
+}
+
+@media (max-width: 600px) {
+  #root :is(.service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) {
+    --main-hero-title: clamp(34px, 10.5vw, 48px);
+    min-height: 100svh;
+    background-position: center bottom;
+  }
+
+  #root .service-hero > .service-container,
+  #root .industries-hero > .industries-hero-inner,
+  #root .about-page .about-hero > .about-container.about-hero-inner,
+  #root .contact-page .contact-hero > .contact-container.contact-hero-inner {
+    align-items: flex-start;
+    min-height: 100svh;
+    padding-block: 145px 64px;
+  }
+
+  #root .blog-hero {
+    align-items: flex-start;
+    padding-block: 145px 230px;
+  }
+
+  #root :is(.service-content, .industries-content, .blog-hero-content, .about-hero-copy, .contact-hero-copy) {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    transform: none;
+  }
+
+  #root :is(.service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+    line-height: 1.04;
+    letter-spacing: -.04em;
+  }
+
+  #root :is(.industries-hero h1 em, .about-hero h1 em, .contact-hero h1 em) {
+    line-height: 1.04;
+    letter-spacing: -.035em;
+  }
+
+  #root .service-hero h1 > span {
+    line-height: 1.04;
+    margin-top: .06em;
+    letter-spacing: -.035em;
+  }
+
+  #root .about-hero h1 em {
+    font-size: .95em;
+    letter-spacing: -.045em;
+  }
+
+  #root :is(.service-hero .service-eyebrow, .industries-hero .industries-eyebrow, .blog-hero .blog-eyebrow, .about-hero .about-eyebrow, .contact-hero .contact-eyebrow) {
+    margin-bottom: 24px !important;
+    font-size: 9px;
+    letter-spacing: 1.1px;
+  }
+
+  #root :is(.service-hero .service-description, .industries-hero .industries-description, .blog-hero .blog-hero-copy, .about-hero .about-description, .contact-hero .contact-intro) {
+    margin-top: 24px !important;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  #root :is(.service-hero .service-btn, .industries-hero .industries-button, .about-hero .about-button) {
+    min-width: 0;
+    padding-inline: 16px;
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  #root .about-hero-artwork {
+    inset: 220px 0 auto;
+    width: 100%;
+    height: max(470px, calc(100% - 220px));
+    object-position: 70% bottom;
+  }
+
+  #root .about-page .about-hero > .about-container.about-hero-inner,
+  #root .contact-page .contact-hero > .contact-container.contact-hero-inner {
+    padding-top: 125px;
+  }
+
+  #root :is(.about-hero .about-description, .contact-hero .contact-intro) {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 28px !important;
+  }
+
+  #root .contact-hero .contact-intro {
+    max-width: 235px;
+  }
+
+  #root .about-hero .about-actions {
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  #root :is(.about-hero .about-button, .contact-hero .contact-hero-button) {
+    min-height: 42px;
+    font-size: 10px;
+    gap: 12px;
+    padding-block: 5px;
+  }
+
+  #root .contact-hero .contact-hero-button {
+    margin-top: 28px;
+  }
+
+  #root .about-hero .about-button {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+
+  #root .service-hero .service-description {
+    max-width: 30ch;
+  }
+
+  #root :is(.service-hero, .industries-hero) {
+    background-size: cover;
+    background-position: center bottom;
+  }
+
+  #root .industries-hero {
+    background-position: center top;
+  }
+
+  /* The phone artwork starts below the navigation, as in the reference.
+     Preserve its aspect ratio and keep the bright curve beside the copy. */
+  #root .service-hero {
+    background-size: 100% auto;
+    background-position: center 90px;
+  }
+
+  #root .service-hero > .service-container {
+    padding-top: 125px;
+  }
+
+  #root .service-hero .service-description {
+    max-width: 250px;
+    font-size: 12px;
+    line-height: 1.65;
+    margin-top: 28px !important;
+  }
+
+  #root .service-hero .service-actions {
+    margin-top: 28px;
+  }
+
+  #root .contact-hero {
+    background-size: cover, auto 55%;
+    background-position: center, 72% bottom;
+  }
+}
