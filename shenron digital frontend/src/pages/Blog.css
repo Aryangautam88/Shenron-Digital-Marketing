@@ -40,7 +40,7 @@
     linear-gradient(120deg,
       rgba(251, 245, 237, 0.98) 10%,
       rgba(251, 245, 237, 0.93) 21%,
-      rgba(251, 245, 237, 0.7) 8%,
+      rgba(251, 245, 237, 0.7) 34%,
       rgba(251, 245, 237, 0.2) 46%,
       transparent 102%),
     url("../assets/BlogBg.png");
@@ -102,7 +102,7 @@
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(66px, 5.3vw, 100px);
   font-weight: 760;
-  line-height: 0.94;
+  line-height: 0.74;
   letter-spacing: -2.8px;
 }
 
@@ -116,6 +116,7 @@
 .blog-hero h1 em {
   display: inline-block;
   margin-left: 0.02em;
+  padding-bottom: 0.08em;
   background: linear-gradient(110deg, #c2a6ff 0%, #8865ff 47%, #6946ef 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -125,6 +126,7 @@
   font-style: italic;
   font-weight: 500;
   letter-spacing: -7px;
+  line-height: 1.12;
 }
 
 .blog-hero-copy {
@@ -642,7 +644,7 @@
 
 @media (max-width: 1000px) {
   .blog-hero {
-    min-height: 100vh;
+    min-height: 95vh;
     min-height: 100svh;
     padding-right: 36px;
     padding-left: 36px;
