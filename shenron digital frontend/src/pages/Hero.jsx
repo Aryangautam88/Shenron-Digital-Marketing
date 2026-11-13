@@ -11,7 +11,6 @@ import influencerMarketing from "../assets/influencer_marketing.png";
 import leadGeneration from "../assets/lead_generation.png";
 import uiuxBranding from "../assets/uiux_branding.png";
 import seoImage from "../assets/seo.png";
-import BlogSection from "./BlogSection";
 
 import {
   Code2,
@@ -510,7 +509,7 @@ const Hero = () => {
 
             <h2 className="kp-heading">
               From Idea to{" "}
-              <span className="kp-heading-accent">Impact.</span>
+              <span className="kp-heading-accent">impact.</span>
             </h2>
 
             <p className="kp-subtitle">
@@ -600,7 +599,6 @@ const Hero = () => {
         </div>
       </section>
 
-      <BlogSection />
 
       {/*------------------------------------ FAQ----------------------------------------- */}
 

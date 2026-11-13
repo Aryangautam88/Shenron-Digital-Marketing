@@ -1224,3 +1224,57 @@
     padding-top: 0;
   }
 }
+
+/* Keep the enquiry form within a laptop viewport below the fixed navbar. */
+@media (min-width: 901px) {
+  .contact-layout .contact-form {
+    padding: 22px 26px;
+  }
+  #root .contact-layout .contact-form {
+    scroll-margin-top: 140px;
+  }
+  .contact-layout .contact-form-heading {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  .contact-layout .contact-fields {
+    gap: 14px 18px;
+  }
+  .contact-layout .contact-fields input {
+    min-height: 40px;
+    padding: 8px 10px;
+    margin-top: 4px;
+  }
+  .contact-layout .contact-service-options {
+    margin-block: 16px;
+  }
+  .contact-layout .contact-service-options legend {
+    margin-bottom: 8px;
+  }
+  .contact-layout .contact-service-options > div {
+    gap: 6px;
+  }
+  .contact-layout .contact-service-options label > span {
+    min-height: 32px;
+    padding: 6px 9px;
+  }
+  .contact-layout .contact-message textarea {
+    min-height: 76px;
+    height: 76px;
+    margin-top: 4px;
+    padding: 8px 10px;
+  }
+  .contact-layout .contact-consent {
+    margin-top: 14px;
+  }
+  .contact-layout .contact-submit-row {
+    margin-top: 16px;
+  }
+  .contact-layout .contact-submit-row button {
+    min-height: 42px;
+    padding-block: 5px;
+  }
+  .contact-layout .contact-status:empty {
+    display: none;
+  }
+}
