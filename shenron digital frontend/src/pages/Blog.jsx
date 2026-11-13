@@ -64,7 +64,7 @@ function BlogContactSection() {
 
 function BlogLoadingState() {
   return (
-    <div className="blog-fetch-state" role="status" aria-live="polite">
+    <div className="blog-fetch-state" id="blog-insights" role="status" aria-live="polite">
       <span className="blog-loader-orbit" aria-hidden="true" />
       <p>Loading insights...</p>
     </div>
@@ -216,14 +216,14 @@ export default function Blog() {
       {state === "loading" ? (
         <BlogLoadingState />
       ) : state === "error" ? (
-        <section className="blog-fetch-state blog-fetch-state-error" aria-labelledby="blog-error-title">
+        <section className="blog-fetch-state blog-fetch-state-error" id="blog-insights" aria-labelledby="blog-error-title">
           <span className="blog-eyebrow">THE KRAVS JOURNAL</span>
           <h2 id="blog-error-title">Insights are taking a moment.</h2>
           <p>We couldn’t connect to the blog service. Please try again in a moment.</p>
           <button className="blog-filter is-active" type="button" onClick={() => setRetry((value) => value + 1)}>Try again</button>
         </section>
       ) : state === "empty" ? (
-        <section className="blog-empty-journal">
+        <section className="blog-empty-journal" id="blog-insights">
           <div className="blog-section-label"><span className="blog-eyebrow-line" /><span>A JOURNAL IN THE MAKING</span></div>
           <h2>Fresh ideas are <em>on the way.</em></h2>
           <p>Our team is preparing useful perspectives on design, development, and digital growth. Check back soon.</p>

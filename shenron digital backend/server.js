@@ -25,8 +25,10 @@ try {
   process.exit(1);
 }
 
-const server = createServer(createApp(env));
+const app = createApp(env);
+const server = createServer(app);
 const stopAcknowledgements = startAcknowledgements(env);
+app.locals.sendAcknowledgement = stopAcknowledgements.sendNow;
 server.on("error", (error) => {
   if (error.code === "EADDRINUSE") {
     console.error(`Port ${env.port} is already in use. Configure PORT or stop the other service.`);

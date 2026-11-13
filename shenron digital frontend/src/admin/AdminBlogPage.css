@@ -77,6 +77,35 @@
 .admin-view-site:hover,
 .admin-public-link:hover { color: var(--admin-purple); }
 
+.admin-login-card .admin-recovery-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid rgba(113, 56, 255, .22);
+  border-radius: 12px;
+  background: rgba(113, 56, 255, .06);
+  color: var(--admin-purple);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.admin-login-card .admin-recovery-button:hover {
+  background: rgba(113, 56, 255, .12);
+  border-color: var(--admin-purple);
+}
+
+.admin-login-card .admin-recovery-button:focus-visible {
+  outline: 2px solid var(--admin-purple);
+  outline-offset: 3px;
+}
+
 .admin-logout-button,
 .admin-row-actions button,
 .admin-row-actions a,

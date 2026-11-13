@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 import React, { useState } from "react";
 import "./Testimonials.css";
@@ -280,19 +281,19 @@ function Testimonials() {
                         </p>
 
                         <div className="testimonials-actions">
-                            <a
-                                href="/contact"
+                            <Link
+                                to="/contact"
                                 className="testimonial-btn testimonial-btn--dark"
                             >
                                 Get a Free Consultation <span>↗</span>
-                            </a>
+                            </Link>
 
-                            <a
-                                href="/work"
+                            <Link
+                                to="/services"
                                 className="testimonial-btn testimonial-btn--light"
                             >
-                                View Our Work <span>↗</span>
-                            </a>
+                                Explore Our Services <span>↗</span>
+                            </Link>
                         </div>
                     </div>
 

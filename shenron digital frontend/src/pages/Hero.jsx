@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import "./Hero.css";
+import { Link } from "react-router-dom";
 import leftImg from "../assets/leftimg.png";
 import kravsOffice from "../assets/kravs-office.png";
 import serviceTRight from "../assets/service T-right.png";
@@ -139,7 +140,7 @@ const services = [
     icon: Funnel,
     image: leadGeneration,
     alt: "Lead generation illustration",
-    link: "/services/lead-generation",
+    link: "/services/web-development/landing-pages",
   },
   {
     number: "05",
@@ -150,7 +151,7 @@ const services = [
     icon: PenTool,
     image: uiuxBranding,
     alt: "UI UX and branding illustration",
-    link: "/services/ui-ux-branding",
+    link: "/services/digital-design",
   },
   {
     number: "06",
@@ -235,16 +236,16 @@ const Hero = () => {
             {/* CTA BUTTONS */}
 
             <div className="hero-actions">
-              <a href="#contact" className="hero-primary-btn">
+              <Link to="/contact" className="hero-primary-btn">
                 <span>Start a Project</span>
 
                 <span className="btn-arrow">↗</span>
-              </a>
+              </Link>
 
-              <a href="/services" className="hero-play-btn">
+              <Link to="/services" className="hero-play-btn">
                 <span className="play-icon"><ArrowRight size={16} aria-hidden="true" /></span>
                 <span>Explore Our Services</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -263,52 +264,20 @@ const Hero = () => {
 
         {/* HERO STATS */}
 
-        <div className="hero-stats">
-          <div className="stat-item">
-            <div className="stat-number">01</div>
-
-            <div className="stat-content">
-              <h3>Creative</h3>
-              <p>Images</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <div className="stat-number">02</div>
-
-            <div className="stat-content">
-              <h3>Shooting</h3>
-              <p>Animation</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <div className="stat-number">03</div>
-
-            <div className="stat-content">
-              <h3>Branding</h3>
-              <p>Videos</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <div className="stat-number">04</div>
-
-            <div className="stat-content">
-              <h3>Creative</h3>
-              <p>Designing</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <div className="stat-number">05</div>
-
-            <div className="stat-content">
-              <h3>Shooting</h3>
-              <p>Marketing</p>
-            </div>
-          </div>
-        </div>
+        <nav className="hero-stats" aria-label="Explore our services">
+          {[
+            ["Web Design", "UI/UX Design", "/services/digital-design/website-ui"],
+            ["Development", "Business Websites", "/services/web-development/business-websites"],
+            ["Branding", "Brand Identity", "/services/digital-design/brand-identity"],
+            ["SEO", "Search Visibility", "/services/seo"],
+            ["Advertising", "Paid Campaigns", "/services/paid-advertising"],
+          ].map(([title, subtitle, to], index) => (
+            <Link className="stat-item" to={to} key={to}>
+              <div className="stat-number">{String(index + 1).padStart(2, "0")}</div>
+              <div className="stat-content"><h3>{title}</h3><p>{subtitle}</p></div>
+            </Link>
+          ))}
+        </nav>
       </section>
 
       {/*------------------------------------ About Us------------------------------------------ */}
@@ -335,10 +304,10 @@ const Hero = () => {
               move forward.
             </p>
 
-            <a href="#ka-difference" className="ka-primary-btn">
+            <Link to="/about" className="ka-primary-btn">
               <span>More about us</span>
               <ArrowUpRight size={19} strokeWidth={1.8} />
-            </a>
+            </Link>
           </div>
 
           {/* OFFICE IMAGE + FLOATING CARD */}
@@ -502,13 +471,13 @@ const Hero = () => {
                     />
                   </div>
 
-                  <a
-                    href={service.link}
+                  <Link
+                    to={service.link}
                     className="ks-card-arrow"
                     aria-label={`Explore ${service.title}`}
                   >
                     <ArrowRight size={19} />
-                  </a>
+                  </Link>
                 </article>
               );
             })}
@@ -621,12 +590,12 @@ const Hero = () => {
               </p>
             </div>
 
-            <a href="/contact" className="kp-cta-button">
+            <Link to="/contact" className="kp-cta-button">
               <span>Start a Project</span>
               <span className="kp-cta-arrow">
                 <ArrowRight size={18} />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -721,10 +690,10 @@ const Hero = () => {
               <h3>Let's talk about your next big idea.</h3>
             </div>
 
-            <a href="/contact" className="kf-contact-btn">
+            <Link to="/contact" className="kf-contact-btn">
               Contact Our Team
               <ArrowUpRight size={18} />
-            </a>
+            </Link>
           </div> */}
         </div>
       </section>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 import React from "react";
 import "./Service.css";
@@ -139,6 +140,7 @@ const rightServices = [
 const services = [
     {
         number: "01",
+        link: "/services/web-development",
         icon: "code",
         title: "Website Development",
         description:
@@ -146,6 +148,7 @@ const services = [
     },
     {
         number: "02",
+        link: "/services/digital-design/landing-pages",
         icon: "target",
         title: "Landing Page Design",
         description:
@@ -153,6 +156,7 @@ const services = [
     },
     {
         number: "03",
+        link: "/services/web-development/redesign",
         icon: "refresh",
         title: "Website Redesign",
         description:
@@ -160,6 +164,7 @@ const services = [
     },
     {
         number: "04",
+        link: "/services/web-development/saas-websites",
         icon: "cube",
         title: "SaaS Development",
         description:
@@ -167,6 +172,7 @@ const services = [
     },
     {
         number: "05",
+        link: "/services/seo",
         icon: "chart",
         title: "SEO & Growth",
         description:
@@ -174,6 +180,7 @@ const services = [
     },
     {
         number: "06",
+        link: "/services/paid-advertising",
         icon: "megaphone",
         title: "Digital Marketing",
         description:
@@ -293,20 +300,20 @@ export default function Service() {
 
                             <div className="service-actions">
                                 <a
-                                    href="/services"
+                                    href="#services"
                                     className="service-btn service-btn-dark"
                                 >
                                     <span>Explore Services</span>
                                     <span className="service-btn-arrow">↗</span>
                                 </a>
 
-                                <a
-                                    href="/contact"
+                                <Link
+                                    to="/contact"
                                     className="service-btn service-btn-light"
                                 >
                                     <span>Start a Project</span>
                                     <span className="service-btn-arrow">↗</span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -362,9 +369,9 @@ export default function Service() {
 
                     <div className="kr-services__grid">
                         {services.map((service) => (
-                            <a
+                            <Link
                                 className="kr-service-card"
-                                href="/contact"
+                                to={service.link}
                                 key={service.number}
                                 aria-label={`Explore ${service.title}`}
                             >
@@ -399,7 +406,7 @@ export default function Service() {
                                         <path d="M8 7h9v9" />
                                     </svg>
                                 </span>
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -451,10 +458,10 @@ export default function Service() {
                     </div>
 
                     <div className="sov-bottom-cta">
-                        <a href="/contact" className="sov-cta-button">
+                        <Link to="/contact" className="sov-cta-button">
                             Book an Intro Call
                             <span aria-hidden="true">↗</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </main>
@@ -483,12 +490,12 @@ export default function Service() {
                             business impact.
                         </p>
 
-                        <a href="/about" className="sa-button">
+                        <Link to="/about" className="sa-button">
                             <span>Learn About</span>
                             <span className="sa-button-icon" aria-hidden="true">
                                 ↗
                             </span>
-                        </a>
+                        </Link>
                     </div>
 
                     {/* RIGHT IMAGE */}
@@ -534,7 +541,7 @@ export default function Service() {
                         </p>
                     </div>
 
-                    <a href="/contact" className="service-last-button">
+                    <Link to="/contact" className="service-last-button">
                         <span>Start a Project</span>
 
                         <span className="service-last-arrow">
@@ -553,7 +560,7 @@ export default function Service() {
                                 <path d="m13 6 6 6-6 6" />
                             </svg>
                         </span>
-                    </a>
+                    </Link>
 
                 </div>
             </section>

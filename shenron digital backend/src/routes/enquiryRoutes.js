@@ -3,7 +3,7 @@ import rateLimit from "express-rate-limit";
 import mongoose from "mongoose";
 import { Enquiry } from "../models/Enquiry.js";
 import { requireAdmin, requireSameOrigin } from "../middleware/auth.js";
-import { createMailer } from "../utils/mailer.js";
+import { brandedSender, createMailer } from "../utils/mailer.js";
 
 const allowedServices = ["SEO", "Paid advertising", "Brand & digital design", "Web development", "Influencer marketing", "Not sure yet"];
 export function validateEnquiry(body = {}) {
@@ -26,7 +26,10 @@ export function createContactRoutes() {
   const router = Router();
   router.post("/", rateLimit({ windowMs: 60 * 60 * 1000, limit: 5, standardHeaders: "draft-8", legacyHeaders: false, message: { message: "Too many enquiries. Please try again later." } }), async (req, res) => {
     const fields = validateEnquiry(req.body);
-    await Enquiry.create(fields);
+    const enquiry = await Enquiry.create(fields);
+    // Start delivery as soon as the enquiry is saved; the persisted queue
+    // still handles retries if SMTP is temporarily unavailable.
+    void req.app.locals.sendAcknowledgement?.(enquiry._id);
     res.status(201).json({ message: "Your enquiry has been received." });
   });
   return router;
@@ -78,7 +81,7 @@ export function createAdminEnquiryRoutes(env) {
     if (!enquiry) return res.status(409).json({ message: "Reply is already being sent, or the enquiry no longer exists." });
     const mailer = createMailer(env);
     try {
-      await mailer.sendMail({ from: env.mailFrom, to: enquiry.email, subject: "Your enquiry — Kravs Infotech", text: message.trim() });
+      await mailer.sendMail({ from: brandedSender(env), to: enquiry.email, subject: "Your enquiry — Kravs Infotech", text: message.trim() });
       await Enquiry.updateOne({ _id: enquiry._id }, { $set: { "reply.draft": message.trim(), "reply.lastMessage": message.trim(), "reply.sentAt": new Date() } });
       res.json({ message: "Reply accepted by the mail server." });
     } catch { res.status(502).json({ message: "Reply could not be confirmed. Check SMTP settings and delivery status before retrying." }); }

@@ -1,4 +1,5 @@
-import { createMailer } from "./mailer.js";
+import { brandedSender, createMailer } from "./mailer.js";
+import { enquiryEmail } from "./enquiryEmail.js";
 import { Enquiry } from "../models/Enquiry.js";
 
 // Persisted queue survives restarts. Expired leases allow recovery after a crash.
@@ -10,12 +11,13 @@ export function startAcknowledgements(env) {
   const transport = createMailer(env);
   let busy = false;
   let stopped = false;
-  async function tick() {
+  async function tick(enquiryId) {
     if (busy || stopped) return;
     busy = true;
     try {
       await Enquiry.updateMany({ "acknowledgement.status": "sending", "acknowledgement.attempts": { $gte: 5 }, "acknowledgement.nextAttemptAt": { $lte: new Date() } }, { $set: { "acknowledgement.status": "failed" } });
       const enquiry = await Enquiry.findOneAndUpdate({
+        ...(enquiryId ? { _id: enquiryId } : {}),
         "acknowledgement.status": { $in: ["pending", "sending"] },
         "acknowledgement.nextAttemptAt": { $lte: new Date() },
         "acknowledgement.attempts": { $lt: 5 },
@@ -23,9 +25,8 @@ export function startAcknowledgements(env) {
       if (!enquiry) return;
       try {
         await transport.sendMail({
-          from: env.mailFrom, to: enquiry.email,
-          subject: "We've received your enquiry — Kravs Infotech",
-          text: `Hello ${enquiry.name},\n\nThank you for contacting Kravs Infotech. We have received your enquiry and our team will review it and get in touch.\n\nReference: ${enquiry._id}\n\nBest regards,\nKravs Infotech`,
+          from: brandedSender(env), to: enquiry.email,
+          ...enquiryEmail(enquiry.name),
         });
         await Enquiry.updateOne({ _id: enquiry._id }, { $set: { "acknowledgement.status": "sent", "acknowledgement.sentAt": new Date() } });
       } catch (error) {
@@ -42,5 +43,7 @@ export function startAcknowledgements(env) {
   const timer = setInterval(tick, 10000);
   timer.unref();
   void tick();
-  return () => { stopped = true; clearInterval(timer); transport.close(); };
+  const stop = () => { stopped = true; clearInterval(timer); transport.close(); };
+  stop.sendNow = tick;
+  return stop;
 }

@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { createHash, randomBytes } from "node:crypto";
 import { AdminAccount, getAdminAccount } from "../models/AdminAccount.js";
-import { createMailer } from "../utils/mailer.js";
+import { brandedSender, createMailer } from "../utils/mailer.js";
 import { adminTokenOptions, cookieOptions } from "../middleware/auth.js";
 
 export async function login(req, res) {
@@ -55,7 +55,7 @@ export async function forgotPassword(req, res) {
     url.hash = `reset=${token}`;
     const mailer = createMailer(env);
     try {
-      await mailer.sendMail({ from: env.mailFrom, to: env.adminEmail,
+      await mailer.sendMail({ from: brandedSender(env), to: env.adminEmail,
         subject: "Reset your Kravs Infotech admin password",
         text: `Use this link to set a new admin password:\n\n${url.href}\n\nThis link expires in 15 minutes and can be used once. If you did not request this, ignore this email.`,
       });

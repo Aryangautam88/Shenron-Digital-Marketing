@@ -319,7 +319,7 @@ export default function AdminBlogPage() {
             {loginError && <p className="admin-form-error" role="alert">{loginError}</p>}
             <button className="admin-primary-button" type="submit">Sign in <ArrowUpRight size={17} /></button>
           </form>
-          <button className="admin-public-link" type="button" onClick={() => setRecoveryMode(true)}>Forgot password?</button>
+          <button className="admin-recovery-button" type="button" onClick={() => setRecoveryMode(true)}>Forgot password? <ArrowUpRight size={16} aria-hidden="true" /></button>
           </>}
           <Link className="admin-public-link" to="/">Back to website <ArrowUpRight size={15}/></Link>
         </section>

@@ -432,14 +432,14 @@ export default function Navbar() {
             onMouseEnter={() => openDropdown("company")}
           >
             <div className="nav-trigger-wrap">
-              <Link
-                to="/about"
-                className={`nav-link ${isActive("/about") || isActive("/contact") ? "active" : ""
-                  }`}
-                onClick={closeMenus}
+              <button
+                type="button"
+                className={`nav-link company-trigger-button ${isActive("/about") || isActive("/contact") || isActive("/company") ? "active" : ""}`}
+                aria-expanded={activeDropdown === "company"}
+                onClick={() => toggleDropdown("company")}
               >
                 Company
-              </Link>
+              </button>
               <button
                 type="button"
                 className="nav-dropdown-toggle"
@@ -611,13 +611,15 @@ export default function Navbar() {
           {/* Mobile Company */}
           <div className="mobile-nav-group">
             <div className="mobile-nav-row">
-              <Link
-                to="/about"
+              <button
+                type="button"
                 className="mobile-nav-link mobile-nav-category"
-                onClick={closeMenus}
+                aria-controls="mobile-company-submenu"
+                aria-expanded={mobileDropdown === "company"}
+                onClick={() => toggleMobileDropdown("company")}
               >
                 Company
-              </Link>
+              </button>
               <button
                 type="button"
                 className="mobile-nav-link mobile-nav-trigger"

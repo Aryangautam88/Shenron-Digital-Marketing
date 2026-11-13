@@ -11,6 +11,21 @@ import { FaXTwitter } from "react-icons/fa6";
 import "./Footer.css";
 import shenronLogo from "../assets/kravsLogo.png";
 
+function httpsUrl(value) {
+  try { const url = new URL(value); return url.protocol === "https:" ? url.href : null; }
+  catch { return null; }
+}
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() || "hello@yourdomain.com";
+const socials = [
+  ["LinkedIn", httpsUrl(import.meta.env.VITE_LINKEDIN_URL) || "https://linkedin.com", FaLinkedinIn],
+  ["Instagram", httpsUrl(import.meta.env.VITE_INSTAGRAM_URL) || "https://instagram.com", FaInstagram],
+  ["X", httpsUrl(import.meta.env.VITE_X_URL) || "https://x.com", FaXTwitter],
+];
+const legalLinks = [
+  ["Privacy Policy", httpsUrl(import.meta.env.VITE_PRIVACY_POLICY_URL) || "/privacy-policy"],
+  ["Terms of Service", httpsUrl(import.meta.env.VITE_TERMS_OF_SERVICE_URL) || "/terms-of-service"],
+];
+
 const Footer = () => {
   return (
     <footer className="site-footer">
@@ -65,8 +80,8 @@ const Footer = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/services">Services</Link></li>
-              <li><Link to="/work">Work</Link></li>
-              <li><Link to="/insights">Insights</Link></li>
+              <li><Link to="/industries">Industries</Link></li>
+              <li><Link to="/blog">Insights</Link></li>
             </ul>
           </div>
 
@@ -77,8 +92,8 @@ const Footer = () => {
               <li><Link to="/services/web-development">Web Development</Link></li>
               <li><Link to="/services/paid-advertising">Paid Advertising</Link></li>
               <li><Link to="/services/influencer-marketing">Influencer Marketing</Link></li>
-              <li><Link to="/services/lead-generation">Lead Generation</Link></li>
-              <li><Link to="/services/branding">UI/UX & Branding</Link></li>
+              <li><Link to="/services/web-development/landing-pages">Lead Generation</Link></li>
+              <li><Link to="/services/digital-design">UI/UX & Branding</Link></li>
               <li><Link to="/services/seo">SEO</Link></li>
             </ul>
           </div>
@@ -87,30 +102,15 @@ const Footer = () => {
           <div className="footer-column footer-contact">
             <h3>Contact</h3>
 
-            <a
-              href="mailto:hello@yourdomain.com"
-              className="footer-email"
-            >
-              <FaEnvelope />
-              <span>hello@yourdomain.com</span>
-            </a>
+            {contactEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail) ? (
+              <a href={`mailto:${contactEmail}`} className="footer-email"><FaEnvelope /><span>{contactEmail}</span></a>
+            ) : (
+              <Link to="/contact" className="footer-email"><FaEnvelope /><span>Contact our team</span></Link>
+            )}
 
             <div className="footer-socials">
-              <a href="https://linkedin.com" aria-label="LinkedIn">
-                <FaLinkedinIn />
-              </a>
-
-              <a href="https://instagram.com" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-
-              <a href="https://x.com" aria-label="X">
-                <FaXTwitter />
-              </a>
-
-              <Link to="/" aria-label="Website">
-                <FaGlobe />
-              </Link>
+              {socials.map(([label, url, Icon]) => <a key={label} href={url} aria-label={label} target="_blank" rel="noopener noreferrer">{React.createElement(Icon)}</a>)}
+              <Link to="/" aria-label="Website"><FaGlobe /></Link>
             </div>
           </div>
 
@@ -118,11 +118,12 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Your Company. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} KRAVS Infotech. All rights reserved.</p>
 
           <div className="footer-legal">
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-of-service">Terms of Service</Link>
+            {legalLinks.map(([label, url]) => url.startsWith("/")
+              ? <Link key={label} to={url}>{label}</Link>
+              : <a key={label} href={url} target="_blank" rel="noopener noreferrer">{label}</a>)}
           </div>
         </div>
 

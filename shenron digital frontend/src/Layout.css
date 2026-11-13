@@ -1,0 +1,76 @@
+/* One content edge for public pages; backgrounds remain full width. */
+:root {
+  --site-gutter: clamp(24px, 4vw, 64px);
+  --site-content-width: 1420px;
+  --site-container-width: min(calc(100% - 2 * var(--site-gutter)), var(--site-content-width));
+}
+
+/* Anchor CTAs land below the fixed navigation. */
+#root :is(section, main, div)[id] {
+  scroll-margin-top: 110px;
+}
+
+#root :is(.hero-container, .hero-stats, .ka-hero, .ka-difference,
+  .ks-hero, .ks-service-section, .kp-container, .kf-container,
+  .service-container, .kr-services__container, .sov-container, .sa-container,
+  .service-last-card, .industries-hero-inner, .industries-section,
+  .saas-hero-container, .industry-stats-container, .industry-insights-container,
+  .about-container, .contact-container, .sd-wrap, .blog-shell,
+  .testimonials-content, .footer-container) {
+  width: var(--site-container-width);
+  max-width: var(--site-content-width);
+  margin-inline: auto;
+}
+
+/* Containers own the page gutter. Their copy and grids must not add
+   another horizontal inset at individual responsive breakpoints. */
+#root :is(.hero-container, .ka-hero, .ka-difference,
+  .ks-hero, .ks-service-section, .kp-container, .kf-container,
+  .service-container, .kr-services__container, .sov-container, .sa-container,
+  .industries-hero-inner, .industries-section, .saas-hero-container,
+  .industry-stats-container, .industry-insights-container,
+  .about-container, .contact-container, .blog-shell, .footer-container) {
+  box-sizing: border-box;
+  padding-inline: 0;
+}
+
+#root :is(.service-content, .sa-content) {
+  padding-inline: 0;
+}
+
+#root .sd-page .sd-hero.subpage-hero > .sd-wrap.sd-hero-inner,
+#root .about-page .about-hero > .about-container.about-hero-inner,
+#root .contact-page .contact-hero > .contact-container.contact-hero-inner {
+  width: var(--site-container-width);
+}
+
+#root :is(.hero, .site-footer) {
+  padding-inline: 0;
+}
+
+#root .hero-content {
+  padding-inline: 0;
+  margin-inline: 0;
+  text-align: left;
+}
+
+#root :is(.blog-hero, .blog-contact-section) {
+  padding-inline: max(var(--site-gutter), calc((100% - var(--site-content-width)) / 2));
+}
+
+#root .blog-contact-card {
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+}
+
+@media (max-width: 1100px) {
+  #root :is(.hero-eyebrow, .hero-actions) {
+    justify-content: flex-start;
+    margin-inline: 0;
+  }
+
+  #root :is(.hero-description, .hero-subtext) {
+    margin-inline: 0;
+  }
+}

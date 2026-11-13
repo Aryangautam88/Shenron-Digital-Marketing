@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Keep homepage font families with a smaller subpage heading scale.
+   Keep these rules scoped to hero copy so section headings are unaffected. */
+:root {
+  --hero-heading-size: clamp(40px, 3.6vw, 56px);
+  --hero-heading-leading: 1.08;
+  --hero-heading-tracking: -1.8px;
+  --hero-accent-tracking: -2px;
+  --hero-copy-size: 14px;
+  --hero-copy-leading: 1.52;
+  --hero-eyebrow-size: 11px;
+  --hero-eyebrow-tracking: 1.25px;
+  --hero-button-size: 13px;
+  --hero-link-size: 12px;
+}
+
+#root :is(.sd-hero, .about-hero, .contact-hero, .service-hero, .industries-hero, .blog-hero, .blog-detail-hero, .testimonials-copy) h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--hero-heading-size);
+  font-weight: 760;
+  line-height: var(--hero-heading-leading);
+  letter-spacing: var(--hero-heading-tracking);
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+#root :is(.sd-hero, .about-hero, .contact-hero, .service-hero, .industries-hero, .blog-hero, .testimonials-copy) h1 :is(em, span) {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+#root :is(.sd-hero, .about-hero, .contact-hero, .industries-hero, .blog-hero, .testimonials-copy) h1 em,
+#root .service-hero h1 > span {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.12em;
+  font-style: italic;
+  font-weight: 500;
+  line-height: inherit;
+  letter-spacing: var(--hero-accent-tracking);
+  margin-top: 0;
+  padding-bottom: .08em;
+  background: linear-gradient(110deg, #c2a6ff 0%, #8865ff 47%, #6946ef 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#root :is(.sd-hero .sd-intro, .about-hero .about-description, .contact-hero .contact-intro, .service-hero .service-description, .industries-hero .industries-description, .blog-hero .blog-hero-copy, .blog-detail-hero .blog-detail-description, .testimonials-copy > p) {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: var(--hero-copy-size);
+  font-weight: 400;
+  line-height: var(--hero-copy-leading);
+  letter-spacing: normal;
+}
+
+#root :is(.sd-hero .sd-eyebrow, .about-hero .about-eyebrow, .contact-hero .contact-eyebrow, .service-hero .service-eyebrow, .industries-hero .industries-eyebrow, .blog-hero .blog-eyebrow, .testimonials-copy .eyebrow) {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: var(--hero-eyebrow-size);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: var(--hero-eyebrow-tracking);
+  text-transform: uppercase;
+}
+
+#root :is(.sd-hero .sd-button, .about-hero .about-button, .contact-hero .contact-hero-button, .service-hero .service-btn, .industries-hero .industries-button, .testimonials-copy .testimonial-btn) {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: var(--hero-button-size);
+  font-weight: 500;
+}
+
+#root :is(.sd-hero .sd-text-link, .blog-hero .blog-hero-link) {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: var(--hero-link-size);
+  font-weight: 500;
+}
+
+@media (max-width: 1250px) {
+  :root {
+    --hero-heading-size: clamp(38px, 4vw, 50px);
+  }
+}
+
+@media (max-width: 1100px) {
+  :root { --hero-heading-size: clamp(36px, 4.5vw, 48px); }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --hero-heading-size: clamp(32px, 8vw, 42px);
+    --hero-heading-tracking: -1.2px;
+    --hero-accent-tracking: -1.4px;
+    --hero-copy-leading: 1.58;
+    --hero-eyebrow-size: 9px;
+    --hero-eyebrow-tracking: 1px;
+    --hero-button-size: 12px;
+    --hero-link-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --hero-heading-size: 32px;
+    --hero-copy-size: 13px;
+  }
+}
