@@ -3,7 +3,7 @@
   --page-background: #F7F3EB;
   --cta-background: #111016;
   --cta-hover: #8957ff;
-  --hero-copy-size: 16px;
+  --hero-copy-size: 15px;
   --hero-copy-leading: 1.65;
 }
 
@@ -161,6 +161,10 @@ html, body, #root { background-color: var(--page-background); }
   margin: 0;
 }
 
+#root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+  font-size: clamp(46px, 4.5vw, 72px);
+}
+
 #root :is(.hero-description, .service-hero .service-description, .industries-hero .industries-description,
   .blog-hero .blog-hero-copy, .about-hero .about-description, .contact-hero .contact-intro) {
   width: 100%;
@@ -181,7 +185,13 @@ html, body, #root { background-color: var(--page-background); }
 #root :is(.contact-hero .contact-hero-button, .blog-hero .blog-hero-link) { margin-top: 28px; }
 #root :is(.hero-actions, .service-actions, .industries-actions, .about-actions) > .site-cta { margin: 0; }
 
-#root .hero { padding: 0; min-height: max(720px, 100svh); background-color: var(--page-background); }
+#root .hero {
+  padding: 0;
+  min-height: max(720px, 100svh);
+  background-color: var(--page-background);
+  background-size: cover;
+  background-position: center;
+}
 #root .hero-container {
   flex: 1;
   min-height: calc(max(720px, 100svh) - 140px);
@@ -209,6 +219,89 @@ html, body, #root { background-color: var(--page-background); }
 /* Use the readable wordmark at every size. */
 #root .navbar-logo .logo-desktop { display: block !important; width: 102px; }
 #root .navbar-logo .logo-mobile { display: none !important; }
+
+@media (max-width: 768px) {
+  #root .navbar-logo .logo-desktop {
+    width: 88px;
+    height: auto;
+    /* Show only the wordmark from the existing two-line logo. */
+    clip-path: inset(0 0 40% 0);
+    transform: translateY(20%);
+  }
+}
+
+/* Main heroes share the Services content origin and homepage rhythm. */
+:root { --main-hero-start: clamp(170px, 25svh, 220px); }
+
+#root .hero-container,
+#root .service-hero > .service-container,
+#root .industries-hero > .industries-hero-inner,
+#root .about-page .about-hero > .about-container.about-hero-inner,
+#root .contact-page .contact-hero > .contact-container.contact-hero-inner {
+  align-items: flex-start;
+  padding-top: var(--main-hero-start);
+}
+#root .blog-hero {
+  align-items: flex-start;
+  padding-top: var(--main-hero-start);
+}
+
+#root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(46px, 4.5vw, 72px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -.045em;
+}
+#root :is(.hero-title-line em, .service-hero h1 > span, .industries-hero h1 em,
+  .blog-hero h1 em, .about-hero h1 em, .contact-hero h1 em) {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05em;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+#root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) .public-eyebrow.public-eyebrow.public-eyebrow {
+  margin: 0 0 24px !important;
+}
+#root :is(.hero .hero-description, .service-hero .service-description,
+  .industries-hero .industries-description, .blog-hero .blog-hero-copy,
+  .about-hero .about-description, .contact-hero .contact-intro) {
+  max-width: 440px;
+  margin: 28px 0 0 !important;
+  font: 400 14px/1.52 'Inter', Arial, sans-serif;
+}
+#root :is(.hero-actions, .service-hero .service-actions,
+  .industries-hero .industries-actions, .about-hero .about-actions) {
+  margin: 27px 0 0;
+}
+#root :is(.contact-hero .contact-hero-button, .blog-hero .blog-hero-link) {
+  margin-top: 27px;
+}
+
+#root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) .site-cta.site-cta.site-cta,
+#root .hero .hero-primary-btn,
+#root .hero .hero-play-btn {
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  :root { --main-hero-start: 125px; }
+  #root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+    font-size: clamp(32px, 9.8vw, 42px);
+  }
+  #root :is(.hero .hero-description, .service-hero .service-description,
+    .industries-hero .industries-description, .blog-hero .blog-hero-copy,
+    .about-hero .about-description, .contact-hero .contact-intro) {
+    font-size: 13px;
+  }
+  #root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) .site-cta.site-cta.site-cta,
+  #root .hero .hero-primary-btn,
+  #root .hero .hero-play-btn { font-size: 12px; }
+}
 
 /* The service navigation spans the viewport and remains usable on phones. */
 #root .hero-stats {
@@ -298,7 +391,12 @@ html, body, #root { background-color: var(--page-background); }
 }
 
 @media (max-width: 600px) {
-  :root { --hero-copy-size: 14px; }
+  :root { --hero-copy-size: 13px; }
+  #root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) h1 {
+    font-size: clamp(32px, 9.8vw, 42px);
+  }
+  #root .hero .hero-description { font-size: 13px; }
+  #root .hero-title-line em { letter-spacing: -.06em; }
   #root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) {
     height: auto;
     min-height: 100svh;
@@ -365,11 +463,68 @@ html, body, #root { background-color: var(--page-background); }
 #root .public-eyebrow.public-eyebrow.public-eyebrow::after { content: none; }
 #root .public-eyebrow > :is([class$='eyebrow-line'], .eyebrow-line, span:empty) { display: none; }
 #root .public-eyebrow.public-eyebrow.public-eyebrow > span:not(:empty) { font: inherit; color: inherit; letter-spacing: inherit; }
+
+/* Smaller labels in the main-page heroes. */
+#root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) .public-eyebrow.public-eyebrow.public-eyebrow {
+  font-size: 10px !important;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  #root .hero .hero-play-btn { display: none; }
+  #root :is(.hero, .service-hero, .industries-hero, .blog-hero, .about-hero, .contact-hero) .public-eyebrow.public-eyebrow.public-eyebrow {
+    font-size: 9px !important;
+    letter-spacing: .85px;
+  }
+}
+
 #root :is(.sd-outcomes-band, .sd-orbital-approach, .service-last-card, .about-next-chapter, .contact-next-chapter, .blog-contact-card) .public-eyebrow.public-eyebrow.public-eyebrow {
   color: #d0c5df;
 }
 
 /* Closing invitation cards keep their own inset inside the page gutter. */
+@media (max-width: 600px) {
+  #root .hero-stats { display: none; }
+
+  /* Leave a clear artwork area below the copy and controls. */
+  #root .hero {
+    height: auto;
+    min-height: max(780px, 100svh);
+    background-size: cover;
+    /* Keep the eagle's face below the mobile action row. The matching
+       cream background fills the space above the lowered artwork. */
+    background-position: center clamp(64px, 10svh, 96px);
+  }
+  #root .hero-container {
+    min-height: max(780px, 100svh);
+    padding-block: 125px 340px;
+  }
+
+  #root .site-cta.site-cta.site-cta {
+    width: fit-content;
+    min-width: 0;
+    min-height: 44px;
+    height: auto;
+    padding: 9px 16px;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  #root .site-cta.site-cta.site-cta svg { width: 14px; height: 14px; }
+  #root .hero-primary-btn {
+    width: fit-content;
+    min-width: 0;
+    height: 44px;
+    padding: 6px 8px 6px 16px;
+    gap: 12px;
+    font-size: 12px;
+  }
+  #root .hero-primary-btn .btn-arrow { width: 28px; height: 28px; }
+  #root .hero-play-btn { min-height: 44px; gap: 9px; font-size: 12px; }
+  #root .hero-play-btn .play-icon { width: 34px; height: 34px; }
+  #root .hero-actions { gap: 10px 16px; }
+}
+
 #root .about-next-chapter > .about-container,
 #root .contact-next-chapter > .contact-container,
 #root .service-last-card,

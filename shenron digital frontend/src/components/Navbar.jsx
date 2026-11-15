@@ -167,6 +167,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const closeTimer = useRef(null);
+  const navbarRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -192,6 +193,31 @@ export default function Navbar() {
 
     return () => {
       document.body.classList.remove("nav-mobile-open");
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const close = () => {
+      setMobileOpen(false);
+      setMobileDropdown(null);
+    };
+    const outsidePress = (event) => {
+      if (!navbarRef.current?.contains(event.target)) close();
+    };
+    // Keep long submenus scrollable; scrolling the page dismisses the menu.
+    const pageScroll = (event) => {
+      if (!navbarRef.current?.contains(event.target)) close();
+    };
+    document.addEventListener("pointerdown", outsidePress);
+    window.addEventListener("scroll", pageScroll, { passive: true, capture: true });
+    window.addEventListener("touchmove", pageScroll, { passive: true });
+    window.addEventListener("wheel", pageScroll, { passive: true });
+    return () => {
+      document.removeEventListener("pointerdown", outsidePress);
+      window.removeEventListener("scroll", pageScroll, true);
+      window.removeEventListener("touchmove", pageScroll);
+      window.removeEventListener("wheel", pageScroll);
     };
   }, [mobileOpen]);
 
@@ -256,7 +282,7 @@ export default function Navbar() {
     .join(" ");
 
   return (
-    <header className={navClass}>
+    <header ref={navbarRef} className={navClass}>
       <div className="navbar-capsule" onMouseLeave={scheduleClose}>
         {/* Logo */}
         <Link

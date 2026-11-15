@@ -267,11 +267,10 @@
     background-position: center top;
   }
 
-  /* The phone artwork starts below the navigation, as in the reference.
-     Preserve its aspect ratio and keep the bright curve beside the copy. */
+  /* Fill the phone hero from its top edge. */
   #root .service-hero {
-    background-size: 100% auto;
-    background-position: center 90px;
+    background-size: cover;
+    background-position: center top;
   }
 
   #root .service-hero > .service-container {

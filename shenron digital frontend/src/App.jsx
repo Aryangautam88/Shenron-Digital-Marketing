@@ -1,8 +1,9 @@
 
-import { createElement, lazy, Suspense } from "react";
+import { createElement, lazy, Suspense, useRef } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import "./subpages/SubpageHero.css";
@@ -26,10 +27,12 @@ const AdminBlogPage = lazy(() => import("./admin/AdminBlogPage"));
 export default function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
+  const showInitialPreloader = useRef(!isAdminRoute).current;
 
   return (
     <>
       <ScrollToTop />
+      {showInitialPreloader && <Preloader />}
       {!isAdminRoute && <Navbar />}
 
       <Suspense
