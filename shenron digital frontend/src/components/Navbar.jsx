@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
-import kravsLogo from "../assets/kravsLogo.png";
-import kravsLogoNew from "../assets/kravsNewLogoMob.jpeg";
+import kravsLogo from "../assets/kravsLogo.webp";
+import kravsLogoNew from "../assets/kravsNewLogoMob.webp";
 
 const serviceGroups = [
   {
@@ -265,12 +265,12 @@ export default function Navbar() {
           aria-label="KRAVS Infotech home"
           onClick={closeMenus}
         >
-          <img
+          <img width={1920} height={630}
             className="logo-desktop"
             src={kravsLogo}
             alt="KRAVS Infotech"
           />
-          <img
+          <img width={538} height={571}
             className="logo-mobile"
             src={kravsLogoNew}
             alt="KRAVS Infotech"

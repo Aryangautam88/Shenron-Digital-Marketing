@@ -1,8 +1,8 @@
 ﻿import { ArrowDown, ArrowUpRight, Compass, Lightbulb, Users, Check } from "lucide-react";
 import { createElement, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import officeImage from "../assets/kravs-office.png";
-import creativeMindsHero from "../assets/companyImg.png";
+import officeImage from "../assets/kravs-office.webp";
+import creativeMindsHero from "../assets/companyImg.webp";
 import "./About.css";
 
 const principles = [
@@ -84,7 +84,7 @@ export default function About() {
   return (
     <main className="about-page" ref={pageRef}>
       <section className="about-hero" aria-labelledby="about-title">
-        <img className="about-hero-artwork" src={creativeMindsHero} alt="" aria-hidden="true" fetchPriority="high" />
+        <img width={1672} height={941} className="about-hero-artwork" src={creativeMindsHero} alt="" aria-hidden="true" fetchPriority="high" />
         <div className="about-container about-hero-inner">
           <div className="about-hero-copy">
             <p className="about-eyebrow public-eyebrow"><span /> WHO WE ARE</p>

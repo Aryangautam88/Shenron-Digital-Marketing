@@ -4,7 +4,7 @@ import { businessTypeContent as industryContent } from './businessTypeContent';
 import { serviceCategories } from '../../serviceContent';
 import IndustryHeroVisual from '../IndustryHeroVisual';
 import useIndustryPage from '../useIndustryPage';
-import orbitalArt from '../../../assets/service T-right.png';
+import orbitalArt from '../../../assets/service T-right.webp';
 import '../../ServiceDetail.css';
 import '../IndustryPages.css';
 import './Enterprise.css';
@@ -43,7 +43,7 @@ export default function Enterprise() {
       </section>
       <section className="sd-scope sd-section" id="industry-solutions" aria-labelledby="industry-solutions-title"><div className="sd-wrap">
         <div className="sd-heading sd-scope-heading" data-service-reveal><div><p className="sd-eyebrow public-eyebrow"><span />SOLUTIONS FOR {data.name}</p><h2 id="industry-solutions-title">Useful ideas.<br /><em>Connected execution.</em></h2></div><p>Services shaped around the needs of {data.name.toLowerCase()} businesses, from clear communication to the next meaningful audience action.</p></div>
-        <img className="sd-scope-orb" src={orbitalArt} alt="" loading="lazy" aria-hidden="true"/>
+        <img width={475} height={435} className="sd-scope-orb" src={orbitalArt} alt="" loading="lazy" aria-hidden="true"/>
         <div className="sd-capabilities">{data.capabilities.map(([title,text],index)=>{const Icon=icons[index];const service=data.services[index % data.services.length];return <article className="sd-capability" data-service-reveal key={title}><div className="sd-card-top"><Icon size={24} strokeWidth={1.5}/><span>0{index+1}</span></div><h3>{title}</h3><p>{text}</p><Link className="sd-explore" to={`/services/${service}`}>{serviceCategories[service].name}<ArrowUpRight size={18}/></Link></article>;})}</div>
       </div></section>
       <section className="sd-wrap sd-section" aria-labelledby="industry-priorities-title"><div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow public-eyebrow"><span />WHAT MATTERS TO YOUR AUDIENCE</p><h2 id="industry-priorities-title">Designed for people.<br /><em>Grounded in your goals.</em></h2></div><p>Each decision connects the audience, the information, and the experience you want to create.</p></div><div className="sd-pillars">{data.priorities.map(([title,text],index)=><article key={title} data-service-reveal><span className="sd-large-number">0{index+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>

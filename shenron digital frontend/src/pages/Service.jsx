@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import React from "react";
 import "./Service.css";
-// import serviceRight from "../assets/Service-right-com.png";
+// import serviceRight from "../assets/Service-right-com.webp";
 
 // const serviceSteps = [
 //   { number: "01", label: "Strategy" },
@@ -501,7 +501,7 @@ export default function Service() {
                     <div className="sa-visual">
                         <div className="sa-image-glow" />
 
-                        {/* <img
+                        {/* <img width={1536} height={1024}
                             src={serviceRight}
                             alt="Our approach to strategic planning, creative design, clean development and measurable growth"
                             className="sa-illustration"

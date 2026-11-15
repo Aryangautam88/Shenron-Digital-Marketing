@@ -23,7 +23,7 @@
   min-height: 100svh;
   overflow: hidden;
   background-color: var(--industry-paper);
-  background-image: url("../assets/industriesbg.png");
+  background-image: url("../assets/industriesbg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -262,7 +262,7 @@
   .industries-hero {
     min-height: 100vh;
     min-height: 100svh;
-    background-image: url("../assets/industriesbg_phone.png");
+    background-image: url("../assets/industriesbg_phone.webp");
     background-position: center top;
     background-size: cover;
   }
@@ -939,7 +939,7 @@
 
   /* Desktop background — no gradient overlay */
   background-color: #F7F3EB;
-  background-image: url("../assets/industries_saas_bg.png");
+  background-image: url("../assets/industries_saas_bg.webp");
   background-repeat: no-repeat;
   background-position: center right;
   background-size: cover;
@@ -1319,7 +1319,7 @@
     background-color: var(--saas-bg);
 
     /* Mobile background — no gradient overlay */
-    background-image: url("../assets/industries_saas_bg_phone.png");
+    background-image: url("../assets/industries_saas_bg_phone.webp");
     background-position: center top;
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -2460,7 +2460,7 @@
 
       rgba(250, 246, 239, 0.18) 80%),
 
-    url("../assets/Industries_insight.png");
+    url("../assets/Industries_insight.webp");
 
 
 
@@ -3376,7 +3376,7 @@
 
         rgba(250, 246, 239, 0.85)),
 
-      url("../assets/Industries_insight.png");
+      url("../assets/Industries_insight.webp");
 
   }
 
@@ -3526,7 +3526,7 @@
 
         rgba(250, 246, 239, 0.78) 100%),
 
-      url("../assets/Industries_insight_phone.png");
+      url("../assets/Industries_insight_phone.webp");
 
 
 

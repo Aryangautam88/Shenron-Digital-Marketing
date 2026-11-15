@@ -29,7 +29,9 @@
   .service-container, .kr-services__container, .sov-container, .sa-container,
   .industries-hero-inner, .industries-section, .saas-hero-container,
   .industry-stats-container, .industry-insights-container,
-  .about-container, .contact-container:not(.contact-next), .blog-shell, .footer-container) {
+  .about-container:not(.about-next-chapter > .about-container),
+  .contact-container:not(.contact-next):not(.contact-next-chapter > .contact-container),
+  .blog-shell, .footer-container) {
   box-sizing: border-box;
   padding-inline: 0;
 }

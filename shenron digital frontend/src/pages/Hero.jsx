@@ -2,15 +2,16 @@
 import React, { useState } from "react";
 import "./Hero.css";
 import { Link } from "react-router-dom";
-import leftImg from "../assets/leftimg.png";
-import kravsOffice from "../assets/kravs-office.png";
-import serviceTRight from "../assets/service T-right.png";
-import webDevelopment from "../assets/web_development.png";
+import leftImg from "../assets/leftimg.webp";
+import leftImgSmall from "../assets/leftimg-small.webp";
+import kravsOffice from "../assets/kravs-office.webp";
+import serviceTRight from "../assets/service T-right.webp";
+import webDevelopment from "../assets/web_development.webp";
 import paidAdvertising from "../assets/paid_advertising.png";
-import influencerMarketing from "../assets/influencer_marketing.png";
-import leadGeneration from "../assets/lead_generation.png";
-import uiuxBranding from "../assets/uiux_branding.png";
-import seoImage from "../assets/seo.png";
+import influencerMarketing from "../assets/influencer_marketing.webp";
+import leadGeneration from "../assets/lead_generation.webp";
+import uiuxBranding from "../assets/uiux_branding.webp";
+import seoImage from "../assets/seo.webp";
 
 import {
   Code2,
@@ -253,8 +254,11 @@ const Hero = () => {
           <div className="hero-visual">
             <div className="visual-glow"></div>
 
-            <img
+            <img width={1536} height={1024}
               src={leftImg}
+              srcSet={`${leftImgSmall} 640w, ${leftImg} 1536w`}
+              sizes="(max-width: 700px) 100vw, 50vw"
+              fetchPriority="high"
               alt="Digital innovation and creative technology"
               className="hero-main-image"
             />
@@ -312,7 +316,7 @@ const Hero = () => {
           {/* OFFICE IMAGE + FLOATING CARD */}
           <div className="ka-visual">
             <div className="ka-office-image">
-              <img src={kravsOffice} alt="Kravs Office" />
+              <img width={1535} height={1025} src={kravsOffice} alt="Kravs Office" loading="lazy" decoding="async" />
 
               <div className="ka-image-brand" aria-label="Kravs">
                 {/* kravs<span>.</span> */}
@@ -392,9 +396,11 @@ const Hero = () => {
             <div className="ks-orbit ks-orbit-two" />
 
             {/* Change only this image filename */}
-            <img
+            <img width={475} height={435}
               className="ks-hero-image"
               src={serviceTRight}
+              loading="lazy"
+              decoding="async"
               alt="Kravs digital solutions"
             />
 

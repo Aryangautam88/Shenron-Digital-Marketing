@@ -2,12 +2,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowDown, ArrowUpRight, Check, Compass, Layers, Target, ChartNoAxesCombined } from 'lucide-react';
 import { serviceCategories } from '../../serviceContent';
-import seoImage from '../../../assets/seo.png';
+import seoImage from '../../../assets/seo.webp';
 import paidImage from '../../../assets/paid_advertising.png';
-import designImage from '../../../assets/uiux_branding.png';
-import webImage from '../../../assets/web_development.png';
-import influencerImage from '../../../assets/influencer_marketing.png';
-import orbitalArt from '../../../assets/service T-right.png';
+import designImage from '../../../assets/uiux_branding.webp';
+import webImage from '../../../assets/web_development.webp';
+import influencerImage from '../../../assets/influencer_marketing.webp';
+import orbitalArt from '../../../assets/service T-right.webp';
 import '../../ServiceDetail.css';
 import './YouTubeAds.css';
 import ServiceHeroArt from '../../ServiceHeroArt';
@@ -73,7 +73,7 @@ export default function YouTubeAds() {
       </section>
       <section className="sd-scope sd-section" id="service-scope" aria-labelledby="sd-scope-title"><div className="sd-wrap">
         <div className="sd-heading sd-scope-heading" data-service-reveal><div><p className="sd-eyebrow public-eyebrow"><span />{item ? 'A CONSIDERED SCOPE' : 'FIND YOUR STARTING POINT'}</p><h2 id="sd-scope-title">The right pieces.<br /><em>Working together.</em></h2></div><p>{item ? `A ${name.toLowerCase()} engagement brings focused activities into a shared plan. Exact deliverables are agreed around your requirements.` : `Explore our ${group.name.toLowerCase()} services. Each area has its own approach, deliverables, and practical considerations.`}</p></div>
-        <img className="sd-scope-orb" src={orbitalArt} alt="" loading="lazy" aria-hidden="true" />
+        <img width={475} height={435} className="sd-scope-orb" src={orbitalArt} alt="" loading="lazy" aria-hidden="true" />
         <div className="sd-capabilities">{(item ? deliverables : group.items).map((entry, index) => {
           const Icon = icons[index % icons.length];
           return item ? <article id={`service-capability-${index+1}`} className="sd-capability" data-service-reveal key={entry}><div className="sd-card-top"><Icon size={24} strokeWidth={1.5} /><span>0{index + 1}</span></div><h3>{entry}</h3><p>{[`We assess your current setup and define the priorities for ${entry.toLowerCase()}, connecting the work to your audience and objectives.`, `We develop ${entry.toLowerCase()} around the agreed scope, with clear review points and practical recommendations your team can use.`, `We coordinate ${entry.toLowerCase()} with the wider project so the individual pieces support a consistent experience.`, `We document ${entry.toLowerCase()} and review the outcome against the agreed requirements, highlighting useful next steps.`][index]}</p></article> : <Link id={`service-capability-${index+1}`} className="sd-capability sd-capability-link" data-service-reveal key={entry[0]} to={`/services/${category}/${entry[0]}`}><div className="sd-card-top"><Icon size={24} strokeWidth={1.5} /><span>0{index + 1}</span></div><h3>{entry[1]}</h3><p>{entry[3]}</p><span className="sd-explore">Explore this service <ArrowUpRight size={18} /></span></Link>;

@@ -3,7 +3,6 @@ import { createElement, lazy, Suspense } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Preloader from "./components/Preloader";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import "./subpages/SubpageHero.css";
@@ -32,10 +31,9 @@ export default function App() {
     <>
       <ScrollToTop />
       {!isAdminRoute && <Navbar />}
-      {!isAdminRoute && <Preloader />}
 
       <Suspense
-        fallback={<main aria-busy="true" style={{ minHeight: "65vh" }} />}
+        fallback={<main aria-busy="true" className="route-loading"><p role="status">Loading page…</p></main>}
       >
         <Routes>
           <Route path="/" element={<Hero />} />

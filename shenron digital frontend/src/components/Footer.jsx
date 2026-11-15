@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import "./Footer.css";
-import shenronLogo from "../assets/kravsLogo.png";
+import shenronLogo from "../assets/kravsLogo.webp";
 
 function httpsUrl(value) {
   try { const url = new URL(value); return url.protocol === "https:" ? url.href : null; }
@@ -19,7 +19,7 @@ const contactEmail = import.meta.env.VITE_CONTACT_EMAIL?.trim() || "info@kravsin
 const socials = [
   ["LinkedIn", httpsUrl(import.meta.env.VITE_LINKEDIN_URL) || "https://www.linkedin.com/company/kravs-infotech/posts/?viewAsMember=true", FaLinkedinIn],
   ["Instagram", httpsUrl(import.meta.env.VITE_INSTAGRAM_URL) || "https://www.instagram.com/kravsinfotech/?hl=en", FaInstagram],
-  ["X", httpsUrl(import.meta.env.VITE_X_URL) || "https://x.com", FaXTwitter],
+  ["X", httpsUrl(import.meta.env.VITE_X_URL) || "https://x.com/kravsinfotech", FaXTwitter],
 ].filter(([, url]) => url);
 const legalLinks = [
   ["Privacy Policy", httpsUrl(import.meta.env.VITE_PRIVACY_POLICY_URL) || "/privacy-policy"],
@@ -59,7 +59,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <img
+              <img width={1920} height={630}
                 src={shenronLogo}
                 alt="KRAVS Infotech"
               />

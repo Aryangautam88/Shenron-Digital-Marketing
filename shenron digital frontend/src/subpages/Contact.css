@@ -1,5 +1,4 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 .contact-page {
   --contact-paper: #f7f3eb;
@@ -452,7 +451,7 @@
   background-color: var(--contact-paper);
   background-image:
     
-    url("../assets/contact-hero-messaging.png");
+    url("../assets/contact-hero-messaging.webp");
   background-repeat: no-repeat;
   background-position: center, center right;
   background-size: cover, cover;
@@ -772,7 +771,7 @@
   .contact-hero {
     background-image:
       
-      url("../assets/contact-hero-messaging.png");
+      url("../assets/contact-hero-messaging.webp");
     background-position: center, 78% center;
     background-size: cover, auto 100%;
   }
@@ -851,7 +850,7 @@
         rgba(247, 243, 235, 0.98) 9%,
         rgba(247, 243, 235, 0.82) 0%,
         rgba(247, 243, 235, 0.12) 10%),
-      url("../assets/contact-hero-messaging.png");
+      url("../assets/contact-hero-messaging.webp");
     background-position: center, 72% bottom;
     background-size: cover, auto 55%;
   }
@@ -1063,7 +1062,7 @@
   gap: 35px;
   padding: 45px 50px;
   border-radius: 24px;
-  background: linear-gradient(90deg, #f7f3ebf2, #f7f3ebaf 45%, #f7f3eb10), url('../assets/service-last.png') center/cover;
+  background: linear-gradient(90deg, #f7f3ebf2, #f7f3ebaf 45%, #f7f3eb10), url('../assets/service-last.webp') center/cover;
   box-shadow: 0 18px 40px #30203905;
 }
 
@@ -1093,7 +1092,7 @@
   right: 0;
   width: 33%;
   height: 260px;
-  background: url('../assets/service T-right.png') center/contain no-repeat;
+  background: url('../assets/service T-right.webp') center/contain no-repeat;
   pointer-events: none;
   animation: contact-orb-float 8s ease-in-out infinite;
 }

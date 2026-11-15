@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Clock3, Search } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import seoImage from "../assets/seo.png";
+import seoImage from "../assets/seo.webp";
 import { blogApi } from "../lib/blogApi";
 import "./Blog.css";
 import ArticleContent, { FeaturedVideo } from "../components/ArticleContent";

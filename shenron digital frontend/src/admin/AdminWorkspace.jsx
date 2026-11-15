@@ -7,7 +7,7 @@ import RichEditor from "./RichEditor";
 import { uploadAsset } from "../lib/uploadAsset";
 import ArticleContent, { FeaturedVideo } from "../components/ArticleContent";
 import { blogApi, jsonBody } from "../lib/blogApi";
-import logo from "../assets/kravsLogo.png";
+import logo from "../assets/kravsLogo.webp";
 
 const slugify = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
 export default function AdminWorkspace(props) {

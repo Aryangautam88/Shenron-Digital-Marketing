@@ -9,6 +9,15 @@
 
 html, body, #root { background-color: var(--page-background); }
 
+.route-loading {
+  min-height: 65vh;
+  display: grid;
+  place-items: center;
+  padding: 120px 24px 48px;
+  color: #625a70;
+  font: 500 15px/1.6 'Inter', sans-serif;
+}
+
 /* All public page canvases use the exact requested cream. Artwork stays intact. */
 #root :is(.service-page, .industries-page, .blog-page, .about-page, .contact-page,
   .sd-page, .legal-page, .client-information-page, .kravs-about, .kravs-services,
@@ -253,7 +262,12 @@ html, body, #root { background-color: var(--page-background); }
   line-height: var(--section-title-leading);
   letter-spacing: var(--section-title-tracking);
 }
-#root .ka-stat-number { font-size: clamp(24px, 2.7vw, 44px); overflow-wrap: anywhere; }
+#root .ka-stats .ka-stat-number {
+  font-size: clamp(22px, 2vw, 30px);
+  color: #14131b;
+  overflow-wrap: anywhere;
+}
+#root .ka-stats .ka-stat-number span { color: inherit; }
 #root .industry-stat-number { font-size: clamp(28px, 3vw, 48px); overflow-wrap: anywhere; white-space: normal; }
 #root .footer-email { overflow-wrap: anywhere; }
 
@@ -353,4 +367,35 @@ html, body, #root { background-color: var(--page-background); }
 #root .public-eyebrow.public-eyebrow.public-eyebrow > span:not(:empty) { font: inherit; color: inherit; letter-spacing: inherit; }
 #root :is(.sd-outcomes-band, .sd-orbital-approach, .service-last-card, .about-next-chapter, .contact-next-chapter, .blog-contact-card) .public-eyebrow.public-eyebrow.public-eyebrow {
   color: #d0c5df;
+}
+
+/* Closing invitation cards keep their own inset inside the page gutter. */
+#root .about-next-chapter > .about-container,
+#root .contact-next-chapter > .contact-container,
+#root .service-last-card,
+#root .kp-cta {
+  box-sizing: border-box;
+  padding: clamp(32px, 4vw, 60px) clamp(24px, 4.5vw, 68px);
+  gap: clamp(28px, 4vw, 56px);
+  border: 1px solid rgba(128, 69, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 20px 48px -16px rgba(58, 35, 88, 0.18),
+    0 4px 12px rgba(58, 35, 88, 0.04);
+}
+
+#root :is(.about-next-chapter, .contact-next-chapter, .service-last-card) .public-eyebrow.public-eyebrow.public-eyebrow {
+  color: #746184;
+}
+
+@media (max-width: 700px) {
+  #root .about-next-chapter > .about-container,
+  #root .contact-next-chapter > .contact-container,
+  #root .service-last-card,
+  #root .kp-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+    gap: 28px;
+    border-radius: 22px;
+  }
 }

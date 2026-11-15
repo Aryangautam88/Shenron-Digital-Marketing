@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Clock3 } from "lucide-react";
 import { Link } from "react-router-dom";
-import seoImage from "../assets/seo.png";
+import seoImage from "../assets/seo.webp";
 import { blogApi } from "../lib/blogApi";
 import "./Blog.css";
 import "./BlogSection.css";
