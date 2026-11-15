@@ -1,8 +1,12 @@
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
+  Search,
+  Compass,
+  Palette,
+  Code2,
   Cloud,
   Gamepad2,
   House,
@@ -13,12 +17,7 @@ import {
   UsersRound,
   Target,
   ChartNoAxesCombined,
-  Clock3,
-  TrendingUp,
-  Wallet,
-  Timer,
   Layers3,
-  Sparkles,
   Dices,
   BarChart3,
   Megaphone,
@@ -76,74 +75,16 @@ const industryDetails = {
 };
 
 /* =========================================
-   STATS DATA
+   OUR APPROACH
 ========================================= */
 
 const stats = [
-  {
-    id: 1,
-    value: 24,
-    label: "Hours Turnaround",
-    description:
-      "Launch projects in less than a day. Perfect for tight deadlines and urgent tasks.",
-    icon: Clock3,
-    color: "blue",
-    size: "small",
-  },
-  {
-    id: 2,
-    value: 50,
-    suffix: "%+",
-    label: "Output Growth",
-    description:
-      "Get ready for a major marketing scale-up. Outpace your average agency's output.",
-    icon: TrendingUp,
-    color: "purple",
-    size: "small",
-  },
-  {
-    id: 3,
-    value: 100,
-    prefix: "$",
-    suffix: "k",
-    label: "Saving",
-    description: "Average saving on annual agency fees.",
-    icon: Wallet,
-    color: "peach",
-    size: "wide",
-  },
-  {
-    id: 4,
-    value: 10,
-    label: "Extra Hours/Week",
-    description:
-      "Reclaim your schedule with simplified management. Take your time back to lead.",
-    icon: Timer,
-    color: "blue",
-    size: "wide",
-  },
-  {
-    id: 5,
-    value: 30,
-    suffix: "+",
-    label: "Services On Tap",
-    description:
-      "Every design and marketing service you can imagine. Available to you on-demand.",
-    icon: Layers3,
-    color: "purple",
-    size: "small",
-  },
-  {
-    id: 6,
-    value: 1,
-    suffix: "%",
-    label: "Top 1% Global Experts",
-    description:
-      "Build a ready-to-go vetted team. Watch your ROI shoot sky-high.",
-    icon: Sparkles,
-    color: "peach",
-    size: "small",
-  },
+  { id: 1, title: "Discovery", label: "Business understanding", description: "Review your audience, offer, existing channels, and priorities before choosing a direction.", icon: Search, color: "blue", size: "small" },
+  { id: 2, title: "Planning", label: "A focused scope", description: "Agree the services, deliverables, responsibilities, and review points for your project.", icon: Compass, color: "purple", size: "small" },
+  { id: 3, title: "Design", label: "Clear communication", description: "Connect your brand identity, content hierarchy, and user journeys across digital touchpoints.", icon: Palette, color: "peach", size: "wide" },
+  { id: 4, title: "Delivery", label: "Coordinated implementation", description: "Bring website development, content, and campaign setup together with practical quality checks.", icon: Code2, color: "blue", size: "wide" },
+  { id: 5, title: "Services", label: "Connected capabilities", description: "Combine web development, digital design, SEO, paid advertising, and influencer marketing as needed.", icon: Layers3, color: "purple", size: "small" },
+  { id: 6, title: "Review", label: "Informed improvements", description: "Review relevant performance signals and audience feedback to decide what to improve next.", icon: ChartNoAxesCombined, color: "peach", size: "small" }
 ];
 
 /* =========================================
@@ -182,7 +123,7 @@ const focusAreas = [
       "Choose the right channels and technology.",
   },
   {
-    icon: TrendingUp,
+    icon: Compass,
     title: "Growth Opportunities",
     description:
       "Identify practical ways to reach and convert customers.",
@@ -213,88 +154,9 @@ const insightFeatures = [
   },
 ];
 
-/* =========================================
-   ANIMATED COUNTER
-   Smooth 0-to-value animation
-========================================= */
-
-function AnimatedCounter({
-  value,
-  prefix = "",
-  suffix = "",
-  started,
-}) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!started) {
-      setCount(0);
-      return undefined;
-    }
-
-    const prefersReducedMotion =
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) {
-      setCount(value);
-      return undefined;
-    }
-
-    let frameId;
-    let startTime = null;
-    let cancelled = false;
-
-    const duration = 1800;
-
-    const animate = (timestamp) => {
-      if (cancelled) return;
-
-      if (startTime === null) {
-        startTime = timestamp;
-      }
-
-      const progress = Math.min(
-        (timestamp - startTime) / duration,
-        1
-      );
-
-      // Ease-out cubic for smooth deceleration.
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      setCount(Math.round(easedProgress * value));
-
-      if (progress < 1) {
-        frameId = requestAnimationFrame(animate);
-      } else {
-        setCount(value);
-      }
-    };
-
-    frameId = requestAnimationFrame(animate);
-
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(frameId);
-    };
-  }, [started, value]);
-
-  return (
-    <span className="industry-stat-number">
-      {prefix}
-      {count}
-      {suffix}
-    </span>
-  );
-}
-
-/* =========================================
-   MAIN INDUSTRIES PAGE
-========================================= */
+/* Informative process cards replace unverified performance statistics. */
 
 export default function Industries() {
-  const statsRef = useRef(null);
-  const [statsStarted, setStatsStarted] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo({
@@ -303,34 +165,6 @@ export default function Industries() {
       behavior: "auto",
     });
   }, []);
-
-  /* Start counters when stats section becomes visible. */
-  useEffect(() => {
-    const section = statsRef.current;
-
-    if (!section || statsStarted) return undefined;
-
-    if (!("IntersectionObserver" in window)) {
-      setStatsStarted(true);
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStatsStarted(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.12,
-      }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, [statsStarted]);
 
   /* Remove Forex and Crypto from the industry cards. */
   const visibleIndustries = industries.filter(
@@ -352,7 +186,7 @@ export default function Industries() {
       >
         <div className="industries-hero-inner">
           <div className="industries-content">
-            <div className="industries-eyebrow">
+            <div className="industries-eyebrow public-eyebrow">
               <span
                 className="industries-eyebrow-line"
                 aria-hidden="true"
@@ -376,7 +210,7 @@ export default function Industries() {
 
             <div className="industries-actions">
               <a
-                className="industries-button industries-button-primary"
+                className="industries-button industries-button-primary site-cta"
                 href="#industry-categories"
               >
                 <span>Explore Industries</span>
@@ -388,7 +222,7 @@ export default function Industries() {
               </a>
 
               <Link
-                className="industries-button industries-button-secondary"
+                className="industries-button industries-button-secondary site-cta"
                 to="/company/contact"
               >
                 <span>Let's Discuss</span>
@@ -416,7 +250,7 @@ export default function Industries() {
         >
           <div className="industries-section-heading">
             <div className="industries-section-copy">
-              <div className="industries-eyebrow industries-section-eyebrow">
+              <div className="industries-eyebrow industries-section-eyebrow public-eyebrow">
                 <span
                   className="industries-eyebrow-line"
                   aria-hidden="true"
@@ -441,7 +275,7 @@ export default function Industries() {
               </p>
 
               <a
-                className="industries-outline-link"
+                className="industries-outline-link site-cta"
                 href="#industry-cards"
               >
                 View All Industries
@@ -522,7 +356,7 @@ export default function Industries() {
       >
         <div className="saas-hero-container">
           <div className="saas-hero-content">
-            <div className="saas-hero-eyebrow">
+            <div className="saas-hero-eyebrow public-eyebrow">
               <span
                 className="saas-eyebrow-line"
                 aria-hidden="true"
@@ -576,7 +410,7 @@ export default function Industries() {
             <div className="saas-hero-actions">
               <Link
                 to="/company/contact"
-                className="saas-hero-cta"
+                className="saas-hero-cta site-cta"
               >
                 <span>Explore SaaS Solutions</span>
                 <ArrowUpRight
@@ -605,12 +439,11 @@ export default function Industries() {
 
       <section
         className="industry-stats-section"
-        ref={statsRef}
         aria-labelledby="industry-stats-heading"
       >
         <div className="industry-stats-container">
           <div className="industry-stats-header">
-            <div className="industry-stats-eyebrow">
+            <div className="industry-stats-eyebrow public-eyebrow">
               <span
                 className="industry-stats-eyebrow-line"
                 aria-hidden="true"
@@ -655,12 +488,7 @@ export default function Industries() {
                   </div>
 
                   <div className="industry-stat-main">
-                    <AnimatedCounter
-                      value={stat.value}
-                      prefix={stat.prefix || ""}
-                      suffix={stat.suffix || ""}
-                      started={statsStarted}
-                    />
+                    <span className="industry-stat-number">{stat.title}</span>
 
                     <h3>{stat.label}</h3>
                   </div>
@@ -703,7 +531,7 @@ export default function Industries() {
         <div className="industry-insights-container">
           {/* LEFT CONTENT */}
           <div className="industry-insights-content">
-            <div className="industry-insights-eyebrow">
+            <div className="industry-insights-eyebrow public-eyebrow">
               <span
                 className="industry-insights-eyebrow-line"
                 aria-hidden="true"

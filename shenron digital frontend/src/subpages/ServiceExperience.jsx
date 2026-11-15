@@ -17,7 +17,7 @@ export default function ServiceExperience({ category, name, deliverables, stages
   const focus = deliverables[active % deliverables.length];
   return (
     <section className={`sx-section sx-${category} sx-layout-${variant % 3} sd-section sd-wrap`} aria-labelledby="sx-title">
-      <div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow"><span />A CLOSER LOOK AT {name}</p><h2 id="sx-title">{direction.title}<br /><em>{direction.accent}</em></h2></div><p>{direction.summary}</p></div>
+      <div className="sd-heading" data-service-reveal><div><p className="sd-eyebrow public-eyebrow"><span />A CLOSER LOOK AT {name}</p><h2 id="sx-title">{direction.title}<br /><em>{direction.accent}</em></h2></div><p>{direction.summary}</p></div>
       <div className="sx-workspace" data-service-reveal>
         <div className="sx-selector" role="group" aria-label={`Explore the ${name} approach`}>
           {direction.lenses.map((label, index) => <button key={label} type="button" aria-pressed={active === index} aria-controls="sx-panel" onClick={() => setActive(index)}><span>0{index + 1}</span><strong>{label}</strong><ArrowUpRight size={18} /></button>)}

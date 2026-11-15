@@ -52,14 +52,14 @@ export default function BlogSection() {
       <div className="blog-shell">
         <div className="blog-insights-heading home-blog-heading">
           <div>
-            <div className="blog-section-label">
+            <div className="blog-section-label public-eyebrow">
               <span className="blog-eyebrow-line" aria-hidden="true" />
               <span>FROM THE KRAVS JOURNAL</span>
             </div>
             <h2 id="home-blog-title">Ideas worth <em>sharing.</em></h2>
             <p>Fresh perspectives on design, technology, and digital growth.</p>
           </div>
-          <Link className="home-blog-all-link" to="/blog">
+          <Link className="home-blog-all-link site-cta" to="/blog">
             View all insights <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
         </div>
@@ -97,7 +97,7 @@ export default function BlogSection() {
                   </div>
                   <h3><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h3>
                   <p>{blog.description}</p>
-                  <Link className="blog-card-read-link" to={`/blog/${blog.slug}`}>
+                  <Link className="blog-card-read-link site-cta" to={`/blog/${blog.slug}`}>
                     Read article <ArrowUpRight size={16} aria-hidden="true" />
                   </Link>
                 </div>

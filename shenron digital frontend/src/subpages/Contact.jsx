@@ -58,10 +58,10 @@ export default function Contact() {
       <section className="contact-hero" aria-labelledby="contact-hero-title">
         <div className="contact-container contact-hero-inner">
           <div className="contact-hero-copy">
-            <p className="contact-eyebrow"><span /> LET'S START A CONVERSATION</p>
+            <p className="contact-eyebrow public-eyebrow"><span /> LET'S START A CONVERSATION</p>
             <h1 id="contact-hero-title">Let's start with<br /><em>a conversation.</em></h1>
             <p className="contact-intro">Tell us what you're building, where you want to go, or what you'd like to solve. We'll help turn that starting point into a clear next step.</p>
-            <a href="#contact-form" className="contact-hero-button">Tell us about your project <span><ArrowUpRight size={18} /></span></a>
+            <a href="#contact-form" className="contact-hero-button site-cta">Tell us about your project <span><ArrowUpRight size={18} /></span></a>
             {/* <p className="contact-hero-reassurance"><Check size={15} aria-hidden="true" /> No finished brief needed to get started.</p> */}
           </div>
           <div className="contact-hero-note">
@@ -72,7 +72,7 @@ export default function Contact() {
       </section>
       <div className="contact-container contact-layout">
         <section className="contact-copy" aria-labelledby="contact-title">
-          <p className="contact-eyebrow"><span /> CONTACT US</p>
+          <p className="contact-eyebrow public-eyebrow"><span /> CONTACT US</p>
           <h2 id="contact-title">Your ambition.<br /><em>Our starting point.</em></h2>
           <p className="contact-intro">Have a project in mind? Tell us a little about your business and how we can help.</p>
           <div className="contact-note">
@@ -84,13 +84,13 @@ export default function Contact() {
             <li><Check size={17} /> A conversation shaped around your goals</li>
             <li><Check size={17} /> Clear thinking, without the jargon</li>
           </ul>
-          <Link className="contact-services-link" to="/services">Explore our services <ArrowUpRight size={18} aria-hidden="true" /></Link>
+          <Link className="contact-services-link site-cta" to="/services">Explore our services <ArrowUpRight size={18} aria-hidden="true" /></Link>
         </section>
         <form id="contact-form" className="contact-form" onSubmit={handleSubmit} aria-label="Project enquiry">
           <div className="contact-form-heading"><span>TELL US ABOUT YOUR PROJECT</span><ArrowUpRight size={20} aria-hidden="true" /></div>
           <div className="contact-fields">
-            <label>Your name <span>*</span><input name="name" autoComplete="name" placeholder="Alex Morgan" required maxLength={100} /></label>
-            <label>Email address <span>*</span><input type="email" name="email" autoComplete="email" placeholder="alex@company.com" required maxLength={254} /></label>
+            <label>Your name <span>*</span><input name="name" autoComplete="name" placeholder="Your full name" required maxLength={100} /></label>
+            <label>Email address <span>*</span><input type="email" name="email" autoComplete="email" placeholder="Your email address" required maxLength={254} /></label>
             <label>Company <small>(optional)</small><input name="company" autoComplete="organization" placeholder="Your brand or business" maxLength={150} /></label>
             <label>Phone number <small>(optional)</small><input type="tel" name="phone" autoComplete="tel" placeholder="Include your country code" maxLength={30} /></label>
           </div>
@@ -98,13 +98,13 @@ export default function Contact() {
           <label className="contact-message">Tell us about your project <span>*</span><textarea name="message" placeholder="What are you working on? What would you love to achieve?" rows={4} required minLength={10} maxLength={5000} /></label>
           <label className="contact-consent"><input type="checkbox" name="consent" value="yes" required /><span>I agree to be contacted about this enquiry using the details I’ve shared.</span></label>
           {!contactEndpoint && <p className="contact-availability">Online enquiries are opening soon. You can explore the form now; messages cannot be sent yet.</p>}
-          <div className="contact-submit-row"><p>* Required fields</p><button type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? "Sending…" : "Send enquiry"}<span><ArrowUpRight size={20} /></span></button></div>
+          <div className="contact-submit-row"><p>* Required fields</p><button className="site-cta" type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? "Sending…" : "Send enquiry"}<span><ArrowUpRight size={20} /></span></button></div>
           <p className={`contact-status contact-status-${status.type}`} role="status" aria-live="polite">{status.message}</p>
         </form>
       </div>
       <section className="contact-next contact-container" aria-labelledby="contact-next-title">
         <div className="contact-section-heading">
-          <div><p className="contact-eyebrow"><span /> FROM HELLO TO WHAT'S NEXT</p><h2 id="contact-next-title">A clear path.<br /><em>A shared beginning.</em></h2></div>
+          <div><p className="contact-eyebrow public-eyebrow"><span /> FROM HELLO TO WHAT'S NEXT</p><h2 id="contact-next-title">A clear path.<br /><em>A shared beginning.</em></h2></div>
           <p>No need to have all the answers. We'll work through the right questions together.</p>
         </div>
         <ol className="contact-steps">
@@ -116,14 +116,14 @@ export default function Contact() {
         </ol>
       </section>
       <section className="contact-faq contact-container" aria-labelledby="contact-faq-title">
-        <div><p className="contact-eyebrow"><span /> BEFORE YOU SAY HELLO</p><h2 id="contact-faq-title">A few things<br /><em>you might ask.</em></h2><p>A little clarity before we get started.</p></div>
+        <div><p className="contact-eyebrow public-eyebrow"><span /> BEFORE YOU SAY HELLO</p><h2 id="contact-faq-title">A few things<br /><em>you might ask.</em></h2><p>A little clarity before we get started.</p></div>
         <div className="contact-questions">
           <details><summary>Do I need a detailed brief?<span aria-hidden="true">+</span></summary><p>No. Share where your business is today, what you want to improve, and any ideas you have. We can shape the brief together.</p></details>
           <details><summary>Can we start with just one service?<span aria-hidden="true">+</span></summary><p>Absolutely. Whether you need a website, a campaign, or help with search visibility, we can start with a focused scope around your priorities.</p></details>
           <details><summary>What should I include in my message?<span aria-hidden="true">+</span></summary><p>Your goals, a link to your website if you have one, and any timeline or budget you have in mind are helpful. It's also fine if you're still figuring those out.</p></details>
         </div>
       </section>
-      <section className="contact-next-chapter"><div className="contact-container"><div><p className="contact-eyebrow"><span />EXPLORE WHAT'S POSSIBLE</p><h2>A little inspiration.<br /><em>A clearer next step.</em></h2><p>Explore the ways we can help bring your next idea to life.</p></div><Link className="contact-hero-button" to="/services">Explore our services <span><ArrowUpRight size={18} /></span></Link></div></section>
+      <section className="contact-next-chapter"><div className="contact-container"><div><p className="contact-eyebrow public-eyebrow"><span />EXPLORE WHAT'S POSSIBLE</p><h2>A little inspiration.<br /><em>A clearer next step.</em></h2><p>Explore the ways we can help bring your next idea to life.</p></div><Link className="contact-hero-button site-cta" to="/services">Explore our services <span><ArrowUpRight size={18} /></span></Link></div></section>
     </main>
   );
 }

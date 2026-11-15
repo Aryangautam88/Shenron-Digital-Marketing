@@ -20,7 +20,7 @@ const socials = [
   ["LinkedIn", httpsUrl(import.meta.env.VITE_LINKEDIN_URL) || "https://www.linkedin.com/company/kravs-infotech/posts/?viewAsMember=true", FaLinkedinIn],
   ["Instagram", httpsUrl(import.meta.env.VITE_INSTAGRAM_URL) || "https://www.instagram.com/kravsinfotech/?hl=en", FaInstagram],
   ["X", httpsUrl(import.meta.env.VITE_X_URL) || "https://x.com", FaXTwitter],
-];
+].filter(([, url]) => url);
 const legalLinks = [
   ["Privacy Policy", httpsUrl(import.meta.env.VITE_PRIVACY_POLICY_URL) || "/privacy-policy"],
   ["Terms of Service", httpsUrl(import.meta.env.VITE_TERMS_OF_SERVICE_URL) || "/terms-of-service"],
@@ -48,7 +48,7 @@ const Footer = () => {
             to execution, we're here to bring your vision to life.
           </p>
 
-          <Link to="/contact" className="footer-cta-button">
+          <Link to="/contact" className="footer-cta-button site-cta">
             Start a project
           </Link>
         </section>
@@ -59,10 +59,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              {/* Replace with your logo image */}
               <img
                 src={shenronLogo}
-                alt="Your company logo"
+                alt="KRAVS Infotech"
               />
             </Link>
 
@@ -103,7 +102,7 @@ const Footer = () => {
             <h3>Contact</h3>
 
             {contactEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail) ? (
-              <a href={`mailto:${contactEmail}`} className="footer-email"><FaEnvelope /><span>{contactEmail}</span></a>
+              <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contactEmail)}`} target="_blank" rel="noopener noreferrer" className="footer-email"><FaEnvelope /><span>{contactEmail}</span></a>
             ) : (
               <Link to="/contact" className="footer-email"><FaEnvelope /><span>Contact our team</span></Link>
             )}

@@ -1,6 +1,6 @@
 
 import { createElement, lazy, Suspense } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Preloader from "./components/Preloader";
@@ -11,6 +11,7 @@ import "./subpages/HeroTypography.css";
 import "./SectionTypography.css";
 import "./Layout.css";
 import "./MainPageHeroes.css";
+import "./PublicDesign.css";
 import { industryPageRoutes } from "./subpages/industries/industryPageRoutes";
 const Service = lazy(() => import("./pages/Service"));
 const Hero = lazy(() => import("./pages/Hero"));
@@ -47,7 +48,7 @@ export default function App() {
             element={<ServiceDetail />}
           />
 
-          {/* Testimonials remain available by direct URL. */}
+          {/* Keep the old URL useful without unverified reviews. */}
           <Route path="/testimonials" element={<Testimonials />} />
 
           {/* Industries and business types */}
@@ -82,7 +83,7 @@ export default function App() {
           {/* 404 fallback */}
           <Route path="/privacy-policy" element={<Legal type="privacy" />} />
           <Route path="/terms-of-service" element={<Legal type="terms" />} />
-          <Route path="*" element={<main />} />
+          <Route path="*" element={<main className="client-information-page"><section className="content-shell"><h1>Page not found</h1><p>Explore our available services or return to the homepage.</p><Link className="site-cta" to="/">Back to home</Link></section></main>} />
         </Routes>
       </Suspense>
 

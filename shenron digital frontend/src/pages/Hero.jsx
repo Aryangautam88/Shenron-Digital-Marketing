@@ -40,7 +40,7 @@ const faqData = [
     number: "01",
     question: "What services does Kravs Infotech offer?",
     answer:
-      "We offer website development, landing page design, website redesign, SaaS development, SEO, lead generation, and digital marketing solutions tailored to your business goals.",
+      "We offer website development, landing page design, website redesign, SaaS websites, SEO, lead generation, and digital marketing solutions tailored to your business goals.",
   },
   {
     number: "02",
@@ -166,10 +166,10 @@ const services = [
 ];
 
 const stats = [
-  { value: "50", suffix: "+", label: "Projects delivered" },
-  { value: "30", suffix: "+", label: "Happy clients" },
-  { value: "10", suffix: "+", label: "Industries served" },
-  { value: "01", suffix: "", label: "Shared mission" },
+  { value: "Strategy", suffix: "", label: "Audience research & planning" },
+  { value: "Design", suffix: "", label: "Brand identity & user experience" },
+  { value: "Build", suffix: "", label: "Responsive websites & integrations" },
+  { value: "Improve", suffix: "", label: "Performance review & optimisation" },
 ];
 const values = [
   {
@@ -213,7 +213,7 @@ const Hero = () => {
           {/* LEFT CONTENT */}
 
           <div className="hero-content">
-            <div className="hero-eyebrow">
+            <div className="hero-eyebrow public-eyebrow">
               <span className="eyebrow-line"></span>
               <span>IDEAS INTO DIGITAL IMPACT</span>
             </div>
@@ -285,7 +285,7 @@ const Hero = () => {
         {/* ABOUT HERO */}
         <section className="ka-hero">
           <div className="ka-hero-copy">
-            <div className="ka-eyebrow">
+            <div className="ka-eyebrow public-eyebrow">
               <span className="ka-eyebrow-line" />
               <span>ABOUT KRAVS</span>
             </div>
@@ -303,7 +303,7 @@ const Hero = () => {
               move forward.
             </p>
 
-            <Link to="/about" className="ka-primary-btn">
+            <Link to="/about" className="ka-primary-btn site-cta">
               <span>More about us</span>
               <ArrowUpRight size={19} strokeWidth={1.8} />
             </Link>
@@ -341,7 +341,7 @@ const Hero = () => {
         </section>
 
         {/* COMPANY STATISTICS */}
-        <section className="ka-stats" aria-label="Company statistics">
+        <section className="ka-stats" aria-label="Our areas of focus">
           {stats.map((stat) => (
             <div className="ka-stat" key={stat.label}>
               <div className="ka-stat-number">
@@ -366,7 +366,7 @@ const Hero = () => {
         {/* HERO */}
         <section className="ks-hero">
           <div className="ks-hero-copy">
-            <div className="ks-eyebrow">
+            <div className="ks-eyebrow public-eyebrow">
               <span className="ks-eyebrow-line" />
               <span>OUR SERVICES</span>
             </div>
@@ -502,7 +502,7 @@ const Hero = () => {
         <div className="kp-container">
           {/* Heading */}
           <header className="kp-header">
-            <div className="kp-eyebrow">
+            <div className="kp-eyebrow public-eyebrow">
               <span className="kp-eyebrow-line" />
               <span>OUR PROCESS</span>
             </div>
@@ -589,7 +589,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <Link to="/contact" className="kp-cta-button">
+            <Link to="/contact" className="kp-cta-button site-cta">
               <span>Start a Project</span>
               <span className="kp-cta-arrow">
                 <ArrowRight size={18} />
@@ -607,7 +607,7 @@ const Hero = () => {
           {/* Header */}
           <div className="kf-header">
             <div className="kf-heading-content">
-              <span className="kf-eyebrow">
+              <span className="kf-eyebrow public-eyebrow">
                 <span className="kf-eyebrow-line" />
                 FREQUENTLY ASKED QUESTIONS
               </span>
@@ -688,7 +688,7 @@ const Hero = () => {
               <h3>Let's talk about your next big idea.</h3>
             </div>
 
-            <Link to="/contact" className="kf-contact-btn">
+            <Link to="/contact" className="kf-contact-btn site-cta">
               Contact Our Team
               <ArrowUpRight size={18} />
             </Link>

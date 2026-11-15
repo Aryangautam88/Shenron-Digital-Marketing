@@ -574,13 +574,6 @@ body {
 }
 
 /* Phones */
-/* Hide stats only on mobile phones */
-@media screen and (max-width: 600px) {
-  .hero-stats {
-    display: none !important;
-  }
-}
-
 @media (max-width: 600px) {
   .hero {
     padding: 96px 20px 22px;
@@ -675,7 +668,7 @@ body {
   .hero-play-btn {
     gap: 9px;
     font-size: 11px;
-    display: none !important;
+    display: inline-flex;
   }
 
   .hero-visual {

@@ -466,10 +466,10 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <Link to="/contact" className="navbar-cta" onClick={closeMenus}>
+        <a href="https://wa.me/971565702852" className="navbar-cta site-cta" aria-label="Chat on WhatsApp at +971 56 570 2852" onClick={closeMenus} target="_blank" rel="noopener noreferrer">
           <span>Let's talk</span>
           <ArrowUpRight />
-        </Link>
+        </a>
 
         {/* Mobile hamburger */}
         <button
@@ -644,10 +644,10 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link to="/contact" className="mobile-cta" onClick={closeMenus}>
+          <a href="https://wa.me/971565702852" className="mobile-cta site-cta" aria-label="Chat on WhatsApp at +971 56 570 2852" onClick={closeMenus} target="_blank" rel="noopener noreferrer">
             Let's talk
             <ArrowUpRight />
-          </Link>
+          </a>
         </div>
       </div>
 

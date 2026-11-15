@@ -42,7 +42,7 @@ export default function Legal({ type }) {
   return <main className="legal-page">
     <div className="legal-container">
       <header className="legal-header">
-        <p className="legal-eyebrow">KRAVS INFOTECH · LEGAL</p>
+        <p className="legal-eyebrow public-eyebrow">KRAVS INFOTECH · LEGAL</p>
         <h1>{document.title}</h1>
         <p>{document.intro}</p>
         <p className="legal-updated">Last updated: <time dateTime="2026-11-13">13 November 2026</time></p>

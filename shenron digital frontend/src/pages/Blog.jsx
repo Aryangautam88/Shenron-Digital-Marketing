@@ -45,14 +45,14 @@ function BlogContactSection() {
     <section className="blog-contact-section" aria-labelledby="blog-contact-title">
       <div className="blog-contact-card">
         <div className="blog-contact-copy">
-          <div className="blog-section-label blog-section-label-light">
+          <div className="blog-section-label blog-section-label-light public-eyebrow">
             <span className="blog-eyebrow-line" aria-hidden="true" />
             <span>YOUR NEXT CHAPTER</span>
           </div>
           <h2 id="blog-contact-title">Have a good idea? Let&apos;s make it <em>real.</em></h2>
           <p>Tell us what you&apos;re working on and we&apos;ll help you find a clear way forward.</p>
         </div>
-        <Link className="blog-contact-button" to="/contact">
+        <Link className="blog-contact-button site-cta" to="/contact">
           Start a conversation
           <span aria-hidden="true"><ArrowUpRight size={18} /></span>
         </Link>
@@ -150,10 +150,10 @@ export default function Blog() {
       return (
         <main className="blog-page">
           <section className="blog-fetch-state blog-fetch-state-error">
-            <span className="blog-eyebrow">THE KRAVS JOURNAL</span>
+            <span className="blog-eyebrow public-eyebrow">THE KRAVS JOURNAL</span>
             <h1>{missingArticle ? "This article isn’t here." : "Insights are taking a moment."}</h1>
             <p>{missingArticle ? "The link may be out of date, or this article may no longer be published." : "We couldn’t load this article from the blog service."}</p>
-            {missingArticle ? <Link className="blog-hero-link" to="/blog">Back to all insights <ArrowRight size={17} /></Link> : <button className="blog-filter is-active" type="button" onClick={() => setRetry((value) => value + 1)}>Try again</button>}
+            {missingArticle ? <Link className="blog-hero-link site-cta" to="/blog">Back to all insights <ArrowRight size={17} /></Link> : <button className="blog-filter is-active" type="button" onClick={() => setRetry((value) => value + 1)}>Try again</button>}
           </section>
           <BlogContactSection />
         </main>
@@ -196,13 +196,13 @@ export default function Blog() {
     <main className="blog-page">
       <section className="blog-hero" aria-labelledby="blog-hero-title">
         <div className="blog-hero-content">
-          <div className="blog-eyebrow">
+          <div className="blog-eyebrow public-eyebrow">
             <span className="blog-eyebrow-line" aria-hidden="true" />
             <span>THE KRAVS JOURNAL</span>
           </div>
           <h1 id="blog-hero-title">Ideas that turn into <em>impact.</em></h1>
           <p className="blog-hero-copy">Clear thinking for better digital experiences. Explore practical perspectives on design, development, and growing your business.</p>
-          <a className="blog-hero-link" href="#blog-insights">
+          <a className="blog-hero-link site-cta" href="#blog-insights">
             Explore the latest insights
             <span className="blog-round-arrow" aria-hidden="true"><ArrowRight size={17} /></span>
           </a>
@@ -217,14 +217,14 @@ export default function Blog() {
         <BlogLoadingState />
       ) : state === "error" ? (
         <section className="blog-fetch-state blog-fetch-state-error" id="blog-insights" aria-labelledby="blog-error-title">
-          <span className="blog-eyebrow">THE KRAVS JOURNAL</span>
+          <span className="blog-eyebrow public-eyebrow">THE KRAVS JOURNAL</span>
           <h2 id="blog-error-title">Insights are taking a moment.</h2>
           <p>We couldn’t connect to the blog service. Please try again in a moment.</p>
           <button className="blog-filter is-active" type="button" onClick={() => setRetry((value) => value + 1)}>Try again</button>
         </section>
       ) : state === "empty" ? (
         <section className="blog-empty-journal" id="blog-insights">
-          <div className="blog-section-label"><span className="blog-eyebrow-line" /><span>A JOURNAL IN THE MAKING</span></div>
+          <div className="blog-section-label public-eyebrow"><span className="blog-eyebrow-line" /><span>A JOURNAL IN THE MAKING</span></div>
           <h2>Fresh ideas are <em>on the way.</em></h2>
           <p>Our team is preparing useful perspectives on design, development, and digital growth. Check back soon.</p>
         </section>
@@ -233,7 +233,7 @@ export default function Blog() {
           {featuredBlog && (
             <section className="blog-featured-section" aria-labelledby="featured-title">
               <div className="blog-shell">
-                <div className="blog-section-label"><span className="blog-eyebrow-line" aria-hidden="true" /><span>EDITOR&apos;S PICK</span></div>
+                <div className="blog-section-label public-eyebrow"><span className="blog-eyebrow-line" aria-hidden="true" /><span>EDITOR&apos;S PICK</span></div>
                 <article className="blog-featured-card">
                   <div className="blog-featured-copy">
                     <span className="blog-category">{featuredBlog.category}</span>
@@ -246,7 +246,7 @@ export default function Blog() {
                       <span className="blog-meta-divider" aria-hidden="true" />
                       <span className="blog-read-time"><Clock3 size={15} aria-hidden="true" /> {readTime(featuredBlog.readingTime)}</span>
                     </div>
-                    <Link className="blog-featured-link" to={`/blog/${featuredBlog.slug}`}>Read the story <ArrowUpRight size={17} /></Link>
+                    <Link className="blog-featured-link site-cta" to={`/blog/${featuredBlog.slug}`}>Read the story <ArrowUpRight size={17} /></Link>
                   </div>
                   <Link className="blog-featured-image-wrap" to={`/blog/${featuredBlog.slug}`} aria-label={`Read ${featuredBlog.title}`}>
                     <img src={featuredBlog.coverImage || seoImage} alt={featuredBlog.title} className="blog-featured-image" />
@@ -261,7 +261,7 @@ export default function Blog() {
             <div className="blog-shell">
               <div className="blog-insights-heading">
                 <div>
-                  <div className="blog-section-label"><span className="blog-eyebrow-line" aria-hidden="true" /><span>FRESH PERSPECTIVES</span></div>
+                  <div className="blog-section-label public-eyebrow"><span className="blog-eyebrow-line" aria-hidden="true" /><span>FRESH PERSPECTIVES</span></div>
                   <h2 id="insights-title">The latest <em>insights.</em></h2>
                   <p>Ideas, guides, and useful details for what you&apos;re building next.</p>
                 </div>
@@ -296,7 +296,7 @@ export default function Blog() {
                         </div>
                         <h3><Link to={`/blog/${blog.slug}`}>{blog.title}</Link></h3>
                         <p>{blog.description}</p>
-                        <Link className="blog-card-read-link" to={`/blog/${blog.slug}`}>Read article <ArrowUpRight size={16} aria-hidden="true" /></Link>
+                        <Link className="blog-card-read-link site-cta" to={`/blog/${blog.slug}`}>Read article <ArrowUpRight size={16} aria-hidden="true" /></Link>
                       </div>
                     </article>
                   ))}

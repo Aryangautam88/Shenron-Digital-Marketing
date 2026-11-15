@@ -253,9 +253,10 @@ function ServiceIcon({ type }) {
     return <svg {...common}>{paths[type]}</svg>;
 }
 
-function ServiceCard({ service }) {
+function ServiceCard({ service, number }) {
     return (
         <article className="sov-card">
+            <span className="sov-card-index" aria-hidden="true">{String(number).padStart(2, "0")}</span>
             <h3>{service.title}</h3>
 
             <p className="sov-card-description">
@@ -282,7 +283,7 @@ export default function Service() {
 
                         {/* LEFT CONTENT */}
                         <div className="service-content">
-                            <div className="service-eyebrow">
+                            <div className="service-eyebrow public-eyebrow">
                                 <span className="service-eyebrow-line" />
                                 <span>OUR SERVICES</span>
                             </div>
@@ -301,7 +302,7 @@ export default function Service() {
                             <div className="service-actions">
                                 <a
                                     href="#services"
-                                    className="service-btn service-btn-dark"
+                                    className="service-btn service-btn-dark site-cta"
                                 >
                                     <span>Explore Services</span>
                                     <span className="service-btn-arrow">↗</span>
@@ -309,7 +310,7 @@ export default function Service() {
 
                                 <Link
                                     to="/contact"
-                                    className="service-btn service-btn-light"
+                                    className="service-btn service-btn-light site-cta"
                                 >
                                     <span>Start a Project</span>
                                     <span className="service-btn-arrow">↗</span>
@@ -348,7 +349,7 @@ export default function Service() {
                 <div className="kr-services__container">
                     <header className="kr-services__header">
                         <div className="kr-services__intro">
-                            <div className="kr-services__eyebrow">
+                            <div className="kr-services__eyebrow public-eyebrow">
                                 <span />
                                 <p>WHAT WE OFFER</p>
                             </div>
@@ -419,52 +420,50 @@ export default function Service() {
 
             {/*-------------------------------------------- Third page----------------------------------- */}
 
-            <main className="sov-section" id="services-overview">
+            <section className="sov-section" id="services-overview" aria-labelledby="services-overview-heading">
                 <div className="sov-container">
                     <header className="sov-header">
-                        <span className="sov-eyebrow">
+                        <span className="sov-eyebrow public-eyebrow">
                             OUR SERVICES
                         </span>
 
-                        <h1>
-                            Full-service digital
-                            
-                            marketing solutions
-                        </h1>
+                        <h2 id="services-overview-heading">Connected thinking.<br /><em>Digital marketing solutions.</em></h2>
 
                         <p>
-                            Everything your brand needs, all in one place.
+                            Explore the strategy, content, design, and campaign activities that can support your digital presence. We agree the right mix around your audience and business priorities.
                         </p>
                     </header>
 
                     <div className="sov-grid">
                         <div className="sov-column">
-                            {leftServices.map((service) => (
+                            {leftServices.map((service, index) => (
                                 <ServiceCard
                                     key={service.title}
                                     service={service}
+                                    number={index * 2 + 1}
                                 />
                             ))}
                         </div>
 
                         <div className="sov-column">
-                            {rightServices.map((service) => (
+                            {rightServices.map((service, index) => (
                                 <ServiceCard
                                     key={service.title}
                                     service={service}
+                                    number={index * 2 + 2}
                                 />
                             ))}
                         </div>
                     </div>
 
                     <div className="sov-bottom-cta">
-                        <Link to="/contact" className="sov-cta-button">
+                        <Link to="/contact" className="sov-cta-button site-cta">
                             Book an Intro Call
                             <span aria-hidden="true">↗</span>
                         </Link>
                     </div>
                 </div>
-            </main>
+            </section>
 
             {/*--------------------------------------------- fourth Page---------------------------------- */}
 
@@ -473,7 +472,7 @@ export default function Service() {
 
                     {/* LEFT CONTENT */}
                     <div className="sa-content">
-                        <div className="sa-eyebrow">
+                        <div className="sa-eyebrow public-eyebrow">
                             <span className="sa-eyebrow-line" />
                             <span>OUR APPROACH</span>
                         </div>
@@ -490,7 +489,7 @@ export default function Service() {
                             business impact.
                         </p>
 
-                        <Link to="/about" className="sa-button">
+                        <Link to="/about" className="sa-button site-cta">
                             <span>Learn About</span>
                             <span className="sa-button-icon" aria-hidden="true">
                                 ↗
@@ -523,7 +522,7 @@ export default function Service() {
                 <div className="service-last-card">
 
                     <div className="service-last-content">
-                        <div className="service-last-eyebrow">
+                        <div className="service-last-eyebrow public-eyebrow">
                             <span className="service-last-line" />
                             <span>LET'S BUILD TOGETHER</span>
                         </div>
@@ -541,7 +540,7 @@ export default function Service() {
                         </p>
                     </div>
 
-                    <Link to="/contact" className="service-last-button">
+                    <Link to="/contact" className="service-last-button site-cta">
                         <span>Start a Project</span>
 
                         <span className="service-last-arrow">
