@@ -256,7 +256,17 @@
 .sd-hero-variant-4 .sd-capability { border-radius: 5px 28px 28px 28px; }
 .sd-hero-variant-7 .sd-process { grid-template-columns: 1fr 1fr; }
 .sd-cta > .sd-wrap { position: relative; padding: 55px; border-radius: 30px; border: 1px solid #d8c6e8; overflow: hidden; }
-.sd-cta > .sd-wrap::after { content: '↗'; position: absolute; top: 25px; right: 55px; font: 160px/1 Georgia,serif; color: #8045ff24; pointer-events: none; }
+.sd-cta > .sd-wrap::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  right: 55px;
+  font-size: 160px;
+  width: 1em;
+  height: 1em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238045ff' stroke-opacity='.14' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M7 7h10v10'/%3E%3C/svg%3E") center / contain no-repeat;
+  pointer-events: none;
+}
 .sd-cta h2,.sd-cta p,.sd-cta a { position: relative; z-index: 1; }
 /* A hands-on approach explorer, following the homepage's insight-panel language. */
 .sx-workspace { display: grid; grid-template-columns: .9fr 1.2fr; gap: 30px; align-items: stretch; }

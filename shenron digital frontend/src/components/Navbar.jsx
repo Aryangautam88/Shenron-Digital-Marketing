@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
@@ -22,7 +23,7 @@ const serviceGroups = [
   },
   {
     title: "Paid Advertising",
-    icon: "↗",
+    icon: <ArrowUpRight size={15} aria-hidden="true" />,
     color: "purple",
     items: [
       ["Google Ads", "/services/paid-advertising/google-ads"],
@@ -109,26 +110,6 @@ function Chevron({ open = false }) {
         d="m3.5 6 4.5 4 4.5-4"
         stroke="currentColor"
         strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowUpRight() {
-  return (
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M5 15 15 5M6 5h9v9"
-        stroke="currentColor"
-        strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -494,7 +475,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <a href="https://wa.me/971565702852" className="navbar-cta site-cta" aria-label="Chat on WhatsApp at +971 56 570 2852" onClick={closeMenus} target="_blank" rel="noopener noreferrer">
           <span>Let's talk</span>
-          <ArrowUpRight />
+          <ArrowUpRight size={15} aria-hidden="true" />
         </a>
 
         {/* Mobile hamburger */}
@@ -672,7 +653,7 @@ export default function Navbar() {
 
           <a href="https://wa.me/971565702852" className="mobile-cta site-cta" aria-label="Chat on WhatsApp at +971 56 570 2852" onClick={closeMenus} target="_blank" rel="noopener noreferrer">
             Let's talk
-            <ArrowUpRight />
+            <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         </div>
       </div>

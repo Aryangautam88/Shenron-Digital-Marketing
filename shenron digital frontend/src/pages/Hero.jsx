@@ -239,7 +239,7 @@ const Hero = () => {
               <Link to="/contact" className="hero-primary-btn">
                 <span>Start a Project</span>
 
-                <span className="btn-arrow">↗</span>
+                <span className="btn-arrow" aria-hidden="true"><ArrowUpRight size={18} /></span>
               </Link>
 
               <Link to="/services" className="hero-play-btn">

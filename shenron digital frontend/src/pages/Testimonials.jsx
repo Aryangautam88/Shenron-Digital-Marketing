@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Testimonials() {
   return (
@@ -12,7 +13,7 @@ export default function Testimonials() {
           <article><h2>Defined deliverables</h2><p>Design, development, content, and campaign responsibilities are outlined before work begins, with a shared review process.</p></article>
           <article><h2>Useful measurement</h2><p>Relevant enquiries, user journeys, and campaign signals help inform improvements. Outcomes depend on your offer, audience, and implementation.</p></article>
         </div>
-        <Link className="site-cta" to="/services">Explore our services <span aria-hidden="true">&#8599;</span></Link>
+        <Link className="site-cta" to="/services">Explore our services <ArrowUpRight size={18} aria-hidden="true" /></Link>
       </section>
     </main>
   );

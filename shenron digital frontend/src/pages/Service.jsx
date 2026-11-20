@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 import React from "react";
 import "./Service.css";
@@ -305,7 +306,7 @@ export default function Service() {
                                     className="service-btn service-btn-dark site-cta"
                                 >
                                     <span>Explore Services</span>
-                                    <span className="service-btn-arrow">↗</span>
+                                    <span className="service-btn-arrow" aria-hidden="true"><ArrowUpRight size={18} /></span>
                                 </a>
 
                                 <Link
@@ -313,7 +314,7 @@ export default function Service() {
                                     className="service-btn service-btn-light site-cta"
                                 >
                                     <span>Start a Project</span>
-                                    <span className="service-btn-arrow">↗</span>
+                                    <span className="service-btn-arrow" aria-hidden="true"><ArrowUpRight size={18} /></span>
                                 </Link>
                             </div>
                         </div>
@@ -459,7 +460,7 @@ export default function Service() {
                     <div className="sov-bottom-cta">
                         <Link to="/contact" className="sov-cta-button site-cta">
                             Book an Intro Call
-                            <span aria-hidden="true">↗</span>
+                            <span aria-hidden="true"><ArrowUpRight size={18} /></span>
                         </Link>
                     </div>
                 </div>
@@ -492,7 +493,7 @@ export default function Service() {
                         <Link to="/about" className="sa-button site-cta">
                             <span>Learn About</span>
                             <span className="sa-button-icon" aria-hidden="true">
-                                ↗
+                                <ArrowUpRight size={18} />
                             </span>
                         </Link>
                     </div>
