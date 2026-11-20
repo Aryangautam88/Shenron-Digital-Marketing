@@ -630,18 +630,7 @@
   }
 
   .about-hero-artwork {
-    top: 220px;
-    height: 470px;
-    object-position: 82% bottom;
-  }
-
-  .about-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    /* background: linear-gradient(180deg, #f7f3eb 0%, #f7f3eb 49%, #f7f3eb00 75%); */
+    object-position: right bottom;
   }
 
   .about-hero-inner {

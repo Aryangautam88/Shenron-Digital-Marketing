@@ -3,6 +3,7 @@ import { createElement, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import officeImage from "../assets/kravs-office.webp";
 import creativeMindsHero from "../assets/companyImg.webp";
+import creativeMindsMobile from "../assets/about-hero-mobile.jpg";
 import "./About.css";
 
 const principles = [
@@ -84,7 +85,10 @@ export default function About() {
   return (
     <main className="about-page" ref={pageRef}>
       <section className="about-hero" aria-labelledby="about-title">
-        <img width={1672} height={941} className="about-hero-artwork" src={creativeMindsHero} alt="" aria-hidden="true" fetchPriority="high" />
+        <picture>
+          <source media="(max-width: 600px)" srcSet={creativeMindsMobile} width={750} height={1334} />
+          <img width={1672} height={941} className="about-hero-artwork" src={creativeMindsHero} alt="" aria-hidden="true" fetchPriority="high" />
+        </picture>
         <div className="about-container about-hero-inner">
           <div className="about-hero-copy">
             <p className="about-eyebrow public-eyebrow"><span /> WHO WE ARE</p>

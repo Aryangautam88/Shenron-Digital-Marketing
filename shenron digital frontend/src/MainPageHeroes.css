@@ -211,13 +211,6 @@
     font-size: 10px;
   }
 
-  #root .about-hero-artwork {
-    inset: 220px 0 auto;
-    width: 100%;
-    height: max(470px, calc(100% - 220px));
-    object-position: 70% bottom;
-  }
-
   #root .about-page .about-hero > .about-container.about-hero-inner,
   #root .contact-page .contact-hero > .contact-container.contact-hero-inner {
     padding-top: 125px;
@@ -288,8 +281,4 @@
     margin-top: 28px;
   }
 
-  #root .contact-hero {
-    background-size: cover, auto 55%;
-    background-position: center, 72% bottom;
-  }
 }
